@@ -1,0 +1,13 @@
+avatar:
+  file: ../../images/michael-uloth.jpg
+  objPos: 100% 0%
+
+socialLinks:
+  - platform: LinkedIn
+    href: https://www.linkedin.com/in/michael-uloth-848a1b98/
+  
+  - platform: Twitter
+    href: https://twitter.com/ooloth
+  
+  - platform: GitHub
+    href: https://github.com/ooloth

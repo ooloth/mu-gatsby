@@ -1,0 +1,90 @@
+/*
+ *
+ * React Modal
+ *
+ */
+
+/* 
+
+See: https://github.com/reactjs/react-modal/issues/125#issuecomment-187084415
+
+NOTEs: 
+
+1. Set closeTimeoutMS prop to the total MS needed to complete exit animations 
+2. Scope classes below (by adding a label class to the className and overlayClassName props) to avoid clashing with other libraries that use react-modal (like react-image-lightbox)
+
+TODO: Make sure to scope all style to avoid conflicting with react-image-lightbox (which uses react-modal).
+
+*/
+
+/* 
+ * Overlay: in/out transitions 
+ */
+
+/*
+.ReactModal__Overlay { @apply .z-max .bg-transparent !important }
+
+.ReactModal__Overlay--after-open {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+  transition: background-color 0.8s ease-in-out 0.4s;
+}
+
+.ReactModal__Overlay--before-close {
+  @apply .bg-transparent !important;
+  transition: background-color 0.3s ease-in-out 0.4s;
+}
+*/
+
+/* 
+ * Content: in/out transitions 
+ */
+
+/*
+.ReactModal__Content {
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease-in-out 0.1s;
+}
+
+.ReactModal__Content--after-open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ReactModal__Content--before-close {
+  opacity: 0;
+  transform: scale(0);
+}
+*/
+
+/* 
+ * Menu Modal (for BurgerAndOverlay)
+ */
+
+.menu-modal-overlay.ReactModal__Overlay { z-index: 10000 !important }
+
+.menu-modal-content.ReactModal__Content {
+  transform: translateX(100%);
+  /* See: http://easings.net/*/
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.menu-modal-content.ReactModal__Content--after-open {
+  transform: translateX(0%);
+}
+
+.menu-modal-content.ReactModal__Content--before-close {
+  transform: translateX(100%);
+}
+
+/* If sliding the whole body when modal opens, use this instead */
+/* 
+.menu-modal-overlay.ReactModal__Overlay { z-index: 10000 !important }
+.menu-modal-content.ReactModal__Content { transform: translateX(100%) }
+
+body {
+  @apply .bg-near-white;
+  transform: none; /* NOTE: do NOT set this to translateX(0) if using RIL */ /*
+  transition: transform 0.5s var(--easeInOutCubic);
+}
+*/

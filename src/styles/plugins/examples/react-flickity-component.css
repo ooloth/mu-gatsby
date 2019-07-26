@@ -1,0 +1,7 @@
+/*
+ * 
+ * Equal height cells hack: https://codepen.io/desandro/pen/ZXEGVq 
+ *
+ */
+
+.flickity-resize .carousel-cell { min-height: 100% }
