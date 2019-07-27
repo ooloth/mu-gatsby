@@ -92,8 +92,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-yaml`,
-    `gatsby-plugin-svgr`
-    // `gatsby-plugin-webpack-bundle-analyzer`
+    `gatsby-plugin-svgr`,
     // `gatsby-plugin-sitemap`,
     // {
     //   resolve: `gatsby-plugin-robots-txt`,
@@ -117,23 +116,23 @@ module.exports = {
     //     }
     //   }
     // },
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `J. Patrick Raftery`,
-    //     short_name: `JP Raftery`,
-    //     start_url: `/`,
-    //     // For splash screen when app launches:
-    //     background_color: `#3047ff`,
-    //     // For tool bar and task switcher:
-    //     theme_color: `#3047ff`,
-    //     display: `minimal-ui`,
-    //     // Multiple icons will be generated for various devices.
-    //     // Multiple favicons will be generated and added to each HTML page.
-    //     // This path is relative to the root of the site.
-    //     icon: `src/images/favicon.png`
-    //   }
-    // },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Michael Uloth`,
+        short_name: `M. Uloth`,
+        start_url: `/`,
+        // For splash screen when app launches:
+        background_color: `#a463f2`,
+        // For tool bar and task switcher:
+        theme_color: `#a463f2`,
+        display: `minimal-ui`,
+        // Multiple icons will be generated for various devices.
+        // Multiple favicons will be generated and added to each HTML page.
+        // This path is relative to the root of the site.
+        icon: `src/images/michael-uloth-square.jpg`
+      }
+    }
     // `gatsby-plugin-offline`,
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
