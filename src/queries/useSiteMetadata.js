@@ -27,7 +27,17 @@ function useSiteMetadata() {
             twitterCreator
             facebookAppId
             googleSiteVerification
-            secondPage {
+            blogPage {
+              title
+              description
+              url
+            }
+            operaPage {
+              title
+              description
+              url
+            }
+            websitesPage {
               title
               description
               url
