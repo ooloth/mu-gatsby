@@ -17,12 +17,12 @@ function IndexPage() {
           </Bio>
 
           <Nav>
-            <NavLink href="/">Blog</NavLink>
-            <NavLink href="https://www.upandrunningtutorials.com/">
-              Tutorials
+            <NavLink href="/blog/">Blog</NavLink>
+            <NavLink href="https://www.youtube.com/user/michaeluloth">
+              Videos
             </NavLink>
-            <NavLink href="/">Websites</NavLink>
-            <NavLink href="/">Operas</NavLink>
+            <NavLink href="/websites/">Websites</NavLink>
+            <NavLink href="/opera/">Opera</NavLink>
           </Nav>
         </div>
       </Main>
@@ -65,7 +65,7 @@ const Name = styled.h1`
   }
 
   ${media.sm`
-    font-size: 4rem;
+    font-size: 4.1rem;
   `}
 `
 

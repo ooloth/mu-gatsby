@@ -39,10 +39,20 @@ module.exports = {
     twitterCreator: `@ooloth`,
     facebookAppId: ``,
     googleSiteVerification: ``, // for Google Search Console
-    secondPage: {
+    blogPage: {
       title: `Add Second Page Title`,
       description: `Add second page description (50-300 characters)`,
-      url: `https://www.site.com/second`
+      url: `https://www.michaeluloth.com/blog`
+    },
+    websitesPage: {
+      title: `Add Second Page Title`,
+      description: `Add second page description (50-300 characters)`,
+      url: `https://www.michaeluloth.com/websites`
+    },
+    operaPage: {
+      title: `Add Second Page Title`,
+      description: `Add second page description (50-300 characters)`,
+      url: `https://www.michaeluloth.com/opera`
     }
   },
   plugins: [
