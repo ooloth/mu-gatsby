@@ -4,15 +4,12 @@ function WebsitesPage() {
   return (
     <Base>
       <Metadata page={websitesPage} />
-      <main id="main-content" tabIndex="-1">
-        <h1
-          css={`
-            padding: var(--s8) var(--s4);
-          `}
-        >
-          Websites
-        </h1>
-      </main>
+
+      <header css="margin-top: 3rem">
+        <h1>Websites</h1>
+      </header>
+
+      <main id="main-content" tabIndex="-1" />
     </Base>
   )
 }

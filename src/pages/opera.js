@@ -4,15 +4,12 @@ function OperaPage() {
   return (
     <Base>
       <Metadata page={operaPage} />
-      <main id="main-content" tabIndex="-1">
-        <h1
-          css={`
-            padding: var(--s8) var(--s4);
-          `}
-        >
-          Opera
-        </h1>
-      </main>
+
+      <header css="margin-top: 3rem">
+        <h1>Opera</h1>
+      </header>
+
+      <main id="main-content" tabIndex="-1" />
     </Base>
   )
 }
