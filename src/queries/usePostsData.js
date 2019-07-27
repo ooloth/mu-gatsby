@@ -9,6 +9,7 @@ function usePostsData() {
           edges {
             node {
               id
+              timeToRead
               fields {
                 title
                 date(formatString: "MMMM DD, YYYY")

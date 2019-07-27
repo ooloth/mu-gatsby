@@ -40,40 +40,15 @@ const Main = styled.main`
 `
 
 const Greeting = styled.p`
-  margin-top: var(--s8);
-  line-height: var(--lh1);
-  font-size: 5rem;
-  font-weight: 900;
-
-  @media screen and (min-width: 375px) {
-    font-size: 5.4rem;
-  }
-
-  ${media.sm`
-    padding-top: var(--s1);
-    font-size: 6rem;
-  `}
+  ${pageHeadline}
 `
 
 const Name = styled.h1`
-  line-height: var(--lh1);
-  font-size: var(--f9);
-  font-weight: 900;
-
-  @media screen and (min-width: 375px) {
-    font-size: 3.6rem;
-  }
-
-  ${media.sm`
-    font-size: 4.1rem;
-  `}
+  ${pageSubheadline}
 `
 
 const Bio = styled.p`
-  margin-top: var(--s5);
-  max-width: 28ch;
-  line-height: 1.4;
-  font-size: var(--f6);
+  ${pageSummary}
 `
 
 const JobLink = styled(Link)`
@@ -81,37 +56,39 @@ const JobLink = styled(Link)`
 `
 
 const Nav = styled.nav`
-  margin-top: 3rem;
+  margin-top: var(--s7);
 `
 
 const NavLink = styled(Link)`
-  display: flex;
-  width: max-content;
+  ${purpleUnderline}
+  display: block;
   margin-top: var(--s3);
-  border-top: 0.25em solid transparent;
-  border-bottom: 0.25em solid var(--light-purple);
-  vertical-align: middle;
-  line-height: 1;
-  font-size: 2rem;
+  width: max-content;
+  line-height: var(--lh1);
+  font-size: 1.75rem;
   font-weight: 900;
   text-transform: uppercase;
-  text-decoration: none;
-  transition: all 0.05s;
 
-  &:hover {
-    border-top-color: var(--light-purple);
-    background-color: var(--light-purple);
-    color: white;
-  }
+  ${media.lg`
+    font-size: 1.85rem;
+  `}
 `
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import Base from '../ui/Base'
 import { Emoji, Link, SrText } from '../ui/elements'
-import { container, inlineLink, media } from '../styles'
+import {
+  container,
+  inlineLink,
+  media,
+  pageHeadline,
+  pageSubheadline,
+  pageSummary,
+  purpleUnderline
+} from '../styles'
 
 export default IndexPage

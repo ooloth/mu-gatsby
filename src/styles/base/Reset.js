@@ -56,10 +56,8 @@ const Reset = createGlobalStyle`
     -webkit-text-size-adjust: 100%; /* 5 */
     word-break: break-word; /* 6 */
 
-    font-size: 100%;
-    ${media.sm` font-size: calc(100% * 16.5/16) `}
-    ${media.md` font-size: calc(100% * 17/16) `}
-    ${media.lg` font-size: calc(100% * 17.5/16) `} /* 7 */
+    /* A11Y: set a more readable base size for this font */
+    font-size: 19px;
   }
 
   /* Sections
