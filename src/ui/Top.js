@@ -16,13 +16,13 @@ function Top() {
           </Link>
         </h1>
 
-        <List>
+        {/* <List>
           {socialLinks.map(link => (
             <Item key={link.href}>
               <SocialLink link={link} />
             </Item>
           ))}
-        </List>
+        </List> */}
       </Nav>
     </>
   )
