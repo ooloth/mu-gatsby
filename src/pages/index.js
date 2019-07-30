@@ -52,7 +52,7 @@ const Bio = styled.p`
 `
 
 const JobLink = styled(Link)`
-  ${inlineLink}
+  ${linkInline}
 `
 
 const Nav = styled.nav`
@@ -83,7 +83,7 @@ import Base from '../ui/Base'
 import { Emoji, Link, SrText } from '../ui/elements'
 import {
   container,
-  inlineLink,
+  linkInline,
   media,
   pageHeadline,
   pageSubheadline,

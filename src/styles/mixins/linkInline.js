@@ -1,4 +1,4 @@
-export const inlineLink = css`
+export const linkInline = css`
   display: inline-flex;
   border-top: 0.12em solid transparent;
   border-bottom: 0.12em solid black;

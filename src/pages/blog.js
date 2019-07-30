@@ -14,8 +14,8 @@ function BlogPage() {
           </Heading>
 
           <Summary>
-            Coding tips and walkthroughs that will probably get future me out of a
-            jam.
+            Coding tips and walk-throughs to help future me remember how this all
+            works.
           </Summary>
         </div>
       </Header>
@@ -42,12 +42,12 @@ function BlogPage() {
             >
               <PostLink href={post.fields.slug}>{post.fields.title}</PostLink>
 
-              <div
+              {/* <div
                 css={`
                   display: flex;
                   flex-wrap: wrap;
                   align-items: center;
-                  margin-top: var(--s2);
+                  margin-top: var(--s1);
                   font-size: var(--f2);
                 `}
               >
@@ -67,7 +67,6 @@ function BlogPage() {
                   />
                   {post.fields.date}
                 </p>
-                {/* <span>∙</span> */}
                 <span
                   css={`
                     margin-top: var(--s2);
@@ -91,18 +90,78 @@ function BlogPage() {
                   />
                   {post.timeToRead} min read
                 </p>
-              </div>
+              </div> */}
 
               <p
                 css={`
                   ${copy}
                   margin-top: var(--s2);
-                  max-width: 52ch;
+                  max-width: 50ch;
                   // font-size: 1.1rem;
                 `}
               >
                 {post.fields.description}
               </p>
+
+              <div
+                css={`
+                  // margin-top: var(--s2);
+                  display: flex;
+                  flex-wrap: wrap;
+                  align-items: center;
+                  font-size: var(--f1);
+                `}
+              >
+                <p
+                  css={`
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: end;
+                  `}
+                >
+                  {/* <ToolsSVG
+                      css={`
+                        ${icon};
+                        margin-right: var(--s2);
+                        color: var(--light-purple);
+                      `}
+                    /> */}
+                  <ul
+                    css={`
+                      margin-top: var(--s1);
+                      display: flex;
+                      flex-wrap: wrap;
+                      align-items: end;
+                    `}
+                  >
+                    {/* TODO: turn these into links (calculate what the links should
+                      be here in this component so I don't have to add them in the
+                      YAML) */}
+                    {topics.map(topic => (
+                      <li
+                        css={`
+                          opacity: 0.95;
+                          margin-top: var(--s1);
+                          margin-right: var(--s1);
+                          border-radius: var(--r2);
+                          background-color: var(--light-purple);
+                          // background-color: black;
+                          padding: 0.2rem var(--s2);
+                          color: white;
+                          transition: background-color 0.05s ease-in-out;
+
+                          &:hover {
+                            background-color: black;
+                          }
+                        `}
+                      >
+                        <span>{topic.toLowerCase().replace(' ', '-')}</span>
+                        {/* <span>・</span> */}
+                      </li>
+                    ))}
+                  </ul>
+                </p>
+              </div>
             </li>
           ))}
         </ul>
@@ -110,6 +169,8 @@ function BlogPage() {
     </Base>
   )
 }
+
+const topics = [`react`, `gatsby`, `graphql`, `styled-components`]
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -160,7 +221,7 @@ import {
   container,
   copy,
   icon,
-  inlineLink,
+  linkInline,
   media,
   pageHeadline,
   pageSubheadline,
