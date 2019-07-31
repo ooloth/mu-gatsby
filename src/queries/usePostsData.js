@@ -4,7 +4,7 @@ function usePostsData() {
       query {
         allMdx(
           filter: { frontmatter: { published: { ne: false } } }
-          sort: { order: DESC, fields: [frontmatter___date] }
+          sort: { order: DESC, fields: [frontmatter___datePublished] }
         ) {
           edges {
             node {
@@ -12,20 +12,14 @@ function usePostsData() {
               timeToRead
               fields {
                 title
-                date(formatString: "MMMM DD, YYYY")
-                description
                 slug
+                description
+                # featuredImg
+                topics
+                commentLink
+                datePublished(formatString: "MMMM DD, YYYY")
+                dateUpdated(formatString: "MMMM DD, YYYY")
               }
-              # frontmatter {
-              # banner {
-              #   childImageSharp {
-              #     sizes(maxWidth: 720) {
-              #       ...GatsbyImageSharpSizes
-              #     }
-              #   }
-              # }
-              # keywords
-              # }
             }
           }
         }

@@ -1,8 +1,8 @@
-function useNavbarData() {
-  const { navbarYaml } = useStaticQuery(
+function useSharedData() {
+  const { sharedYaml } = useStaticQuery(
     graphql`
       query {
-        navbarYaml {
+        sharedYaml {
           avatar {
             file {
               childImageSharp {
@@ -23,11 +23,11 @@ function useNavbarData() {
     `
   )
 
-  return navbarYaml
+  return sharedYaml
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 import { useStaticQuery, graphql } from 'gatsby'
 
-export default useNavbarData
+export default useSharedData

@@ -22,13 +22,7 @@ exports.onCreateNode = ({ node, actions }) => {
     createNodeField({
       name: 'slug',
       node,
-      value: `/${node.frontmatter.slug}`
-    })
-
-    createNodeField({
-      name: 'date',
-      node,
-      value: node.frontmatter.date ? node.frontmatter.date.split(' ')[0] : ''
+      value: node.frontmatter.slug
     })
 
     createNodeField({
@@ -38,28 +32,40 @@ exports.onCreateNode = ({ node, actions }) => {
     })
 
     createNodeField({
+      name: 'featuredImg',
+      node,
+      value: node.frontmatter.featuredImg
+    })
+
+    createNodeField({
+      name: 'topics',
+      node,
+      value: node.frontmatter.topics || []
+    })
+
+    createNodeField({
+      name: 'commentLink',
+      node,
+      value: node.frontmatter.commentLink
+    })
+
+    createNodeField({
       name: 'published',
       node,
       value: node.frontmatter.published
     })
 
-    // createNodeField({
-    //   name: 'banner',
-    //   node,
-    //   value: node.frontmatter.banner,
-    // })
+    createNodeField({
+      name: 'datePublished',
+      node,
+      value: node.frontmatter.datePublished
+    })
 
-    // createNodeField({
-    //   name: 'categories',
-    //   node,
-    //   value: node.frontmatter.categories || [],
-    // })
-
-    // createNodeField({
-    //   name: 'keywords',
-    //   node,
-    //   value: node.frontmatter.keywords || [],
-    // })
+    createNodeField({
+      name: 'dateUpdated',
+      node,
+      value: node.frontmatter.dateUpdated
+    })
 
     // createNodeField({
     //   name: 'redirects',
@@ -79,18 +85,28 @@ exports.onCreateNode = ({ node, actions }) => {
 
 exports.createPages = async function({ actions, graphql }) {
   await graphql(`
-    {
-      allMdx(
-        filter: { frontmatter: { published: { ne: false } } }
-        sort: { order: DESC, fields: [frontmatter___date] }
-      ) {
+    query {
+      allMdx(filter: { frontmatter: { published: { ne: false } } }) {
         edges {
           node {
             id
+            timeToRead
+            body
             fields {
               title
               slug
-              date
+              description
+              # featuredImg {
+              #   childImageSharp {
+              #     fluid(maxWidth: 1200) {
+              #       src
+              #     }
+              #   }
+              # }
+              topics
+              commentLink
+              datePublished(formatString: "MMMM DD, YYYY")
+              dateUpdated(formatString: "MMMM DD, YYYY")
             }
           }
         }

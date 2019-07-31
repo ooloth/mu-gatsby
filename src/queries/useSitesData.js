@@ -1,8 +1,8 @@
-function useWebsitesData() {
-  const { allWebsitesYaml } = useStaticQuery(
+function useSitesData() {
+  const { allSitesYaml } = useStaticQuery(
     graphql`
       query {
-        allWebsitesYaml {
+        allSitesYaml {
           nodes {
             id
             title
@@ -16,11 +16,11 @@ function useWebsitesData() {
     `
   )
 
-  return allWebsitesYaml.nodes
+  return allSitesYaml.nodes
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 import { useStaticQuery, graphql } from 'gatsby'
 
-export default useWebsitesData
+export default useSitesData

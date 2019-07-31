@@ -5,15 +5,15 @@
 
 function Post({ data: { mdx } }) {
   const { title, siteUrl } = useSiteMetadata()
+  console.log(`title`, mdx.fields.title)
 
-  // TODO: use "field" versions built in gatsby-node, or these? what's simpler?
   const metadata = {
     type: `article`,
-    title: mdx.frontmatter.title,
-    description: mdx.frontmatter.description,
-    url: `${siteUrl}/${mdx.frontmatter.slug}`, // no trailing slash
+    title: mdx.fields.title,
+    description: mdx.fields.description,
+    url: `${siteUrl}/${mdx.fields.slug}`, // no trailing slash
     author: title,
-    image: mdx.frontmatter.featuredImg
+    image: mdx.fields.featuredImg
   }
 
   // TODO: need a main element somewhere?
@@ -23,7 +23,7 @@ function Post({ data: { mdx } }) {
 
       <article>
         <header>
-          <h1>{mdx.frontmatter.title}</h1>
+          <h1>{mdx.fields.title}</h1>
         </header>
 
         <section>
@@ -33,13 +33,7 @@ function Post({ data: { mdx } }) {
 
       <footer>
         <p>
-          <Link
-            href={`https://twitter.com/search?q=${
-              mdx.frontmatter.linkSharedOnTwitter
-            }`}
-          >
-            Discuss on Twitter
-          </Link>
+          <Link href={mdx.fields.commentLink}> Discuss on DEV.to</Link>
         </p>
       </footer>
 
@@ -79,31 +73,23 @@ export const pageQuery = graphql`
   query($id: String) {
     mdx(id: { eq: $id }) {
       id
-      body
       timeToRead
-      frontmatter {
+      body
+      fields {
         title
         slug
         description
-        author
-        authorImg {
-          childImageSharp {
-            fluid(maxWidth: 100) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        date(formatString: "MMM DD, YYYY")
-        dateUpdated(formatString: "MMM DD, YYYY")
-        featuredImg {
-          childImageSharp {
-            fluid(maxWidth: 1200) {
-              src
-            }
-          }
-        }
-        removeTitleDot
-        linkSharedOnTwitter
+        # featuredImg {
+        #   childImageSharp {
+        #     fluid(maxWidth: 1200) {
+        #       src
+        #     }
+        #   }
+        # }
+        topics
+        commentLink
+        datePublished(formatString: "MMMM DD, YYYY")
+        dateUpdated(formatString: "MMMM DD, YYYY")
       }
     }
   }

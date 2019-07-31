@@ -1,8 +1,8 @@
-function useOperaData() {
-  const { allOperaYaml } = useStaticQuery(
+function useGigsData() {
+  const { allGigsYaml } = useStaticQuery(
     graphql`
       query {
-        allOperaYaml {
+        allGigsYaml {
           nodes {
             id
             title {
@@ -23,11 +23,11 @@ function useOperaData() {
     `
   )
 
-  return allOperaYaml.nodes
+  return allGigsYaml.nodes
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 import { useStaticQuery, graphql } from 'gatsby'
 
-export default useOperaData
+export default useGigsData
