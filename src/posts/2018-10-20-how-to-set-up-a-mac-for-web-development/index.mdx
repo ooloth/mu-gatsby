@@ -51,13 +51,13 @@ The first thing you'll need to install from the command line are your Mac's **co
 
 To check if the tools are already installed, type the following command in your terminal app and hit return:
 
-```sh
+```bash
 xcode-select --version
 ```
 
 If the result is not a version number, install the tools with this command:
 
-```sh
+```bash
 xcode-select --install
 ```
 
@@ -65,7 +65,7 @@ A dialog will appear asking if you'd like to install the tools. Click **Install*
 
 When the installation finishes, confirm the tools are now installed by rerunning the first command:
 
-```sh
+```bash
 xcode-select --version
 ```
 
@@ -79,13 +79,13 @@ Instead of installing the next few tools by going to each tool's website, findin
 
 First, check if Homebrew is already installed:
 
-```sh
+```bash
 brew --version
 ```
 
 If you don't see a version number, install Homebrew with this command:
 
-```sh
+```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
@@ -93,7 +93,7 @@ I promise that's the weirdest command you'll see in this article! 😅 Thanks to
 
 Before moving on, confirm Homebrew is now installed:
 
-```sh
+```bash
 brew --version
 ```
 
@@ -105,23 +105,23 @@ Node also includes [npm](https://www.npmjs.com) (the Node Package Manager), whic
 
 First, check if Node is already installed:
 
-```sh
+```bash
 node --version
 ```
 
 If not, install it with Homebrew:
 
-```sh
+```bash
 brew install node
 ```
 
 Finally, confirm Node and npm are now installed:
 
-```sh
+```bash
 node --version
 ```
 
-```sh
+```bash
 npm --version
 ```
 
@@ -133,19 +133,19 @@ Using Git on all every project is a great habit to develop and will prepare you 
 
 Once again, start by checking if Git is already installed:
 
-```sh
+```bash
 git --version
 ```
 
 If not, install it:
 
-```sh
+```bash
 brew install git
 ```
 
 And confirm the installation worked:
 
-```sh
+```bash
 git --version
 ```
 
@@ -153,7 +153,7 @@ git --version
 
 Once in a while, run the following command and everything you’ve installed with Homebrew will update automatically:
 
-```sh
+```bash
 brew update && brew upgrade && brew cleanup && brew doctor
 ```
 
