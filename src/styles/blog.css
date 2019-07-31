@@ -1,0 +1,19 @@
+/* Other blog post styles */
+
+.gatsby-resp-image-link {
+  background-image: none;
+}
+
+.gatsby-resp-image-background-image {
+  position: absolute !important;
+}
+
+img {
+  border-radius: var(--r2);
+  width: 100%;
+}
+
+::selection { 
+  background-color: var(--light-purple); 
+  color: white;
+}

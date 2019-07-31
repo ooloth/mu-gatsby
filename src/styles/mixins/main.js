@@ -1,5 +1,5 @@
 export const main = css`
-  ${container};
+  ${container}
   flex: auto;
   margin-top: var(--s4);
   margin-left: 0;

@@ -52,8 +52,8 @@ const NavLink = styled(Link)`
   font-weight: 900;
   text-transform: uppercase;
 
-  ${media.lg`
-    font-size: 1.85rem;
+  ${media.sm`
+    font-size: 1.8rem;
   `}
 `
 

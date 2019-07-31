@@ -58,6 +58,8 @@ const Reset = createGlobalStyle`
 
     /* A11Y: set a more readable base size for this font */
     font-size: 19px;
+    ${media.md` font-size: 20px; `}
+    ${media.lg` font-size: 21px; `}
   }
 
   /* Sections

@@ -228,7 +228,7 @@ const CustomProperties = createGlobalStyle`
     --pink: #ff80cc;
     --light-pink: #ffa3d7;
     --dark-green: #137752;
-    --green: #19a974;
+    --green: #2eec96; /* same as UT */
     --light-green: #9eebcf;
     --navy: #001b44;
     --dark-blue: #00449e;

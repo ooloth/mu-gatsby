@@ -33,7 +33,7 @@ function Posts() {
       <ul>
         {posts.map(({ node: post }) => (
           <li key={post.id} css={project}>
-            <Link href={post.fields.slug} css={projectTitle}>
+            <Link href={`/${post.fields.slug}/`} css={projectTitle}>
               {post.fields.title}
             </Link>
 

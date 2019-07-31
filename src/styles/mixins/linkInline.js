@@ -1,14 +1,16 @@
 export const linkInline = css`
-  display: inline-flex;
-  border-top: 0.12em solid transparent;
-  border-bottom: 0.12em solid black;
-  line-height: 1;
+  background-image: linear-gradient(var(--light-purple), var(--light-purple)),
+    linear-gradient(var(--light-purple), var(--light-purple));
+  background-position: 0% 100%, 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 0.15em, 100% 0.15em;
+  padding-top: 0.08em;
+  padding-bottom: 0.08em;
   text-decoration: none;
-  transition: all 0.05s;
+  transition: color 0.05s ease-in-out, background-size 0;
 
   &:hover {
-    border-top-color: black;
-    background-color: black;
+    background-size: 0% 150%, 100% 150%;
     color: white;
   }
 `

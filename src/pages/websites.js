@@ -7,7 +7,19 @@ function WebsitesPage() {
       <Metadata page={websitesPage} />
 
       <PageHeader
-        headline={page.headline}
+        headline={
+          <>
+            <span>{page.headline}</span>
+            <span
+              css={`
+                display: none;
+                ${media.md`display: inline`}
+              `}
+            >
+              sites
+            </span>
+          </>
+        }
         emoji={page.emoji}
         summary={page.summary}
       />
@@ -126,6 +138,7 @@ import {
   linkInline,
   linkTag,
   main,
+  media,
   project,
   projectDescription,
   projectTitle,

@@ -1,9 +1,14 @@
 export const container = css`
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--s4);
-  padding-right: var(--s4);
+  padding-left: var(--s3);
+  padding-right: var(--s3);
   max-width: var(--s17);
+
+  @media screen and (min-width: 375px) {
+    padding-left: var(--s4);
+    padding-right: var(--s4);
+  }
 
   ${media.md`
     padding-left: var(--s6);
@@ -11,8 +16,8 @@ export const container = css`
   `}
 
   ${media.xl`
-    padding-left: var(--s8);
-    padding-right: var(--s8);
+    padding-left: var(--s7);
+    padding-right: var(--s7);
   `}
 `
 

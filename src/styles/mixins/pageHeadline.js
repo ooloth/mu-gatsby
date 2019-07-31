@@ -10,7 +10,7 @@ export const pageHeadline = css`
 
   ${media.sm`
     padding-top: var(--s1);
-    font-size: 5rem;
+    font-size: 4.5rem;
   `}
 `
 
