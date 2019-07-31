@@ -164,7 +164,7 @@
   tags:
   - donizetti
   - biernacki
-  - montalbetti
+  - powell
 
   reviews:
   - quotation: '...a hapless-looking Pasquale [was] played with comic buffoonery by Michael Uloth...'
@@ -389,28 +389,14 @@
     text: La Serva Padrona
     lang: it
 
-  tags:
-  - Canadian Opera Company
-  - Ensemble Studio
-
   link: https://www.coc.ca
 
-  details:
-  - name: Company
-    value: Canadian Opera Company Ensemble Studio
-  - name: Opera
-    value: La Serva Padrona
-    lang: it
-  - name: Role
-    value: Uberto
-  - name: Composer
-    value: Giovanni Battista Pergolesi
-  - name: Pianist
-    value: Anne Larlee
-  - name: Director
-    value: Alistair Netwon
-  - name: Dates
-    value: April 15, 2010
+  description: I performed <strong>Uberto</strong> for the Canadian Opera Company Ensemble Studio.
+
+  tags:
+  - pergolesi
+  - larlee
+  - newton
 
 ############################
 # ST. MATTHEW PASSION (2010)
@@ -419,25 +405,14 @@
 - title:
     text: St. Matthew Passion
     lang: en
-
-  tags:
-  - Victoria Philharmonic Choir
-
+  
   link: http://vpchoir.squarespace.com
 
-  details:
-  - name: Company
-    value: Victoria Philharmonic Choir / Victoria Symphony
-  - name: Oratorio
-    value: St. Matthew Passion
-  - name: Role
-    value: Jesus
-  - name: Composer
-    value: Johann Sebastien Bach
-  - name: Conductor
-    value: Peter Butterfield
-  - name: Dates
-    value: March 27, 2010
+  description: I performed <strong>Jesus</strong> for the Victoria Philharmonic Choir and Victoria Symphony.
+
+  tags:
+  - bach
+  - butterfield
 
 ###############
 # OTELLO (2010)
@@ -446,28 +421,15 @@
 - title:
     text: Otello
     lang: it
-
-  tags:
-  - Canadian Opera Company
-
+  
   link: https://www.coc.ca
 
-  details:
-  - name: Company
-    value: Canadian Opera Company
-  - name: Opera
-    value: Otello
-    lang: it
-  - name: Role
-    value: Lodovico (cover)
-  - name: Composer
-    value: Giuseppe Verdi
-  - name: Conductor
-    value: Paulo Olmi
-  - name: Director
-    value: Paul Curran
-  - name: Dates
-    value: February 3-28, 2010
+  description: I covered <strong>Lodovico</strong> for the Canadian Opera Company.
+
+  tags:
+  - verdi
+  - olmi
+  - curran
 
 ###############
 # CARMEN (2010)
@@ -477,27 +439,14 @@
     text: Carmen
     lang: fr
 
-  tags:
-  - Canadian Opera Company
-
   link: https://www.coc.ca
+  
+  description: I covered <strong>Zuniga</strong> for the Canadian Opera Company.
 
-  details:
-  - name: Company
-    value: Canadian Opera Company
-  - name: Opera
-    value: Carmen
-    lang: fr
-  - name: Role
-    value: Zuniga (cover)
-  - name: Composer
-    value: Giuseppe Verdi
-  - name: Conductor
-    value: Rory Macdonald
-  - name: Director
-    value: Justin Way
-  - name: Dates
-    value: January 27 - February 27, 2010
+  tags:
+  - verdi
+  - r. macdonald
+  - way
 
 ########################
 # THE NIGHTINGALE (2009)
@@ -507,34 +456,14 @@
     text: The Nightingale
     lang: en
 
-  tags:
-  - Canadian Opera Company
-
   link: https://www.coc.ca
   
-  reviews:
-  - quotation: A spellbinding piece of theatre.
-    source: Heidi Waleson, Wall Street Journal
-    link: https://www.wsj.com/articles/SB10001424052748704500604574483653371200242
-  - quotation: It is, without question, the must-see theatrical experience of the year.
-    source: Christopher Hoile, Eye Weekly
-    link: http://www.stage-door.com/Theatre/2009/Entries/2009/10/21_The_Nightingale_and_Other_Short_Fables.html
+  description: I covered the <strong>Emporer</strong> and performed the <strong>Bonze</strong> for the Canadian Opera Company.
 
-  details:
-  - name: Company
-    value: Canadian Opera Company
-  - name: Opera
-    value: The Nightingale & Other Short Fables
-  - name: Role
-    value: Emperor (cover), Bonze
-  - name: Composer
-    value: Igor Stravinsky
-  - name: Conductor
-    value: Jonathan Darlington
-  - name: Director
-    value: Robert Lepage
-  - name: Dates
-    value: October 17 - November 5, 2009
+  tags:
+  - stravinsky
+  - darlington
+  - lepage
 
 ###############
 # RENARD (2009)
@@ -544,27 +473,14 @@
     text: Renard
     lang: fr
 
-  tags:
-  - Canadian Opera Company
-
   link: https://www.coc.ca
 
-  details:
-  - name: Company
-    value: Canadian Opera Company
-  - name: Opera
-    value: Renard
-    lang: fr
-  - name: Role
-    value: Bass (cover)
-  - name: Composer
-    value: Igor Stravinsky
-  - name: Conductor
-    value: Jonathan Darlington
-  - name: Director
-    value: Robert Lepage
-  - name: Dates
-    value: October 17 - November 5, 2009
+  description: I covered <strong>Bass</strong> for the Canadian Opera Company.
+
+  tags:
+  - stravinsky
+  - darlington
+  - lepage
 
 #########################
 # MADAMA BUTTERFLY (2009)
@@ -574,27 +490,14 @@
     text: Madama Butterfly
     lang: it
 
-  tags:
-  - Canadian Opera Company
-
   link: https://www.coc.ca
+  
+  description: I performed the <strong>Imperial Commissioner</strong> for the Canadian Opera Company.
 
-  details:
-  - name: Company
-    value: Canadian Opera Company
-  - name: Opera
-    value: Madama Butterfly
-    lang: it
-  - name: Role
-    value: Imperial Commissioner
-  - name: Composer
-    value: Giacomo Puccini
-  - name: Conductor
-    value: Carlo Montanaro
-  - name: Director
-    value: Brian Macdonald
-  - name: Dates
-    value: September 26 - November 3, 2009
+  tags:
+  - puccini
+  - montanaro
+  - b. macdonald
 
 #########################
 # LORD NELSON MASS (2009)
@@ -603,30 +506,19 @@
 - title:
     text: Lord Nelson Mass
     lang: en
+  
+  link: http://www.elorafestival.ca
+
+  description: I performed <strong>Bass Soloist</strong> for the Elora Festival.
 
   tags:
-  - Elora Festival
-
-  link: http://www.elorafestival.ca
+  - haydn
+  - edison
   
   reviews:
   - quotation: Bass Michael Uloth...performed admirably. His voice has an interesting timbre with a slight edge that gives it particular definition and cuts through, particularly in the lower register.
     source: Stephen Preece, The Record
     link: https://www.therecord.com
-
-  details:
-  - name: Company
-    value: Elora Festival
-  - name: Oratorio
-    value: Lord Nelson Mass
-  - name: Role
-    value: Bass Soloist
-  - name: Composer
-    value: Franz Josef Haydn
-  - name: Conductor
-    value: Noel Edison
-  - name: Dates
-    value: August 2, 2009
 
 #######################
 # COSÌ FAN TUTTE (2009)
@@ -636,11 +528,14 @@
     text: Così fan tutte
     lang: it
 
-  tags:
-  - Canadian Opera Company
-  - Ensemble Studio
-
   link: https://www.coc.ca
+
+  description: I performed <strong>Don Alfonso</strong> for the Canadian Opera Company Ensemble Studio.
+
+  tags:
+  - mozart
+  - isepp
+  - albano
   
   reviews:
   - quotation: Then there's Michael Uloth, a very impressive young bass...Uloth was note-perfect. He also has the kind of unstrained security and confidence that allows you to just sit back, relax and enjoy the performance.
@@ -650,24 +545,6 @@
     source: Ken Winters, The Globe & Mail
     link: https://www.theglobeandmail.com/arts/a-stylish-approach-to-mozarts-opera/article4276598/
 
-  details:
-  - name: Company
-    value: Canadian Opera Company Ensemble Studio
-  - name: Opera
-    value: Così fan tutte
-    lang: it
-  - name: Role
-    value: Don Alfonso
-    lang: it
-  - name: Composer
-    value: Wolfgang Amadeus Mozart
-  - name: Conductor
-    value: Martin Isepp
-  - name: Director
-    value: Michael Patrick Albano
-  - name: Dates
-    value: June 15-21, 2009
-
 ##################################
 # A MIDSUMMER NIGHT'S DREAM (2009)
 ##################################
@@ -676,31 +553,19 @@
     text: A Midsummer Night's Dream
     lang: en
 
-  tags:
-  - Canadian Opera Company
-
   link: https://www.coc.ca
   
+  description: I covered <strong>Theseus</strong> and performed <strong>Snug</strong> for the Canadian Opera Company.
+  
+  tags:
+  - britten
+  - manson
+  - armfield
+
   reviews:
   - quotation: The Rustics' play (which also featured tenor Michael Barrett, bass-baritone Thomas Goerz, baritone Alexander Hajek and bass Michael Uloth) was very funny to witness, and to hear, thanks to Britten's wicked parodies of French and Italian opera.
     source: Robert Everett-Green, The Globe & Mail
     link: https://www.theglobeandmail.com/arts/magical-midsummer-night-a-dream-come-true/article4193525/
-
-  details:
-  - name: Company
-    value: Canadian Opera Company
-  - name: Opera
-    value: A Midsummer Night's Dream
-  - name: Role
-    value: Theseus (cover), Snug
-  - name: Composer
-    value: Benjamin Britten
-  - name: Conductor
-    value: Anne Manson
-  - name: Director
-    value: Neil Armfield
-  - name: Dates
-    value: May 5-23, 2009
 
 ##################
 # LA BOHÈME (2009)
@@ -710,27 +575,14 @@
     text: La Bohème
     lang: fr
 
-  tags:
-  - Canadian Opera Company
-
   link: https://www.coc.ca
 
-  details:
-  - name: Company
-    value: Canadian Opera Company
-  - name: Opera
-    value: La Bohème
-    lang: fr
-  - name: Role
-    value: Colline (cover)
-  - name: Composer
-    value: Giacomo Puccini
-  - name: Conductor
-    value: Julian Kovatchev
-  - name: Director
-    value: Maer Gronsdal Powell
-  - name: Dates
-    value: April 17 - May 24, 2009
+  description: I covered <strong>Colline</strong> for the Canadian Opera Company.
+
+  tags:
+  - puccini
+  - kovatchev
+  - powell
 
 #########################
 # SIMON BOCCANEGRA (2009)
@@ -740,27 +592,14 @@
     text: Simon Boccanegra
     lang: it
 
-  tags:
-  - Canadian Opera Company
-
   link: https://www.coc.ca
 
-  details:
-  - name: Company
-    value: Canadian Opera Company
-  - name: Opera
-    value: Simon Boccanegra
-    lang: it
-  - name: Role
-    value: Pietro (cover)
-  - name: Composer
-    value: Giuseppe Verdi
-  - name: Conductor
-    value: Marco Guidarini
-  - name: Director
-    value: Ian Judge
-  - name: Dates
-    value: April 11 - May 7, 2009
+  description: I covered <strong>Pietro</strong> for the Canadian Opera Company.
+  
+  tags:
+  - verdi
+  - guidarini
+  - judge
 
 ####################
 # WAR & PEACE (2008)
@@ -770,26 +609,14 @@
     text: War and Peace
     lang: en
 
-  tags:
-  - Canadian Opera Company
-
   link: https://www.coc.ca
+  
+  description: I performed <strong>Gavrila</strong> for the Canadian Opera Company.
 
-  details:
-  - name: Company
-    value: Canadian Opera Company
-  - name: Opera
-    value: War and Peace
-  - name: Role
-    value: Gavrila
-  - name: Composer
-    value: Sergei Prokofiev
-  - name: Conductor
-    value: Johannes Debus
-  - name: Director
-    value: Tim Albery
-  - name: Dates
-    value: October 10 - November 1, 2008
+  tags:
+  - prokofiev
+  - debus
+  - albery
 
 #####################
 # DON GIOVANNI (2008)
@@ -799,27 +626,14 @@
     text: Don Giovanni
     lang: it
 
-  tags:
-  - Canadian Opera Company
-
   link: https://www.coc.ca
 
-  details:
-  - name: Company
-    value: Canadian Opera Company
-  - name: Opera
-    value: Don Giovanni
-    lang: it
-  - name: Role
-    value: Masetto (cover)
-  - name: Composer
-    value: Wolfgang Amadeus Mozart
-  - name: Conductor
-    value: William Lacey
-  - name: Director
-    value: Robin Guarino
-  - name: Dates
-    value: October 5-31, 2008
+  description: I covered <strong>Masetto</strong> for the Canadian Opera Company.
+  
+  tags:
+  - mozart
+  - lacey
+  - guarino
 
 ###############
 # HAMLET (2008)
@@ -829,24 +643,13 @@
     text: Hamlet
     lang: en
 
-  tags:
-  - Stratford Summer Music
-
   link: https://stratfordsummermusic.ca
+  
+  description: I performed <strong>Polonius</strong> and <strong>Gravedigger</strong> for Stratford Summer Music.
 
-  details:
-  - name: Company
-    value: Stratford Summer Music
-  - name: Oratorio
-    value: Hamlet
-  - name: Role
-    value: Polonius, Gravedigger
-  - name: Composer
-    value: Mark Richards
-  - name: Conductor
-    value: Wesley Ferreira
-  - name: Dates
-    value: August 16, 2008
+  tags:
+  - richards
+  - ferreira
 
 ##################
 # RIGOLETTO (2008)
@@ -856,33 +659,19 @@
     text: Rigoletto
     lang: it
 
-  tags:
-  - Saskatoon Opera
-
   link: http://www.saskatoonopera.ca
   
+  description: I performed <strong>Sparafucile</strong> for Saskatoon Opera.
+  
+  tags:
+  - verdi
+  - biernacki
+  - montalbetti
+
   reviews:
   - quotation: My favorite was Michael Uloth the bass who played Sparafucile the assassin...that long low note at the end of the Rigoletto-Sparafucile duet was pretty impressive.
     source: Cara, What the ?! ..... Chickens!
     link: http://chickensinsaskatoon.blogspot.ca/2008/08/chickens-cultural-moment-rigoletto.html
-
-  details:
-  - name: Company
-    value: Saskatoon Opera
-  - name: Opera
-    value: Rigoletto
-    lang: it
-  - name: Role
-    value: Sparafucile
-    lang: it
-  - name: Composer
-    value: Giuseppe Verdi
-  - name: Conductor
-    value: Tadeusz Biernacki
-  - name: Director
-    value: Barbara Montalbetti
-  - name: Dates
-    value: July 26 - August 1, 2008
 
 #########################
 # THE INDIAN QUEEN (2008)
@@ -892,31 +681,19 @@
     text: The Indian Queen
     lang: en
 
-  tags:
-  - Toronto Masque Theatre
+  link: https://www.thestar.com/entertainment/music/review/2018/05/14/toronto-masque-theatres-goodbye-show-celebrated-its-finest-work.html
 
-  link: http://www.torontomasquetheatre.com
-  
+  description: I performed <strong>High Priest</strong> and <strong>Hymen</strong> for Toronto Masque Theatre.
+
+  tags:
+  - purcell
+  - beckwith
+  - boyes
+
   reviews:
   - quotation: Two to watch are bass Michael Uloth and baritone Andrew Mahon. They both have rich, warm, hearty voices.
     source: Paula Citron, Classical 102.9 FM
     link: http://stg.classical1029fm.com/arts-reviews/indian-queen/
-
-  details:
-  - name: Company
-    value: Toronto Masque Theatre
-  - name: Opera
-    value: The Indian Queen
-  - name: Role
-    value: High Priest, Hymen
-  - name: Composer
-    value: Henry Purcell
-  - name: Conductor
-    value: Larry Beckwith
-  - name: Director
-    value: Derek Boyes
-  - name: Dates
-    value: April 24-26, 2008
 
 #########################
 # ST. JOHN PASSION (2008)
@@ -925,25 +702,14 @@
 - title:
     text: St. John Passion
     lang: en
-
-  tags:
-  - Metropolitan Festival Choir
-
+  
   link: https://www.metunited.org/jmv4/index.php/programs/music/music-programs/17-choirs
 
-  details:
-  - name: Company
-    value: Metropolitan Festival Choir
-  - name: Oratorio
-    value: St. John Passion
-  - name: Role
-    value: Jesus
-  - name: Composer
-    value: Johann Sebastien Bach
-  - name: Conductor
-    value: Patricia Wright
-  - name: Dates
-    value: March 21, 2008
+  description: I performed <strong>Jesus</strong> for the Metropolitan Festival Choir.
+
+  tags:
+  - bach
+  - wright
 
 ####################
 # ANNA BOLENA (2007)
@@ -953,34 +719,20 @@
     text: Anna Bolena
     lang: it
 
-  tags:
-  - Opera in Concert
-
   link: http://operainconcert.com
+
+  description: I performed <strong>Enrico VIII</strong> for Opera in Concert.
+
+  tags:
+  - donizetti
+  - doucet
+  - silva-marin
   
   reviews:
   - quotation: Uloth is clearly a talent on the rise...he nailed Enrico's capricious
       character...
     source: Paula Citron, Opera Canada
     link: http://operacanada.ca
-
-  details:
-  - name: Company
-    value: Opera in Concert
-  - name: Opera
-    value: Anna Bolena
-    lang: it
-  - name: Role
-    value: Enrico VIII
-    lang: it
-  - name: Composer
-    value: Gaetano Donizetti
-  - name: Conductor
-    value: Nathalie Doucet
-  - name: Director
-    value: Guillermo Silva-Marin
-  - name: Dates
-    value: October 28, 2007
 
 ################
 # L'ORFEO (2007)
@@ -990,27 +742,14 @@
     text: L'Orfeo
     lang: it
 
-  tags:
-  - Glimmerglass Festival
-
   link: https://glimmerglass.org
 
-  details:
-  - name: Company
-    value: Glimmerglass Festival
-  - name: Opera
-    value: L'Orfeo
-    lang: it
-  - name: Role
-    value: Caronte (cover), Plutone (cover)
-  - name: Composer
-    value: Claudio Monteverdi
-  - name: Conductor
-    value: Antony Walker
-  - name: Director
-    value: Christopher Alden
-  - name: Dates
-    value: July 28 - August 25, 2007
+  description: I covered <strong>Caronte</strong> and <strong>Plutone</strong> for the Glimmerglass Festival.
+
+  tags:
+  - monteverdi
+  - walker
+  - alden
 
 ###############
 # ORPHÉE (2007)
@@ -1020,27 +759,14 @@
     text: Orphée
     lang: fr
 
-  tags:
-  - Glimmerglass Festival
-
   link: https://glimmerglass.org
 
-  details:
-  - name: Company
-    value: Glimmerglass Festival
-  - name: Opera
-    value: Orphée
-    lang: fr
-  - name: Role
-    value: Poet (cover), Judge (cover)
-  - name: Composer
-    value: Philip Glass
-  - name: Conductor
-    value: Anne Manson
-  - name: Director
-    value: Sam Helfrich
-  - name: Dates
-    value: July 21 - August 27, 2007
+  description: I covered <strong>Poet</strong> and <strong>Judge</strong> for the Glimmerglass Festival.
+
+  tags:
+  - glass
+  - manson
+  - helfrich
 
 ########################
 # DIE ZAUBERFLÖTE (2006)
@@ -1050,27 +776,14 @@
     text: Die Zauberflöte
     lang: de
 
-  tags:
-  - Guelph Symphony Orchestra
-
   link: http://www.guelphsymphony.com
 
-  details:
-  - name: Company
-    value: Guelph Symphony Orchestra
-  - name: Opera
-    value: Die Zauberflöte
-    lang: de
-  - name: Role
-    value: Sarastro
-  - name: Composer
-    value: Wolfgang Amadeus Mozart
-  - name: Conductor
-    value: Simon Irving
-  - name: Director
-    value: Sarah Jane Burton
-  - name: Dates
-    value: October 28, 2006
+  description: I performed <strong>Sarastro</strong> for the Guelph Symphony Orchestra.
+
+  tags:
+  - mozart
+  - irving
+  - burton
 
 ############################
 # OPERA WITHOUT WORDS (2006)
@@ -1080,22 +793,12 @@
     text: Opera Without Words
     lang: en
 
-  tags:
-  - Kitchener-Waterloo Symphony
-
   link: https://kwsymphony.ca
 
-  details:
-  - name: Company
-    value: Kitchener-Waterloo Symphony
-  - name: Concert
-    value: '"Opera Without Words"'
-  - name: Role
-    value: Bass Soloist
-  - name: Conductor
-    value: Christopher Wilkins
-  - name: Dates
-    value: February 12, 2006
+  description: I performed <strong>Bass Soloist</strong> for the Kitchener-Waterloo Symphony.
+
+  tags:
+  - wilkins
 
 #####################################
 # AMAHL AND THE NIGHT VISITORS (2005)
@@ -1105,24 +808,13 @@
     text: Amahl and the Night Visitors
     lang: en
 
-  tags:
-  - Elora Festival Singers
-
   link: http://www.elorafestival.ca
 
-  details:
-  - name: Company
-    value: Elora Festival Singers
-  - name: Opera
-    value: Amahl and the Night Visitors
-  - name: Role
-    value: King Balthasar
-  - name: Composer
-    value: Gian Carlo Menotti
-  - name: Conductor
-    value: Noel Edison
-  - name: Dates
-    value: December 2005
+  description: I performed <strong>King Balthasar</strong> for the Elora Festival Singers.
+
+  tags:
+  - menotti
+  - edison
 
 ##################
 # CELL LIFE (2005)
@@ -1132,24 +824,13 @@
     text: Cell Life
     lang: en
 
-  tags:
-  - Open Ears Festival
-
   link: http://openears.ca
 
-  details:
-  - name: Company
-    value: Open Ears Festival of Music and Sound
-  - name: Guerilla Sound Event
-    value: '"Cell Life"'
-  - name: Role
-    value: Bass Soloist
-  - name: Composer
-    value: Peter Hatch
-  - name: Conductor
-    value: Evan Mitchell
-  - name: Dates
-    value: May 2005
+  description: I performed <strong>Bass Soloist</strong> for the Open Ears Festival of Music and Sound.
+
+  tags:
+  - hatch
+  - mitchell
 
 #########################
 # MOZART'S REQUIEM (2004)
@@ -1159,76 +840,10 @@
     text: Mozart's Requiem
     lang: en
 
-  tags:
-  - Grand River Chorus
-
   link: http://www.grandriverchorus.com
 
-  details:
-  - name: Company
-    value: Grand River Chorus
-  - name: Oratorio
-    value: Requiem
-  - name: Role
-    value: Bass Soloist
-  - name: Composer
-    value: Wolfgang Amadeus Mozart
-  - name: Conductor
-    value: Robert Phillips
-  - name: Dates
-    value: April 2004
-
-###########################
-# A GERMAN CHRISTMAS (2003)
-###########################
-
-- title:
-    text: A German Christmas
-    lang: en
+  description: I performed <strong>Bass Soloist</strong> for the Grand River Chorus.
 
   tags:
-  - KW Chamber Orchestra
-
-  link: http://kwchamberorchestra.ca
-
-  details:
-  - name: Company
-    value: Kitchener-Waterloo Chamber Orchestra
-  - name: Concert
-    value: '"A German Christmas"'
-  - name: Role
-    value: Bass Soloist
-  - name: Conductor
-    value: Graham Coles
-  - name: Dates
-    value: December 2003
-
-##########################
-# MESSIAH, PART ONE (2002)
-##########################
-
-- title:
-    text: Messiah (Part 1)
-    lang: en
-
-  tags:
-  - Milton Choristers
-
-  link: http://www.miltonchoristers.com/index.php
-
-  details:
-  - name: Company
-    value: Milton Choristers
-  - name: Oratorio
-    value: Messiah (Part 1)
-  - name: Role
-    value: Bass Soloist
-  - name: Composer
-    value: Georg Friedrich Händel
-    lang: de
-  - name: Conductor
-    value: Sonja van de Hoef
-  - name: Dates
-    value: December 2002
-
-
+  - mozart
+  - phillips
