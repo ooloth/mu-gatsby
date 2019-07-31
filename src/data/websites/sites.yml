@@ -1,5 +1,36 @@
 # TODO: add links for new tools to Tools component in websites.js
 
+##################
+# GATSBY TUTORIALS
+##################
+
+- title: Gatsby Tutorials
+
+  link: https://www.gatsbytutorials.com/
+
+  repo: https://github.com/ooloth/gatsbytutorials.com
+
+  reviews:
+  - quotation: This is genius!
+    source: '@ajmalafif, Twitter'
+    link: https://twitter.com/ajmalafif/status/1062610482748522497
+  - quotation: Where were you three months ago?!
+    source: '@MishaSholte, Twitter'
+    link: https://twitter.com/MishaScholte/status/1062621103657488384
+  - quotation: Wow, how have I never seen this?
+    source: '@micahbrich, Twitter'
+    link: https://twitter.com/micahbrich/status/1086393968189952002
+
+  description: Open-source directory of GatsbyJS tutorials.
+
+  tools: 
+    - react
+    - gatsby
+    - styled-components
+    - git
+    - github
+    - netlify
+
 ############
 # STEVE HAID
 ############
@@ -20,6 +51,25 @@
     - git
     - github
     - netlify
+
+##################
+# HOME CARE QUOTES
+##################
+
+- title: Home Care Quotes
+
+  link: https://www.homecarequotes.ca/home-care.html
+
+  description: Directory of Toronto home care agencies, featuring a location-based search that sorts results by distance. Designed by Stephen Bell.
+
+  tools: 
+    - vue
+    - pug
+    - sass
+    - jquery
+    - git
+    - github
+    - geocoder.ca
 
 ###############
 # AZOOR SOCIETY
@@ -180,6 +230,7 @@
     - github
     - netlify
 
+# TODO: remove?
 ########################
 # UP & RUNNING TUTORIALS
 ########################
@@ -195,37 +246,6 @@
     - gatsby
     - postcss
     - tailwindcss
-    - git
-    - github
-    - netlify
-
-##################
-# GATSBY TUTORIALS
-##################
-
-- title: Gatsby Tutorials
-
-  link: https://www.gatsbytutorials.com/
-
-  repo: https://github.com/ooloth/gatsbytutorials.com
-
-  reviews:
-  - quotation: This is genius!
-    source: '@ajmalafif, Twitter'
-    link: https://twitter.com/ajmalafif/status/1062610482748522497
-  - quotation: Where were you three months ago?!
-    source: '@MishaSholte, Twitter'
-    link: https://twitter.com/MishaScholte/status/1062621103657488384
-  - quotation: Wow, how have I never seen this?
-    source: '@micahbrich, Twitter'
-    link: https://twitter.com/micahbrich/status/1086393968189952002
-
-  description: Open-source directory of GatsbyJS tutorials.
-
-  tools: 
-    - react
-    - gatsby
-    - styled-components
     - git
     - github
     - netlify
@@ -468,25 +488,6 @@
     - git
     - github
     - netlify
-
-##################
-# HOME CARE QUOTES
-##################
-
-- title: Home Care Quotes
-
-  link: https://www.homecarequotes.ca
-
-  description: Marketing site for a directory of Toronto home care agencies, featuring a location-based search. Designed by Stephen Bell.
-
-  tools: 
-    - vue
-    - pug
-    - sass
-    - jquery
-    - git
-    - github
-    - geocoder.ca
 
 ###############
 # ARTIST CENTER
