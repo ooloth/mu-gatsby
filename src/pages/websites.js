@@ -1,47 +1,28 @@
 function WebsitesPage() {
   const { websitesPage } = useSiteMetadata()
+  const { websitesYaml: page } = usePageData()
 
   return (
     <Base>
       <Metadata page={websitesPage} />
 
-      {/* TODO: reuse structure? styles? (shared on all but Home) */}
-      <Header>
-        <h1 css={pageHeadline}>
-          Web{' '}
-          <Emoji emoji="👨‍💻" ariaLabel="Emoji of a person typing on a laptop." />
-        </h1>
+      <PageHeader
+        headline={page.headline}
+        emoji={page.emoji}
+        summary={page.summary}
+      />
 
-        <p css={pageSummary}>Websites I've built for fun and profit.</p>
-      </Header>
-
-      <Main id="main-content" tabIndex="-1">
+      <main css={main}>
         <Websites />
-      </Main>
+      </main>
     </Base>
   )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-const Header = styled.header`
-  ${container}
-  flex: auto;
-  margin-left: 0;
-`
-
-const Main = styled.main`
-  ${container};
-  margin-top: var(--s4);
-  margin-left: 0;
-  width: 100%;
-  max-width: var(--measure4);
-`
-
-///////////////////////////////////////////////////////////////////////////////////
-
 function Websites() {
-  const websites = useWebsitesData()
+  const websites = useSitesData()
 
   return (
     <section>
@@ -51,20 +32,19 @@ function Websites() {
 
       <ul>
         {websites.map(website => (
-          <Website key={website.id}>
-            {/* TODO: reuse styles? */}
-            <WebsiteLink href={website.link}>{website.title}</WebsiteLink>
+          <li key={website.id} css={project}>
+            <Link href={website.link} css={projectTitle}>
+              {website.title}
+            </Link>
 
-            {/* TODO: reuse styles? */}
             <Description description={website.description} repo={website.repo} />
 
-            {/* TODO: reuse styles? */}
-            <TechStack>
+            <ul css={tagList}>
               {website.tools.map(tool => (
                 <Tool key={tool} tool={tool} />
               ))}
-            </TechStack>
-          </Website>
+            </ul>
+          </li>
         ))}
       </ul>
     </section>
@@ -73,40 +53,12 @@ function Websites() {
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-const Website = styled.li`
-  margin-top: var(--s6);
-  padding-top: var(--s3);
-`
-
-const WebsiteLink = styled(Link)`
-  ${purpleUnderline}
-  line-height: 1.4;
-  font-size: 1.55rem;
-  font-weight: 900;
-
-  ${media.sm`
-    font-size: 1.6rem;
-  `}
-
-  ${media.md`
-    font-size: 1.63rem;
-  `}
-`
-
-const TechStack = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: calc(var(--s1) * -1);
-`
-
-///////////////////////////////////////////////////////////////////////////////////
-
 function Description({ description, repo }) {
   let updatedDescription = description
 
-  // If the website has a repo link...
+  // If the website has a public repo...
   if (repo) {
-    // Wrap the words "open source" in the description with a link to the repo
+    // Wrap the words "open source" with a link to the repo
     updatedDescription = stringReplaceToArray(
       description,
       /open-source/i,
@@ -119,16 +71,8 @@ function Description({ description, repo }) {
     )
   }
 
-  return <Paragraph>{updatedDescription}</Paragraph>
+  return <p css={projectDescription}>{updatedDescription}</p>
 }
-
-///////////////////////////////////////////////////////////////////////////////////
-
-const Paragraph = styled.p`
-  ${copy}
-  margin-top: var(--s2);
-  max-width: 52ch;
-`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -155,20 +99,13 @@ function Tool({ tool }) {
   if (tool === `xstate`) link = `https://xstate.js.org`
 
   return (
-    <Item>
+    <li css={tagItem}>
       <Link href={link} css={linkTag}>
         {tool}
       </Link>
-    </Item>
+    </li>
   )
 }
-
-///////////////////////////////////////////////////////////////////////////////////
-
-const Item = styled.li`
-  margin-top: var(--s2);
-  margin-right: var(--s1);
-`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -178,18 +115,23 @@ import stringReplaceToArray from 'string-replace-to-array'
 
 import Base from '../ui/Base'
 import Metadata from '../ui/Metadata'
+import PageHeader from '../ui/PageHeader'
 import { Emoji, Link, SrText } from '../ui/elements'
 import useSiteMetadata from '../queries/useSiteMetadata'
-import useWebsitesData from '../queries/useWebsitesData'
+import usePageData from '../queries/usePageData'
+import useSitesData from '../queries/useSitesData'
 import {
   container,
   copy,
   linkInline,
   linkTag,
-  media,
-  pageHeadline,
-  pageSummary,
-  purpleUnderline
+  main,
+  project,
+  projectDescription,
+  projectTitle,
+  purpleUnderline,
+  tagList,
+  tagItem
 } from '../styles'
 
 export default WebsitesPage

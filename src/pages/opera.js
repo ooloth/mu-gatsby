@@ -1,49 +1,28 @@
 function OperaPage() {
   const { operaPage } = useSiteMetadata()
+  const { operaYaml: page } = usePageData()
 
   return (
     <Base>
       <Metadata page={operaPage} />
 
-      {/* TODO: reuse structure? styles? (shared on all but Home) */}
-      <Header>
-        <h1 css={pageHeadline}>
-          Opera{' '}
-          <Emoji emoji="🎭" ariaLabel="Emoji of a person typing on a laptop." />
-        </h1>
+      <PageHeader
+        headline={page.headline}
+        emoji={page.emoji}
+        summary={page.summary}
+      />
 
-        <p css={pageSummary}>
-          Concerts and operas I've been lucky enough to perform in.
-        </p>
-      </Header>
-
-      <Main id="main-content" tabIndex="-1">
+      <main css={main}>
         <Gigs />
-      </Main>
+      </main>
     </Base>
   )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-const Header = styled.header`
-  ${container}
-  flex: auto;
-  margin-left: 0;
-`
-
-const Main = styled.main`
-  ${container};
-  margin-top: var(--s4);
-  margin-left: 0;
-  width: 100%;
-  max-width: var(--measure4);
-`
-
-///////////////////////////////////////////////////////////////////////////////////
-
 function Gigs() {
-  const gigs = useOperaData()
+  const gigs = useGigsData()
 
   return (
     <section>
@@ -53,61 +32,27 @@ function Gigs() {
 
       <ul>
         {gigs.map(gig => (
-          <Gig key={gig.id}>
-            {/* TODO: reuse styles? */}
-            <GigLink href={gig.link} lang={gig.title.lang}>
+          <li key={gig.id} css={project}>
+            <Link href={gig.link} lang={gig.title.lang} css={projectTitle}>
               {gig.title.text}
-            </GigLink>
+            </Link>
 
-            {/* TODO: reuse styles? */}
-            <Description dangerouslySetInnerHTML={{ __html: gig.description }} />
+            <p
+              dangerouslySetInnerHTML={{ __html: gig.description }}
+              css={projectDescription}
+            />
 
-            {/* TODO: reuse styles? */}
-            <Tags>
+            <ul css={tagList}>
               {gig.tags.map(tag => (
                 <Tag key={tag} tag={tag} />
               ))}
-            </Tags>
-          </Gig>
+            </ul>
+          </li>
         ))}
       </ul>
     </section>
   )
 }
-
-///////////////////////////////////////////////////////////////////////////////////
-
-const Gig = styled.li`
-  margin-top: var(--s6);
-  padding-top: var(--s3);
-`
-
-const GigLink = styled(Link)`
-  ${purpleUnderline}
-  line-height: 1.4;
-  font-size: 1.55rem;
-  font-weight: 900;
-
-  ${media.sm`
-    font-size: 1.6rem;
-  `}
-
-  ${media.md`
-    font-size: 1.63rem;
-  `}
-`
-
-const Description = styled.p`
-  ${copy}
-  margin-top: var(--s2);
-  max-width: 52ch;
-`
-
-const Tags = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: calc(var(--s1) * -1);
-`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -220,21 +165,14 @@ function Tag({ tag }) {
   if (tag == `world premiere`) link = `https://en.wikipedia.org/wiki/Premiere`
 
   return (
-    <Item>
+    <li css={tagItem}>
       <Link href={link} css={linkTag}>
         {tag}
         <SrText> (Link opens in a new tab or window.)</SrText>
       </Link>
-    </Item>
+    </li>
   )
 }
-
-///////////////////////////////////////////////////////////////////////////////////
-
-const Item = styled.li`
-  margin-top: var(--s2);
-  margin-right: var(--s1);
-`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -243,20 +181,24 @@ import styled from 'styled-components'
 
 import Base from '../ui/Base'
 import Metadata from '../ui/Metadata'
+import PageHeader from '../ui/PageHeader'
 import { Emoji, Link, SrText } from '../ui/elements'
 import useSiteMetadata from '../queries/useSiteMetadata'
-import useOperaData from '../queries/useOperaData'
+import usePageData from '../queries/usePageData'
+import useGigsData from '../queries/useGigsData'
 import {
   container,
   copy,
   icon,
   linkInline,
   linkTag,
-  media,
-  pageHeadline,
-  pageSubheadline,
-  pageSummary,
-  purpleUnderline
+  main,
+  project,
+  projectDescription,
+  projectTitle,
+  purpleUnderline,
+  tagList,
+  tagItem
 } from '../styles'
 
 export default OperaPage

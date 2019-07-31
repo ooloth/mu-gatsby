@@ -221,7 +221,8 @@ const CustomProperties = createGlobalStyle`
     --yellow: #ffd700;
     --light-yellow: #fbf1a9;
     --purple: #5e2ca5;
-    --light-purple: #a463f2;
+    --light-purple: #a463f2; /* fails A11y contrast check (3.71:1) */
+    --light-purple: #964CF0; /* passes A11y contrast check (4.57:1) */
     --dark-pink: #d5008f;
     --hot-pink: #ff41b4;
     --pink: #ff80cc;

@@ -1,6 +1,5 @@
 function Bottom() {
-  const { title } = useSiteMetadata()
-  const { socialLinks } = useNavbarData()
+  const { socialLinks } = useSharedData()
 
   return (
     <Footer>
@@ -11,9 +10,6 @@ function Bottom() {
           </Item>
         ))}
       </List>
-      {/* <Text>
-        &copy; {new Date().getFullYear()} {title}
-      </Text> */}
     </Footer>
   )
 }
@@ -23,16 +19,9 @@ function Bottom() {
 const Footer = styled.footer`
   ${container}
   margin-top: var(--s8);
-  padding-top: var(--s4);
-  padding-bottom: var(--s4);
+  padding-top: var(--s3);
+  padding-bottom: var(--s5);
   width: 100%;
-`
-
-const Text = styled.small`
-  ${copy}
-  display: block;
-  margin-top: var(--s2);
-  font-size: var(--f2);
 `
 
 const List = styled.ul`
@@ -78,15 +67,12 @@ const GitHubIcon = styled(GitHubSVG)`
 
 import React from 'react'
 import styled from 'styled-components'
-import Image from 'gatsby-image'
 
-import { Link, SkipNav, SrText } from './elements'
+import { Link, SrText } from './elements'
 import { ReactComponent as TwitterSVG } from '../svg/twitter-brands.svg'
 import { ReactComponent as GitHubSVG } from '../svg/github-brands.svg'
 import { ReactComponent as LinkedInSVG } from '../svg/linkedin-in-brands.svg'
-import useNavbarData from '../queries/useNavbarData'
-import { container, copy, icon } from '../styles'
-
-import useSiteMetadata from '../queries/useSiteMetadata'
+import useSharedData from '../queries/useSharedData'
+import { container, icon } from '../styles'
 
 export default Bottom

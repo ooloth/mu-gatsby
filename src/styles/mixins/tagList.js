@@ -1,0 +1,8 @@
+export const tagList = css`
+  display: flex;
+  flex-wrap: wrap;
+`
+
+///////////////////////////////////////////////////////////////////////////////////
+
+import { css } from 'styled-components'
