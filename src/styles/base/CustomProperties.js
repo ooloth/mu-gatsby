@@ -7,6 +7,7 @@ const CustomProperties = createGlobalStyle`
   :root {
     /* Font Families */
     --bodyFont: 
+     'Avenir Next',
       system-ui,
       /* macOS 10.11-10.12 */ -apple-system,
       /* Windows 6+ */ Segoe UI,
@@ -153,6 +154,9 @@ const CustomProperties = createGlobalStyle`
    
     /* Colors */
     /* TODO: add/move actual colours here */
+    --black: hsla(0, 0%, 0%, 90%);
+    --purple: hsl(267, 85%, 62%); /* Contrast with white text = 4.58 */
+    --light-purple: hsla(267, 85%, 62%, 90%); /* Contrast with white text = 4.84 */
 
     /* Prototyping colors */
     /* TODO: remove these when the project is done */
@@ -220,9 +224,9 @@ const CustomProperties = createGlobalStyle`
     --gold: #ffb700;
     --yellow: #ffd700;
     --light-yellow: #fbf1a9;
-    --purple: #5e2ca5;
-    --light-purple: #a463f2; /* fails A11y contrast check (3.71:1) */
-    --light-purple: #964CF0; /* passes A11y contrast check (4.57:1) */
+    ${'' /* --purple: #5e2ca5; */}
+    ${'' /* --light-purple: #a463f2;  */}
+    ${'' /* --light-purple: #964CF0; */}
     --dark-pink: #d5008f;
     --hot-pink: #ff41b4;
     --pink: #ff80cc;
