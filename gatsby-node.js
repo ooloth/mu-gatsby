@@ -44,9 +44,15 @@ exports.onCreateNode = ({ node, actions }) => {
     })
 
     createNodeField({
-      name: 'commentLink',
+      name: 'linkSharedOnTwitter',
       node,
-      value: node.frontmatter.commentLink
+      value: node.frontmatter.linkSharedOnTwitter
+    })
+
+    createNodeField({
+      name: 'devLink',
+      node,
+      value: node.frontmatter.devLink
     })
 
     createNodeField({
@@ -104,7 +110,8 @@ exports.createPages = async function({ actions, graphql }) {
               #   }
               # }
               topics
-              commentLink
+              linkSharedOnTwitter
+              devLink
               datePublished(formatString: "MMMM DD, YYYY")
               dateUpdated(formatString: "MMMM DD, YYYY")
             }

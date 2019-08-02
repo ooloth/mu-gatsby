@@ -16,7 +16,8 @@ function usePostsData() {
                 description
                 # featuredImg
                 topics
-                commentLink
+                linkSharedOnTwitter
+                devLink
                 datePublished(formatString: "MMMM DD, YYYY")
                 dateUpdated(formatString: "MMMM DD, YYYY")
               }
