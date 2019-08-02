@@ -1,9 +1,10 @@
-function WebsitesPage() {
+function WebsitesPage({ location }) {
   const { websitesPage } = useSiteMetadata()
   const { websitesYaml: page } = usePageData()
 
   return (
-    <Base>
+    // https://www.gatsbyjs.org/docs/migrating-from-v1-to-v2/#4-pass-history-location-and-match-props-to-layout
+    <Base location={location}>
       <Metadata page={websitesPage} />
 
       <PageHeader
@@ -70,10 +71,10 @@ function Description({ description, repo }) {
 
   // If the website has a public repo...
   if (repo) {
-    // Wrap the words "open source" with a link to the repo
+    // Wrap the word "GitHub" with a link to the repo
     updatedDescription = stringReplaceToArray(
       description,
-      /open-source/i,
+      /GitHub/i,
       (match, i) => (
         <Link key={i} href={repo} css={linkInline}>
           {match}

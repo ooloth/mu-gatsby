@@ -19,27 +19,28 @@ export const P = styled.p`
 `
 
 export const A = styled(Link)`
-  ${linkInline}
+  /* Don't add purple underline to images */
+  &:not(.gatsby-resp-image-link) {
+    ${linkInline}
+  }
 `
 
 export const UL = styled.ul`
-  transform: translateY(-0.1rem);
-  margin-top: var(--s2);
+  margin-top: var(--s4);
   margin-bottom: var(--s4);
-  padding-left: var(--s4);
+  padding-left: 1.1rem;
   list-style-type: disc;
 `
 
 export const OL = styled.ol`
-  transform: translateY(-0.1rem);
-  margin-top: var(--s2);
+  margin-top: var(--s4);
   margin-bottom: var(--s4);
-  padding-left: var(--s4);
+  padding-left: 1.1rem;
   list-style-type: decimal;
 `
 
 export const LI = styled.li`
-  padding-top: 0.25rem;
+  margin-top: 0.3rem;
   line-height: var(--lh2);
 `
 
@@ -48,4 +49,4 @@ export const LI = styled.li`
 import styled from 'styled-components'
 
 import { Link } from '../elements'
-import { copy, linkInline } from '../../styles'
+import { copy, linkInline, purpleUnderline } from '../../styles'

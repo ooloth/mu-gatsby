@@ -58,8 +58,10 @@ const Reset = createGlobalStyle`
 
     /* A11Y: set a more readable base size for this font */
     font-size: 19px;
-    ${media.md` font-size: 20px; `}
-    ${media.lg` font-size: 21px; `}
+    ${media.sm` font-size: 19.5px; `}
+    ${media.lg` font-size: 20px; `}
+
+    color: var(--black);
   }
 
   /* Sections
@@ -481,7 +483,7 @@ const Reset = createGlobalStyle`
     width: -moz-fit-content;
     width: -webkit-fit-content;
     width: fit-content;
-    color: black;
+    color: var(--black);
   }
 
   dialog:not([open]) {

@@ -1,10 +1,7 @@
-export const linkInline = css`
-  ${purpleUnderline}
-  font-weight: 700;
+export const purpleGradient = css`
+  background-image: linear-gradient(to right, var(--purple), var(--light-purple));
 `
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 import { css } from 'styled-components'
-
-import { purpleUnderline } from './purpleUnderline'

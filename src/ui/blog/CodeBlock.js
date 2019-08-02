@@ -47,22 +47,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 
-import {
-  container,
-  copy,
-  icon,
-  linkInline,
-  linkTag,
-  main,
-  media,
-  pageHeadline,
-  pageSubheadline,
-  pageSummary,
-  prismTheme,
-  project,
-  projectDescription,
-  projectTitle,
-  purpleUnderline,
-  tagList,
-  tagItem
-} from '../../styles'
+import { prismTheme } from '../../styles'
+
+// https://mdxjs.com/guides/syntax-highlighting/
+// https://github.com/FormidableLabs/prism-react-renderer

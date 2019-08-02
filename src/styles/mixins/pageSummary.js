@@ -1,6 +1,6 @@
 export const pageSummary = css`
   margin-top: var(--s5);
-  max-width: 29ch;
+  max-width: 32ch;
   line-height: 1.4;
   font-size: var(--f5);
 

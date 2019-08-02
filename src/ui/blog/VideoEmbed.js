@@ -25,6 +25,7 @@ const EmbedWrapper = styled.div`
 const Embed = styled.iframe`
   ${aspectRatioChild}
   border-radius: var(--r2);
+  box-shadow: var(--shadow1);
 `
 
 ///////////////////////////////////////////////////////////////////////////////////

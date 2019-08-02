@@ -9,11 +9,32 @@
 }
 
 img {
+  box-shadow: var(--shadow2);
   border-radius: var(--r2);
   width: 100%;
 }
 
+figure {
+  margin-top: var(--s6);
+  margin-bottom: var(--s6);
+}
+
+figcaption {
+  padding-top: var(--s2);
+  text-align: center;
+  font-size: var(--f2);
+  color: var(--black70);
+}
+
 ::selection { 
-  background-color: var(--light-purple); 
+  background-color: var(--purple); 
   color: white;
 }
+
+/* Blockquotes that become Twitter widgets */
+.twitter-tweet { 
+  margin-top: var(--s6) !important;
+  margin-bottom: var(--s6) !important;
+  box-shadow: var(--shadow2);
+  border-radius: var(--r2);
+ }

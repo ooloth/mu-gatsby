@@ -1,11 +1,11 @@
-function Base({ children }) {
+function Base({ children, location }) {
   return (
     <MinHeight100>
       <Metadata
-        // preload={[
-        //   { href: avenirRegular, as: `font`, type: `font/woff2` },
-        //   { href: avenirHeavy, as: `font`, type: `font/woff2` }
-        // ]}
+        preload={[
+          { href: avenirRegular, as: `font`, type: `font/woff2` },
+          { href: avenirHeavy, as: `font`, type: `font/woff2` }
+        ]}
         preconnect={[`https://unpkg.com`]}
       />
       <CustomProperties />
@@ -13,7 +13,8 @@ function Base({ children }) {
 
       <Top />
       {children}
-      <Bottom />
+      {/* https://www.gatsbyjs.org/docs/migrating-from-v1-to-v2/#4-pass-history-location-and-match-props-to-layout */}
+      <Bottom currentPath={location && location.pathname} />
     </MinHeight100>
   )
 }
@@ -37,10 +38,9 @@ import Top from './Top'
 import Bottom from './Bottom'
 
 import { CustomProperties, Reset } from '../styles'
-// import '../styles/base/font-face.css'
-// import '@reach/dialog/styles.css'
+import '../styles/base/font-face.css'
 
-// import avenirRegular from '../fonts/AvenirNextLTPro-Regular.woff2'
-// import avenirHeavy from '../fonts/AvenirNextLTPro-Heavy.woff2'
+import avenirRegular from '../fonts/AvenirNextLTPro-Regular.woff2'
+import avenirHeavy from '../fonts/AvenirNextLTPro-Heavy.woff2'
 
 export default Base

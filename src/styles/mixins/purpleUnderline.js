@@ -1,16 +1,12 @@
 export const purpleUnderline = css`
-  background-image: linear-gradient(var(--light-purple), var(--light-purple)),
-    linear-gradient(var(--light-purple), var(--light-purple));
-  background-position: 0% 100%, 0% 100%;
-  background-repeat: no-repeat;
-  background-size: 0% 0.26em, 100% 0.26em;
-  padding-top: 0.16em;
-  padding-bottom: 0.16em;
+  ${purpleGradient}
+  background-position: 0% 100%;
+  background-size: 100% 0.25em;
+  padding-top: 0.12em;
   text-decoration: none;
-  transition: color 0.05s ease-in-out, background-size 0;
 
   &:hover {
-    background-size: 0% 150%, 100% 150%;
+    background-size: 100% 150%;
     color: white;
   }
 `
@@ -18,3 +14,5 @@ export const purpleUnderline = css`
 ///////////////////////////////////////////////////////////////////////////////////
 
 import { css } from 'styled-components'
+
+import { purpleGradient } from './purpleGradient'

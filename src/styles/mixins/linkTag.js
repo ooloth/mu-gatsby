@@ -1,13 +1,12 @@
 export const linkTag = css`
   border-radius: var(--r2);
-  border: solid var(--bw1) black;
-  padding: 0.12rem 0.3rem;
+  border: solid var(--bw1) var(--black);
+  padding: 0.05rem 0.3rem;
   font-size: var(--f1);
   text-decoration: none;
-  transition: all 0.01s ease-in-out;
 
   &:hover {
-    background-color: black;
+    background-color: var(--black);
     color: white;
   }
 `

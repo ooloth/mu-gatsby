@@ -1,7 +1,6 @@
 export const projectDescription = css`
   ${copy}
-  margin-top: 0.6rem;
-  max-width: 52ch;
+  margin-top: .4rem;
 `
 
 ///////////////////////////////////////////////////////////////////////////////////

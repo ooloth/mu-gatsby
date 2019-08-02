@@ -1,6 +1,5 @@
+// https://mdxjs.com/getting-started/#table-of-components
 // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-mdx
-// https://mdxjs.com
-
 const components = {
   h2: H2,
   h3: H3,
@@ -43,144 +42,108 @@ function Post({ data: { mdx } }) {
         <article>
           <header
             css={`
-              margin-bottom: var(--s7);
+              margin-bottom: var(--s6);
             `}
           >
-            <h1
-              css={`
-                line-height: 1.1;
-                font-size: 2.3rem;
-                font-weight: 900;
+            <Title>{mdx.fields.title}</Title>
 
-                @media screen and (min-width: 375px) {
-                  font-size: 2.65rem;
-                }
-
-                ${media.sm`
-                  font-size: 3rem;
-                `}
-              `}
-            >
-              {mdx.fields.title}
-            </h1>
-            <div
-              css={`
-                // display: flex;
-                // flex-wrap: wrap;
-                margin-top: var(--s4);
-                // line-height: var(--lh2);
-                font-size: var(--f2);
-
-                ${media.sm`
-                  display: flex;
-                  flex-wrap: wrap;
-                  margin-top: var(--s2);
-                `}
-              `}
-            >
-              <div
-                css={`
-                  display: flex;
-                  margin-top: var(--s2);
-                `}
-              >
-                <CalendarSVG
-                  css={`
-                    ${icon};
-                    margin-right: var(--s1);
-                    color: var(--light-purple);
-                  `}
-                />
+            <MetaItems>
+              <MetaItem>
+                <MetaIconWrapper>
+                  <CalendarSVG css={icon} aria-hidden />
+                </MetaIconWrapper>
                 <p>Published {mdx.fields.datePublished}</p>
-              </div>
+              </MetaItem>
 
               {mdx.fields.dateUpdated && (
-                <div
-                  css={`
-                    display: flex;
-                    margin-top: var(--s2);
-                  `}
-                >
-                  <span
-                    css={`
-                      display: none;
-
-                      ${media.sm`
-                        display: inline;
-                      `}
-                    `}
-                  >
-                    ・
-                  </span>
-                  <CalendarSVG
-                    css={`
-                      ${icon};
-                      margin-right: var(--s1);
-                      color: var(--light-purple);
-                    `}
-                  />
+                <MetaItem>
+                  <MetaIconWrapper>
+                    <CalendarSVG css={icon} aria-hidden />
+                  </MetaIconWrapper>
                   <p>Updated {mdx.fields.dateUpdated}</p>
-                </div>
+                </MetaItem>
               )}
 
-              <div
-                css={`
-                  display: flex;
-                  margin-top: var(--s2);
-                `}
-              >
-                <span
-                  css={`
-                    display: none;
-
-                    ${media.sm`
-                      display: inline;
-                    `}
-                  `}
-                >
-                  ・
-                </span>
-                <ClockSVG
-                  css={`
-                    ${icon};
-                    margin-right: var(--s1);
-                    color: var(--light-purple);
-                  `}
-                />
+              <MetaItem>
+                <MetaIconWrapper>
+                  <ClockSVG css={icon} aria-hidden />
+                </MetaIconWrapper>
                 <p>{mdx.timeToRead} min read</p>
-              </div>
-            </div>
+              </MetaItem>
+            </MetaItems>
           </header>
 
-          <section
-            css={`
-              max-width: var(--measure3);
-            `}
-          >
+          <section>
             <MDXProvider components={components}>
               <MDXRenderer>{mdx.body}</MDXRenderer>
             </MDXProvider>
           </section>
+
+          <footer
+            css={`
+              margin-top: var(--s7);
+            `}
+          >
+            <Link
+              href={mdx.fields.linkSharedOnTwitter}
+              css={`
+                ${linkInline}
+              `}
+            >
+              Discuss on Twitter
+            </Link>
+            <br
+              css={`
+                line-height: 2;
+                ${media.sm`display:none;`}
+              `}
+            />
+            <span
+              css={`
+                display: none;
+                ${media.sm`display:inline;`}
+              `}
+            >
+              ・
+            </span>
+            <Link
+              href={mdx.fields.devLink}
+              css={`
+                ${linkInline};
+              `}
+            >
+              Discuss on DEV.to
+            </Link>
+
+            {mdx.fields.editLink && (
+              <>
+                <br
+                  css={`
+                    line-height: 2;
+                    ${media.sm`display:none;`}
+                  `}
+                />
+                <span
+                  css={`
+                    display: none;
+                    ${media.sm`display:inline;`}
+                  `}
+                >
+                  ・
+                </span>
+                <Link
+                  href={mdx.fields.editLink}
+                  css={`
+                    ${linkInline}
+                  `}
+                >
+                  Edit on GitHub
+                </Link>
+              </>
+            )}
+          </footer>
         </article>
       </main>
-
-      <footer
-        css={`
-          ${main}
-        `}
-      >
-        <Link href={mdx.fields.commentLink} css={linkInline}>
-          Discuss on Twitter
-        </Link>
-        <span>・</span>
-        <Link href={mdx.fields.commentLink} css={linkInline}>
-          Discuss on DEV.to
-        </Link>
-        <span>・</span>
-        <Link href={mdx.fields.commentLink} css={linkInline}>
-          Edit on GitHub
-        </Link>
-      </footer>
 
       <aside>
         {/* TODO: add newsletter? */}
@@ -205,6 +168,54 @@ function Post({ data: { mdx } }) {
 
 ///////////////////////////////////////////////////////////////////////////////////
 
+const Title = styled.h1`
+  line-height: 1.1;
+  font-size: 2.1rem;
+  font-weight: 900;
+
+  @media screen and (min-width: 375px) {
+    font-size: 2.5rem;
+  }
+
+  ${media.sm`
+    font-size: 3rem;
+  `}
+`
+
+const MetaItems = styled.ul`
+  margin-top: var(--s5);
+
+  ${media.sm`
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: var(--s1);
+  `}
+`
+
+const MetaItem = styled.li`
+  display: flex;
+  align-items: center;
+  margin-top: var(--s2);
+  margin-right: var(--s4);
+  line-height: var(--lh2);
+`
+
+const MetaIconWrapper = styled.span`
+  ${purpleGradient}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: var(--s1);
+  box-shadow: var(--shadow1);
+  border-radius: var(--r100);
+  width: var(--s5);
+  height: var(--s5);
+  font-size: 0.9rem;
+  color: white;
+`
+
+///////////////////////////////////////////////////////////////////////////////////
+
 export const pageQuery = graphql`
   query($id: String) {
     mdx(id: { eq: $id }) {
@@ -223,7 +234,8 @@ export const pageQuery = graphql`
         #   }
         # }
         topics
-        commentLink
+        linkSharedOnTwitter
+        devLink
         datePublished(formatString: "MMM DD, YYYY")
         dateUpdated(formatString: "MMM DD, YYYY")
       }
@@ -262,6 +274,7 @@ import {
   project,
   projectDescription,
   projectTitle,
+  purpleGradient,
   purpleUnderline,
   tagList,
   tagItem

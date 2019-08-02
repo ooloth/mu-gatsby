@@ -1,6 +1,6 @@
 export const pageSubheadline = css`
-  line-height: var(--lh1);
-  font-size: 2.55rem;
+  letter-spacing: -1px;
+  font-size: 2.45rem;
   font-weight: 900;
 
   @media screen and (min-width: 375px) {

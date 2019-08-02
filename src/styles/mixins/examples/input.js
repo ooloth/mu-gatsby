@@ -4,7 +4,7 @@ export const input = css`
   padding: var(--s2);
 
   &::placeholder {
-    color: black;
+    color: var(--black);
   }
 `
 

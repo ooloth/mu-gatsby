@@ -1,6 +1,7 @@
-function IndexPage() {
+function IndexPage({ location }) {
   return (
-    <Base>
+    // https://www.gatsbyjs.org/docs/migrating-from-v1-to-v2/#4-pass-history-location-and-match-props-to-layout
+    <Base location={location}>
       <Main>
         <p css={pageHeadline}>
           Hi <Emoji emoji="👋" ariaLabel="Emoji of a hand waving hello." />
@@ -20,10 +21,13 @@ function IndexPage() {
 
         <Nav>
           <NavLink href="/blog/">Blog</NavLink>
+          <br />
           <NavLink href="https://www.youtube.com/user/michaeluloth">
             Videos
           </NavLink>
+          <br />
           <NavLink href="/websites/">Websites</NavLink>
+          <br />
           <NavLink href="/opera/">Opera</NavLink>
         </Nav>
       </Main>
@@ -44,13 +48,15 @@ const Nav = styled.nav`
 
 const NavLink = styled(Link)`
   ${purpleUnderline}
-  display: block;
-  margin-top: var(--s3);
-  width: max-content;
-  line-height: var(--lh1);
   font-size: 1.75rem;
   font-weight: 900;
   text-transform: uppercase;
+
+  &::before {
+    display: block;
+    content: '';
+    margin-top: var(--s4);
+  }
 
   ${media.sm`
     font-size: 1.8rem;

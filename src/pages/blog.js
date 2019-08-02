@@ -1,9 +1,10 @@
-function BlogPage() {
+function BlogPage({ location }) {
   const { blogPage } = useSiteMetadata()
   const { blogYaml: page } = usePageData()
 
   return (
-    <Base>
+    // https://www.gatsbyjs.org/docs/migrating-from-v1-to-v2/#4-pass-history-location-and-match-props-to-layout
+    <Base location={location}>
       <Metadata page={blogPage} />
 
       <PageHeader
