@@ -14,9 +14,15 @@ function useSharedData() {
             objPos
           }
 
+          navLinks {
+            href
+            text
+          }
+
           socialLinks {
             platform
             href
+            srText
           }
         }
       }
