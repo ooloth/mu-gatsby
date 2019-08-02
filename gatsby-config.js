@@ -1,57 +1,64 @@
-// Variables for gatsby-plugin-robots-txt:
-// const {
-//   NODE_ENV,
-//   URL: NETLIFY_SITE_URL = `https://www.example.com`,
-//   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
-//   CONTEXT: NETLIFY_ENV = NODE_ENV
-// } = process.env
-// const isNetlifyProduction = NETLIFY_ENV === `production`
-// const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
+// Use environment variables for Google Analytics + Search Console
+require(`dotenv`).config()
+
+// Robots.txt variables
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = `https://www.michaeluloth.com`,
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV
+} = process.env
+const isNetlifyProduction = NETLIFY_ENV === `production`
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 
 module.exports = {
   siteMetadata: {
-    // TODO: set unused properties to `` (removing the line breaks the query)
+    // set unused properties to `` (removing the line breaks the query)
     title: `Michael Uloth`,
-    jobTitle: ``,
-    description: `Site description (70-156 characters)`,
-    siteUrl: `https://www.client.com`, // no trailing slash
+    jobTitle: `Web Developer and Opera Singer`,
+    description: `Hi! 👋 I'm Michael. I'm a web developer and opera singer currently working for ecobee in Toronto. This site includes links to my recent articles, videos, websites and opera projects. Feel free to get in touch if you'd like to work together.`,
+    siteUrl: `https://www.michaeluloth.com`, // no trailing slash
     lang: `en`,
     locale: `en_CA`,
-    email: `email@client.com`,
-    telephone: `+18001234567`,
+    email: `hello@michaeluloth.com`,
+    telephone: `+`,
     address: {
-      street: `305 Healey Rd., Unit A`,
+      street: ``,
       locality: `Toronto`,
       region: `ON`,
-      postalCode: `L7K 5C1`,
+      postalCode: ``,
       country: `CA`
     },
     socialLinks: [
-      `https://www.youtube.com/user`,
-      `https://twitter.com/user`,
-      `https://www.facebook.com/user`,
-      `https://www.instagram.com/user`,
-      `https://medium.com/user`,
-      `https://github.com/user`
+      `https://www.youtube.com/channel/UCuPoyExbksX3s6wuptBeDSw`,
+      `https://twitter.com/ooloth`,
+      `https://www.linkedin.com/in/michael-uloth-848a1b98`,
+      `https://github.com/ooloth`,
+      `https://stackoverflow.com/users/8802485/ooloth`,
+      `https://dev.to/ooloth`,
+      `https://www.freecodecamp.org/news/author/ooloth/`,
+      `https://medium.com/@michaeluloth`,
+      `https://www.facebook.com/michaeluloth`,
+      `https://www.instagram.com/ooloth/`
     ],
-    structuredDataType: `LocalBusiness`, // or Person
-    twitterSite: `@handle`,
+    structuredDataType: `Person`,
+    twitterSite: `@ooloth`,
     twitterCreator: `@ooloth`,
     facebookAppId: ``,
-    googleSiteVerification: ``, // for Google Search Console
+    googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION_STRING, // for Google Search Console
     blogPage: {
-      title: `Add Second Page Title`,
-      description: `Add second page description (50-300 characters)`,
+      title: `Blog | Michael Uloth`,
+      description: `Coding tips and walk-throughs to help future me get unstuck.`,
       url: `https://www.michaeluloth.com/blog`
     },
     websitesPage: {
-      title: `Add Second Page Title`,
-      description: `Add second page description (50-300 characters)`,
+      title: `Websites | Michael Uloth`,
+      description: `Sites I've built for fun and profit.`,
       url: `https://www.michaeluloth.com/websites`
     },
     operaPage: {
-      title: `Add Second Page Title`,
-      description: `Add second page description (50-300 characters)`,
+      title: `Opera | Michael Uloth`,
+      description: `Concerts and operas I've been lucky enough to perform.`,
       url: `https://www.michaeluloth.com/opera`
     }
   },
@@ -63,6 +70,12 @@ module.exports = {
         path: `${__dirname}/src/`
       }
     },
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-yaml`,
+    `gatsby-plugin-svgr`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -72,6 +85,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1000,
+              showCaptions: true,
               withWebp: true
             }
           },
@@ -85,35 +99,35 @@ module.exports = {
       }
     },
     `gatsby-plugin-catch-links`,
-    `gatsby-plugin-styled-components`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    `gatsby-transformer-yaml`,
-    `gatsby-plugin-svgr`,
-    // `gatsby-plugin-sitemap`,
-    // {
-    //   resolve: `gatsby-plugin-robots-txt`,
-    //   // Disable crawlers for Netlify deploy-previews:
-    //   options: {
-    //     resolveEnv: () => NETLIFY_ENV,
-    //     env: {
-    //       production: {
-    //         policy: [{ userAgent: `*` }]
-    //       },
-    //       'branch-deploy': {
-    //         policy: [{ userAgent: `*`, disallow: [`/`] }],
-    //         sitemap: null,
-    //         host: null
-    //       },
-    //       'deploy-preview': {
-    //         policy: [{ userAgent: `*`, disallow: [`/`] }],
-    //         sitemap: null,
-    //         host: null
-    //       }
-    //     }
-    //   }
-    // },
+    `gatsby-plugin-twitter`,
+    {
+      resolve: `gatsby-plugin-sitemap`
+      // options: {
+      //   exclude: [`/lab`, `/lab/*`]
+      // }
+    },
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      // Disable crawlers for Netlify deploy-previews:
+      options: {
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [{ userAgent: `*` }]
+          },
+          'branch-deploy': {
+            policy: [{ userAgent: `*`, disallow: [`/`] }],
+            sitemap: null,
+            host: null
+          },
+          'deploy-preview': {
+            policy: [{ userAgent: `*`, disallow: [`/`] }],
+            sitemap: null,
+            host: null
+          }
+        }
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -121,14 +135,14 @@ module.exports = {
         short_name: `M. Uloth`,
         start_url: `/`,
         // For splash screen when app launches:
-        background_color: `#a463f2`,
+        background_color: `#964cf0`,
         // For tool bar and task switcher:
-        theme_color: `#a463f2`,
+        theme_color: `#964cf0`,
         display: `minimal-ui`,
         // Multiple icons will be generated for various devices.
         // Multiple favicons will be generated and added to each HTML page.
         // This path is relative to the root of the site.
-        icon: `src/images/michael-uloth-square.jpg`
+        icon: `src/images/favicon.jpg`
       }
     }
     // `gatsby-plugin-offline`,
