@@ -34,20 +34,22 @@ function Posts() {
       <ul>
         {posts.map(({ node: post }) => (
           <li key={post.id} css={project}>
-            <Link href={`/${post.fields.slug}/`} css={projectTitle}>
-              {post.fields.title}
+            <Link href={`/${post.frontmatter.slug}/`} css={projectTitle}>
+              {post.frontmatter.title}
             </Link>
 
             <p
-              dangerouslySetInnerHTML={{ __html: post.fields.description }}
+              dangerouslySetInnerHTML={{ __html: post.frontmatter.description }}
               css={projectDescription}
             />
 
-            <ul css={tagList}>
-              {post.fields.topics.map(topic => (
-                <Topic key={topic} topic={topic} />
-              ))}
-            </ul>
+            {post.frontmatter.topics && (
+              <ul css={tagList}>
+                {post.frontmatter.topics.map(topic => (
+                  <Topic key={topic} topic={topic} />
+                ))}
+              </ul>
+            )}
           </li>
         ))}
       </ul>

@@ -19,11 +19,11 @@ function Post({ data: { mdx } }) {
 
   const metadata = {
     type: `article`,
-    title: mdx.fields.title,
-    description: mdx.fields.description,
-    url: `${siteUrl}/${mdx.fields.slug}`, // no trailing slash
+    title: mdx.frontmatter.title,
+    description: mdx.frontmatter.description,
+    url: `${siteUrl}/${mdx.frontmatter.slug}`, // no trailing slash
     author: title,
-    image: mdx.fields.featuredImg // TODO: use my image as a backup?
+    image: mdx.frontmatter.featuredImg // TODO: use my image as a backup?
   }
 
   // TODO: see https://github.com/gaearon/overreacted.io/blob/master/src/templates/blog-post.js
@@ -45,22 +45,22 @@ function Post({ data: { mdx } }) {
               margin-bottom: var(--s6);
             `}
           >
-            <Title>{mdx.fields.title}</Title>
+            <Title>{mdx.frontmatter.title}</Title>
 
             <MetaItems>
               <MetaItem>
                 <MetaIconWrapper>
                   <CalendarSVG css={icon} aria-hidden />
                 </MetaIconWrapper>
-                <p>Published {mdx.fields.datePublished}</p>
+                <p>Published {mdx.frontmatter.datePublished}</p>
               </MetaItem>
 
-              {mdx.fields.dateUpdated && (
+              {mdx.frontmatter.dateUpdated && (
                 <MetaItem>
                   <MetaIconWrapper>
                     <CalendarSVG css={icon} aria-hidden />
                   </MetaIconWrapper>
-                  <p>Updated {mdx.fields.dateUpdated}</p>
+                  <p>Updated {mdx.frontmatter.dateUpdated}</p>
                 </MetaItem>
               )}
 
@@ -85,7 +85,7 @@ function Post({ data: { mdx } }) {
             `}
           >
             <Link
-              href={mdx.fields.linkSharedOnTwitter}
+              href={mdx.frontmatter.linkSharedOnTwitter}
               css={`
                 ${linkInline}
               `}
@@ -107,7 +107,7 @@ function Post({ data: { mdx } }) {
               ・
             </span>
             <Link
-              href={mdx.fields.devLink}
+              href={mdx.frontmatter.devLink}
               css={`
                 ${linkInline};
               `}
@@ -115,7 +115,7 @@ function Post({ data: { mdx } }) {
               Discuss on DEV.to
             </Link>
 
-            {mdx.fields.editLink && (
+            {mdx.frontmatter.editLink && (
               <>
                 <br
                   css={`
@@ -132,7 +132,7 @@ function Post({ data: { mdx } }) {
                   ・
                 </span>
                 <Link
-                  href={mdx.fields.editLink}
+                  href={mdx.frontmatter.editLink}
                   css={`
                     ${linkInline}
                   `}
@@ -222,17 +222,10 @@ export const pageQuery = graphql`
       id
       timeToRead
       body
-      fields {
+      frontmatter {
         title
         slug
         description
-        # featuredImg {
-        #   childImageSharp {
-        #     fluid(maxWidth: 1200) {
-        #       src
-        #     }
-        #   }
-        # }
         topics
         linkSharedOnTwitter
         devLink

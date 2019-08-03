@@ -10,11 +10,10 @@ function usePostsData() {
             node {
               id
               timeToRead
-              fields {
+              frontmatter {
                 title
                 slug
                 description
-                # featuredImg
                 topics
                 linkSharedOnTwitter
                 devLink
