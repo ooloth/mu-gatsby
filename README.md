@@ -22,5 +22,5 @@ This is the source code for my personal website.
 ## Contributions
 
 - Feel free to submit PRs!
-- I'd love to accept changes that improve the site's [accessibility](https://en.wikipedia.org/wiki/Accessibility)
-- I'd also be grateful for updates that make the blog posts more current, accurate, and readable
+- I'd happily accept changes that improve the site's [accessibility](https://en.wikipedia.org/wiki/Accessibility)
+- I also welcome updates that help make the blog posts more accurate and readable
