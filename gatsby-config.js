@@ -101,6 +101,65 @@ module.exports = {
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-twitter`,
     {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  title: edge.node.frontmatter.title,
+                  description: edge.node.frontmatter.description,
+                  date: edge.node.frontmatter.datePublished,
+                  url: `${site.siteMetadata.siteUrl}/${
+                    edge.node.frontmatter.slug
+                  }`,
+                  guid: `${site.siteMetadata.siteUrl}/${
+                    edge.node.frontmatter.slug
+                  }`,
+                  custom_elements: [{ 'content:encoded': edge.node.html }]
+                })
+              })
+            },
+            query: `
+              {
+                allMdx(
+                  filter: { frontmatter: { published: { ne: false } } },
+                  sort: { order: DESC, fields: [frontmatter___datePublished] }
+                ) {
+                  edges {
+                    node {
+                      frontmatter {
+                        slug
+                        title
+                        description
+                        datePublished
+                      }
+                      html
+                    }
+                  }
+                }
+              }
+            `,
+            output: `/rss.xml`,
+            title: `Michael Uloth's RSS Feed`
+          }
+        ]
+      }
+    },
+    {
       resolve: `gatsby-plugin-sitemap`
       // options: {
       //   exclude: [`/lab`, `/lab/*`]
