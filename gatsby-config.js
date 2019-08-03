@@ -30,7 +30,7 @@ module.exports = {
       country: `CA`
     },
     socialLinks: [
-      `https://www.youtube.com/channel/UCuPoyExbksX3s6wuptBeDSw`,
+      `https://www.youtube.com/user/michaeluloth`,
       `https://twitter.com/ooloth`,
       `https://www.linkedin.com/in/michael-uloth-848a1b98`,
       `https://github.com/ooloth`,
