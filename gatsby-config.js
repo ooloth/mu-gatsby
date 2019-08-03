@@ -203,7 +203,8 @@ module.exports = {
         // This path is relative to the root of the site.
         icon: `src/images/michael-uloth-circle.png`
       }
-    }// `gatsby-plugin-offline`,
+    },
+    // `gatsby-plugin-offline`,
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
     //   options: {
