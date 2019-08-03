@@ -203,8 +203,7 @@ module.exports = {
         // This path is relative to the root of the site.
         icon: `src/images/michael-uloth-circle.png`
       }
-    }
-    // `gatsby-plugin-offline`,
+    }// `gatsby-plugin-offline`,
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
     //   options: {
@@ -214,24 +213,22 @@ module.exports = {
     //     respectDNT: true // Setting this parameter is also optional
     //   }
     // },
-    // `gatsby-plugin-netlify-cache`,
-    // {
-    //   resolve: `gatsby-plugin-netlify`, // must come last
-    //   options: {
-    //     headers: {
-    //        // First one is required for the HSTS list:
-    //       '/*': [
-    //        `Strict-Transport-Security: max-age=63072000; includeSubDomains; preload`
-    //      ],
-    //       '/*.html': [`Cache-Control: public, max-age=0, must-revalidate`],
-    //       '/*.js': [`Cache-Control: public, max-age=0, must-revalidate`],
-    //       '/sw.js': [`Cache-Control: max-age=0, no-cache, no-store, must-revalidate`],
-    //       '/icons/*': [`Cache-Control: public,max-age=31536000,immutable`],
-    //       '/static/*': [`Cache-Control: public,max-age=31536000,immutable`],
-    //       '/subfont/*': [`Cache-Control: public,max-age=31536000,immutable`]
-    //     }
-    //   }
-    // },
-    // `gatsby-plugin-subfont`
+    `gatsby-plugin-netlify-cache`,
+    {
+      resolve: `gatsby-plugin-netlify`, // must come last
+      options: {
+        headers: {
+          // First one is required for the HSTS list:
+          '/*': [
+            `Strict-Transport-Security: max-age=63072000; includeSubDomains; preload`
+          ],
+          '/*.html': [`Cache-Control: public,max-age=0,must-revalidate`],
+          '/*.js': [`Cache-Control: public,max-age=0,must-revalidate`],
+          '/sw.js': [`Cache-Control: max-age=0,no-cache,no-store,must-revalidate`],
+          '/icons/*': [`Cache-Control: public,max-age=31536000,immutable`],
+          '/static/*': [`Cache-Control: public,max-age=31536000,immutable`]
+        }
+      }
+    }
   ]
 }
