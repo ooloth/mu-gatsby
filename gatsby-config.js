@@ -154,7 +154,7 @@ module.exports = {
               }
             `,
             output: `/rss.xml`,
-            title: `Michael Uloth's RSS Feed`
+            title: `Michael Uloth's Blog`
           }
         ]
       }
