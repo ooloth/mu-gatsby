@@ -201,7 +201,7 @@ module.exports = {
         // Multiple icons will be generated for various devices.
         // Multiple favicons will be generated and added to each HTML page.
         // This path is relative to the root of the site.
-        icon: `src/images/favicon.jpg`
+        icon: `src/images/michael-uloth-circle.png`
       }
     }
     // `gatsby-plugin-offline`,
