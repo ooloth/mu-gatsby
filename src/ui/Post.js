@@ -85,7 +85,9 @@ function Post({ data: { mdx } }) {
             `}
           >
             <Link
-              href={mdx.frontmatter.linkSharedOnTwitter}
+              href={`https://twitter.com/search?q=${
+                mdx.frontmatter.linkSharedOnTwitter
+              }`}
               css={`
                 ${linkInline}
               `}
