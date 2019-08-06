@@ -23,7 +23,7 @@ function Post({ data: { mdx } }) {
     description: mdx.frontmatter.description,
     url: `${siteUrl}/${mdx.frontmatter.slug}`, // no trailing slash
     author: title,
-    image: mdx.frontmatter.featuredImg // TODO: use my image as a backup?
+    image: mdx.frontmatter.metaImage
   }
 
   // TODO: see https://github.com/gaearon/overreacted.io/blob/master/src/templates/blog-post.js
@@ -226,6 +226,13 @@ export const pageQuery = graphql`
         title
         slug
         description
+        metaImage {
+          childImageSharp {
+            fluid {
+              src
+            }
+          }
+        }
         topics
         linkSharedOnTwitter
         devLink
@@ -242,36 +249,16 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import Image from 'gatsby-image'
 import styled from 'styled-components'
 
 import Base from './Base'
 import Metadata from './Metadata'
 import { H2, H3, P, A, UL, OL, LI, CodeBlock, InlineCode } from './blog'
-import { Link, SrText } from './elements'
+import { Link } from './elements'
 import { ReactComponent as CalendarSVG } from '../svg/calendar-alt-regular.svg'
 import { ReactComponent as ClockSVG } from '../svg/clock-regular.svg'
 import useSiteMetadata from '../queries/useSiteMetadata'
-import {
-  container,
-  copy,
-  icon,
-  linkInline,
-  linkTag,
-  main,
-  media,
-  pageHeadline,
-  pageSubheadline,
-  pageSummary,
-  prismTheme,
-  project,
-  projectDescription,
-  projectTitle,
-  purpleGradient,
-  purpleUnderline,
-  tagList,
-  tagItem
-} from '../styles'
+import { icon, linkInline, main, media, purpleGradient } from '../styles'
 import '../styles/blog.css'
 
 export default Post

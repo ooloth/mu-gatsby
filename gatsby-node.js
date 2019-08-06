@@ -17,6 +17,13 @@ exports.createPages = async function({ actions, graphql }) {
               title
               slug
               description
+              metaImage {
+                childImageSharp {
+                  fluid {
+                    src
+                  }
+                }
+              }
               topics
               linkSharedOnTwitter
               devLink
