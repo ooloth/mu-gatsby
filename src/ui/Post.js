@@ -228,7 +228,7 @@ export const pageQuery = graphql`
         description
         metaImage {
           childImageSharp {
-            fluid {
+            fixed(width: 1500) {
               src
             }
           }

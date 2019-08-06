@@ -17,7 +17,7 @@ function Metadata({ page, preconnect, preload }) {
 
   const image = page
     ? page.image
-      ? site.siteUrl + page.image.childImageSharp.fluid.src
+      ? site.siteUrl + page.image.childImageSharp.fixed.src
       : site.siteUrl + siteImage
     : site.siteUrl + siteImage
 
