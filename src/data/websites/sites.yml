@@ -157,6 +157,25 @@
     - github
     - netlify
 
+#####################
+# COFFEESHOP CREATIVE
+#####################
+
+- title: Coffeeshop Creative
+
+  link: https://www.coffeeshopcreative.ca
+
+  description: Marketing site for a Toronto web design and videography studio.
+
+  tools: 
+    - react
+    - gatsby
+    - styled-components
+    - xstate
+    - git
+    - github
+    - netlify
+
 #############
 # ALAINA VIAU
 #############
