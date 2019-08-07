@@ -60,7 +60,7 @@
 
   link: https://www.homecarequotes.ca/home-care.html
 
-  description: Directory of Toronto home care agencies, featuring a location-based search that sorts results by distance. Design by Stephen Bell.
+  description: Directory of Toronto home care agencies that uses geolocation to sort results by distance from the user's postal code. Design by Stephen Bell.
 
   tools: 
     - vue
