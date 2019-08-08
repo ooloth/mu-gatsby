@@ -101,7 +101,7 @@ function NetlifyForm() {
 const emailRegex = `.+@.+..+`
 
 const InputAndSubmit = styled.div`
-  ${media.sm`
+  @media screen and (min-width: 480px) {
     ${purpleGradient}
     display: flex;
     align-items: baseline;
@@ -111,7 +111,7 @@ const InputAndSubmit = styled.div`
     overflow: hidden;
     width: max-content;
     max-width: 100%;
-  `}
+  }
 `
 
 const Input = styled.input`
@@ -122,7 +122,6 @@ const Input = styled.input`
   border-radius: var(--r2);
   padding: var(--s2) var(--s3);
   width: 100%;
-  max-width: 18rem;
   line-height: normal;
   text-align: center;
   color: white;
@@ -132,7 +131,7 @@ const Input = styled.input`
     color: white;
   }
 
-  ${media.sm`
+  @media screen and (min-width: 480px) {
     flex: 1 1 auto;
     margin-top: 0;
     box-shadow: none;
@@ -140,7 +139,7 @@ const Input = styled.input`
     background: transparent;
     width: 18rem;
     text-align: left;
-  `}
+  }
 `
 
 const Submit = styled.button`
@@ -152,7 +151,6 @@ const Submit = styled.button`
   background-color: var(--black);
   padding: var(--s2) var(--s3);
   width: 100%;
-  max-width: 18rem;
   line-height: normal;
   color: var(--black);
   color: white;
@@ -166,14 +164,14 @@ const Submit = styled.button`
     color: white;
   }
 
-  ${media.sm`
+  @media screen and (min-width: 480px) {
     flex: none;
     margin-top: 0;
     box-shadow: none;
     border-radius: 0;
     width: auto;
     line-height: 1.6;
-  `}
+  }
 `
 
 const AlertText = styled.p`
@@ -190,6 +188,6 @@ import styled from 'styled-components'
 import { Emoji } from './elements'
 import useMachine from '../logic/useMachine'
 import { netlifyFormMachine } from '../logic/netlifyForm'
-import { container, copy, media, purpleGradient } from '../styles'
+import { container, copy, purpleGradient } from '../styles'
 
 export default NetlifyFormExample
