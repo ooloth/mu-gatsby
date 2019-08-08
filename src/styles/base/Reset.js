@@ -595,11 +595,13 @@ const Reset = createGlobalStyle`
    * Turn off all animations if the user prefers reduced motion.
    */
   @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0s !important;
-    transition-duration: 0s !important;
+    *, 
+    *::before, 
+    *::after {
+      animation-duration: 0s !important;
+      transition-duration: 0s !important;
+    }
   }
-}
 `
 
 ///////////////////////////////////////////////////////////////////////////////////
