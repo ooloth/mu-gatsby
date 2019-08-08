@@ -32,6 +32,7 @@ const MinHeight100 = styled.div`
 
 import React from 'react'
 import styled from 'styled-components'
+import 'what-input'
 
 import Metadata from './Metadata'
 import Top from './Top'
