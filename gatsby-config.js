@@ -80,13 +80,14 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
-          // `gatsby-remark-a11y-emoji`,
+          `gatsby-remark-unwrap-images`,
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1000,
+              withWebp: true,
               showCaptions: true,
-              withWebp: true
+              linkImagesToOriginal: false
             }
           },
           {
@@ -95,6 +96,7 @@ module.exports = {
               dashes: `oldschool`
             }
           }
+          // `gatsby-remark-a11y-emoji`
         ]
       }
     },
@@ -159,12 +161,7 @@ module.exports = {
         ]
       }
     },
-    {
-      resolve: `gatsby-plugin-sitemap`
-      // options: {
-      //   exclude: [`/lab`, `/lab/*`]
-      // }
-    },
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-robots-txt`,
       // Disable crawlers for Netlify deploy-previews:
