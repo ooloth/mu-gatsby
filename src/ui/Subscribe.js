@@ -43,7 +43,7 @@ function NetlifyForm() {
     <>
       {state.value !== `success` && (
         <>
-          <Text>Get an email when I publish something new.</Text>
+          <Text>Receive my latest content by email.</Text>
           <small>No spam. No email sharing. Unsubscribe any time.</small>
 
           <form netlify="true" name="Subscribe" onSubmit={handleSubmit}>
@@ -89,7 +89,7 @@ function NetlifyForm() {
             ariaLabel="An emoji of two hands raised in appreciation."
           />
           <br />
-          You'll be the first to know when new content is ready.
+          You'll be the first to know when I publish new content.
         </AlertText>
       )}
     </>
