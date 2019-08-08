@@ -158,13 +158,6 @@ import { ReactComponent as YouTubeSVG } from '../svg/youtube-brands.svg'
 import { ReactComponent as RssSVG } from '../svg/rss-solid.svg'
 import { ReactComponent as PaperPlaneSVG } from '../svg/paper-plane-solid.svg'
 import useSharedData from '../queries/useSharedData'
-import {
-  container,
-  icon,
-  linkInline,
-  media,
-  purpleGradient,
-  purpleUnderline
-} from '../styles'
+import { container, icon, linkInline, purpleGradient } from '../styles'
 
 export default Bottom
