@@ -596,8 +596,8 @@ const Reset = createGlobalStyle`
    */
   @media (prefers-reduced-motion: reduce) {
   * {
-    animation: none !important;
-    transition: none !important;
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
   }
 }
 `
