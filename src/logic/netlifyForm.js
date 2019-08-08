@@ -2,7 +2,7 @@ export const netlifyFormMachine = Machine(
   {
     id: `netlifyFormMachine`,
     context: {
-      formName: `Contact`, // update default name externally
+      formName: `Subscribe`,
       values: {}
     },
     initial: `filling`,
@@ -10,7 +10,7 @@ export const netlifyFormMachine = Machine(
       filling: {
         on: {
           UPDATE_FIELD: {
-            actions: [`updateField`, `logValues`]
+            actions: [`updateField`]
           },
           SUBMIT: `sending`
         }

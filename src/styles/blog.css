@@ -1,5 +1,4 @@
-/* Other blog post styles */
-
+/* gatsby-remark-images */
 .gatsby-resp-image-link {
   background-image: none;
 }
@@ -31,7 +30,7 @@ figcaption {
   color: white;
 }
 
-/* Blockquotes that become Twitter widgets */
+/* gatsby-plugin-twitter */
 .twitter-tweet { 
   margin-top: var(--s6) !important;
   margin-bottom: var(--s6) !important;

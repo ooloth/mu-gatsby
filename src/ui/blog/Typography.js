@@ -19,7 +19,7 @@ export const P = styled.p`
 `
 
 export const A = styled(Link)`
-  /* Don't add purple underline to images */
+  /* Don't add purple underline to images that are links */
   &:not(.gatsby-resp-image-link) {
     ${linkInline}
   }
@@ -49,4 +49,4 @@ export const LI = styled.li`
 import styled from 'styled-components'
 
 import { Link } from '../elements'
-import { copy, linkInline, purpleUnderline } from '../../styles'
+import { copy, linkInline } from '../../styles'

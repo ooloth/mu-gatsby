@@ -31,47 +31,12 @@ function Post({ data: { mdx } }) {
     <Base>
       <Metadata page={metadata} />
 
-      <main
-        css={`
-          ${main};
-          margin-top: var(--s7);
-          padding-top: var(--s4);
-          // margin-left: auto;
-        `}
-      >
+      <Main>
         <article>
-          <header
-            css={`
-              margin-bottom: var(--s6);
-            `}
-          >
+          <Header>
             <Title>{mdx.frontmatter.title}</Title>
-
-            <MetaItems>
-              <MetaItem>
-                <MetaIconWrapper>
-                  <CalendarSVG css={icon} aria-hidden />
-                </MetaIconWrapper>
-                <p>Published {mdx.frontmatter.datePublished}</p>
-              </MetaItem>
-
-              {mdx.frontmatter.dateUpdated && (
-                <MetaItem>
-                  <MetaIconWrapper>
-                    <CalendarSVG css={icon} aria-hidden />
-                  </MetaIconWrapper>
-                  <p>Updated {mdx.frontmatter.dateUpdated}</p>
-                </MetaItem>
-              )}
-
-              <MetaItem>
-                <MetaIconWrapper>
-                  <ClockSVG css={icon} aria-hidden />
-                </MetaIconWrapper>
-                <p>{mdx.timeToRead} min read</p>
-              </MetaItem>
-            </MetaItems>
-          </header>
+            <MetaItems mdx={mdx} />
+          </Header>
 
           <section>
             <MDXProvider components={components}>
@@ -79,76 +44,13 @@ function Post({ data: { mdx } }) {
             </MDXProvider>
           </section>
 
-          <footer
-            css={`
-              margin-top: var(--s7);
-            `}
-          >
-            <Link
-              href={`https://twitter.com/search?q=${
-                mdx.frontmatter.linkSharedOnTwitter
-              }`}
-              css={`
-                ${linkInline}
-              `}
-            >
-              Discuss on Twitter
-            </Link>
-            <br
-              css={`
-                line-height: 2;
-                ${media.sm`display:none;`}
-              `}
-            />
-            <span
-              css={`
-                display: none;
-                ${media.sm`display:inline;`}
-              `}
-            >
-              ・
-            </span>
-            <Link
-              href={mdx.frontmatter.devLink}
-              css={`
-                ${linkInline};
-              `}
-            >
-              Discuss on DEV.to
-            </Link>
-
-            {mdx.frontmatter.editLink && (
-              <>
-                <br
-                  css={`
-                    line-height: 2;
-                    ${media.sm`display:none;`}
-                  `}
-                />
-                <span
-                  css={`
-                    display: none;
-                    ${media.sm`display:inline;`}
-                  `}
-                >
-                  ・
-                </span>
-                <Link
-                  href={mdx.frontmatter.editLink}
-                  css={`
-                    ${linkInline}
-                  `}
-                >
-                  Edit on GitHub
-                </Link>
-              </>
-            )}
-          </footer>
+          <Footer mdx={mdx} />
         </article>
-      </main>
+      </Main>
 
       <aside>
         {/* TODO: add newsletter? */}
+        <Subscribe />
 
         {/* TODO: add prev/next links? */}
 
@@ -170,6 +72,16 @@ function Post({ data: { mdx } }) {
 
 ///////////////////////////////////////////////////////////////////////////////////
 
+const Main = styled.main`
+  ${main}
+  margin-top: var(--s7);
+  padding-top: var(--s4);
+`
+
+const Header = styled.header`
+  margin-bottom: var(--s6);
+`
+
 const Title = styled.h1`
   line-height: 1.1;
   font-size: 2.1rem;
@@ -184,7 +96,40 @@ const Title = styled.h1`
   `}
 `
 
-const MetaItems = styled.ul`
+///////////////////////////////////////////////////////////////////////////////////
+
+function MetaItems({ mdx }) {
+  return (
+    <Items>
+      <Item>
+        <IconWrapper>
+          <CalendarSVG css={icon} aria-hidden />
+        </IconWrapper>
+        <p>Published {mdx.frontmatter.datePublished}</p>
+      </Item>
+
+      {mdx.frontmatter.dateUpdated && (
+        <Item>
+          <IconWrapper>
+            <CalendarSVG css={icon} aria-hidden />
+          </IconWrapper>
+          <p>Updated {mdx.frontmatter.dateUpdated}</p>
+        </Item>
+      )}
+
+      <Item>
+        <IconWrapper>
+          <ClockSVG css={icon} aria-hidden />
+        </IconWrapper>
+        <p>{mdx.timeToRead} min read</p>
+      </Item>
+    </Items>
+  )
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+
+const Items = styled.ul`
   margin-top: var(--s5);
 
   ${media.sm`
@@ -194,7 +139,7 @@ const MetaItems = styled.ul`
   `}
 `
 
-const MetaItem = styled.li`
+const Item = styled.li`
   display: flex;
   align-items: center;
   margin-top: var(--s2);
@@ -202,7 +147,7 @@ const MetaItem = styled.li`
   line-height: var(--lh2);
 `
 
-const MetaIconWrapper = styled.span`
+const IconWrapper = styled.span`
   ${purpleGradient}
   display: flex;
   justify-content: center;
@@ -214,6 +159,80 @@ const MetaIconWrapper = styled.span`
   height: var(--s5);
   font-size: 0.9rem;
   color: white;
+`
+
+///////////////////////////////////////////////////////////////////////////////////
+
+function Footer({ mdx }) {
+  return (
+    <StyledFooter>
+      <Link
+        href={`https://twitter.com/search?q=${
+          mdx.frontmatter.linkSharedOnTwitter
+        }`}
+        css={`
+          ${linkInline}
+        `}
+      >
+        Discuss on Twitter
+      </Link>
+      <br
+        css={`
+          line-height: 2;
+          ${media.sm`display:none;`}
+        `}
+      />
+      <span
+        css={`
+          display: none;
+          ${media.sm`display:inline;`}
+        `}
+      >
+        ・
+      </span>
+      <Link
+        href={mdx.frontmatter.devLink}
+        css={`
+          ${linkInline};
+        `}
+      >
+        Discuss on DEV.to
+      </Link>
+
+      {mdx.frontmatter.editLink && (
+        <>
+          <br
+            css={`
+              line-height: 2;
+              ${media.sm`display:none;`}
+            `}
+          />
+          <span
+            css={`
+              display: none;
+              ${media.sm`display:inline;`}
+            `}
+          >
+            ・
+          </span>
+          <Link
+            href={mdx.frontmatter.editLink}
+            css={`
+              ${linkInline}
+            `}
+          >
+            Edit on GitHub
+          </Link>
+        </>
+      )}
+    </StyledFooter>
+  )
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+
+const StyledFooter = styled.footer`
+  margin-top: var(--s7);
 `
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -255,6 +274,7 @@ import styled from 'styled-components'
 
 import Base from './Base'
 import Metadata from './Metadata'
+import Subscribe from './Subscribe'
 import { H2, H3, P, A, UL, OL, LI, CodeBlock, InlineCode } from './blog'
 import { Link } from './elements'
 import { ReactComponent as CalendarSVG } from '../svg/calendar-alt-regular.svg'
