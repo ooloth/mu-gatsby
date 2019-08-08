@@ -49,7 +49,6 @@ function Post({ data: { mdx } }) {
       </Main>
 
       <aside>
-        {/* TODO: add newsletter? */}
         <Subscribe />
 
         {/* TODO: add prev/next links? */}
@@ -164,18 +163,32 @@ const IconWrapper = styled.span`
 ///////////////////////////////////////////////////////////////////////////////////
 
 function Footer({ mdx }) {
+  const isVideo = mdx.frontmatter.linkSharedOnTwitter.includes(`youtu`)
+
   return (
     <StyledFooter>
-      <Link
-        href={`https://twitter.com/search?q=${
-          mdx.frontmatter.linkSharedOnTwitter
-        }`}
-        css={`
-          ${linkInline}
-        `}
-      >
-        Discuss on Twitter
-      </Link>
+      {isVideo ? (
+        <Link
+          href={mdx.frontmatter.linkSharedOnTwitter}
+          css={`
+            ${linkInline}
+          `}
+        >
+          Discuss on YouTube
+        </Link>
+      ) : (
+        <Link
+          href={`https://twitter.com/search?q=${
+            mdx.frontmatter.linkSharedOnTwitter
+          }`}
+          css={`
+            ${linkInline}
+          `}
+        >
+          Discuss on Twitter
+        </Link>
+      )}
+
       <br
         css={`
           line-height: 2;
