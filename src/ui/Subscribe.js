@@ -22,7 +22,7 @@ const Heading = styled.h2`
 const Text = styled.p`
   ${copy}
   margin-top: var(--s4);
-  margin-bottom: var(--s2);
+  margin-bottom: var(--s1);
 `
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -105,7 +105,7 @@ const InputAndSubmit = styled.div`
     ${purpleGradient}
     display: flex;
     align-items: baseline;
-    margin-top: var(--s3);
+    margin-top: var(--s4);
     box-shadow: var(--shadow1);
     border-radius: var(--r2);
     overflow: hidden;
