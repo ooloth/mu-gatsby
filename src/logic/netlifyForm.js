@@ -10,7 +10,7 @@ export const netlifyFormMachine = Machine(
       filling: {
         on: {
           UPDATE_FIELD: {
-            actions: [`updateField`, `logValues`]
+            actions: [`updateField`]
           },
           SUBMIT: `sending`
         }
@@ -60,8 +60,6 @@ async function sendFormToNetlify(ctx) {
     'form-name': ctx.formName,
     ...ctx.values
   })
-
-  console.log({ encodedUrl })
 
   return fetch(`/`, {
     method: `POST`,
