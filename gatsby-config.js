@@ -95,8 +95,8 @@ module.exports = {
             options: {
               dashes: `oldschool`
             }
-          }
-          // `gatsby-remark-a11y-emoji`
+          },
+          `gatsby-remark-a11y-emoji`
         ]
       }
     },
