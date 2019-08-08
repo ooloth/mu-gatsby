@@ -63,11 +63,11 @@ async function sendFormToNetlify(ctx) {
 
   console.log({ encodedUrl })
 
-  // return fetch(`/`, {
-  //   method: `POST`,
-  //   headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-  //   body: encodedUrl
-  // })
+  return fetch(`/`, {
+    method: `POST`,
+    headers: { 'Content-Type': `application/x-www-form-urlencoded` },
+    body: encodedUrl
+  })
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
