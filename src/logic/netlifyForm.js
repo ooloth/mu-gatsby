@@ -2,7 +2,7 @@ export const netlifyFormMachine = Machine(
   {
     id: `netlifyFormMachine`,
     context: {
-      formName: `Contact`, // update default name externally
+      formName: `Subscribe`,
       values: {}
     },
     initial: `filling`,
@@ -61,11 +61,13 @@ async function sendFormToNetlify(ctx) {
     ...ctx.values
   })
 
-  return fetch(`/`, {
-    method: `POST`,
-    headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-    body: encodedUrl
-  })
+  console.log({ encodedUrl })
+
+  // return fetch(`/`, {
+  //   method: `POST`,
+  //   headers: { 'Content-Type': `application/x-www-form-urlencoded` },
+  //   body: encodedUrl
+  // })
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
