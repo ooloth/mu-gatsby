@@ -201,6 +201,8 @@ module.exports = {
         icon: `src/images/michael-uloth-circle.png`
       }
     },
+    // bust old service worker versions in Safari showing the old site 🧨
+    `gatsby-plugin-remove-serviceworker`,
     // `gatsby-plugin-offline`,
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
