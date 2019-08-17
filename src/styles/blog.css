@@ -1,10 +1,7 @@
-/* gatsby-remark-images */
-.gatsby-resp-image-link {
-  background-image: none;
-}
-
-.gatsby-resp-image-background-image {
-  position: absolute !important;
+.gatsby-resp-image-wrapper {
+  box-shadow: var(--shadow2);
+  overflow: hidden;
+  border-radius: var(--r2);
 }
 
 img {

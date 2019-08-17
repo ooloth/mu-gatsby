@@ -100,6 +100,8 @@ module.exports = {
         ]
       }
     },
+    // Temporary bug fix for gatsby-remark-images (https://twitter.com/chrisbiscardi/status/1159927455735353344)
+    `gatsby-remark-images`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-twitter`,
     {
