@@ -204,15 +204,15 @@ module.exports = {
     // bust old service worker versions in Safari showing the old site 🧨
     `gatsby-plugin-remove-serviceworker`,
     // `gatsby-plugin-offline`,
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: 'TRACKING_CODE_HERE',
-    //     head: true, // Puts tracking script in the head instead of the body
-    //     anonymize: true, // Setting this parameter is optional
-    //     respectDNT: true // Setting this parameter is also optional
-    //   }
-    // },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+        head: true, // https://csswizardry.com/2018/11/css-and-network-performance/
+        anonymize: true,
+        respectDNT: true
+      }
+    },
     `gatsby-plugin-netlify-cache`,
     {
       resolve: `gatsby-plugin-netlify`, // must come last
