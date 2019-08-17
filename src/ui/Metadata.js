@@ -171,6 +171,6 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
 import useSiteMetadata from '../queries/useSiteMetadata'
-import siteImage from '../images/michael-uloth.jpg'
+import siteImage from '../images/michael-uloth-landscape.jpg'
 
 export default Metadata
