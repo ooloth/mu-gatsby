@@ -6,7 +6,7 @@
 
 exports.createPages = async function({ actions, graphql }) {
   await graphql(`
-    query {
+    {
       allMdx(filter: { frontmatter: { published: { ne: false } } }) {
         edges {
           node {
@@ -36,14 +36,14 @@ exports.createPages = async function({ actions, graphql }) {
     }
   `).then(result => {
     if (result.errors) {
-      console.error(result.errors)
+      console.error(result.errors);
     }
 
-    const { edges } = result.data.allMdx
+    const { edges } = result.data.allMdx;
 
     edges.forEach((edge, i) => {
-      const prev = i === 0 ? null : edges[i - 1].node
-      const next = i === edges.length - 1 ? null : edges[i + 1].node
+      const prev = i === 0 ? null : edges[i - 1].node;
+      const next = i === edges.length - 1 ? null : edges[i + 1].node;
 
       actions.createPage({
         path: edge.node.frontmatter.slug,
@@ -53,7 +53,40 @@ exports.createPages = async function({ actions, graphql }) {
           prev,
           next
         }
-      })
+      });
+    });
+  });
+};
+
+// Generate TV Show data
+
+const { fetchTvData } = require(`./src/node/fetchTvData`);
+const crypto = require(`crypto`);
+
+exports.sourceNodes = async ({ actions }) => {
+  const { createNode } = actions;
+  const tvData = await fetchTvData();
+
+  tvData.forEach(show =>
+    createNode({
+      // Data for the node.
+      name: show.name,
+      airDate: show.airDate,
+      posterUrl: show.posterUrl,
+
+      // Required fields.
+      id: String(show.id),
+      parent: null,
+      children: [],
+      internal: {
+        type: `TvShow`,
+        contentDigest: crypto
+          .createHash(`md5`)
+          .update(JSON.stringify(show))
+          .digest(`hex`)
+      }
     })
-  })
-}
+  );
+
+  return;
+};
