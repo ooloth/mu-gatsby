@@ -1,5 +1,5 @@
 // Use environment variables for Google Analytics + Search Console
-require(`dotenv`).config()
+require(`dotenv`).config();
 
 // Robots.txt variables
 const {
@@ -7,9 +7,9 @@ const {
   URL: NETLIFY_SITE_URL = `https://www.michaeluloth.com`,
   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
   CONTEXT: NETLIFY_ENV = NODE_ENV
-} = process.env
-const isNetlifyProduction = NETLIFY_ENV === `production`
-const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
+} = process.env;
+const isNetlifyProduction = NETLIFY_ENV === `production`;
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
 
 module.exports = {
   siteMetadata: {
@@ -60,6 +60,11 @@ module.exports = {
       title: `Opera | Michael Uloth`,
       description: `Concerts and operas I've been lucky enough to perform.`,
       url: `https://www.michaeluloth.com/opera`
+    },
+    likesPage: {
+      title: `Likes | Michael Uloth`,
+      description: `Fun stuff that makes me happy.`,
+      url: `https://www.michaeluloth.com/likes`
     }
   },
   plugins: [
@@ -68,6 +73,14 @@ module.exports = {
       options: {
         name: `src`,
         path: `${__dirname}/src/`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: `TvShow`,
+        imagePath: `posterUrl`,
+        name: `poster`
       }
     },
     `gatsby-plugin-styled-components`,
@@ -127,15 +140,11 @@ module.exports = {
                   title: edge.node.frontmatter.title,
                   description: edge.node.frontmatter.description,
                   date: edge.node.frontmatter.datePublished,
-                  url: `${site.siteMetadata.siteUrl}/${
-                    edge.node.frontmatter.slug
-                  }`,
-                  guid: `${site.siteMetadata.siteUrl}/${
-                    edge.node.frontmatter.slug
-                  }`,
-                  custom_elements: [{ 'content:encoded': edge.node.html }]
-                })
-              })
+                  url: `${site.siteMetadata.siteUrl}/${edge.node.frontmatter.slug}`,
+                  guid: `${site.siteMetadata.siteUrl}/${edge.node.frontmatter.slug}`,
+                  custom_elements: [{ "content:encoded": edge.node.html }]
+                });
+              });
             },
             query: `
               {
@@ -173,12 +182,12 @@ module.exports = {
           production: {
             policy: [{ userAgent: `*` }]
           },
-          'branch-deploy': {
+          "branch-deploy": {
             policy: [{ userAgent: `*`, disallow: [`/`] }],
             sitemap: null,
             host: null
           },
-          'deploy-preview': {
+          "deploy-preview": {
             policy: [{ userAgent: `*`, disallow: [`/`] }],
             sitemap: null,
             host: null
@@ -221,16 +230,18 @@ module.exports = {
       options: {
         headers: {
           // First one is required for the HSTS list:
-          '/*': [
+          "/*": [
             `Strict-Transport-Security: max-age=63072000; includeSubDomains; preload`
           ],
-          '/*.html': [`Cache-Control: public,max-age=0,must-revalidate`],
-          '/*.js': [`Cache-Control: public,max-age=0,must-revalidate`],
-          '/sw.js': [`Cache-Control: max-age=0,no-cache,no-store,must-revalidate`],
-          '/icons/*': [`Cache-Control: public,max-age=31536000,immutable`],
-          '/static/*': [`Cache-Control: public,max-age=31536000,immutable`]
+          "/*.html": [`Cache-Control: public,max-age=0,must-revalidate`],
+          "/*.js": [`Cache-Control: public,max-age=0,must-revalidate`],
+          "/sw.js": [
+            `Cache-Control: max-age=0,no-cache,no-store,must-revalidate`
+          ],
+          "/icons/*": [`Cache-Control: public,max-age=31536000,immutable`],
+          "/static/*": [`Cache-Control: public,max-age=31536000,immutable`]
         }
       }
     }
   ]
-}
+};

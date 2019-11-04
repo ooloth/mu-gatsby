@@ -1,16 +1,16 @@
 export const pageSummary = css`
   margin-top: var(--s5);
-  max-width: 32ch;
+  width: 32ch;
   line-height: 1.4;
   font-size: var(--f5);
 
   ${media.sm`
     font-size: 1.35rem;
   `}
-`
+`;
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import { css } from 'styled-components'
+import { css } from "styled-components";
 
-import { media } from './media'
+import { media } from "./media";
