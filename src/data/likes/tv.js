@@ -1,4 +1,5 @@
 // Test titles here: https://api.thetvdb.com/swagger#/
+// Choose alias that matches slug (we search by slug first to get the IDs)
 
 exports.tv = [
   `30 for 30`,
