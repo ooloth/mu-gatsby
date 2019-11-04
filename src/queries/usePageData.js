@@ -1,5 +1,5 @@
 function usePageData() {
-  const { blogYaml, websitesYaml, operaYaml } = useStaticQuery(
+  const { blogYaml, websitesYaml, operaYaml, likesYaml } = useStaticQuery(
     graphql`
       query {
         blogYaml {
@@ -28,15 +28,24 @@ function usePageData() {
           }
           summary
         }
+
+        likesYaml {
+          headline
+          emoji {
+            icon
+            label
+          }
+          summary
+        }
       }
     `
-  )
+  );
 
-  return { blogYaml, websitesYaml, operaYaml }
+  return { blogYaml, websitesYaml, operaYaml, likesYaml };
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from "gatsby";
 
-export default usePageData
+export default usePageData;

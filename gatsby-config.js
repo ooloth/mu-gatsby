@@ -60,6 +60,11 @@ module.exports = {
       title: `Opera | Michael Uloth`,
       description: `Concerts and operas I've been lucky enough to perform.`,
       url: `https://www.michaeluloth.com/opera`
+    },
+    likesPage: {
+      title: `Likes | Michael Uloth`,
+      description: `Fun stuff that makes me happy.`,
+      url: `https://www.michaeluloth.com/likes`
     }
   },
   plugins: [
