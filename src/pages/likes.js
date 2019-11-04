@@ -13,7 +13,12 @@ function LikesPage({ location }) {
         summary={page.summary}
       />
 
-      <main css={main}>
+      <main
+        css={`
+          ${main}
+          max-width: 100%;
+        `}
+      >
         <TV />
       </main>
     </Base>
