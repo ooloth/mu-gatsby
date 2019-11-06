@@ -44,8 +44,7 @@ async function getShowDataFromTitles(showTitles, jwtToken) {
         return {
           name: removeYearInParenthesesFromTitle(data.data[0].seriesName),
           id: data.data[0].id,
-          airDate: data.data[0].firstAired ? data.data[0].firstAired : null,
-          link: `https://www.imdb.com/title/${data.data[0].imdbId}/`
+          airDate: data.data[0].firstAired ? data.data[0].firstAired : null
         };
       } catch (error) {
         console.log("getShowDataFromTitles error", error);
@@ -117,6 +116,38 @@ async function getAirDate(showData, jwtToken) {
   );
 }
 
+async function getImdbLink(showData, jwtToken) {
+  return Promise.all(
+    showData.map(async show => {
+      try {
+        const response = await fetch(
+          `https://api.thetvdb.com/series/${show.id}`,
+          {
+            headers: {
+              Accept: "application/json",
+              Authorization: `Bearer ${jwtToken}`
+            }
+          }
+        );
+        const data = await response.json();
+        // console.log("data", data);
+
+        if (typeof data.data === `undefined`) {
+          console.log("show.name", show.name);
+          console.log("show.id", show.id);
+        }
+
+        return {
+          ...show,
+          link: `https://www.imdb.com/title/${data.data.imdbId}/`
+        };
+      } catch (error) {
+        console.log("getImdbLink error", error);
+      }
+    })
+  );
+}
+
 async function getShowImages(showData, jwtToken) {
   return Promise.all(
     showData.map(async show => {
@@ -160,8 +191,10 @@ async function getShowImages(showData, jwtToken) {
 
 exports.fetchTvData = async () => {
   const jwtToken = await getJwtTokenForApiCalls();
+  console.log("jwtToken", jwtToken);
   const showData = await getShowDataFromTitles(showTitles, jwtToken);
   const showsWithDates = await getAirDate(showData, jwtToken);
-  const showsWithImages = await getShowImages(showsWithDates, jwtToken);
+  const showsWithLinks = await getImdbLink(showsWithDates, jwtToken);
+  const showsWithImages = await getShowImages(showsWithLinks, jwtToken);
   return showsWithImages;
 };
