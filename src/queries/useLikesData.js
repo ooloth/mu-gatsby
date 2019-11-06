@@ -4,9 +4,10 @@ function useLikesData() {
       query {
         allTvShow(sort: { fields: airDate, order: DESC }) {
           nodes {
-            airDate
             id
             name
+            airDate
+            link
             poster {
               childImageSharp {
                 fluid {

@@ -72,6 +72,7 @@ exports.sourceNodes = async ({ actions }) => {
       // Data for the node.
       name: show.name,
       airDate: show.airDate,
+      link: show.link,
       posterUrl: show.posterUrl,
 
       // Required fields.
