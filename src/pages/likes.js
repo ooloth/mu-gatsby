@@ -3,7 +3,6 @@ function LikesPage({ location }) {
   const { likesYaml: page } = usePageData();
 
   return (
-    // https://www.gatsbyjs.org/docs/migrating-from-v1-to-v2/#4-pass-history-location-and-match-props-to-layout
     <Base location={location}>
       <Metadata page={likesPage} />
 
@@ -69,15 +68,6 @@ const LikesHeading = styled.h2`
   font-weight: 900;
 `;
 
-const LikesList = styled.ul`
-  ${hideScrollbar}
-  display: flex;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-`;
-
 const hideScrollbar = css`
   /* For IE */
   -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -92,6 +82,15 @@ const hideScrollbar = css`
     width: 0px;
     height: 0px;
   }
+`;
+
+const LikesList = styled.ul`
+  ${hideScrollbar}
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 `;
 
 const LikesItem = styled.li`
