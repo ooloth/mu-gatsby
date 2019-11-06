@@ -116,7 +116,7 @@ async function getAirDate(showData, jwtToken) {
   );
 }
 
-async function getImdbLink(showData, jwtToken) {
+async function getLink(showData, jwtToken) {
   return Promise.all(
     showData.map(async show => {
       try {
@@ -151,7 +151,7 @@ async function getImdbLink(showData, jwtToken) {
           link: link
         };
       } catch (error) {
-        console.log("getImdbLink error", error);
+        console.log("getLink error", error);
       }
     })
   );
@@ -202,7 +202,7 @@ exports.fetchTvData = async () => {
   const jwtToken = await getJwtTokenForApiCalls();
   const showData = await getShowDataFromTitles(showTitles, jwtToken);
   const showsWithDates = await getAirDate(showData, jwtToken);
-  const showsWithLinks = await getImdbLink(showsWithDates, jwtToken);
+  const showsWithLinks = await getLink(showsWithDates, jwtToken);
   const showsWithImages = await getShowImages(showsWithLinks, jwtToken);
   return showsWithImages;
 };
