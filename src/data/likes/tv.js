@@ -47,7 +47,6 @@ exports.tv = [
   `Deadwood`,
   `Dexter`,
   `Dirk Gently`,
-  `Dollhouse`,
   `Downton Abbey`,
   `Dragons' Den`,
   `Drunk History`,
