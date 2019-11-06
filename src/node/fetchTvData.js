@@ -137,9 +137,18 @@ async function getImdbLink(showData, jwtToken) {
           console.log("show.id", show.id);
         }
 
+        if (typeof data.data.imdbId === `undefined`) {
+          console.log("show.name", show.name);
+          console.log("show.id", show.id);
+        }
+
+        const link = data.data.imdbId
+          ? `https://www.imdb.com/title/${data.data.imdbId}/`
+          : `https://www.thetvdb.com/series/after-life/${data.data.slug}`;
+
         return {
           ...show,
-          link: `https://www.imdb.com/title/${data.data.imdbId}/`
+          link: link
         };
       } catch (error) {
         console.log("getImdbLink error", error);
@@ -191,7 +200,6 @@ async function getShowImages(showData, jwtToken) {
 
 exports.fetchTvData = async () => {
   const jwtToken = await getJwtTokenForApiCalls();
-  console.log("jwtToken", jwtToken);
   const showData = await getShowDataFromTitles(showTitles, jwtToken);
   const showsWithDates = await getAirDate(showData, jwtToken);
   const showsWithLinks = await getImdbLink(showsWithDates, jwtToken);
