@@ -58,14 +58,17 @@ exports.createPages = async function({ actions, graphql }) {
   });
 };
 
-// Generate TV Show data
+// Generate Likes data nodes
 
-const { fetchTvData } = require(`./src/node/fetchTvData`);
 const crypto = require(`crypto`);
+const { fetchTvData } = require(`./src/node/fetchTvData`);
+const { fetchMovieData } = require(`./src/node/fetchMovieData`);
 
 exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
+
   const tvData = await fetchTvData();
+  const movieData = await fetchMovieData();
 
   tvData.forEach(show =>
     createNode({
@@ -84,6 +87,28 @@ exports.sourceNodes = async ({ actions }) => {
         contentDigest: crypto
           .createHash(`md5`)
           .update(JSON.stringify(show))
+          .digest(`hex`)
+      }
+    })
+  );
+
+  movieData.forEach(movie =>
+    createNode({
+      // Data for the node.
+      title: movie.title,
+      releaseDate: movie.releaseDate,
+      posterUrl: movie.posterUrl,
+      link: movie.link,
+
+      // Required fields.
+      id: String(movie.id),
+      parent: null,
+      children: [],
+      internal: {
+        type: `Movie`,
+        contentDigest: crypto
+          .createHash(`md5`)
+          .update(JSON.stringify(movie))
           .digest(`hex`)
       }
     })
