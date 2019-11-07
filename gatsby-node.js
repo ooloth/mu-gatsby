@@ -69,6 +69,7 @@ exports.sourceNodes = async ({ actions }) => {
 
   const tvData = await fetchTvData();
   const movieData = await fetchMovieData();
+  console.log("movieData", movieData);
 
   tvData.forEach(show =>
     createNode({
@@ -92,26 +93,28 @@ exports.sourceNodes = async ({ actions }) => {
     })
   );
 
-  movieData.forEach(movie =>
-    createNode({
-      // Data for the node.
-      title: movie.title,
-      releaseDate: movie.releaseDate,
-      posterUrl: movie.posterUrl,
-      link: movie.link,
+  movieData.forEach(
+    movie =>
+      movie &&
+      createNode({
+        // Data for the node.
+        title: movie.title,
+        releaseDate: movie.releaseDate,
+        posterUrl: movie.posterUrl,
+        link: movie.link,
 
-      // Required fields.
-      id: String(movie.id),
-      parent: null,
-      children: [],
-      internal: {
-        type: `Movie`,
-        contentDigest: crypto
-          .createHash(`md5`)
-          .update(JSON.stringify(movie))
-          .digest(`hex`)
-      }
-    })
+        // Required fields.
+        id: String(movie.id),
+        parent: null,
+        children: [],
+        internal: {
+          type: `Movie`,
+          contentDigest: crypto
+            .createHash(`md5`)
+            .update(JSON.stringify(movie))
+            .digest(`hex`)
+        }
+      })
   );
 
   return;
