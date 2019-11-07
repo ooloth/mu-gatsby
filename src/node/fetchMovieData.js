@@ -29,11 +29,12 @@ async function getMovieDataFromTitles(movieTitles) {
 
       const data = await response.json();
 
-      if (!data.results[0]) {
+      if (!data.results) {
         console.log(`broken title:`, title);
+        console.log("data", data);
       }
 
-      if (!data.results[0].poster_path) {
+      if (data.results && !data.results[0].poster_path) {
         console.log(`broken poster:`, title);
       }
 
