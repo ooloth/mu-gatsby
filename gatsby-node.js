@@ -70,7 +70,7 @@ exports.sourceNodes = async ({ actions }) => {
   tvData.forEach(show =>
     createNode({
       // Data for the node.
-      name: show.name,
+      name: show.title,
       releaseDate: show.releaseDate,
       link: show.link,
       posterUrl: show.posterUrl,
@@ -96,8 +96,8 @@ exports.sourceNodes = async ({ actions }) => {
         // Data for the node.
         title: movie.title,
         releaseDate: movie.releaseDate,
-        posterUrl: movie.posterUrl,
         link: movie.link,
+        posterUrl: movie.posterUrl,
 
         // Required fields.
         id: String(movie.id),

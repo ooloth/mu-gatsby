@@ -5,7 +5,7 @@ function useLikesData() {
         allTvShow(sort: { fields: releaseDate, order: DESC }) {
           nodes {
             id
-            name
+            title
             releaseDate(formatString: "YYYY")
             link
             poster {
