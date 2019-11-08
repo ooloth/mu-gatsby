@@ -42,7 +42,10 @@ async function fetchTMDBListData(listId, api) {
       const response = await limiter.schedule(() => fetch20Items());
       const data = await response.json();
       totalPages = data.total_pages;
-      items.push(...data.results);
+
+      if (data.results && data.results.length > 0) {
+        items.push(...data.results);
+      }
     } catch (error) {
       console.log("fetchTMDBListData error", error);
     }
@@ -76,13 +79,18 @@ async function fetchIMDBLinks(items, api) {
         console.log(`broken IMDB id:`, item.title);
       }
 
-      return {
-        title: api === "tv" ? item.original_name : item.title,
-        id: item.id,
-        releaseDate: api === "tv" ? item.first_air_date : item.release_date,
-        posterUrl: `https://image.tmdb.org/t/p/original${item.poster_path}`,
-        link: `https://www.imdb.com/title/${data.imdb_id}/`
-      };
+      const title = api === "tv" ? item.original_name : item.title;
+      const id = item.id;
+      const releaseDate =
+        api === "tv" ? item.first_air_date : item.release_date;
+      const posterUrl = `https://image.tmdb.org/t/p/original${item.poster_path}`;
+      const link = `https://www.imdb.com/title/${data.imdb_id}/`;
+
+      if (!title || !id || !releaseDate || !item.poster_path || !data.imdb_id) {
+        return null;
+      }
+
+      return { title, id, releaseDate, posterUrl, link };
     } catch (error) {
       console.log("fetchIMDBLinks error", error);
     }

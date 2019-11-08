@@ -67,26 +67,28 @@ exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
   const [tvData, movieData] = await fetchTMDBData();
 
-  tvData.forEach(show =>
-    createNode({
-      // Data for the node.
-      title: show.title,
-      releaseDate: show.releaseDate,
-      link: show.link,
-      posterUrl: show.posterUrl,
+  tvData.forEach(
+    show =>
+      show &&
+      createNode({
+        // Data for the node.
+        title: show.title,
+        releaseDate: show.releaseDate,
+        link: show.link,
+        posterUrl: show.posterUrl,
 
-      // Required fields.
-      id: String(show.id),
-      parent: null,
-      children: [],
-      internal: {
-        type: `TvShow`,
-        contentDigest: crypto
-          .createHash(`md5`)
-          .update(JSON.stringify(show))
-          .digest(`hex`)
-      }
-    })
+        // Required fields.
+        id: String(show.id),
+        parent: null,
+        children: [],
+        internal: {
+          type: `TvShow`,
+          contentDigest: crypto
+            .createHash(`md5`)
+            .update(JSON.stringify(show))
+            .digest(`hex`)
+        }
+      })
   );
 
   movieData.forEach(
