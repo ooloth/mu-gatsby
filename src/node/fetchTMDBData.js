@@ -1,6 +1,12 @@
 const fetch = require(`node-fetch`);
 const Bottleneck = require(`bottleneck`);
 
+const {
+  TMDB_READ_ACCESS_TOKEN,
+  TMDB_TV_LIST_ID,
+  TMDB_MOVIE_LIST_ID
+} = process.env;
+
 // See: https://developers.themoviedb.org/3/getting-started/request-rate-limiting
 // See: https://github.com/SGrondin/bottleneck#reservoir-intervals
 const limiter = new Bottleneck({
@@ -11,19 +17,20 @@ const limiter = new Bottleneck({
   minTime: 10000 / 40 // avg MS per request
 });
 
-async function fetchTMDBListData(listId) {
+async function fetchTMDBListData(listId, api) {
   let items = [];
   let page = 1;
   let totalPages;
+  const sort = api === "tv" ? "primary_release_date.desc" : "release_date.desc";
 
   async function fetch20Items() {
     // See: https://developers.themoviedb.org/4/list/get-list
     return await fetch(
-      `https://api.themoviedb.org/4/list/${listId}?sort_by=release_date.desc&page=${page}`,
+      `https://api.themoviedb.org/4/list/${listId}?sort_by=${sort}.desc&page=${page}`,
       {
         headers: {
           Accept: "application/json",
-          Authorization: `Bearer ${process.env.TMDB_READ_ACCESS_TOKEN}`
+          Authorization: `Bearer ${TMDB_READ_ACCESS_TOKEN}`
         }
       }
     );
@@ -46,16 +53,19 @@ async function fetchTMDBListData(listId) {
   return Promise.all(items);
 }
 
-async function fetchIMDBLinks(items) {
+async function fetchIMDBLinks(items, api) {
   const itemsWithLinks = items.map(async item => {
     async function fetchItemDetails() {
       // See: https://developers.themoviedb.org/3/movies/get-movie-details
-      return await fetch(`https://api.themoviedb.org/3/movie/${item.id}`, {
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${process.env.TMDB_READ_ACCESS_TOKEN}`
+      return await fetch(
+        `https://api.themoviedb.org/3/${api}/${item.id}/external_ids`,
+        {
+          headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${TMDB_READ_ACCESS_TOKEN}`
+          }
         }
-      });
+      );
     }
 
     try {
@@ -67,9 +77,9 @@ async function fetchIMDBLinks(items) {
       }
 
       return {
-        title: item.title,
+        title: api === "tv" ? item.original_name : item.title,
         id: item.id,
-        releaseDate: item.release_date,
+        releaseDate: api === "tv" ? item.first_air_date : item.release_date,
         posterUrl: `https://image.tmdb.org/t/p/original${item.poster_path}`,
         link: `https://www.imdb.com/title/${data.imdb_id}/`
       };
@@ -82,11 +92,11 @@ async function fetchIMDBLinks(items) {
 }
 
 exports.fetchTMDBData = async () => {
-  const tvShows = await fetchTMDBListData(process.env.TMDB_TV_LIST_ID);
-  const tvShowsWithLinks = await fetchIMDBLinks(tvShows);
+  const tvShows = await fetchTMDBListData(TMDB_TV_LIST_ID, "tv");
+  const tvShowsWithLinks = await fetchIMDBLinks(tvShows, "tv");
 
-  const movies = await fetchTMDBListData(process.env.TMDB_MOVIE_LIST_ID);
-  const moviesWithLinks = await fetchIMDBLinks(movies);
+  const movies = await fetchTMDBListData(TMDB_MOVIE_LIST_ID, "movie");
+  const moviesWithLinks = await fetchIMDBLinks(movies, "movie");
 
   return Promise.all([tvShowsWithLinks, moviesWithLinks]);
 };
