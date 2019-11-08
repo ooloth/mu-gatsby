@@ -14,6 +14,7 @@ function LikesPage({ location }) {
 
       <Main>
         <TV />
+        <Movies />
       </Main>
     </Base>
   );
@@ -29,14 +30,14 @@ const Main = styled.main`
 ///////////////////////////////////////////////////////////////////////////////////
 
 function TV() {
-  const shows = useLikesData();
+  const { tvShows } = useLikesData();
 
   return (
     <Section>
       <LikesHeading>TV</LikesHeading>
 
       <LikesList>
-        {shows.map(show => (
+        {tvShows.map(show => (
           <LikesItem key={show.id}>
             <ItemLink
               href={show.link}
@@ -46,8 +47,8 @@ function TV() {
                 fluid={show.poster.childImageSharp.fluid}
                 alt={`Poster for the TV series ${show.title}`}
               />
-              <ItemName>{show.name}</ItemName>
-              <ItemDate>({new Date(show.airDate).getFullYear()})</ItemDate>
+              <ItemName>{show.title}</ItemName>
+              <ItemDate>({show.releaseDate})</ItemDate>
             </ItemLink>
           </LikesItem>
         ))}
@@ -118,7 +119,33 @@ const ItemDate = styled.p`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-function Movies() {}
+function Movies() {
+  const { movies } = useLikesData();
+
+  return (
+    <Section>
+      <LikesHeading>Movies</LikesHeading>
+
+      <LikesList>
+        {movies.map(movie => (
+          <LikesItem key={movie.id}>
+            <ItemLink
+              href={movie.link}
+              alt={`Visit IMDB page for ${movie.title} in a separate window.`}
+            >
+              <Image
+                fluid={movie.poster.childImageSharp.fluid}
+                alt={`Poster for the movie ${movie.title}`}
+              />
+              <ItemName>{movie.title}</ItemName>
+              <ItemDate>({movie.releaseDate})</ItemDate>
+            </ItemLink>
+          </LikesItem>
+        ))}
+      </LikesList>
+    </Section>
+  );
+}
 
 ///////////////////////////////////////////////////////////////////////////////////
 

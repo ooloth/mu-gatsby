@@ -58,35 +58,61 @@ exports.createPages = async function({ actions, graphql }) {
   });
 };
 
-// Generate TV Show data
+// Generate Likes data nodes
 
-const { fetchTvData } = require(`./src/node/fetchTvData`);
 const crypto = require(`crypto`);
+const { fetchTMDBData } = require(`./src/node/fetchTMDBData`);
 
 exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
-  const tvData = await fetchTvData();
+  const [tvData, movieData] = await fetchTMDBData();
 
-  tvData.forEach(show =>
-    createNode({
-      // Data for the node.
-      name: show.name,
-      airDate: show.airDate,
-      link: show.link,
-      posterUrl: show.posterUrl,
+  tvData.forEach(
+    show =>
+      show &&
+      createNode({
+        // Data for the node.
+        title: show.title,
+        releaseDate: show.releaseDate,
+        link: show.link,
+        posterUrl: show.posterUrl,
 
-      // Required fields.
-      id: String(show.id),
-      parent: null,
-      children: [],
-      internal: {
-        type: `TvShow`,
-        contentDigest: crypto
-          .createHash(`md5`)
-          .update(JSON.stringify(show))
-          .digest(`hex`)
-      }
-    })
+        // Required fields.
+        id: String(show.id),
+        parent: null,
+        children: [],
+        internal: {
+          type: `TvShow`,
+          contentDigest: crypto
+            .createHash(`md5`)
+            .update(JSON.stringify(show))
+            .digest(`hex`)
+        }
+      })
+  );
+
+  movieData.forEach(
+    movie =>
+      movie &&
+      createNode({
+        // Data for the node.
+        title: movie.title,
+        releaseDate: movie.releaseDate,
+        link: movie.link,
+        posterUrl: movie.posterUrl,
+
+        // Required fields.
+        id: String(movie.id),
+        parent: null,
+        children: [],
+        internal: {
+          type: `Movie`,
+          contentDigest: crypto
+            .createHash(`md5`)
+            .update(JSON.stringify(movie))
+            .digest(`hex`)
+        }
+      })
   );
 
   return;

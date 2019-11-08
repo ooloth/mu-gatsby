@@ -1,12 +1,28 @@
 function useLikesData() {
-  const { allTvShow } = useStaticQuery(
+  const { allTvShow, allMovie } = useStaticQuery(
     graphql`
       query {
-        allTvShow(sort: { fields: airDate, order: DESC }) {
+        allTvShow(sort: { fields: releaseDate, order: DESC }) {
           nodes {
             id
-            name
-            airDate
+            title
+            releaseDate(formatString: "YYYY")
+            link
+            poster {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
+
+        allMovie(sort: { fields: releaseDate, order: DESC }) {
+          nodes {
+            id
+            title
+            releaseDate(formatString: "YYYY")
             link
             poster {
               childImageSharp {
@@ -21,7 +37,10 @@ function useLikesData() {
     `
   );
 
-  return allTvShow.nodes;
+  const tvShows = allTvShow.nodes;
+  const movies = allMovie.nodes;
+
+  return { tvShows, movies };
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

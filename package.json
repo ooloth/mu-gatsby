@@ -19,6 +19,7 @@
     "autoprefixer": "^9.7.1",
     "babel-plugin-styled-components": "^1.10.6",
     "body-scroll-lock": "^2.6.4",
+    "bottleneck": "^2.19.5",
     "d3-ease": "^1.0.5",
     "dotenv": "^8.2.0",
     "framer-motion": "^1.6.15",
