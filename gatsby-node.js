@@ -61,15 +61,11 @@ exports.createPages = async function({ actions, graphql }) {
 // Generate Likes data nodes
 
 const crypto = require(`crypto`);
-const { fetchTvData } = require(`./src/node/fetchTvData`);
-const { fetchMovieData } = require(`./src/node/fetchMovieData`);
+const { fetchTMDBData } = require(`./src/node/fetchMovieData`);
 
 exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
-
-  const tvData = await fetchTvData();
-  const movieData = await fetchMovieData();
-  console.log("movieData", movieData);
+  const [tvData, movieData] = await fetchTMDBData();
 
   tvData.forEach(show =>
     createNode({
