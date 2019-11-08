@@ -2,11 +2,11 @@ function useLikesData() {
   const { allTvShow, allMovie } = useStaticQuery(
     graphql`
       query {
-        allTvShow(sort: { fields: airDate, order: DESC }) {
+        allTvShow(sort: { fields: releaseDate, order: DESC }) {
           nodes {
             id
             name
-            airDate
+            releaseDate(formatString: "YYYY")
             link
             poster {
               childImageSharp {
@@ -22,7 +22,7 @@ function useLikesData() {
           nodes {
             id
             title
-            releaseDate
+            releaseDate(formatString: "YYYY")
             link
             poster {
               childImageSharp {

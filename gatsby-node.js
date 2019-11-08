@@ -71,7 +71,7 @@ exports.sourceNodes = async ({ actions }) => {
     createNode({
       // Data for the node.
       name: show.name,
-      airDate: show.airDate,
+      releaseDate: show.releaseDate,
       link: show.link,
       posterUrl: show.posterUrl,
 

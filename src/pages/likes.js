@@ -48,7 +48,7 @@ function TV() {
                 alt={`Poster for the TV series ${show.title}`}
               />
               <ItemName>{show.name}</ItemName>
-              <ItemDate>({new Date(show.airDate).getFullYear()})</ItemDate>
+              <ItemDate>({show.releaseDate})</ItemDate>
             </ItemLink>
           </LikesItem>
         ))}
@@ -138,7 +138,7 @@ function Movies() {
                 alt={`Poster for the movie ${movie.title}`}
               />
               <ItemName>{movie.title}</ItemName>
-              <ItemDate>({new Date(movie.releaseDate).getFullYear()})</ItemDate>
+              <ItemDate>({movie.releaseDate})</ItemDate>
             </ItemLink>
           </LikesItem>
         ))}
