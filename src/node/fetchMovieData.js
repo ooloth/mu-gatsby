@@ -1,11 +1,11 @@
 const fetch = require(`node-fetch`);
 const Bottleneck = require(`bottleneck`);
-// const { movies: movieTitles } = require(`../data/likes/movies`);
 
 async function getMovieDataFromTMDBList() {
   try {
+    // See: https://developers.themoviedb.org/4/list/get-list
     const response = await fetch(
-      `https://api.themoviedb.org/4/list/125630?page=1`,
+      `https://api.themoviedb.org/4/list/125630?sort_by=release_date.desc`,
       {
         headers: {
           Accept: "application/json",
@@ -33,6 +33,7 @@ const limiter = new Bottleneck({
 async function getLinks(movieData) {
   const moviesWithLinks = movieData.map(async movie => {
     try {
+      // See: https://developers.themoviedb.org/3/movies/get-movie-details
       const response = await limiter.schedule(() =>
         fetch(`https://api.themoviedb.org/3/movie/${movie.id}`, {
           headers: {
@@ -65,10 +66,7 @@ async function getLinks(movieData) {
 
 exports.fetchMovieData = async () => {
   const movieData = await getMovieDataFromTMDBList();
-  console.log("movieData", movieData);
-  // const movieData = await getMovieDataFromTitles(movieTitles);
   const moviesWithLinks = await getLinks(movieData);
-  console.log("moviesWithLinks", moviesWithLinks);
 
   return Promise.all(moviesWithLinks);
 };
