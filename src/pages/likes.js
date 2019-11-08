@@ -47,7 +47,7 @@ function TV() {
                 fluid={show.poster.childImageSharp.fluid}
                 alt={`Poster for the TV series ${show.title}`}
               />
-              <ItemName>{show.name}</ItemName>
+              <ItemName>{show.title}</ItemName>
               <ItemDate>({show.releaseDate})</ItemDate>
             </ItemLink>
           </LikesItem>
