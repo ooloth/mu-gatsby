@@ -55,12 +55,6 @@ function Metadata({ page, preconnect, preload }) {
             />
           ))}
 
-        {/* TODO: remove if not using subfont */}
-        <link
-          href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700|Open+Sans:400,700"
-          rel="stylesheet"
-        />
-
         {/* Schema.org for Google */}
         <meta itemProp="name" content={title} />
         <meta itemProp="description" content={description} />
@@ -93,7 +87,6 @@ function Metadata({ page, preconnect, preload }) {
         )}
 
         {/* Site ownership verification */}
-
         <meta
           name="google-site-verification"
           content={site.googleSearchConsoleSiteVerification}

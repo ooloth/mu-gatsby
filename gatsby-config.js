@@ -47,7 +47,7 @@ module.exports = {
     facebookAppId: ``,
     googleSearchConsoleSiteVerification:
       process.env.GOOGLE_SITE_VERIFICATION_SEARCH_CONSOLE,
-    gSuiteSiteVerification: process.env.GOOGLE_SITE_VERIFICATION_SEARCH_CONSOLE,
+    gSuiteSiteVerification: process.env.GOOGLE_SITE_VERIFICATION_GSUITE,
     blogPage: {
       title: `Blog | Michael Uloth`,
       description: `Coding tips and walk-throughs to help future me get unstuck.`,
