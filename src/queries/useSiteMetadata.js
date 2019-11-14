@@ -25,8 +25,8 @@ function useSiteMetadata() {
             structuredDataType
             twitterSite
             twitterCreator
-            facebookAppId
-            googleSiteVerification
+            googleSearchConsoleSiteVerification
+            gSuiteSiteVerification
             blogPage {
               title
               description

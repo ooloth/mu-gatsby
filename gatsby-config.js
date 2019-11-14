@@ -44,7 +44,6 @@ module.exports = {
     structuredDataType: `Person`,
     twitterSite: `@ooloth`,
     twitterCreator: `@ooloth`,
-    facebookAppId: ``,
     googleSearchConsoleSiteVerification:
       process.env.GOOGLE_SITE_VERIFICATION_SEARCH_CONSOLE,
     gSuiteSiteVerification: process.env.GOOGLE_SITE_VERIFICATION_GSUITE,

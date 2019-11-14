@@ -76,15 +76,8 @@ function Metadata({ page, preconnect, preload }) {
         <meta property="og:locale" content={site.locale} />
 
         {/* Non-essential, but required for analytics */}
-        {site.facebookAppId && (
-          <meta property="fb:app_id" content={site.facebookAppId} />
-        )}
-        {site.twitterSite && (
-          <meta name="twitter:site" content={site.twitterSite} />
-        )}
-        {site.twitterCreator && (
-          <meta name="twitter:site" content={site.twitterCreator} />
-        )}
+        <meta name="twitter:site" content={site.twitterSite} />
+        <meta name="twitter:site" content={site.twitterCreator} />
 
         {/* Site ownership verification */}
         <meta
