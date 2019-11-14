@@ -45,7 +45,9 @@ module.exports = {
     twitterSite: `@ooloth`,
     twitterCreator: `@ooloth`,
     facebookAppId: ``,
-    googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION_STRING, // for Google Search Console
+    googleSearchConsoleSiteVerification:
+      process.env.GOOGLE_SITE_VERIFICATION_SEARCH_CONSOLE,
+    gSuiteSiteVerification: process.env.GOOGLE_SITE_VERIFICATION_SEARCH_CONSOLE,
     blogPage: {
       title: `Blog | Michael Uloth`,
       description: `Coding tips and walk-throughs to help future me get unstuck.`,

@@ -1,27 +1,27 @@
 function Metadata({ page, preconnect, preload }) {
-  const site = useSiteMetadata()
+  const site = useSiteMetadata();
 
   // Use sitewide metadata unless overridden by page-specific metadata
-  const lang = page ? (page.lang ? page.lang : site.lang) : site.lang
+  const lang = page ? (page.lang ? page.lang : site.lang) : site.lang;
 
-  let title = page ? (page.title ? page.title : site.title) : site.title
-  title = title.replace(`&nbsp;`, ` `)
+  let title = page ? (page.title ? page.title : site.title) : site.title;
+  title = title.replace(`&nbsp;`, ` `);
 
   const description = page
     ? page.description
       ? page.description
       : site.description
-    : site.description
+    : site.description;
 
-  const url = page ? (page.url ? page.url : site.siteUrl) : site.siteUrl
+  const url = page ? (page.url ? page.url : site.siteUrl) : site.siteUrl;
 
   const image = page
     ? page.image
       ? site.siteUrl + page.image.childImageSharp.fixed.src
       : site.siteUrl + siteImage
-    : site.siteUrl + siteImage
+    : site.siteUrl + siteImage;
 
-  const type = page ? (page.type ? page.type : `website`) : `website`
+  const type = page ? (page.type ? page.type : `website`) : `website`;
 
   return (
     <>
@@ -92,18 +92,21 @@ function Metadata({ page, preconnect, preload }) {
           <meta name="twitter:site" content={site.twitterCreator} />
         )}
 
-        {/* Google Search Console verification */}
-        {site.googleSiteVerification && (
-          <meta
-            name="google-site-verification"
-            content={site.googleSiteVerification}
-          />
-        )}
+        {/* Site ownership verification */}
+
+        <meta
+          name="google-site-verification"
+          content={site.googleSearchConsoleSiteVerification}
+        />
+        <meta
+          name="google-site-verification"
+          content={site.gSuiteSiteVerification}
+        />
       </Helmet>
 
       <StructuredData site={site} image={image} />
     </>
-  )
+  );
 }
 
 Metadata.propTypes = {
@@ -116,7 +119,7 @@ Metadata.propTypes = {
   }),
   preconnect: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   preload: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
-}
+};
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -129,9 +132,9 @@ function StructuredData({ site, image }) {
     description,
     email,
     telephone
-  } = site
-  const { street, locality, region, country } = site.address
-  const sameAs = site.socialLinks.map(link => `"${link}"`)
+  } = site;
+  const { street, locality, region, country } = site.address;
+  const sameAs = site.socialLinks.map(link => `"${link}"`);
 
   const structuredData = `{
     "@context": "http://schema.org",
@@ -154,23 +157,23 @@ function StructuredData({ site, image }) {
       },
     `}
     "sameAs": [${sameAs}]
-  }`
+  }`;
 
   return (
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: structuredData }}
     />
-  )
+  );
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import React from "react";
+import PropTypes from "prop-types";
+import Helmet from "react-helmet";
 
-import useSiteMetadata from '../queries/useSiteMetadata'
-import siteImage from '../images/michael-uloth-landscape.jpg'
+import useSiteMetadata from "../queries/useSiteMetadata";
+import siteImage from "../images/michael-uloth-landscape.jpg";
 
-export default Metadata
+export default Metadata;
