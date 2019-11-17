@@ -1,5 +1,5 @@
 function useLikesData() {
-  const { allTvShow, allMovie } = useStaticQuery(
+  const { allTvShow, allMovie, allBook } = useStaticQuery(
     graphql`
       query {
         allTvShow(sort: { fields: releaseDate, order: DESC }) {
@@ -33,14 +33,31 @@ function useLikesData() {
             }
           }
         }
+
+        allBook(sort: { fields: publishDate, order: DESC }) {
+          nodes {
+            id
+            title
+            publishDate
+            link
+            cover {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
       }
     `
   );
 
   const tvShows = allTvShow.nodes;
   const movies = allMovie.nodes;
+  const books = allBook.nodes;
 
-  return { tvShows, movies };
+  return { tvShows, movies, books };
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

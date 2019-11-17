@@ -62,9 +62,11 @@ exports.createPages = async function({ actions, graphql }) {
 
 const crypto = require(`crypto`);
 const { fetchTMDBData } = require(`./src/node/fetchTMDBData`);
+const { fetchBookData } = require(`./src/node/fetchBookData`);
 
 exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
+  const bookData = await fetchBookData();
   const [tvData, movieData] = await fetchTMDBData();
 
   tvData.forEach(
@@ -110,6 +112,30 @@ exports.sourceNodes = async ({ actions }) => {
           contentDigest: crypto
             .createHash(`md5`)
             .update(JSON.stringify(movie))
+            .digest(`hex`)
+        }
+      })
+  );
+
+  bookData.forEach(
+    book =>
+      book &&
+      createNode({
+        // Data for the node.
+        title: book.title,
+        publishDate: book.publishDate,
+        link: book.link,
+        coverUrl: book.coverUrl,
+
+        // Required fields.
+        id: String(book.id),
+        parent: null,
+        children: [],
+        internal: {
+          type: `Book`,
+          contentDigest: crypto
+            .createHash(`md5`)
+            .update(JSON.stringify(book))
             .digest(`hex`)
         }
       })

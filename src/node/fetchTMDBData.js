@@ -76,7 +76,9 @@ async function fetchIMDBLinks(items, api) {
       const data = await response.json();
 
       if (!data.imdb_id) {
-        console.log(`broken IMDB id:`, item.title);
+        console.log(`fetchIMDBLinks > broken IMDB id:`);
+        console.log("data", data);
+        console.log("item", item);
       }
 
       const title = api === "tv" ? item.original_name : item.title;
