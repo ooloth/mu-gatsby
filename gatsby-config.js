@@ -92,6 +92,14 @@ module.exports = {
         name: `poster`
       }
     },
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: `Book`,
+        imagePath: `coverUrl`,
+        name: `cover`
+      }
+    },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
