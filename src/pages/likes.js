@@ -198,7 +198,7 @@ function Books() {
                 alt={`Cover for the book ${book.title}`}
               />
               <ItemName>{book.title}</ItemName>
-              <ItemDate>({new Date(book.publishDate).getFullYear()})</ItemDate>
+              <ItemDate>({book.publishDate})</ItemDate>
             </ItemLink>
           </LikesItem>
         ))}
