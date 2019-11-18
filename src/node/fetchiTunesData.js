@@ -66,7 +66,7 @@ async function searchiTunesAPI(items) {
       const coverUrl = work.artworkUrl100.replace("100x100bb", "400x400bb");
 
       if (!name || !id || !releaseDate || !link || !coverUrl) {
-        console.log(`Missing some iTunes metadata:`, item);
+        console.log(`Removed iTunes item:`, item);
         return null;
       }
 
