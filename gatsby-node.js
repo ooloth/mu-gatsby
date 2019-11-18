@@ -122,8 +122,8 @@ exports.sourceNodes = async ({ actions }) => {
       book &&
       createNode({
         // Data for the node.
-        title: book.title,
-        publishDate: book.publishDate,
+        title: book.name,
+        publishDate: book.releaseDate,
         link: book.link,
         coverUrl: book.coverUrl,
 
