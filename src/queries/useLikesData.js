@@ -1,5 +1,5 @@
 function useLikesData() {
-  const { allTvShow, allMovie, allBook } = useStaticQuery(
+  const { allTvShow, allMovie, allBook, allAlbum, allPodcast } = useStaticQuery(
     graphql`
       query {
         allTvShow(sort: { fields: releaseDate, order: DESC }) {
@@ -38,7 +38,41 @@ function useLikesData() {
           nodes {
             id
             title
-            publishDate
+            publishDate(formatString: "YYYY")
+            link
+            cover {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
+
+        allAlbum(sort: { fields: releaseDate, order: DESC }) {
+          nodes {
+            id
+            artist
+            name
+            releaseDate(formatString: "YYYY")
+            link
+            cover {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
+
+        allPodcast(sort: { fields: releaseDate, order: DESC }) {
+          nodes {
+            id
+            artist
+            name
+            releaseDate(formatString: "YYYY")
             link
             cover {
               childImageSharp {
@@ -56,8 +90,10 @@ function useLikesData() {
   const tvShows = allTvShow.nodes;
   const movies = allMovie.nodes;
   const books = allBook.nodes;
+  const albums = allAlbum.nodes;
+  const podcasts = allPodcast.nodes;
 
-  return { tvShows, movies, books };
+  return { tvShows, movies, books, albums, podcasts };
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
