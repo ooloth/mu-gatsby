@@ -8,11 +8,11 @@ const { books } = require("../data/likes/books");
 // See: https://stackoverflow.com/a/41377650/8802485
 // See: https://github.com/SGrondin/bottleneck#reservoir-intervals
 const limiter = new Bottleneck({
-  reservoir: 20, // max requests
-  reservoirRefreshAmount: 20,
+  reservoir: 19, // max requests
+  reservoirRefreshAmount: 19,
   reservoirRefreshInterval: 60 * 1000, // time span (must be divisible by 250)
   maxConcurrent: 1,
-  minTime: 60000 / 20 // avg MS per request
+  minTime: 60000 / 19 // avg MS per request
 });
 
 function getName(work) {

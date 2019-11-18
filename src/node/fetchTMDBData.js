@@ -10,11 +10,11 @@ const {
 // See: https://developers.themoviedb.org/3/getting-started/request-rate-limiting
 // See: https://github.com/SGrondin/bottleneck#reservoir-intervals
 const limiter = new Bottleneck({
-  reservoir: 40, // max requests
-  reservoirRefreshAmount: 40,
+  reservoir: 39, // max requests
+  reservoirRefreshAmount: 39,
   reservoirRefreshInterval: 10 * 1000, // time span (must be divisible by 250)
   maxConcurrent: 1,
-  minTime: 10000 / 40 // avg MS per request
+  minTime: 10000 / 39 // avg MS per request
 });
 
 async function fetchTMDBListData(listId, api) {
