@@ -2,26 +2,6 @@ function LikesPage({ location }) {
   const { likesPage } = useSiteMetadata();
   const { likesYaml: page } = usePageData();
 
-  // React.useEffect(() => {
-  //   async function getiTunesPodcasts() {
-  //     const response = await fetch(
-  //       `https://itunes.apple.com/search?media=music&entity=album&term=hail+to+the+thief+radiohead`
-  //     );
-  //     const data = await response.json();
-  //     console.log("iTunes data", data);
-  //   }
-  //   getiTunesPodcasts();
-
-  //   // async function getListenAPIData() {
-  //   //   const response = await fetch(
-  //   //     `https://listen-api.listennotes.com/api/v2/search?q=weird`
-  //   //   );
-  //   //   const data = await response.json();
-  //   //   console.log("Listen data", data);
-  //   // }
-  //   // getListenAPIData();
-  // });
-
   return (
     <Base location={location}>
       <Metadata page={likesPage} />
@@ -36,6 +16,8 @@ function LikesPage({ location }) {
         <TV />
         <Movies />
         <Books />
+        <Albums />
+        <Podcasts />
       </Main>
     </Base>
   );
@@ -64,15 +46,15 @@ function TV() {
               href={show.link}
               alt={`Visit IMDB page for "${show.title}" in a new window.`}
             >
-              <Image
-                fluid={{
-                  ...show.poster.childImageSharp.fluid,
+              <ItemImage
+                fixed={{
+                  ...show.poster.childImageSharp.fixed,
                   aspectRatio: 2 / 3
                 }}
-                alt={`Poster for the TV series ${show.title}`}
+                alt={`Poster for the TV series "${show.title}"`}
               />
               <ItemName>{show.title}</ItemName>
-              <ItemDate>({show.releaseDate})</ItemDate>
+              <ItemDetail>({show.releaseDate})</ItemDetail>
             </ItemLink>
           </LikesItem>
         ))}
@@ -121,7 +103,8 @@ const LikesList = styled.ul`
 const LikesItem = styled.li`
   flex: none;
   margin-right: var(--s6);
-  width: 10rem;
+  width: 10rem; /* IE, Edge */
+  width: min-content; /* modern browsers */
 `;
 
 const ItemLink = styled(Link)`
@@ -130,13 +113,17 @@ const ItemLink = styled(Link)`
   text-decoration: none;
 `;
 
+const ItemImage = styled(Image)`
+  box-shadow: var(--shadow1);
+`;
+
 const ItemName = styled.p`
   margin-top: var(--s2);
   line-height: var(--lh1);
   font-size: var(--f3);
 `;
 
-const ItemDate = styled.p`
+const ItemDetail = styled.p`
   margin-top: var(--s1);
   font-size: var(--f2);
 `;
@@ -157,15 +144,15 @@ function Movies() {
               href={movie.link}
               alt={`Visit IMDB page for "${movie.title}" in a new window.`}
             >
-              <Image
-                fluid={{
-                  ...movie.poster.childImageSharp.fluid,
+              <ItemImage
+                fixed={{
+                  ...movie.poster.childImageSharp.fixed,
                   aspectRatio: 2 / 3
                 }}
-                alt={`Poster for the movie ${movie.title}`}
+                alt={`Poster for the movie "${movie.title}"`}
               />
               <ItemName>{movie.title}</ItemName>
-              <ItemDate>({movie.releaseDate})</ItemDate>
+              <ItemDetail>({movie.releaseDate})</ItemDetail>
             </ItemLink>
           </LikesItem>
         ))}
@@ -188,17 +175,75 @@ function Books() {
           <LikesItem key={book.id}>
             <ItemLink
               href={book.link}
-              alt={`Visit Open Library page for "${book.title}" in a new window.`}
+              alt={`Visit the Open Library page for "${book.title}" in a new window.`}
             >
-              <Image
-                fluid={{
-                  ...book.cover.childImageSharp.fluid,
-                  aspectRatio: 5 / 8
-                }}
-                alt={`Cover for the book ${book.title}`}
+              <ItemImage
+                fixed={book.cover.childImageSharp.fixed}
+                alt={`Cover for the book "${book.title}"`}
               />
               <ItemName>{book.title}</ItemName>
-              <ItemDate>({book.publishDate})</ItemDate>
+              <ItemDetail>({book.publishDate})</ItemDetail>
+            </ItemLink>
+          </LikesItem>
+        ))}
+      </LikesList>
+    </Section>
+  );
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+
+function Albums() {
+  const { albums } = useLikesData();
+
+  return (
+    <Section>
+      <LikesHeading>Albums</LikesHeading>
+
+      <LikesList>
+        {albums.map(album => (
+          <LikesItem key={album.id}>
+            <ItemLink
+              href={album.link}
+              alt={`Visit the iTunes page for "${album.name}" by ${album.artist} in a new window.`}
+            >
+              <ItemImage
+                fixed={album.cover.childImageSharp.fixed}
+                alt={`Cover for the album "${album.name}" by ${album.artist}`}
+              />
+              <ItemName>{album.name}</ItemName>
+              <ItemDetail>{album.artist}</ItemDetail>
+              <ItemDetail>({album.releaseDate})</ItemDetail>
+            </ItemLink>
+          </LikesItem>
+        ))}
+      </LikesList>
+    </Section>
+  );
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+
+function Podcasts() {
+  const { podcasts } = useLikesData();
+
+  return (
+    <Section>
+      <LikesHeading>Podcasts</LikesHeading>
+
+      <LikesList>
+        {podcasts.map(podcast => (
+          <LikesItem key={podcast.id}>
+            <ItemLink
+              href={podcast.link}
+              alt={`Visit the iTunes page for "${podcast.name}" in a new window.`}
+            >
+              <ItemImage
+                fixed={podcast.cover.childImageSharp.fixed}
+                alt={`Cover for the podcast "${podcast.name}"`}
+              />
+              <ItemName>{podcast.name}</ItemName>
+              <ItemDetail>({podcast.releaseDate})</ItemDetail>
             </ItemLink>
           </LikesItem>
         ))}

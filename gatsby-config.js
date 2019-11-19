@@ -100,6 +100,22 @@ module.exports = {
         name: `cover`
       }
     },
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: `Album`,
+        imagePath: `coverUrl`,
+        name: `cover`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: `Podcast`,
+        imagePath: `coverUrl`,
+        name: `cover`
+      }
+    },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,

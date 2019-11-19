@@ -1,5 +1,5 @@
 function useLikesData() {
-  const { allTvShow, allMovie, allBook } = useStaticQuery(
+  const { allTvShow, allMovie, allBook, allAlbum, allPodcast } = useStaticQuery(
     graphql`
       query {
         allTvShow(sort: { fields: releaseDate, order: DESC }) {
@@ -10,8 +10,8 @@ function useLikesData() {
             link
             poster {
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp
+                fixed(height: 300) {
+                  ...GatsbyImageSharpFixed_withWebp
                 }
               }
             }
@@ -26,8 +26,8 @@ function useLikesData() {
             link
             poster {
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp
+                fixed(height: 300) {
+                  ...GatsbyImageSharpFixed_withWebp
                 }
               }
             }
@@ -38,12 +38,46 @@ function useLikesData() {
           nodes {
             id
             title
-            publishDate
+            publishDate(formatString: "YYYY")
             link
             cover {
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp
+                fixed(height: 300) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
+              }
+            }
+          }
+        }
+
+        allAlbum(sort: { fields: releaseDate, order: DESC }) {
+          nodes {
+            id
+            artist
+            name
+            releaseDate(formatString: "YYYY")
+            link
+            cover {
+              childImageSharp {
+                fixed(width: 200, height: 200) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
+              }
+            }
+          }
+        }
+
+        allPodcast(sort: { fields: releaseDate, order: DESC }) {
+          nodes {
+            id
+            artist
+            name
+            releaseDate(formatString: "YYYY")
+            link
+            cover {
+              childImageSharp {
+                fixed(width: 200, height: 200) {
+                  ...GatsbyImageSharpFixed_withWebp
                 }
               }
             }
@@ -56,8 +90,10 @@ function useLikesData() {
   const tvShows = allTvShow.nodes;
   const movies = allMovie.nodes;
   const books = allBook.nodes;
+  const albums = allAlbum.nodes;
+  const podcasts = allPodcast.nodes;
 
-  return { tvShows, movies, books };
+  return { tvShows, movies, books, albums, podcasts };
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

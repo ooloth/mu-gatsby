@@ -10,11 +10,11 @@ const {
 // See: https://developers.themoviedb.org/3/getting-started/request-rate-limiting
 // See: https://github.com/SGrondin/bottleneck#reservoir-intervals
 const limiter = new Bottleneck({
-  reservoir: 40, // max requests
-  reservoirRefreshAmount: 40,
+  reservoir: 39, // max requests
+  reservoirRefreshAmount: 39,
   reservoirRefreshInterval: 10 * 1000, // time span (must be divisible by 250)
   maxConcurrent: 1,
-  minTime: 10000 / 40 // avg MS per request
+  minTime: 10000 / 39 // avg MS per request
 });
 
 async function fetchTMDBListData(listId, api) {
@@ -75,20 +75,16 @@ async function fetchIMDBLinks(items, api) {
       const response = await limiter.schedule(() => fetchItemDetails());
       const data = await response.json();
 
-      if (!data.imdb_id) {
-        console.log(`fetchIMDBLinks > broken IMDB id:`);
-        console.log("data", data);
-        console.log("item", item);
-      }
-
-      const title = api === "tv" ? item.original_name : item.title;
+      const title = item.title || item.name;
       const id = item.id;
-      const releaseDate =
-        api === "tv" ? item.first_air_date : item.release_date;
+      const releaseDate = item.release_date || item.first_air_date;
       const posterUrl = `https://image.tmdb.org/t/p/original${item.poster_path}`;
-      const link = `https://www.imdb.com/title/${data.imdb_id}/`;
+      const link = data.imdb_id
+        ? `https://www.imdb.com/title/${data.imdb_id}/`
+        : `https://www.themoviedb.org/${api}/${id}`;
 
-      if (!title || !id || !releaseDate || !item.poster_path || !data.imdb_id) {
+      if (!title || !id || !releaseDate || !item.poster_path) {
+        console.log(`Removed TMDB item:`, item);
         return null;
       }
 

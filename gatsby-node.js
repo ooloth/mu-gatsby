@@ -62,12 +62,12 @@ exports.createPages = async function({ actions, graphql }) {
 
 const crypto = require(`crypto`);
 const { fetchTMDBData } = require(`./src/node/fetchTMDBData`);
-const { fetchBookData } = require(`./src/node/fetchBookData`);
+const { fetchiTunesData } = require(`./src/node/fetchiTunesData`);
 
 exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
-  const bookData = await fetchBookData();
   const [tvData, movieData] = await fetchTMDBData();
+  const [albumData, podcastData, bookData] = await fetchiTunesData();
 
   tvData.forEach(
     show =>
@@ -122,8 +122,8 @@ exports.sourceNodes = async ({ actions }) => {
       book &&
       createNode({
         // Data for the node.
-        title: book.title,
-        publishDate: book.publishDate,
+        title: book.name,
+        publishDate: book.releaseDate,
         link: book.link,
         coverUrl: book.coverUrl,
 
@@ -136,6 +136,56 @@ exports.sourceNodes = async ({ actions }) => {
           contentDigest: crypto
             .createHash(`md5`)
             .update(JSON.stringify(book))
+            .digest(`hex`)
+        }
+      })
+  );
+
+  albumData.forEach(
+    album =>
+      album &&
+      createNode({
+        // Data for the node.
+        artist: album.artist,
+        name: album.name,
+        releaseDate: album.releaseDate,
+        link: album.link,
+        coverUrl: album.coverUrl,
+
+        // Required fields.
+        id: String(album.id),
+        parent: null,
+        children: [],
+        internal: {
+          type: `Album`,
+          contentDigest: crypto
+            .createHash(`md5`)
+            .update(JSON.stringify(album))
+            .digest(`hex`)
+        }
+      })
+  );
+
+  podcastData.forEach(
+    podcast =>
+      podcast &&
+      createNode({
+        // Data for the node.
+        artist: podcast.artist,
+        name: podcast.name,
+        releaseDate: podcast.releaseDate,
+        link: podcast.link,
+        coverUrl: podcast.coverUrl,
+
+        // Required fields.
+        id: String(podcast.id),
+        parent: null,
+        children: [],
+        internal: {
+          type: `Podcast`,
+          contentDigest: crypto
+            .createHash(`md5`)
+            .update(JSON.stringify(podcast))
             .digest(`hex`)
         }
       })
