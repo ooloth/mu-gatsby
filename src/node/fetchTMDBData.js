@@ -75,16 +75,15 @@ async function fetchIMDBLinks(items, api) {
       const response = await limiter.schedule(() => fetchItemDetails());
       const data = await response.json();
 
-      const title = api === "tv" ? item.original_name : item.title;
+      const title = item.title || item.name;
       const id = item.id;
-      const releaseDate =
-        api === "tv" ? item.first_air_date : item.release_date;
+      const releaseDate = item.release_date || item.first_air_date;
       const posterUrl = `https://image.tmdb.org/t/p/original${item.poster_path}`;
       const link = data.imdb_id
         ? `https://www.imdb.com/title/${data.imdb_id}/`
         : `https://www.themoviedb.org/${api}/${id}`;
 
-      if (!title || !id || !releaseDate || !item.poster_path || !data.imdb_id) {
+      if (!title || !id || !releaseDate || !item.poster_path) {
         console.log(`Removed TMDB item:`, item);
         return null;
       }
