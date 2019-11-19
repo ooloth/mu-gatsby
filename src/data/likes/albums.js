@@ -14,5 +14,9 @@ exports.albums = [
   { name: `Want One`, id: 1442846753, date: "2003-09-23" },
   { name: `Want Two`, id: 1443733386, date: "2004-11-16" },
   { name: `Release the Stars`, id: 1445830616, date: "2007-05-15" },
-  { name: `All Days Are Nights`, id: 1482183716, date: "2010-03-23" }
+  {
+    name: `All Days Are Nights: Songs for Lulu`,
+    id: 1482183716,
+    date: "2010-03-23"
+  }
 ];

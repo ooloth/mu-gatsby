@@ -15,15 +15,15 @@ const limiter = new Bottleneck({
   minTime: 60000 / 19 // avg MS per request
 });
 
-function getName(work) {
-  return work.collectionName
-    ? work.collectionName
-        .replace(" (Expanded Edition)", "")
-        .replace(" (Canadian Version)", "")
-    : work.trackName
-    ? work.trackName
-    : null;
-}
+// function getName(work) {
+//   return work.collectionName
+//     ? work.collectionName
+//         .replace(" (Expanded Edition)", "")
+//         .replace(" (Canadian Version)", "")
+//     : work.trackName
+//     ? work.trackName
+//     : null;
+// }
 
 function getLink(work) {
   return work.collectionViewUrl
@@ -59,7 +59,7 @@ async function searchiTunesAPI(items) {
       const work = data.results[0];
 
       const artist = work.artistName || item.artist || null; // podcasts don't need
-      const name = getName(work);
+      const name = item.name;
       const id = item.id;
       const releaseDate = item.date;
       const link = getLink(work);

@@ -5,7 +5,7 @@ exports.books = [
 
   // David Bodanis
   {
-    name: `E=mc2: A Biography Of The World's Most Famous Equation`,
+    name: `E=mc²: A Biography of the World's Most Famous Equation`,
     id: 1418887854,
     date: "2000-05"
   },
@@ -72,7 +72,7 @@ exports.books = [
   { name: `God Is Not Great`, id: 470805428, date: "2007-05-01" },
 
   // Victor Hugo
-  { name: `Les Miserables`, id: 522161959, date: "1862" },
+  { name: `Les Misérables`, id: 522161959, date: "1862" },
 
   // John Irving
   { name: `A Prayer for Owen Meany`, id: 470465253, date: "1989-03" },
