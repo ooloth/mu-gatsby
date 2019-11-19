@@ -46,7 +46,7 @@ function TV() {
               href={show.link}
               alt={`Visit IMDB page for "${show.title}" in a new window.`}
             >
-              <Image
+              <ItemImage
                 fixed={{
                   ...show.poster.childImageSharp.fixed,
                   aspectRatio: 2 / 3
@@ -113,6 +113,10 @@ const ItemLink = styled(Link)`
   text-decoration: none;
 `;
 
+const ItemImage = styled(Image)`
+  box-shadow: var(--shadow1);
+`;
+
 const ItemName = styled.p`
   margin-top: var(--s2);
   line-height: var(--lh1);
@@ -140,7 +144,7 @@ function Movies() {
               href={movie.link}
               alt={`Visit IMDB page for "${movie.title}" in a new window.`}
             >
-              <Image
+              <ItemImage
                 fixed={{
                   ...movie.poster.childImageSharp.fixed,
                   aspectRatio: 2 / 3
@@ -173,7 +177,7 @@ function Books() {
               href={book.link}
               alt={`Visit the Open Library page for "${book.title}" in a new window.`}
             >
-              <Image
+              <ItemImage
                 fixed={book.cover.childImageSharp.fixed}
                 alt={`Cover for the book "${book.title}"`}
               />
@@ -203,7 +207,7 @@ function Albums() {
               href={album.link}
               alt={`Visit the iTunes page for "${album.name}" by ${album.artist} in a new window.`}
             >
-              <Image
+              <ItemImage
                 fixed={album.cover.childImageSharp.fixed}
                 alt={`Cover for the album "${album.name}" by ${album.artist}`}
               />
@@ -234,7 +238,7 @@ function Podcasts() {
               href={podcast.link}
               alt={`Visit the iTunes page for "${podcast.name}" in a new window.`}
             >
-              <Image
+              <ItemImage
                 fixed={podcast.cover.childImageSharp.fixed}
                 alt={`Cover for the podcast "${podcast.name}"`}
               />
