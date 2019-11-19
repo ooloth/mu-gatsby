@@ -63,6 +63,7 @@ async function searchiTunesAPI(items) {
       const id = item.id;
       const releaseDate = item.date;
       const link = getLink(work);
+      // See image srcset URLs used on books.apple.com:
       const coverUrl = work.artworkUrl100.replace("100x100bb", "400x0w");
 
       if (!name || !id || !releaseDate || !link || !coverUrl) {
