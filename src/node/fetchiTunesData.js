@@ -63,7 +63,7 @@ async function searchiTunesAPI(items) {
       const id = item.id;
       const releaseDate = item.date;
       const link = getLink(work);
-      const coverUrl = work.artworkUrl100.replace("100x100bb", "400x400bb");
+      const coverUrl = work.artworkUrl100.replace("100x100bb", "600x600bb");
 
       if (!name || !id || !releaseDate || !link || !coverUrl) {
         console.log(`Removed iTunes item:`, item);
