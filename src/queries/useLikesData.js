@@ -42,7 +42,7 @@ function useLikesData() {
             link
             cover {
               childImageSharp {
-                fixed(width: 200, height: 300) {
+                fixed(height: 300) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
