@@ -10,7 +10,7 @@ function useLikesData() {
             link
             poster {
               childImageSharp {
-                fixed(width: 200) {
+                fixed(height: 300) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -26,7 +26,7 @@ function useLikesData() {
             link
             poster {
               childImageSharp {
-                fixed(width: 200) {
+                fixed(height: 300) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
