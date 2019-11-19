@@ -10,8 +10,8 @@ function useLikesData() {
             link
             poster {
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp
+                fixed(maxWidth: 200) {
+                  ...GatsbyImageSharpFixed_withWebp
                 }
               }
             }
@@ -26,8 +26,8 @@ function useLikesData() {
             link
             poster {
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp
+                fixed(maxWidth: 200) {
+                  ...GatsbyImageSharpFixed_withWebp
                 }
               }
             }
@@ -42,8 +42,8 @@ function useLikesData() {
             link
             cover {
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp
+                fixed(maxWidth: 200) {
+                  ...GatsbyImageSharpFixed_withWebp
                 }
               }
             }
@@ -59,8 +59,8 @@ function useLikesData() {
             link
             cover {
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp
+                fixed(maxWidth: 200) {
+                  ...GatsbyImageSharpFixed_withWebp
                 }
               }
             }
@@ -76,8 +76,8 @@ function useLikesData() {
             link
             cover {
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_withWebp
+                fixed(maxWidth: 200) {
+                  ...GatsbyImageSharpFixed_withWebp
                 }
               }
             }

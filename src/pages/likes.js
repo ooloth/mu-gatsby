@@ -47,8 +47,8 @@ function TV() {
               alt={`Visit IMDB page for "${show.title}" in a new window.`}
             >
               <Image
-                fluid={{
-                  ...show.poster.childImageSharp.fluid,
+                fixed={{
+                  ...show.poster.childImageSharp.fixed,
                   aspectRatio: 2 / 3
                 }}
                 alt={`Poster for the TV series "${show.title}"`}
@@ -140,8 +140,8 @@ function Movies() {
               alt={`Visit IMDB page for "${movie.title}" in a new window.`}
             >
               <Image
-                fluid={{
-                  ...movie.poster.childImageSharp.fluid,
+                fixed={{
+                  ...movie.poster.childImageSharp.fixed,
                   aspectRatio: 2 / 3
                 }}
                 alt={`Poster for the movie "${movie.title}"`}
@@ -173,8 +173,8 @@ function Books() {
               alt={`Visit the Open Library page for "${book.title}" in a new window.`}
             >
               <Image
-                fluid={{
-                  ...book.cover.childImageSharp.fluid,
+                fixed={{
+                  ...book.cover.childImageSharp.fixed,
                   aspectRatio: 5 / 7.47
                 }}
                 alt={`Cover for the book "${book.title}"`}
@@ -206,8 +206,8 @@ function Albums() {
               alt={`Visit the iTunes page for "${album.name}" by ${album.artist} in a new window.`}
             >
               <Image
-                fluid={{
-                  ...album.cover.childImageSharp.fluid,
+                fixed={{
+                  ...album.cover.childImageSharp.fixed,
                   aspectRatio: 1 / 1
                 }}
                 alt={`Cover for the album "${album.name}" by ${album.artist}`}
@@ -240,8 +240,8 @@ function Podcasts() {
               alt={`Visit the iTunes page for "${podcast.name}" in a new window.`}
             >
               <Image
-                fluid={{
-                  ...podcast.cover.childImageSharp.fluid,
+                fixed={{
+                  ...podcast.cover.childImageSharp.fixed,
                   aspectRatio: 1 / 1
                 }}
                 alt={`Cover for the podcast "${podcast.name}"`}
