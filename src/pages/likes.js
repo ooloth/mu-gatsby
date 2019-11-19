@@ -103,7 +103,8 @@ const LikesList = styled.ul`
 const LikesItem = styled.li`
   flex: none;
   margin-right: var(--s6);
-  width: 10rem;
+  width: 10rem; /* IE, Edge */
+  width: min-content; /* modern browsers */
 `;
 
 const ItemLink = styled(Link)`
