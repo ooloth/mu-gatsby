@@ -120,7 +120,6 @@ exports.books = [
   { name: `The Fellowship of the Ring`, id: 380681791, date: "1954-07-29" },
   { name: `The Two Towers`, id: 380681071, date: "1954-11-11" },
   { name: `The Return of the King`, id: 380685715, date: "1955-10-10" },
-  { name: `The Lord of the Rings`, id: 380681259, date: "1954-07-29" },
 
   // Alice Walker
   { name: `The Color Purple`, id: 466390262, date: "1982" },
