@@ -173,10 +173,7 @@ function Books() {
               alt={`Visit the Open Library page for "${book.title}" in a new window.`}
             >
               <Image
-                fixed={{
-                  ...book.cover.childImageSharp.fixed,
-                  aspectRatio: 5 / 7.47
-                }}
+                fixed={book.cover.childImageSharp.fixed}
                 alt={`Cover for the book "${book.title}"`}
               />
               <ItemName>{book.title}</ItemName>
@@ -206,10 +203,7 @@ function Albums() {
               alt={`Visit the iTunes page for "${album.name}" by ${album.artist} in a new window.`}
             >
               <Image
-                fixed={{
-                  ...album.cover.childImageSharp.fixed,
-                  aspectRatio: 1 / 1
-                }}
+                fixed={album.cover.childImageSharp.fixed}
                 alt={`Cover for the album "${album.name}" by ${album.artist}`}
               />
               <ItemName>{album.name}</ItemName>
@@ -240,10 +234,7 @@ function Podcasts() {
               alt={`Visit the iTunes page for "${podcast.name}" in a new window.`}
             >
               <Image
-                fixed={{
-                  ...podcast.cover.childImageSharp.fixed,
-                  aspectRatio: 1 / 1
-                }}
+                fixed={podcast.cover.childImageSharp.fixed}
                 alt={`Cover for the podcast "${podcast.name}"`}
               />
               <ItemName>{podcast.name}</ItemName>
