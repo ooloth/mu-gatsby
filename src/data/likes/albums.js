@@ -208,7 +208,7 @@ exports.albums = [
   { name: `To Pimp a Butterfly`, id: 1440828886, date: "2015-03-16" },
 
   // The Kossoy Sisters
-  { name: `Bowling Green`, id: 1481671123, date: "1956" },
+  { name: `Bowling Green`, id: 1481671123, date: "1956-01-01" },
 
   // Lambert, Hendricks & Ross
   { name: `The Hottest New Group in Jazz`, id: 298202340, date: "1959-12-31" },
@@ -255,5 +255,5 @@ exports.albums = [
   },
 
   // Giuseppe Verdi
-  { name: `Messa da Requiem`, id: 1224287779, date: "1953-09" }
+  { name: `Messa da Requiem`, id: 1224287779, date: "1953-09-01" }
 ];
