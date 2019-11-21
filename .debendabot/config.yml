@@ -6,6 +6,6 @@ update_configs:
   # Keep package.json (& lockfiles) up to date as soon as new versions are published to the npm registry
   - package_manager: "javascript"
     directory: "/" # location of package.json
-    update_schedule: "live" # or "daily", "weekly", "monthly"
+    update_schedule: "weekly" # or "live", "daily", "monthly"
     default_reviewers:
       - "ooloth"
