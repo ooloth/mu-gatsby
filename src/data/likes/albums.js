@@ -234,6 +234,73 @@ exports.albums = [
   { name: `The Cool`, id: 269746624, date: "2007-12-18" },
   { name: `Tetsuo & Youth`, id: 948344511, date: "2015-01-20" },
 
+  // Madvillain
+  { name: `Madvillainy`, id: 887699504, date: "2004-03-23" },
+
+  // Martin Tielli
+  {
+    name: `We Didn't Even Suspect He Was the Poppy Salesman`,
+    id: 1443572372,
+    date: "2001-09-03"
+  },
+
+  // Metric
+  {
+    name: `Old World Underground, Where Are You Now?`,
+    id: 1107122237,
+    date: "2004-06-15"
+  },
+  { name: `Live It Out`, id: 1108029976, date: "2005-09-27" },
+  { name: `Grow Up and Blow Away`, id: 1108657631, date: "2007-06-26" },
+  { name: `Fantasies`, id: 1440945965, date: "2009-04-14" },
+
+  // Miles Davis
+  { name: `Kind of Blue`, id: 268443092, date: "1959-08-17" },
+
+  // Muddy Waters
+  { name: `Anthology`, id: 1014985488, date: "1972" },
+
+  // Muse
+  { name: `Showbiz`, id: 991516209, date: "1999-09-07" },
+  { name: `The 2nd Law`, id: 991516209, date: "2012-09-28" },
+
+  // Nas
+  { name: `Illmatic`, id: 662324135, date: "1994-04-19" },
+  { name: `The Lost Tapes`, id: 203942497, date: "2002-09-23" },
+  { name: `God's Son`, id: 162508220, date: "2002-11-19" },
+
+  // The National
+  { name: `Boxer`, id: 220311706, date: "2007-05-22" },
+  { name: `Trouble Will Find Me`, id: 626872826, date: "2013-05-17" },
+
+  // Neil Young
+  { name: `After the Gold Rush`, id: 1015783330, date: "1970-09-19" },
+
+  // Nick Drake
+  { name: `Five Leaves Left`, id: 1440656068, date: "1969-09-01" },
+  { name: `Bryter Layter`, id: 1440723775, date: "1970-01-01" },
+  { name: `Pink Moon`, id: 1440758653, date: "1972-02-25" },
+
+  // Nirvana
+  { name: `Nevermind`, id: 1440783617, date: "1991-09-24" },
+
+  // The Notwist
+  { name: `Neon Golden`, id: 81170782, date: "2001-12-31" },
+
+  // Outkast
+  { name: `Aquemini`, id: 266365274, date: "1998-09-28" },
+  { name: `Speakerboxxx/The Love Below`, id: 281430653, date: "2003-09-23" },
+
+  // Pete Rock
+  { name: `Mecca and the Soul Brother`, id: 217508870, date: "1992-06-09" },
+  { name: `Center of Attention`, id: 1210716593, date: "2003-11-04" },
+
+  // The Pharcyde
+  { name: `Labcabincalifornia`, id: 1440914966, date: "1995-01-01" },
+
+  // Phoenix
+  { name: `Wolfgang Amadeus Phoenix`, id: 1450828963, date: "2009-09-25" },
+
   // Radiohead
   { name: `The Bends`, id: 1097862703, date: "1995-03-13" },
   { name: `OK Computer`, id: 1097861387, date: "1997-06-16" },
@@ -241,6 +308,21 @@ exports.albums = [
   { name: `Amnesiac`, id: 1097864180, date: "2001-06-05" },
   { name: `Hail to the Thief`, id: 1097863576, date: "2003-05-26" },
   { name: `In Rainbows`, id: 1109714933, date: "2007-10-10" },
+
+  // Rakim
+  { name: `The 18th Letter`, id: 1440801719, date: "1997-01-01" },
+
+  // The Real Group
+  { name: `Debut`, id: 1067386917, date: "1987-03-01" },
+  { name: `Unreal!`, id: 41741568, date: "1993-12-31" },
+  { name: `En riktig jul`, id: 207148981, date: "1997-01-01" },
+  { name: `Stämning`, id: 1059171235, date: "2002" },
+
+  // Robert Johnson
+  { name: `The Complete Recordings`, id: 546817591, date: "1937" },
+
+  // Rodrigo Amarante
+  { name: `Cavalo`, id: 1455259164, date: "2014-05-06" },
 
   // Rufus Wainwright
   { name: `Rufus Wainwright`, id: 1444102406, date: "1998-05-19" },
@@ -254,6 +336,96 @@ exports.albums = [
     date: "2010-03-23"
   },
 
+  // Run The Jewels
+  { name: `Run the Jewels 2`, id: 1438904728, date: "2014-10-24" },
+
+  // Sam Amidon
+  { name: `I See the Sign`, id: 361264674, date: "2010-03-29" },
+
+  // Sam Smith
+  { name: `In the Lonely Hour`, id: 1440814069, date: "2014-05-26" },
+
+  // Simon & Garfunkel
+  { name: `Wednesday Morning, 3 A.M.`, id: 203925134, date: "1964-10-19" },
+  { name: `Sounds of Silence`, id: 192480256, date: "1966-01-17" },
+  {
+    name: `Parsley, Sage, Rosemary and Thyme`,
+    id: 1467438660,
+    date: "1966-10-10"
+  },
+  { name: `Bookends`, id: 203303421, date: "1968-04-03" },
+
+  // Stevie Wonder
+  { name: `Songs in the Key of Life`, id: 1440788438, date: "1976-09-28" },
+
+  // Sufjan Stevens
+  { name: `Michigan`, id: 327920307, date: "2003-07-01" },
+  { name: `Illinois`, id: 328074546, date: "2005-07-04" },
+  { name: `Songs for Christmas`, id: 325236654, date: "2006-11-21" },
+  { name: `Silver & Gold`, id: 571955371, date: "2012-11-12" },
+  { name: `Carrie & Lowell`, id: 955572616, date: "2015-03-31" },
+
+  // Sun Kil Moon
+  { name: `Tiny Cities`, id: 81814913, date: "2005-11-01" },
+  { name: `Among the Leaves`, id: 518870129, date: "2012-05-29" },
+  { name: `Benji`, id: 795192449, date: "2014-02-11" },
+
+  // Sylvan Esso
+  { name: `Sylvan Esso`, id: 1440929641, date: "2014-01-01" },
+
+  // Ted Lucas
+  { name: `Ted Lucas`, id: 1437948255, date: "1974-12-31" },
+
+  // The Tallest Man On Earth
+  { name: `The Wild Hunt`, id: 445968858, date: "2010-04-13" },
+
+  // Thom Yorke
+  { name: `The Eraser`, id: 161162568, date: "2006-07-10" },
+
+  // Tom Waits
+  { name: `Closing Time`, id: 1485071375, date: "1973-03-06" },
+  { name: `The Heart of Saturday Night`, id: 1485071401, date: "1974-10-15" },
+  { name: `Nighthawks at the Diner`, id: 1485072511, date: "1975-10-21" },
+  { name: `Small Change`, id: 1485074801, date: "1976-09-21" },
+  { name: `Foreign Affairs`, id: 1485074965, date: "1977-09-13" },
+  { name: `Blue Valentine`, id: 1485074752, date: "1978-09-05" },
+  { name: `Swordfishtrombones`, id: 1440719515, date: "1983-09-01" },
+  { name: `Rain Dogs`, id: 1440657420, date: "1985-09-30" },
+  { name: `Frank's Wild Years`, id: 1440777263, date: "1987-08-17" },
+  { name: `The Early Years Vol. 1`, id: 42260805, date: "1991-07-16" },
+  { name: `The Black Rider`, id: 1443598850, date: "1993-01-01" },
+  { name: `The Early Years Vol. 2`, id: 42263629, date: "1993-02-01" },
+  { name: `Mule Variations`, id: 1485070836, date: "1999-04-27" },
+  { name: `Blood Money`, id: 1485070285, date: "2002-05-07" },
+  { name: `Alice`, id: 1298702268, date: "2002-05-07" },
+  { name: `Real Gone`, id: 1485070843, date: "2004-10-05" },
+  {
+    name: `Orphans: Brawlers, Bawlers & Bastards `,
+    id: 1485076540,
+    date: "2006-11-21"
+  },
+
+  // A Tribe Called Quest
+  { name: `The Low End Theory`, id: 278911460, date: "1991-09-24" },
+  { name: `Midnight Marauders`, id: 265670545, date: "1993-11-09" },
+
+  // Vampire Weekend
+  { name: `Vampire Weekend`, id: 270425072, date: "2008-01-29" },
+  { name: `Modern Vampires of the City`, id: 613184430, date: "2013-05-13" },
+
+  // Various Artists
+  { name: `O Brother, Where Art Thou?`, id: 1469575447, date: "2000-01-01" },
+
   // Giuseppe Verdi
-  { name: `Messa da Requiem`, id: 1224287779, date: "1953-09" }
+  { name: `Messa da Requiem`, id: 1224287779, date: "1953-09" },
+
+  // The White Stripes
+  { name: `Elephant`, id: 275230921, date: "2003-04-01" },
+
+  // Yves Montand
+  {
+    name: `C'est si bon + 49 succès de Yves Montand`,
+    id: 381345529,
+    date: "1954-12-31"
+  }
 ];
