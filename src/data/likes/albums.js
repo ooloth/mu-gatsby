@@ -179,7 +179,7 @@ exports.albums = [
   {
     name: `Sketches for My Sweetheart the Drunk`,
     id: 1476888879,
-    date: "May 26, 1998-05-26"
+    date: "1998-05-26"
   },
 
   // John Lennon
@@ -224,7 +224,7 @@ exports.albums = [
   { name: `Coming Home`, id: 1079234232, date: "2015-06-23" },
 
   // Louis Prima
-  { name: `The Wildest!`, id: 725786218, date: "1957-01-01" },
+  { name: `The Wildest!`, id: 725786218, date: "1957" },
 
   // The Lumineers
   { name: `The Lumineers`, id: 1452839778, date: "2012-04-03" },
@@ -255,5 +255,5 @@ exports.albums = [
   },
 
   // Giuseppe Verdi
-  { name: `Messa da Requiem`, id: 1224287779, date: "1953-09-01" }
+  { name: `Messa da Requiem`, id: 1224287779, date: "1953-09" }
 ];
