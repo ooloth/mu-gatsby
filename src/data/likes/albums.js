@@ -316,7 +316,7 @@ exports.albums = [
   { name: `Debut`, id: 1067386917, date: "1987-03-01" },
   { name: `Unreal!`, id: 41741568, date: "1993-12-31" },
   { name: `En riktig jul`, id: 207148981, date: "1997-01-01" },
-  { name: `Stämning`, id: 1059171235, date: "2015-11-14" },
+  { name: `Stämning`, id: 1059171235, date: "2002" },
 
   // Robert Johnson
   { name: `The Complete Recordings`, id: 546817591, date: "1937" },
