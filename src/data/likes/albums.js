@@ -179,7 +179,7 @@ exports.albums = [
   {
     name: `Sketches for My Sweetheart the Drunk`,
     id: 1476888879,
-    date: "May 26, 1998-05-26"
+    date: "1998-05-26"
   },
 
   // John Lennon
