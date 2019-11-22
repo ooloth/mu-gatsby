@@ -2,7 +2,9 @@
 exports.podcasts = [
   { name: "3 Minutes with Kent", id: 1082883103, date: "2016-02-09" },
   { name: "Against the Rules", id: 1455379351, date: "2019-03-22" },
+  { name: "All Songs Considered", id: 79687345, date: "2000-01" },
   { name: "Aria Code", id: 1442604220, date: "2018-12-04" },
+  { name: "The Bugle", id: 265799883, date: "2007-10-14" },
   { name: "CANADALAND", id: 721048994, date: "2013-10-01" },
   { name: "Canadian Couch Potato", id: 1183027240, date: "2016-11-16" },
   { name: "Chats with Kent C. Dodds", id: 1475543959, date: "2019-08-05" },
@@ -20,6 +22,11 @@ exports.podcasts = [
   { name: "Hackable?", id: 1257232208, date: "2017-07-18" },
   { name: "Here's the Thing", id: 472939437, date: "2011-10-24" },
   { name: "Homecoming", id: 1170934381, date: "2016-11-16" },
+  {
+    name: "Intelligence Squared U.S. Debates",
+    id: 216713308,
+    date: "2006-09-27"
+  },
   { name: "Last Seen", id: 1413228088, date: "2018-09-14" },
   { name: "Radiolab", id: 152249110, date: "2002-05-01" },
   { name: "React Podcast", id: 1341969432, date: "2018-01-29" },
