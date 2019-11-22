@@ -13,6 +13,7 @@ async function fetchTMDBListData(listId, api) {
   const sort = api === "tv" ? "primary_release_date.desc" : "release_date.desc";
 
   async function fetch20Items() {
+    // See: https://www.themoviedb.org/talk/55aa2a76c3a3682d63002fb1?language=en
     // See: https://developers.themoviedb.org/4/list/get-list
     return await fetch(
       `https://api.themoviedb.org/4/list/${listId}?sort_by=${sort}.desc&page=${page}`,
@@ -25,7 +26,6 @@ async function fetchTMDBListData(listId, api) {
     );
   }
 
-  // See: https://www.themoviedb.org/talk/55aa2a76c3a3682d63002fb1?language=en
   do {
     try {
       const response = await fetch20Items();
@@ -59,8 +59,8 @@ async function fetchTMDBListData(listId, api) {
 }
 
 exports.fetchTMDBData = async () => {
-  const tvShows = await fetchTMDBListData(TMDB_TV_LIST_ID, "tv");
-  const movies = await fetchTMDBListData(TMDB_MOVIE_LIST_ID, "movie");
+  const tvData = await fetchTMDBListData(TMDB_TV_LIST_ID, "tv");
+  const movieData = await fetchTMDBListData(TMDB_MOVIE_LIST_ID, "movie");
 
-  return Promise.all([tvShows, movies]);
+  return Promise.all([tvData, movieData]);
 };
