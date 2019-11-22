@@ -69,127 +69,117 @@ exports.sourceNodes = async ({ actions }) => {
   const [tvData, movieData] = await fetchTMDBData();
   const [albumData, podcastData, bookData] = await fetchiTunesData();
 
-  tvData.forEach(
-    show =>
-      show &&
-      createNode({
-        // Data for the node.
-        title: show.title,
-        releaseDate: show.releaseDate,
-        link: show.link,
-        posterUrl: show.posterUrl,
+  for (let show of tvData) {
+    createNode({
+      // Data for the node.
+      title: show.title,
+      releaseDate: show.releaseDate,
+      link: show.link,
+      posterUrl: show.posterUrl,
 
-        // Required fields.
-        id: String(show.id),
-        parent: null,
-        children: [],
-        internal: {
-          type: `TvShow`,
-          contentDigest: crypto
-            .createHash(`md5`)
-            .update(JSON.stringify(show))
-            .digest(`hex`)
-        }
-      })
-  );
+      // Required fields.
+      id: String(show.id),
+      parent: null,
+      children: [],
+      internal: {
+        type: `TvShow`,
+        contentDigest: crypto
+          .createHash(`md5`)
+          .update(JSON.stringify(show))
+          .digest(`hex`)
+      }
+    });
+  }
 
-  movieData.forEach(
-    movie =>
-      movie &&
-      createNode({
-        // Data for the node.
-        title: movie.title,
-        releaseDate: movie.releaseDate,
-        link: movie.link,
-        posterUrl: movie.posterUrl,
+  for (let movie of movieData) {
+    createNode({
+      // Data for the node.
+      title: movie.title,
+      releaseDate: movie.releaseDate,
+      link: movie.link,
+      posterUrl: movie.posterUrl,
 
-        // Required fields.
-        id: String(movie.id),
-        parent: null,
-        children: [],
-        internal: {
-          type: `Movie`,
-          contentDigest: crypto
-            .createHash(`md5`)
-            .update(JSON.stringify(movie))
-            .digest(`hex`)
-        }
-      })
-  );
+      // Required fields.
+      id: String(movie.id),
+      parent: null,
+      children: [],
+      internal: {
+        type: `Movie`,
+        contentDigest: crypto
+          .createHash(`md5`)
+          .update(JSON.stringify(movie))
+          .digest(`hex`)
+      }
+    });
+  }
 
-  bookData.forEach(
-    book =>
-      book &&
-      createNode({
-        // Data for the node.
-        title: book.name,
-        publishDate: book.releaseDate,
-        link: book.link,
-        coverUrl: book.coverUrl,
+  for (let book of bookData) {
+    createNode({
+      // Data for the node.
+      title: book.name,
+      publishDate: book.releaseDate,
+      link: book.link,
+      coverUrl: book.coverUrl,
 
-        // Required fields.
-        id: String(book.id),
-        parent: null,
-        children: [],
-        internal: {
-          type: `Book`,
-          contentDigest: crypto
-            .createHash(`md5`)
-            .update(JSON.stringify(book))
-            .digest(`hex`)
-        }
-      })
-  );
+      // Required fields.
+      id: String(book.id),
+      parent: null,
+      children: [],
+      internal: {
+        type: `Book`,
+        contentDigest: crypto
+          .createHash(`md5`)
+          .update(JSON.stringify(book))
+          .digest(`hex`)
+      }
+    });
+  }
 
-  albumData.forEach(
-    album =>
-      album &&
-      createNode({
-        // Data for the node.
-        artist: album.artist,
-        name: album.name,
-        releaseDate: album.releaseDate,
-        link: album.link,
-        coverUrl: album.coverUrl,
+  for (let album of albumData) {
+    createNode({
+      // Data for the node.
+      artist: album.artist,
+      name: album.name,
+      releaseDate: album.releaseDate,
+      link: album.link,
+      coverUrl: album.coverUrl,
 
-        // Required fields.
-        id: String(album.id),
-        parent: null,
-        children: [],
-        internal: {
-          type: `Album`,
-          contentDigest: crypto
-            .createHash(`md5`)
-            .update(JSON.stringify(album))
-            .digest(`hex`)
-        }
-      })
-  );
+      // Required fields.
+      id: String(album.id),
+      parent: null,
+      children: [],
+      internal: {
+        type: `Album`,
+        contentDigest: crypto
+          .createHash(`md5`)
+          .update(JSON.stringify(album))
+          .digest(`hex`)
+      }
+    });
+  }
 
-  podcastData.forEach(
-    podcast =>
-      podcast &&
-      createNode({
-        // Data for the node.
-        artist: podcast.artist,
-        name: podcast.name,
-        releaseDate: podcast.releaseDate,
-        link: podcast.link,
-        coverUrl: podcast.coverUrl,
+  for (let podcast of podcastData) {
+    createNode({
+      // Data for the node.
+      artist: podcast.artist,
+      name: podcast.name,
+      releaseDate: podcast.releaseDate,
+      link: podcast.link,
+      coverUrl: podcast.coverUrl,
 
-        // Required fields.
-        id: String(podcast.id),
-        parent: null,
-        children: [],
-        internal: {
-          type: `Podcast`,
-          contentDigest: crypto
-            .createHash(`md5`)
-            .update(JSON.stringify(podcast))
-            .digest(`hex`)
-        }
-      })
-  );
+      // Required fields.
+      id: String(podcast.id),
+      parent: null,
+      children: [],
+      internal: {
+        type: `Podcast`,
+        contentDigest: crypto
+          .createHash(`md5`)
+          .update(JSON.stringify(podcast))
+          .digest(`hex`)
+      }
+    });
+  }
 
   return;
 };
