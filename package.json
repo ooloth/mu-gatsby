@@ -13,7 +13,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
-    "@reach/dialog": "^0.6.1",
+    "@reach/dialog": "^0.6.2",
     "@svgr/webpack": "^4.3.3",
     "@xstate/react": "^0.8.1",
     "autoprefixer": "^9.7.2",
