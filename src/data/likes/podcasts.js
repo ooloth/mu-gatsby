@@ -41,11 +41,13 @@ exports.podcasts = [
   { name: "Syntax", id: 1253186678, date: "2017-07-05" },
   { name: "The Big Story", id: 1399721065, date: "2018-06-25" },
   { name: "The Clearing", id: 1471432747, date: "2019-08-29" },
+  { name: "The Last Days of August", id: 1258779354, date: "2017-11-03" },
   { name: "The New Yorker Radio Hour", id: 1050430296, date: "2015-10-24" },
   { name: "This American Life", id: 201671138, date: "1995-11-17" },
   { name: "Thunder Bay", id: 1438924421, date: "2018-10-22" },
   { name: "Toolsday", id: 1063765302, date: "2015-10-20" },
   { name: "Where Should We Begin?", id: 1237931798, date: "2017-10-09" },
+  { name: "Without Fail", id: 1437293054, date: "2018-10-01" },
   { name: "Up First", id: 1222114325, date: "2017-04-05" },
   { name: "You Made It Weird", id: 475878118, date: "2011-10-25" }
 ];
