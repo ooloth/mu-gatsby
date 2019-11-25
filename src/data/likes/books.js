@@ -16,6 +16,9 @@ exports.books = [
   // John Carreyrou
   { name: `Bad Blood`, id: 1332351059, date: "2018-05-21" },
 
+  // Agatha Christie
+  { name: `The Murder of Roger Ackroyd`, id: 363686297, date: "1926-06" },
+
   // Trevor Cole
   {
     name: `Norman Bray in the Performance of His Life`,
@@ -111,6 +114,10 @@ exports.books = [
 
   // Thomas J. Stanley
   { name: `The Millionaire Next Door`, id: 1342443152, date: "1996" },
+
+  // William Shakespeare
+  { name: `A Midsummer Night's Dream`, id: 463334408, date: "1596" },
+  { name: `Hamlet`, id: 463327769, date: "1602" },
 
   // Carol Tavris & Elliot Aronson
   { name: `Mistakes Were Made (but Not by Me)`, id: 427529942, date: "2007" },
