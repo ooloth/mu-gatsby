@@ -20,15 +20,15 @@ function IndexPage({ location }) {
         </p>
 
         <Nav>
-          <NavLink href="/blog/">Blog</NavLink>
+          <NavLink href="/writes/">Blog</NavLink>
           <br />
           <NavLink href="https://www.youtube.com/user/michaeluloth">
             Videos
           </NavLink>
           <br />
-          <NavLink href="/websites/">Websites</NavLink>
+          <NavLink href="/codes/">Websites</NavLink>
           <br />
-          <NavLink href="/opera/">Opera</NavLink>
+          <NavLink href="/sings/">Opera</NavLink>
         </Nav>
       </Main>
     </Base>

@@ -48,22 +48,22 @@ module.exports = {
       process.env.GOOGLE_SITE_VERIFICATION_SEARCH_CONSOLE,
     gSuiteSiteVerification: process.env.GOOGLE_SITE_VERIFICATION_GSUITE,
     blogPage: {
-      title: `Blog | Michael Uloth`,
+      title: `Michael Uloth | Writes`,
       description: `Coding tips and walk-throughs to help future me get unstuck.`,
-      url: `https://www.michaeluloth.com/blog`
+      url: `https://www.michaeluloth.com/writes`
     },
     websitesPage: {
-      title: `Websites | Michael Uloth`,
+      title: `Michael Uloth | Codes`,
       description: `Sites I've built for fun and profit.`,
-      url: `https://www.michaeluloth.com/websites`
+      url: `https://www.michaeluloth.com/codes`
     },
     operaPage: {
-      title: `Opera | Michael Uloth`,
+      title: `Michael Uloth | Sings`,
       description: `Concerts and operas I've been lucky enough to perform.`,
-      url: `https://www.michaeluloth.com/opera`
+      url: `https://www.michaeluloth.com/sings`
     },
     likesPage: {
-      title: `Likes | Michael Uloth`,
+      title: `Michael Uloth | Likes`,
       description: `Fun stuff that makes me happy.`,
       url: `https://www.michaeluloth.com/likes`
     }

@@ -4,6 +4,9 @@
 https://michaeluloth.netlify.com/* https://www.michaeluloth.com/:splat 301!
 
 # Redirect old urls to new urls:
-/web-design       /websites   301!
+/blog             /writes     301!
+/websites         /codes      301!
+/web-design       /codes      301!
+/opera            /sings      301!
 /tax-preparation  /           301!
 /contact          /           301!  
