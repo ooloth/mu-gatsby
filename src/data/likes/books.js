@@ -1,5 +1,8 @@
 // Get ID from URL of Apple Music webpage: https://music.apple.com/ca
 exports.books = [
+  // Jane Austen
+  { name: `Emma`, id: 395536171, date: "1815-01-01" },
+
   // David Bach
   { name: `The Automatic Millionaire`, id: 468693800, date: "2003" },
 
@@ -80,6 +83,9 @@ exports.books = [
   // John Irving
   { name: `A Prayer for Owen Meany`, id: 470465253, date: "1989-03" },
 
+  // Kazuo Ishiguro
+  { name: `The Remains of the Day`, id: 836353895, date: "1989-05" },
+
   // Brian Jacques
   { name: `Redwall`, id: 737831978, date: "1986" },
   { name: `Salamandastron`, id: 526702849, date: "1992" },
@@ -108,6 +114,48 @@ exports.books = [
   // Mordecai Richler
   { name: `Barney's Version`, id: 468691441, date: "1997-12-23" },
 
+  // J. K. Rowling
+  {
+    name: `Harry Potter and the Philosopher's Stone`,
+    id: 1037197060,
+    date: "1997-06-26"
+  },
+  {
+    name: `Harry Potter and the Chamber of Secrets`,
+    id: 1037197006,
+    date: "1998-07-02"
+  },
+  {
+    name: `Harry Potter and the Prisoner of Azkaban`,
+    id: 1037196784,
+    date: "1999-07-08"
+  },
+  {
+    name: `Harry Potter and the Goblet of Fire`,
+    id: 1037197223,
+    date: "2000-07-08"
+  },
+  {
+    name: `Harry Potter and the Order of the Phoenix`,
+    id: 1037197812,
+    date: "2003-06-21"
+  },
+  {
+    name: `Harry Potter and the Half-Blood Prince`,
+    id: 1037197578,
+    date: "2005-07-16"
+  },
+  {
+    name: `Harry Potter and the Deathly Hallows`,
+    id: 1037198029,
+    date: "2007-07-21"
+  },
+  {
+    name: `Harry Potter and the Cursed Child`,
+    id: 1255836154,
+    date: "2016-07-31"
+  },
+
   // Salman Rushdie
   { name: `Midnight's Children`, id: 468691489, date: "1981-03-12" },
   { name: `Fury`, id: 468696291, date: "2001-09-04" },
@@ -130,6 +178,13 @@ exports.books = [
 
   // Alice Walker
   { name: `The Color Purple`, id: 466390262, date: "1982" },
+
+  // Bob Woodward
+  {
+    name: `Fear: Trump in the White House`,
+    id: 1403659142,
+    date: "2018-09-11"
+  },
 
   // Robert Wright
   { name: `The Moral Animal`, id: 420495146, date: "1994-08-23" }
