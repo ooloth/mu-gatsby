@@ -51,7 +51,7 @@
     "string-replace-to-array": "^1.0.3",
     "styled-components": "^4.4.1",
     "what-input": "^5.2.6",
-    "xstate": "^4.7.0"
+    "xstate": "^4.7.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
