@@ -13,7 +13,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
-    "@svgr/webpack": "^4.3.3",
+    "@svgr/webpack": "^5.0.1",
     "@xstate/react": "^0.8.1",
     "babel-plugin-styled-components": "^1.10.6",
     "dotenv": "^8.2.0",
