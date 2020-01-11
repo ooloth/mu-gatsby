@@ -34,7 +34,7 @@
     "gatsby-plugin-robots-txt": "^1.5.0",
     "gatsby-plugin-sharp": "^2.3.4",
     "gatsby-plugin-sitemap": "^2.2.22",
-    "gatsby-plugin-styled-components": "^3.1.14",
+    "gatsby-plugin-styled-components": "^3.1.17",
     "gatsby-plugin-svgr": "^2.0.2",
     "gatsby-plugin-twitter": "^2.1.15",
     "gatsby-remark-a11y-emoji": "^1.0.1",
