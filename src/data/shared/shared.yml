@@ -7,13 +7,19 @@ navLinks:
     text: Home
 
   - href: /writes/
-    text: Blog
+    text: Articles
+
+  - href: https://www.youtube.com/user/michaeluloth
+    text: Videos
 
   - href: /codes/
     text: Websites
 
   - href: /sings/
     text: Opera
+
+  - href: /likes/
+    text: Likes
 
 socialLinks:
   - platform: YouTube
