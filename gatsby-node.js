@@ -4,6 +4,8 @@
 // https://www.gatsbyjs.org/docs/debugging-async-lifecycles/
 // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-mdx
 
+const shortid = require("shortid");
+
 exports.createPages = async function({ actions, graphql }) {
   await graphql(`
     {
