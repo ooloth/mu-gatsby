@@ -160,12 +160,15 @@ exports.books = [
   { name: `Midnight's Children`, id: 468691489, date: "1981-03-12" },
   { name: `Fury`, id: 468696291, date: "2001-09-04" },
 
-  // Thomas J. Stanley
-  { name: `The Millionaire Next Door`, id: 1342443152, date: "1996" },
-
   // William Shakespeare
   { name: `A Midsummer Night's Dream`, id: 463334408, date: "1596" },
   { name: `Hamlet`, id: 463327769, date: "1602" },
+
+  // Thomas J. Stanley
+  { name: `The Millionaire Next Door`, id: 1342443152, date: "1996" },
+
+  // Peter Swanson
+  { name: `The Kind Worth Killing`, id: 862550728, date: "2015" },
 
   // Carol Tavris & Elliot Aronson
   { name: `Mistakes Were Made (but Not by Me)`, id: 427529942, date: "2007" },
