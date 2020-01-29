@@ -6,7 +6,7 @@ function useSharedData() {
           avatar {
             file {
               childImageSharp {
-                fluid {
+                fluid(maxWidth: 60, quality: 80) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
@@ -27,13 +27,13 @@ function useSharedData() {
         }
       }
     `
-  )
+  );
 
-  return sharedYaml
+  return sharedYaml;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from "gatsby";
 
-export default useSharedData
+export default useSharedData;

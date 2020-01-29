@@ -64,7 +64,7 @@ async function sendFormToButtonDown(ctx) {
       Authorization: `Token ${process.env.GATSBY_BUTTONDOWN_API_KEY}`,
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ email })
+    body: email
   })
     .then(response => response.json())
     .then(() => {

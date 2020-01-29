@@ -21,7 +21,7 @@ exports.createPages = async function({ actions, graphql }) {
               description
               metaImage {
                 childImageSharp {
-                  fixed(width: 1500) {
+                  fixed(width: 1500, quality: 80) {
                     src
                   }
                 }
