@@ -181,7 +181,7 @@ function createPodcastNode(createNode, podcast) {
 const dummyNode = {
   artist: "Artist",
   coverUrl: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809",
-  id: "",
+  id: "GENERATE ME EACH TIME",
   link: "https://www.google.ca",
   name: "Name",
   posterUrl: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809",
@@ -202,6 +202,7 @@ exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
 
   // Don't waste time fetching + optimizing images in development
+  console.log("NODE_ENV", process.env.NODE_ENV);
   if (process.env.NODE_ENV !== "production") {
     createDummyNodes(createNode);
     return;
