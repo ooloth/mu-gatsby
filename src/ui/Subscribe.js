@@ -37,9 +37,6 @@ const Text = styled.p`
 
 function NetlifyForm() {
   const [state, send] = useMachine(buttondownFormMachine);
-  console.log("machine", state);
-  console.log("state", state.value);
-  console.log("email", state.context.email);
 
   function handleChange(e) {
     console.log("e.target.value", e.target.value);
