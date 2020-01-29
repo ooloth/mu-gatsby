@@ -56,18 +56,19 @@ export const buttondownFormMachine = Machine(
 ///////////////////////////////////////////////////////////////////////////////////
 
 async function sendFormToButtonDown(ctx) {
+  console.log("sendFormToButtonDown()");
   const { email } = ctx;
+  console.log(
+    "process.env.GATSBY_BUTTONDOWN_API_KEY",
+    process.env.GATSBY_BUTTONDOWN_API_KEY
+  );
 
-  return fetch("https://api.buttondown.email/v1/subscribers", {
+  return await fetch("https://api.buttondown.email/v1/subscribers", {
     method: "POST",
     headers: {
       Authorization: `Token ${process.env.GATSBY_BUTTONDOWN_API_KEY}`,
       "Content-Type": "application/json"
     },
-    body: email
-  })
-    .then(response => response.json())
-    .then(() => {
-      console.log(`Submitted email to Buttondown successfully.`);
-    });
+    body: JSON.stringify({ email })
+  });
 }
