@@ -1,10 +1,18 @@
+import React from "react";
+import styled from "styled-components";
+
+import { Emoji } from "./elements";
+import useMachine from "../logic/useMachine";
+import { buttondownFormMachine } from "../logic/buttondownForm";
+import { container, copy, purpleGradient } from "../styles";
+
 function NetlifyFormExample() {
   return (
     <Section>
       <Heading>Subscribe</Heading>
       <NetlifyForm />
     </Section>
-  )
+  );
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -12,31 +20,35 @@ function NetlifyFormExample() {
 const Section = styled.section`
   ${container}
   padding-top: var(--s8);
-`
+`;
 
 const Heading = styled.h2`
   font-size: var(--f8);
   font-weight: 900;
-`
+`;
 
 const Text = styled.p`
   ${copy}
   margin-top: var(--s4);
   margin-bottom: var(--s1);
-`
+`;
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 function NetlifyForm() {
-  const [state, send] = useMachine(netlifyFormMachine)
+  const [state, send] = useMachine(buttondownFormMachine);
+  console.log("machine", state);
+  console.log("state", state.value);
+  console.log("email", state.context.email);
 
   function handleChange(e) {
-    send(`UPDATE_FIELD`, { name: e.target.name, value: e.target.value })
+    console.log("e.target.value", e.target.value);
+    send(`UPDATE_EMAIL`, { email: e.target.value });
   }
 
   function handleSubmit(e) {
-    e.preventDefault()
-    send(`SUBMIT`)
+    e.preventDefault();
+    send(`SUBMIT`);
   }
 
   return (
@@ -83,7 +95,7 @@ function NetlifyForm() {
 
       {state.value === `success` && (
         <AlertText>
-          Thanks for subscribing!{' '}
+          Thanks for subscribing!{" "}
           <Emoji
             emoji="🙌"
             ariaLabel="An emoji of two hands raised in appreciation."
@@ -93,12 +105,12 @@ function NetlifyForm() {
         </AlertText>
       )}
     </>
-  )
+  );
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-const emailRegex = `.+@.+..+`
+const emailRegex = `.+@.+..+`;
 
 const InputAndSubmit = styled.div`
   @media screen and (min-width: 480px) {
@@ -112,7 +124,7 @@ const InputAndSubmit = styled.div`
     width: max-content;
     max-width: 100%;
   }
-`
+`;
 
 const Input = styled.input`
   ${purpleGradient}
@@ -140,7 +152,7 @@ const Input = styled.input`
     width: 18rem;
     text-align: left;
   }
-`
+`;
 
 const Submit = styled.button`
   margin-top: var(--s1);
@@ -172,22 +184,12 @@ const Submit = styled.button`
     width: auto;
     line-height: 1.6;
   }
-`
+`;
 
 const AlertText = styled.p`
   display: block;
   margin-top: var(--s2);
   line-height: 2.4;
-`
+`;
 
-///////////////////////////////////////////////////////////////////////////////////
-
-import React from 'react'
-import styled from 'styled-components'
-
-import { Emoji } from './elements'
-import useMachine from '../logic/useMachine'
-import { netlifyFormMachine } from '../logic/netlifyForm'
-import { container, copy, purpleGradient } from '../styles'
-
-export default NetlifyFormExample
+export default NetlifyFormExample;
