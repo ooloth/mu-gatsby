@@ -39,7 +39,6 @@ function NetlifyForm() {
   const [state, send] = useMachine(buttondownFormMachine);
 
   function handleChange(e) {
-    console.log("e.target.value", e.target.value);
     send(`UPDATE_EMAIL`, { email: e.target.value });
   }
 
