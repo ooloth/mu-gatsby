@@ -10,7 +10,7 @@ function useLikesData() {
             link
             poster {
               childImageSharp {
-                fixed(height: 300) {
+                fixed(height: 300, quality: 80) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -26,7 +26,7 @@ function useLikesData() {
             link
             poster {
               childImageSharp {
-                fixed(height: 300) {
+                fixed(height: 300, quality: 80) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -42,7 +42,7 @@ function useLikesData() {
             link
             cover {
               childImageSharp {
-                fixed(height: 300) {
+                fixed(height: 300, quality: 80) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -59,7 +59,7 @@ function useLikesData() {
             link
             cover {
               childImageSharp {
-                fixed(width: 200, height: 200) {
+                fixed(width: 200, height: 200, quality: 80) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
@@ -76,7 +76,7 @@ function useLikesData() {
             link
             cover {
               childImageSharp {
-                fixed(width: 200, height: 200) {
+                fixed(width: 200, height: 200, quality: 80) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
