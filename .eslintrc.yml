@@ -1,16 +1,14 @@
-extends: "react-app"
+extends:
+  - 'react-app'
+  - 'prettier'
 
 globals:
   __dirname: false
   graphql: false
   process: false
-  TimelineLite: false
-  TimelineMax: false
-  TweenLite: false
-  TweenMax: false
 
 plugins:
-- react-hooks
+  - react-hooks
 
 rules:
   import/first: 'off'
