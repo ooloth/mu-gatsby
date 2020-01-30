@@ -1,3 +1,7 @@
+import { css } from 'styled-components'
+
+import { media } from './media'
+
 export const pageSummary = css`
   margin-top: var(--s5);
   width: 32ch;
@@ -7,10 +11,4 @@ export const pageSummary = css`
   ${media.sm`
     font-size: 1.35rem;
   `}
-`;
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import { css } from "styled-components";
-
-import { media } from "./media";
+`

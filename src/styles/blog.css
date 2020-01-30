@@ -22,15 +22,15 @@ figcaption {
   color: var(--black70);
 }
 
-::selection { 
-  background-color: var(--purple); 
+::selection {
+  background-color: var(--purple);
   color: white;
 }
 
 /* gatsby-plugin-twitter */
-.twitter-tweet { 
+.twitter-tweet {
   margin-top: var(--s6) !important;
   margin-bottom: var(--s6) !important;
   box-shadow: var(--shadow2);
   border-radius: var(--r2);
- }
+}

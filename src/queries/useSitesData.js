@@ -1,3 +1,5 @@
+import { useStaticQuery, graphql } from 'gatsby'
+
 function useSitesData() {
   const { allSitesYaml } = useStaticQuery(
     graphql`
@@ -13,14 +15,10 @@ function useSitesData() {
           }
         }
       }
-    `
+    `,
   )
 
   return allSitesYaml.nodes
 }
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import { useStaticQuery, graphql } from 'gatsby'
 
 export default useSitesData

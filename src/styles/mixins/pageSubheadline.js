@@ -1,3 +1,7 @@
+import { css } from 'styled-components'
+
+import { media } from './media'
+
 export const pageSubheadline = css`
   letter-spacing: -1px;
   font-size: 2.45rem;
@@ -11,9 +15,3 @@ export const pageSubheadline = css`
     font-size: 3.35rem;
   `}
 `
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import { css } from 'styled-components'
-
-import { media } from './media'

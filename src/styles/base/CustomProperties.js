@@ -1,3 +1,5 @@
+import { createGlobalStyle } from 'styled-components'
+
 /// TODO: add variables for all the utilities I have that use a scale (but not negative size/space since I can just put a '-' in front of the positive values)
 
 // TODO: try to move ALL media queries here, so that the only thing that media queries ever change are custom properties (cleaner code in my components, since I won't need media queries there and I can just use a single CSS variable once); (alternatively, move each component's custom properties to the top of its file?)
@@ -241,9 +243,5 @@ const CustomProperties = createGlobalStyle`
     --lightest-blue: #cdecff;
   }
 `
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import { createGlobalStyle } from 'styled-components'
 
 export default CustomProperties

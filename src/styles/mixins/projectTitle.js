@@ -1,3 +1,8 @@
+import { css } from 'styled-components'
+
+import { media } from './media'
+import { purpleUnderline } from './purpleUnderline'
+
 export const projectTitle = css`
   ${purpleUnderline}
   line-height: 1.4;
@@ -20,10 +25,3 @@ export const projectTitle = css`
     font-size: 1.85rem;
   `}
 `
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import { css } from 'styled-components'
-
-import { media } from './media'
-import { purpleUnderline } from './purpleUnderline'

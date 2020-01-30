@@ -1,3 +1,14 @@
+import React from 'react'
+import styled from 'styled-components'
+
+import { Emoji } from '../ui/elements'
+import { container, pageHeadline, pageSummary } from '../styles'
+
+const Header = styled.header`
+  ${container}
+  margin-left: 0;
+`
+
 function PageHeader({ headline, emoji, subheadline, summary }) {
   return (
     <Header>
@@ -7,22 +18,7 @@ function PageHeader({ headline, emoji, subheadline, summary }) {
 
       <p css={pageSummary}>{summary}</p>
     </Header>
-  );
+  )
 }
 
-///////////////////////////////////////////////////////////////////////////////////
-
-const Header = styled.header`
-  ${container}
-  margin-left: 0;
-`;
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import React from "react";
-import styled from "styled-components";
-
-import { Emoji } from "../ui/elements";
-import { container, pageHeadline, pageSummary } from "../styles";
-
-export default PageHeader;
+export default PageHeader

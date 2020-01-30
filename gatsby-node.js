@@ -4,7 +4,7 @@
 // https://www.gatsbyjs.org/docs/debugging-async-lifecycles/
 // https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-plugin-mdx
 
-const shortid = require("shortid");
+const shortid = require('shortid')
 
 exports.createPages = async function({ actions, graphql }) {
   await graphql(`
@@ -38,14 +38,14 @@ exports.createPages = async function({ actions, graphql }) {
     }
   `).then(result => {
     if (result.errors) {
-      console.error(result.errors);
+      console.error(result.errors)
     }
 
-    const { edges } = result.data.allMdx;
+    const { edges } = result.data.allMdx
 
     edges.forEach((edge, i) => {
-      const prev = i === 0 ? null : edges[i - 1].node;
-      const next = i === edges.length - 1 ? null : edges[i + 1].node;
+      const prev = i === 0 ? null : edges[i - 1].node
+      const next = i === edges.length - 1 ? null : edges[i + 1].node
 
       actions.createPage({
         path: edge.node.frontmatter.slug,
@@ -53,18 +53,18 @@ exports.createPages = async function({ actions, graphql }) {
         context: {
           id: edge.node.id,
           prev,
-          next
-        }
-      });
-    });
-  });
-};
+          next,
+        },
+      })
+    })
+  })
+}
 
 // Generate Likes data nodes
 
-const crypto = require(`crypto`);
-const { fetchTMDBData } = require(`./src/node/fetchTMDBData`);
-const { fetchiTunesData } = require(`./src/node/fetchiTunesData`);
+const crypto = require(`crypto`)
+const { fetchTMDBData } = require(`./src/node/fetchTMDBData`)
+const { fetchiTunesData } = require(`./src/node/fetchiTunesData`)
 
 function createTvShowNode(createNode, show) {
   createNode({
@@ -83,9 +83,9 @@ function createTvShowNode(createNode, show) {
       contentDigest: crypto
         .createHash(`md5`)
         .update(JSON.stringify(show))
-        .digest(`hex`)
-    }
-  });
+        .digest(`hex`),
+    },
+  })
 }
 
 function createMovieNode(createNode, movie) {
@@ -105,9 +105,9 @@ function createMovieNode(createNode, movie) {
       contentDigest: crypto
         .createHash(`md5`)
         .update(JSON.stringify(movie))
-        .digest(`hex`)
-    }
-  });
+        .digest(`hex`),
+    },
+  })
 }
 
 function createBookNode(createNode, book) {
@@ -127,9 +127,9 @@ function createBookNode(createNode, book) {
       contentDigest: crypto
         .createHash(`md5`)
         .update(JSON.stringify(book))
-        .digest(`hex`)
-    }
-  });
+        .digest(`hex`),
+    },
+  })
 }
 
 function createAlbumNode(createNode, album) {
@@ -150,9 +150,9 @@ function createAlbumNode(createNode, album) {
       contentDigest: crypto
         .createHash(`md5`)
         .update(JSON.stringify(album))
-        .digest(`hex`)
-    }
-  });
+        .digest(`hex`),
+    },
+  })
 }
 
 function createPodcastNode(createNode, podcast) {
@@ -173,63 +173,63 @@ function createPodcastNode(createNode, podcast) {
       contentDigest: crypto
         .createHash(`md5`)
         .update(JSON.stringify(podcast))
-        .digest(`hex`)
-    }
-  });
+        .digest(`hex`),
+    },
+  })
 }
 
 const dummyNode = {
-  artist: "Artist",
-  coverUrl: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809",
-  id: "GENERATE ME EACH TIME",
-  link: "https://www.google.ca",
-  name: "Name",
-  posterUrl: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809",
-  publishDate: "2020-01-01",
-  releaseDate: "2020-01-01",
-  title: "Title"
-};
+  artist: 'Artist',
+  coverUrl: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809',
+  id: 'GENERATE ME EACH TIME',
+  link: 'https://www.google.ca',
+  name: 'Name',
+  posterUrl: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809',
+  publishDate: '2020-01-01',
+  releaseDate: '2020-01-01',
+  title: 'Title',
+}
 
 function createDummyNodes(createNode) {
-  createTvShowNode(createNode, { ...dummyNode, id: shortid.generate() });
-  createMovieNode(createNode, { ...dummyNode, id: shortid.generate() });
-  createBookNode(createNode, { ...dummyNode, id: shortid.generate() });
-  createAlbumNode(createNode, { ...dummyNode, id: shortid.generate() });
-  createPodcastNode(createNode, { ...dummyNode, id: shortid.generate() });
+  createTvShowNode(createNode, { ...dummyNode, id: shortid.generate() })
+  createMovieNode(createNode, { ...dummyNode, id: shortid.generate() })
+  createBookNode(createNode, { ...dummyNode, id: shortid.generate() })
+  createAlbumNode(createNode, { ...dummyNode, id: shortid.generate() })
+  createPodcastNode(createNode, { ...dummyNode, id: shortid.generate() })
 }
 
 exports.sourceNodes = async ({ actions }) => {
-  const { createNode } = actions;
+  const { createNode } = actions
 
   // Don't waste time fetching + optimizing images in development
-  console.log("NODE_ENV", process.env.NODE_ENV);
-  if (process.env.NODE_ENV !== "production") {
-    createDummyNodes(createNode);
-    return;
+  console.log('NODE_ENV', process.env.NODE_ENV)
+  if (process.env.NODE_ENV !== 'production') {
+    createDummyNodes(createNode)
+    return
   }
 
-  const [tvData, movieData] = await fetchTMDBData();
-  const [albumData, podcastData, bookData] = await fetchiTunesData();
+  const [tvData, movieData] = await fetchTMDBData()
+  const [albumData, podcastData, bookData] = await fetchiTunesData()
 
   for (let show of tvData) {
-    createTvShowNode(createNode, show);
+    createTvShowNode(createNode, show)
   }
 
   for (let movie of movieData) {
-    createMovieNode(createNode, movie);
+    createMovieNode(createNode, movie)
   }
 
   for (let book of bookData) {
-    createBookNode(createNode, book);
+    createBookNode(createNode, book)
   }
 
   for (let album of albumData) {
-    createAlbumNode(createNode, album);
+    createAlbumNode(createNode, album)
   }
 
   for (let podcast of podcastData) {
-    createPodcastNode(createNode, podcast);
+    createPodcastNode(createNode, podcast)
   }
 
-  return;
-};
+  return
+}

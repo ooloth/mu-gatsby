@@ -1,19 +1,11 @@
-export function VideoEmbed({ embedURL, ...props }) {
-  return (
-    <EmbedWrapper {...props}>
-      <Embed
-        src={embedURL}
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        frameBorder="0"
-        webkitallowfullscreen="true"
-        mozallowfullscreen="true"
-        allowFullScreen
-      />
-    </EmbedWrapper>
-  )
-}
+import React from 'react'
+import styled from 'styled-components'
 
-///////////////////////////////////////////////////////////////////////////////////
+import {
+  aspectRatioParent,
+  ratio16x9,
+  aspectRatioChild,
+} from '../../styles/mixins/aspectRatios'
 
 const EmbedWrapper = styled.div`
   ${aspectRatioParent}
@@ -28,13 +20,17 @@ const Embed = styled.iframe`
   box-shadow: var(--shadow1);
 `
 
-///////////////////////////////////////////////////////////////////////////////////
-
-import React from 'react'
-import styled from 'styled-components'
-
-import {
-  aspectRatioParent,
-  ratio16x9,
-  aspectRatioChild
-} from '../../styles/mixins/aspectRatios'
+export function VideoEmbed({ embedURL, ...props }) {
+  return (
+    <EmbedWrapper {...props}>
+      <Embed
+        src={embedURL}
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        frameBorder="0"
+        webkitallowfullscreen="true"
+        mozallowfullscreen="true"
+        allowFullScreen
+      />
+    </EmbedWrapper>
+  )
+}

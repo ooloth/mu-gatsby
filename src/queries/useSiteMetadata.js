@@ -1,4 +1,4 @@
-// See: https://www.gatsbyjs.org/blog/2019-02-20-introducing-use-static-query/
+import { useStaticQuery, graphql } from 'gatsby'
 
 function useSiteMetadata() {
   const { site } = useStaticQuery(
@@ -50,22 +50,10 @@ function useSiteMetadata() {
           }
         }
       }
-    `
-  );
+    `,
+  )
 
-  return site.siteMetadata;
+  return site.siteMetadata
 }
 
-///////////////////////////////////////////////////////////////////////////////////
-
-import { useStaticQuery, graphql } from "gatsby";
-
-export default useSiteMetadata;
-
-/*
-
-import useSiteMetadata from '../data/useSiteMetadata'
-
-const { title } = useSiteMetadata()
-
-*/
+export default useSiteMetadata

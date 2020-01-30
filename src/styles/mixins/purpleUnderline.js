@@ -1,3 +1,7 @@
+import { css } from 'styled-components'
+
+import { purpleGradient } from './purpleGradient'
+
 export const purpleUnderline = css`
   ${purpleGradient}
   background-position: 0% 100%;
@@ -10,9 +14,3 @@ export const purpleUnderline = css`
     color: white;
   }
 `
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import { css } from 'styled-components'
-
-import { purpleGradient } from './purpleGradient'

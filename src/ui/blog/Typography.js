@@ -1,3 +1,8 @@
+import styled from 'styled-components'
+
+import { Link } from '../elements'
+import { copy, linkInline } from '../../styles'
+
 export const H2 = styled.h2`
   margin-top: var(--s7);
   margin-bottom: var(--s4);
@@ -43,10 +48,3 @@ export const LI = styled.li`
   margin-top: 0.3rem;
   line-height: var(--lh2);
 `
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import styled from 'styled-components'
-
-import { Link } from '../elements'
-import { copy, linkInline } from '../../styles'
