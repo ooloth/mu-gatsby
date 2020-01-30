@@ -1,3 +1,5 @@
+import { css } from 'styled-components'
+
 // NOTE: these are NOT needed for Gatsby Image (do this instead: https://github.com/gatsbyjs/gatsby/issues/3720#issuecomment-360946044)
 
 export const aspectRatioParent = css`
@@ -63,7 +65,3 @@ export const ratio5x7 = css`
 export const ratio1x1 = css`
   padding-bottom: 100%;
 `
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import { css } from 'styled-components'

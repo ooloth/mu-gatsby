@@ -1,69 +1,15 @@
-function LikesPage({ location }) {
-  const { likesPage } = useSiteMetadata()
-  const { likesYaml: page } = usePageData()
+import React from 'react'
+import Image from 'gatsby-image'
+import styled, { css } from 'styled-components'
 
-  return (
-    <Base location={location}>
-      <Metadata page={likesPage} />
-
-      <PageHeader
-        headline={page.headline}
-        emoji={page.emoji}
-        summary={page.summary}
-      />
-
-      <Main>
-        <TV />
-        <Movies />
-        <Books />
-        <Albums />
-        <Podcasts />
-      </Main>
-    </Base>
-  )
-}
-
-///////////////////////////////////////////////////////////////////////////////////
-
-const Main = styled.main`
-  ${main}
-  max-width: 100%;
-`
-
-///////////////////////////////////////////////////////////////////////////////////
-
-function TV() {
-  const { tvShows } = useLikesData()
-
-  return (
-    <Section>
-      <LikesHeading>TV</LikesHeading>
-
-      <LikesList>
-        {tvShows.map(show => (
-          <LikesItem key={show.id}>
-            <ItemLink
-              href={show.link}
-              alt={`Visit IMDB page for "${show.title}" in a new window.`}
-            >
-              <ItemImage
-                fixed={{
-                  ...show.poster.childImageSharp.fixed,
-                  aspectRatio: 2 / 3,
-                }}
-                alt={`Poster for the TV series "${show.title}"`}
-              />
-              <ItemName>{show.title}</ItemName>
-              <ItemDetail>({show.releaseDate})</ItemDetail>
-            </ItemLink>
-          </LikesItem>
-        ))}
-      </LikesList>
-    </Section>
-  )
-}
-
-///////////////////////////////////////////////////////////////////////////////////
+import Base from '../ui/Base'
+import Metadata from '../ui/Metadata'
+import PageHeader from '../ui/PageHeader'
+import { Link } from '../ui/elements'
+import useSiteMetadata from '../queries/useSiteMetadata'
+import usePageData from '../queries/usePageData'
+import useLikesData from '../queries/useLikesData'
+import { main } from '../styles'
 
 const Section = styled.section`
   padding-top: var(--s7);
@@ -128,7 +74,36 @@ const ItemDetail = styled.p`
   font-size: var(--f2);
 `
 
-///////////////////////////////////////////////////////////////////////////////////
+function TV() {
+  const { tvShows } = useLikesData()
+
+  return (
+    <Section>
+      <LikesHeading>TV</LikesHeading>
+
+      <LikesList>
+        {tvShows.map(show => (
+          <LikesItem key={show.id}>
+            <ItemLink
+              href={show.link}
+              alt={`Visit IMDB page for "${show.title}" in a new window.`}
+            >
+              <ItemImage
+                fixed={{
+                  ...show.poster.childImageSharp.fixed,
+                  aspectRatio: 2 / 3,
+                }}
+                alt={`Poster for the TV series "${show.title}"`}
+              />
+              <ItemName>{show.title}</ItemName>
+              <ItemDetail>({show.releaseDate})</ItemDetail>
+            </ItemLink>
+          </LikesItem>
+        ))}
+      </LikesList>
+    </Section>
+  )
+}
 
 function Movies() {
   const { movies } = useLikesData()
@@ -161,8 +136,6 @@ function Movies() {
   )
 }
 
-///////////////////////////////////////////////////////////////////////////////////
-
 function Books() {
   const { books } = useLikesData()
 
@@ -190,8 +163,6 @@ function Books() {
     </Section>
   )
 }
-
-///////////////////////////////////////////////////////////////////////////////////
 
 function Albums() {
   const { albums } = useLikesData()
@@ -222,8 +193,6 @@ function Albums() {
   )
 }
 
-///////////////////////////////////////////////////////////////////////////////////
-
 function Podcasts() {
   const { podcasts } = useLikesData()
 
@@ -252,19 +221,34 @@ function Podcasts() {
   )
 }
 
-///////////////////////////////////////////////////////////////////////////////////
+const Main = styled.main`
+  ${main}
+  max-width: 100%;
+`
 
-import React from 'react'
-import Image from 'gatsby-image'
-import styled, { css } from 'styled-components'
+function LikesPage({ location }) {
+  const { likesPage } = useSiteMetadata()
+  const { likesYaml: page } = usePageData()
 
-import Base from '../ui/Base'
-import Metadata from '../ui/Metadata'
-import PageHeader from '../ui/PageHeader'
-import { Link } from '../ui/elements'
-import useSiteMetadata from '../queries/useSiteMetadata'
-import usePageData from '../queries/usePageData'
-import useLikesData from '../queries/useLikesData'
-import { main } from '../styles'
+  return (
+    <Base location={location}>
+      <Metadata page={likesPage} />
+
+      <PageHeader
+        headline={page.headline}
+        emoji={page.emoji}
+        summary={page.summary}
+      />
+
+      <Main>
+        <TV />
+        <Movies />
+        <Books />
+        <Albums />
+        <Podcasts />
+      </Main>
+    </Base>
+  )
+}
 
 export default LikesPage

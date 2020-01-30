@@ -1,3 +1,5 @@
+import { useStaticQuery, graphql } from 'gatsby'
+
 function useGigsData() {
   const { allGigsYaml } = useStaticQuery(
     graphql`
@@ -25,9 +27,5 @@ function useGigsData() {
 
   return allGigsYaml.nodes
 }
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import { useStaticQuery, graphql } from 'gatsby'
 
 export default useGigsData

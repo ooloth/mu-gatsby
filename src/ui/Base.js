@@ -1,3 +1,22 @@
+import React from 'react'
+import styled from 'styled-components'
+import 'what-input'
+
+import Metadata from './Metadata'
+import Top from './Top'
+import Bottom from './Bottom'
+import { CustomProperties, Reset } from '../styles'
+import '../styles/base/font-face.css'
+import avenirRegular from '../fonts/AvenirNextLTPro-Regular.woff2'
+import avenirHeavy from '../fonts/AvenirNextLTPro-Heavy.woff2'
+
+const MinHeight100 = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+`
+
 function Base({ children, location }) {
   return (
     <MinHeight100>
@@ -18,30 +37,5 @@ function Base({ children, location }) {
     </MinHeight100>
   )
 }
-
-///////////////////////////////////////////////////////////////////////////////////
-
-const MinHeight100 = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100vh;
-`
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import React from 'react'
-import styled from 'styled-components'
-import 'what-input'
-
-import Metadata from './Metadata'
-import Top from './Top'
-import Bottom from './Bottom'
-
-import { CustomProperties, Reset } from '../styles'
-import '../styles/base/font-face.css'
-
-import avenirRegular from '../fonts/AvenirNextLTPro-Regular.woff2'
-import avenirHeavy from '../fonts/AvenirNextLTPro-Heavy.woff2'
 
 export default Base

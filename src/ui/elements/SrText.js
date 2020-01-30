@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+
 const SrText = styled.span`
   display: block;
   position: absolute;
@@ -13,11 +16,6 @@ const SrText = styled.span`
 SrText.propTypes = {
   children: PropTypes.node.isRequired,
 }
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
 
 export default SrText
 

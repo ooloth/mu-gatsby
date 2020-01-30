@@ -1,3 +1,7 @@
+import { css } from 'styled-components'
+
+import { container } from './container'
+
 export const main = css`
   ${container}
   flex: auto;
@@ -6,9 +10,3 @@ export const main = css`
   width: 100%;
   max-width: var(--measure4);
 `
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import { css } from 'styled-components'
-
-import { container } from './container'

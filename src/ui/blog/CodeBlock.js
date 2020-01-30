@@ -1,3 +1,25 @@
+import React from 'react'
+import styled from 'styled-components'
+import Highlight, { defaultProps } from 'prism-react-renderer'
+
+import { prismTheme } from '../../styles'
+
+// https://mdxjs.com/guides/syntax-highlighting/
+// https://github.com/FormidableLabs/prism-react-renderer
+
+const Pre = styled.pre`
+  margin: var(--s4) 0;
+  overflow: auto;
+  border-radius: var(--r2);
+  padding: var(--s3) var(--s4);
+  line-height: var(--lh2);
+  white-space: pre-wrap; /* Add line-wrapping */
+  font-family: 'Dank Mono', Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  font-size: 0.95rem;
+`
+
 export function CodeBlock({ children, className }) {
   const language = className.replace(/language-/, '')
 
@@ -25,29 +47,3 @@ export function CodeBlock({ children, className }) {
     </Highlight>
   )
 }
-
-///////////////////////////////////////////////////////////////////////////////////
-
-const Pre = styled.pre`
-  margin: var(--s4) 0;
-  overflow: auto;
-  border-radius: var(--r2);
-  padding: var(--s3) var(--s4);
-  line-height: var(--lh2);
-  white-space: pre-wrap; /* Add line-wrapping */
-  font-family: 'Dank Mono', Menlo, Monaco, Consolas, 'Liberation Mono',
-    'Courier New', monospace, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol';
-  font-size: 0.95rem;
-`
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import React from 'react'
-import styled from 'styled-components'
-import Highlight, { defaultProps } from 'prism-react-renderer'
-
-import { prismTheme } from '../../styles'
-
-// https://mdxjs.com/guides/syntax-highlighting/
-// https://github.com/FormidableLabs/prism-react-renderer

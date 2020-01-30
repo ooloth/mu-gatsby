@@ -1,3 +1,5 @@
+import { useStaticQuery, graphql } from 'gatsby'
+
 function useSharedData() {
   const { sharedYaml } = useStaticQuery(
     graphql`
@@ -31,9 +33,5 @@ function useSharedData() {
 
   return sharedYaml
 }
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import { useStaticQuery, graphql } from 'gatsby'
 
 export default useSharedData

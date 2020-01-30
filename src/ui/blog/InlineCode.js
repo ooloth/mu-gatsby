@@ -1,3 +1,5 @@
+import styled from 'styled-components'
+
 export const InlineCode = styled.code`
   display: inline-block;
   margin: 0 0.05em;
@@ -11,7 +13,3 @@ export const InlineCode = styled.code`
     'Segoe UI Symbol';
   color: white;
 `
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import styled from 'styled-components'

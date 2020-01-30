@@ -1,3 +1,5 @@
+import { useStaticQuery, graphql } from 'gatsby'
+
 function usePageData() {
   const { blogYaml, websitesYaml, operaYaml, likesYaml } = useStaticQuery(
     graphql`
@@ -43,9 +45,5 @@ function usePageData() {
 
   return { blogYaml, websitesYaml, operaYaml, likesYaml }
 }
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import { useStaticQuery, graphql } from 'gatsby'
 
 export default usePageData

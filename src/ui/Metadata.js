@@ -1,3 +1,54 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+
+import useSiteMetadata from '../queries/useSiteMetadata'
+import siteImage from '../images/michael-uloth-landscape.jpg'
+
+function StructuredData({ site, image }) {
+  const {
+    structuredDataType,
+    siteUrl,
+    title,
+    jobTitle,
+    description,
+    email,
+    telephone,
+  } = site
+  const { street, locality, region, country } = site.address
+  const sameAs = site.socialLinks.map(link => `"${link}"`)
+
+  const structuredData = `{
+    "@context": "http://schema.org",
+    "@type": "${structuredDataType}",
+    "@id": "${siteUrl}",
+    "name": "${title}",
+    ${jobTitle && `"jobTitle": "${jobTitle}",`}
+    "description": "${description}",
+    "url": "${siteUrl}",
+    "image": "${image.replace(`js/../`, ``)}",
+    ${email && `"email": "mailto:${email}",`}
+    ${telephone && `"telephone": "${telephone}",`}
+    ${(street || locality || region || country) &&
+      `"address": {
+        "@type": "PostalAddress",
+        ${street && `"streetAddress": "${street}",`}
+        ${locality && `"addressLocality": "${locality}",`}
+        ${region && `"addressRegion": "${region}",`}
+        ${country && `"addressCountry": "${country}"`}
+      },
+    `}
+    "sameAs": [${sameAs}]
+  }`
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: structuredData }}
+    />
+  )
+}
+
 function Metadata({ page, preconnect, preload }) {
   const site = useSiteMetadata()
 
@@ -106,60 +157,5 @@ Metadata.propTypes = {
   preconnect: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   preload: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 }
-
-///////////////////////////////////////////////////////////////////////////////////
-
-function StructuredData({ site, image }) {
-  const {
-    structuredDataType,
-    siteUrl,
-    title,
-    jobTitle,
-    description,
-    email,
-    telephone,
-  } = site
-  const { street, locality, region, country } = site.address
-  const sameAs = site.socialLinks.map(link => `"${link}"`)
-
-  const structuredData = `{
-    "@context": "http://schema.org",
-    "@type": "${structuredDataType}",
-    "@id": "${siteUrl}",
-    "name": "${title}",
-    ${jobTitle && `"jobTitle": "${jobTitle}",`}
-    "description": "${description}",
-    "url": "${siteUrl}",
-    "image": "${image.replace(`js/../`, ``)}",
-    ${email && `"email": "mailto:${email}",`}
-    ${telephone && `"telephone": "${telephone}",`}
-    ${(street || locality || region || country) &&
-      `"address": {
-        "@type": "PostalAddress",
-        ${street && `"streetAddress": "${street}",`}
-        ${locality && `"addressLocality": "${locality}",`}
-        ${region && `"addressRegion": "${region}",`}
-        ${country && `"addressCountry": "${country}"`}
-      },
-    `}
-    "sameAs": [${sameAs}]
-  }`
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: structuredData }}
-    />
-  )
-}
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-
-import useSiteMetadata from '../queries/useSiteMetadata'
-import siteImage from '../images/michael-uloth-landscape.jpg'
 
 export default Metadata

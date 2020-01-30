@@ -1,3 +1,9 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link as GatsbyLink } from 'gatsby'
+
+import SrText from './SrText'
+
 function Link({ href, srText, children, ...props }) {
   const isExternal = href.match(/http|\/\/|mailto:|tel:|static\/|pdf\//)
   const isId = href.match(/^#/)
@@ -31,19 +37,11 @@ Link.propTypes = {
   children: PropTypes.node,
 }
 
-///////////////////////////////////////////////////////////////////////////////////
-
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link as GatsbyLink } from 'gatsby'
-
-import SrText from './SrText'
-
 export default Link
 
 /*
 
-INSTRUCTIONS:
+USAGE:
 
 const StyledLink = styled(Link)``
 

@@ -1,5 +1,20 @@
 import { Machine, assign } from 'xstate'
 
+async function sendFormToButtonDown(ctx) {
+  const { email } = ctx
+
+  return await fetch('https://api.buttondown.email/v1/subscribers', {
+    method: 'POST',
+    headers: {
+      Authorization: `Token ${process.env.GATSBY_BUTTONDOWN_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email }),
+  }).then(() =>
+    console.log(`Successfully added ${email} to Buttondown subscribers.`),
+  )
+}
+
 export const buttondownFormMachine = Machine(
   {
     id: `buttondownFormMachine`,
@@ -45,20 +60,3 @@ export const buttondownFormMachine = Machine(
     },
   },
 )
-
-///////////////////////////////////////////////////////////////////////////////////
-
-async function sendFormToButtonDown(ctx) {
-  const { email } = ctx
-
-  return await fetch('https://api.buttondown.email/v1/subscribers', {
-    method: 'POST',
-    headers: {
-      Authorization: `Token ${process.env.GATSBY_BUTTONDOWN_API_KEY}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ email }),
-  }).then(() =>
-    console.log(`Successfully added ${email} to Buttondown subscribers.`),
-  )
-}

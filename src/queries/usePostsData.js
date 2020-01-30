@@ -1,3 +1,5 @@
+import { useStaticQuery, graphql } from 'gatsby'
+
 function usePostsData() {
   const { allMdx } = useStaticQuery(
     graphql`
@@ -30,16 +32,4 @@ function usePostsData() {
   return allMdx.edges
 }
 
-///////////////////////////////////////////////////////////////////////////////////
-
-import { useStaticQuery, graphql } from 'gatsby'
-
 export default usePostsData
-
-/*
-
-import usePostsData from '../queries/usePostsData'
-
-const posts = usePostsData()
-
-*/

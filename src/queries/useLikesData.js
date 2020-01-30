@@ -1,3 +1,5 @@
+import { useStaticQuery, graphql } from 'gatsby'
+
 function useLikesData() {
   const { allTvShow, allMovie, allBook, allAlbum, allPodcast } = useStaticQuery(
     graphql`
@@ -95,9 +97,5 @@ function useLikesData() {
 
   return { tvShows, movies, books, albums, podcasts }
 }
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import { useStaticQuery, graphql } from 'gatsby'
 
 export default useLikesData

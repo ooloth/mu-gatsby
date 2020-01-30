@@ -1,3 +1,7 @@
+import { css } from 'styled-components'
+
+import { media } from './media'
+
 export const pageHeadline = css`
   margin-top: var(--s7);
   line-height: var(--lh1);
@@ -13,9 +17,3 @@ export const pageHeadline = css`
     font-size: 4.5rem;
   `}
 `
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import { css } from 'styled-components'
-
-import { media } from './media'

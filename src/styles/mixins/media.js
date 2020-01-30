@@ -1,3 +1,5 @@
+import { css } from 'styled-components'
+
 const breakpoints = {
   sm: 36,
   md: 48,
@@ -16,10 +18,6 @@ export const media = Object.keys(breakpoints).reduce((acc, label) => {
 
   return acc
 }, {})
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import { css } from 'styled-components'
 
 /*
 

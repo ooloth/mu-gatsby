@@ -1,3 +1,7 @@
+import { css } from 'styled-components'
+
+import { media } from './media'
+
 export const container = css`
   margin-left: auto;
   margin-right: auto;
@@ -20,9 +24,3 @@ export const container = css`
     padding-right: var(--s7);
   `}
 `
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import { css } from 'styled-components'
-
-import { media } from './media'

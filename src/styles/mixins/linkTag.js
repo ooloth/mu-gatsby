@@ -1,3 +1,5 @@
+import { css } from 'styled-components'
+
 export const linkTag = css`
   border-radius: var(--r2);
   border: solid var(--bw1) var(--black);
@@ -10,7 +12,3 @@ export const linkTag = css`
     color: white;
   }
 `
-
-///////////////////////////////////////////////////////////////////////////////////
-
-import { css } from 'styled-components'
