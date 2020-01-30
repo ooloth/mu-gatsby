@@ -37,6 +37,7 @@
     "gatsby-plugin-styled-components": "^3.1.18",
     "gatsby-plugin-svgr": "^2.0.2",
     "gatsby-plugin-twitter": "^2.1.18",
+    "gatsby-plugin-typescript": "^2.1.26",
     "gatsby-remark-a11y-emoji": "^1.0.1",
     "gatsby-remark-images": "^3.1.43",
     "gatsby-remark-smartypants": "^2.1.20",
@@ -56,7 +57,15 @@
     "xstate": "^4.7.7"
   },
   "devDependencies": {
+    "@types/node": "^13.5.2",
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-helmet": "^5.0.15",
+    "@types/styled-components": "^4.4.2",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
     "babel-eslint": "^10.0.3",
+    "babel-preset-gatsby": "^0.2.27",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-config-react-app": "^5.1.0",
@@ -68,16 +77,19 @@
     "husky": "^4.2.1",
     "lint-staged": "^10.0.4",
     "npm-run-all": "^4.1.5",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.5"
   },
   "scripts": {
     "build": "gatsby build",
     "check-format": "npm run prettier -- --list-different",
+    "check-types": "tsc",
     "dev": "gatsby develop",
     "format": "npm run prettier -- --write",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}' --fix --ignore-path .gitignore",
     "prettier": "prettier \"**/*.+(js|jsx|ts|tsx|json|yml|yaml|css|html|md|mdx|graphql)\" --ignore-path .gitignore",
-    "serve": "rm -rf .cache && gatsby build && gatsby serve",
-    "validate": "npm-run-all --parallel check-format lint"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "validate": "npm-run-all --parallel check-types check-format lint"
   }
 }
