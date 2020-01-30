@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   lint:
-    name: Lint and format
+    name: Lint, format and check types
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
