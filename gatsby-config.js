@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     // set unused properties to `` (removing the line breaks the query)
