@@ -1,15 +1,15 @@
 // Use environment variables for Google Analytics + Search Console
-require(`dotenv`).config();
+require(`dotenv`).config()
 
 // Robots.txt variables
 const {
   NODE_ENV,
   URL: NETLIFY_SITE_URL = `https://www.michaeluloth.com`,
   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
-  CONTEXT: NETLIFY_ENV = NODE_ENV
-} = process.env;
-const isNetlifyProduction = NETLIFY_ENV === `production`;
-const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
+} = process.env
+const isNetlifyProduction = NETLIFY_ENV === `production`
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 
 module.exports = {
   siteMetadata: {
@@ -27,7 +27,7 @@ module.exports = {
       locality: `Toronto`,
       region: `ON`,
       postalCode: ``,
-      country: `CA`
+      country: `CA`,
     },
     socialLinks: [
       `https://www.youtube.com/user/michaeluloth`,
@@ -39,7 +39,7 @@ module.exports = {
       `https://www.freecodecamp.org/news/author/ooloth/`,
       `https://medium.com/@michaeluloth`,
       `https://www.facebook.com/michaeluloth`,
-      `https://www.instagram.com/ooloth/`
+      `https://www.instagram.com/ooloth/`,
     ],
     structuredDataType: `Person`,
     twitterSite: `@ooloth`,
@@ -50,71 +50,71 @@ module.exports = {
     blogPage: {
       title: `Michael Uloth | Writes`,
       description: `Coding tips and walk-throughs to help future me get unstuck.`,
-      url: `https://www.michaeluloth.com/writes`
+      url: `https://www.michaeluloth.com/writes`,
     },
     websitesPage: {
       title: `Michael Uloth | Codes`,
       description: `Sites I've built for fun and profit.`,
-      url: `https://www.michaeluloth.com/codes`
+      url: `https://www.michaeluloth.com/codes`,
     },
     operaPage: {
       title: `Michael Uloth | Sings`,
       description: `Concerts and operas I've been lucky enough to perform.`,
-      url: `https://www.michaeluloth.com/sings`
+      url: `https://www.michaeluloth.com/sings`,
     },
     likesPage: {
       title: `Michael Uloth | Likes`,
       description: `Fun stuff that makes me happy.`,
-      url: `https://www.michaeluloth.com/likes`
-    }
+      url: `https://www.michaeluloth.com/likes`,
+    },
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
-        path: `${__dirname}/src/`
-      }
+        path: `${__dirname}/src/`,
+      },
     },
     {
       resolve: `gatsby-plugin-remote-images`,
       options: {
         nodeType: `TvShow`,
         imagePath: `posterUrl`,
-        name: `poster`
-      }
+        name: `poster`,
+      },
     },
     {
       resolve: `gatsby-plugin-remote-images`,
       options: {
         nodeType: `Movie`,
         imagePath: `posterUrl`,
-        name: `poster`
-      }
+        name: `poster`,
+      },
     },
     {
       resolve: `gatsby-plugin-remote-images`,
       options: {
         nodeType: `Book`,
         imagePath: `coverUrl`,
-        name: `cover`
-      }
+        name: `cover`,
+      },
     },
     {
       resolve: `gatsby-plugin-remote-images`,
       options: {
         nodeType: `Album`,
         imagePath: `coverUrl`,
-        name: `cover`
-      }
+        name: `cover`,
+      },
     },
     {
       resolve: `gatsby-plugin-remote-images`,
       options: {
         nodeType: `Podcast`,
         imagePath: `coverUrl`,
-        name: `cover`
-      }
+        name: `cover`,
+      },
     },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
@@ -133,18 +133,18 @@ module.exports = {
               maxWidth: 1000,
               withWebp: true,
               showCaptions: true,
-              linkImagesToOriginal: false
-            }
+              linkImagesToOriginal: false,
+            },
           },
           {
             resolve: `gatsby-remark-smartypants`,
             options: {
-              dashes: `oldschool`
-            }
+              dashes: `oldschool`,
+            },
           },
-          `gatsby-remark-a11y-emoji`
-        ]
-      }
+          `gatsby-remark-a11y-emoji`,
+        ],
+      },
     },
     // Temporary bug fix for gatsby-remark-images (https://twitter.com/chrisbiscardi/status/1159927455735353344)
     `gatsby-remark-images`,
@@ -175,9 +175,9 @@ module.exports = {
                   date: edge.node.frontmatter.datePublished,
                   url: `${site.siteMetadata.siteUrl}/${edge.node.frontmatter.slug}`,
                   guid: `${site.siteMetadata.siteUrl}/${edge.node.frontmatter.slug}`,
-                  custom_elements: [{ "content:encoded": edge.node.html }]
-                });
-              });
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                })
+              })
             },
             query: `
               {
@@ -200,10 +200,10 @@ module.exports = {
               }
             `,
             output: `/rss.xml`,
-            title: `Michael Uloth's Blog`
-          }
-        ]
-      }
+            title: `Michael Uloth's Blog`,
+          },
+        ],
+      },
     },
     `gatsby-plugin-sitemap`,
     {
@@ -213,20 +213,20 @@ module.exports = {
         resolveEnv: () => NETLIFY_ENV,
         env: {
           production: {
-            policy: [{ userAgent: `*` }]
+            policy: [{ userAgent: `*` }],
           },
-          "branch-deploy": {
+          'branch-deploy': {
             policy: [{ userAgent: `*`, disallow: [`/`] }],
             sitemap: null,
-            host: null
+            host: null,
           },
-          "deploy-preview": {
+          'deploy-preview': {
             policy: [{ userAgent: `*`, disallow: [`/`] }],
             sitemap: null,
-            host: null
-          }
-        }
-      }
+            host: null,
+          },
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -242,8 +242,8 @@ module.exports = {
         // Multiple icons will be generated for various devices.
         // Multiple favicons will be generated and added to each HTML page.
         // This path is relative to the root of the site.
-        icon: `src/images/michael-uloth-circle.png`
-      }
+        icon: `src/images/michael-uloth-circle.png`,
+      },
     },
     // bust old service worker versions in Safari showing the old site 🧨
     `gatsby-plugin-remove-serviceworker`,
@@ -254,8 +254,8 @@ module.exports = {
         trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
         head: true, // https://csswizardry.com/2018/11/css-and-network-performance/
         anonymize: true,
-        respectDNT: true
-      }
+        respectDNT: true,
+      },
     },
     `gatsby-plugin-netlify-cache`,
     {
@@ -263,18 +263,16 @@ module.exports = {
       options: {
         headers: {
           // First one is required for the HSTS list:
-          "/*": [
-            `Strict-Transport-Security: max-age=63072000; includeSubDomains; preload`
+          '/*': [
+            `Strict-Transport-Security: max-age=63072000; includeSubDomains; preload`,
           ],
-          "/*.html": [`Cache-Control: public,max-age=0,must-revalidate`],
-          "/*.js": [`Cache-Control: public,max-age=0,must-revalidate`],
-          "/sw.js": [
-            `Cache-Control: max-age=0,no-cache,no-store,must-revalidate`
-          ],
-          "/icons/*": [`Cache-Control: public,max-age=31536000,immutable`],
-          "/static/*": [`Cache-Control: public,max-age=31536000,immutable`]
-        }
-      }
-    }
-  ]
-};
+          '/*.html': [`Cache-Control: public,max-age=0,must-revalidate`],
+          '/*.js': [`Cache-Control: public,max-age=0,must-revalidate`],
+          '/sw.js': [`Cache-Control: max-age=0,no-cache,no-store,must-revalidate`],
+          '/icons/*': [`Cache-Control: public,max-age=31536000,immutable`],
+          '/static/*': [`Cache-Control: public,max-age=31536000,immutable`],
+        },
+      },
+    },
+  ],
+}

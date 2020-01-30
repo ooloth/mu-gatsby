@@ -38,14 +38,14 @@ function usePageData() {
           summary
         }
       }
-    `
-  );
+    `,
+  )
 
-  return { blogYaml, websitesYaml, operaYaml, likesYaml };
+  return { blogYaml, websitesYaml, operaYaml, likesYaml }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from 'gatsby'
 
-export default usePageData;
+export default usePageData

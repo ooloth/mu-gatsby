@@ -16,7 +16,7 @@ export function CodeBlock({ children, className }) {
                 (token, key) =>
                   !token.empty && (
                     <span key={key} {...getTokenProps({ token, key })} />
-                  )
+                  ),
               )}
             </div>
           ))}

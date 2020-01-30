@@ -84,20 +84,20 @@ function useLikesData() {
           }
         }
       }
-    `
-  );
+    `,
+  )
 
-  const tvShows = allTvShow.nodes;
-  const movies = allMovie.nodes;
-  const books = allBook.nodes;
-  const albums = allAlbum.nodes;
-  const podcasts = allPodcast.nodes;
+  const tvShows = allTvShow.nodes
+  const movies = allMovie.nodes
+  const books = allBook.nodes
+  const albums = allAlbum.nodes
+  const podcasts = allPodcast.nodes
 
-  return { tvShows, movies, books, albums, podcasts };
+  return { tvShows, movies, books, albums, podcasts }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from 'gatsby'
 
-export default useLikesData;
+export default useLikesData

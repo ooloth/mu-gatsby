@@ -26,14 +26,14 @@ function useSharedData() {
           }
         }
       }
-    `
-  );
+    `,
+  )
 
-  return sharedYaml;
+  return sharedYaml
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from 'gatsby'
 
-export default useSharedData;
+export default useSharedData

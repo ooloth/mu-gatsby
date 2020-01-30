@@ -1,6 +1,6 @@
 function LikesPage({ location }) {
-  const { likesPage } = useSiteMetadata();
-  const { likesYaml: page } = usePageData();
+  const { likesPage } = useSiteMetadata()
+  const { likesYaml: page } = usePageData()
 
   return (
     <Base location={location}>
@@ -20,7 +20,7 @@ function LikesPage({ location }) {
         <Podcasts />
       </Main>
     </Base>
-  );
+  )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -28,12 +28,12 @@ function LikesPage({ location }) {
 const Main = styled.main`
   ${main}
   max-width: 100%;
-`;
+`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 function TV() {
-  const { tvShows } = useLikesData();
+  const { tvShows } = useLikesData()
 
   return (
     <Section>
@@ -49,7 +49,7 @@ function TV() {
               <ItemImage
                 fixed={{
                   ...show.poster.childImageSharp.fixed,
-                  aspectRatio: 2 / 3
+                  aspectRatio: 2 / 3,
                 }}
                 alt={`Poster for the TV series "${show.title}"`}
               />
@@ -60,20 +60,20 @@ function TV() {
         ))}
       </LikesList>
     </Section>
-  );
+  )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 const Section = styled.section`
   padding-top: var(--s7);
-`;
+`
 
 const LikesHeading = styled.h2`
   margin-bottom: var(--s3);
   font-size: var(--f9);
   font-weight: 900;
-`;
+`
 
 const hideScrollbar = css`
   /* For IE */
@@ -89,7 +89,7 @@ const hideScrollbar = css`
     width: 0px;
     height: 0px;
   }
-`;
+`
 
 const LikesList = styled.ul`
   ${hideScrollbar}
@@ -98,40 +98,40 @@ const LikesList = styled.ul`
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-`;
+`
 
 const LikesItem = styled.li`
   flex: none;
   margin-right: var(--s6);
   width: 10rem; /* IE, Edge */
   width: min-content; /* modern browsers */
-`;
+`
 
 const ItemLink = styled(Link)`
   text-align: center;
   font-weight: 700;
   text-decoration: none;
-`;
+`
 
 const ItemImage = styled(Image)`
   box-shadow: var(--shadow1);
-`;
+`
 
 const ItemName = styled.p`
   margin-top: var(--s2);
   line-height: var(--lh1);
   font-size: var(--f3);
-`;
+`
 
 const ItemDetail = styled.p`
   margin-top: var(--s1);
   font-size: var(--f2);
-`;
+`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 function Movies() {
-  const { movies } = useLikesData();
+  const { movies } = useLikesData()
 
   return (
     <Section>
@@ -147,7 +147,7 @@ function Movies() {
               <ItemImage
                 fixed={{
                   ...movie.poster.childImageSharp.fixed,
-                  aspectRatio: 2 / 3
+                  aspectRatio: 2 / 3,
                 }}
                 alt={`Poster for the movie "${movie.title}"`}
               />
@@ -158,13 +158,13 @@ function Movies() {
         ))}
       </LikesList>
     </Section>
-  );
+  )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 function Books() {
-  const { books } = useLikesData();
+  const { books } = useLikesData()
 
   return (
     <Section>
@@ -188,13 +188,13 @@ function Books() {
         ))}
       </LikesList>
     </Section>
-  );
+  )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 function Albums() {
-  const { albums } = useLikesData();
+  const { albums } = useLikesData()
 
   return (
     <Section>
@@ -219,13 +219,13 @@ function Albums() {
         ))}
       </LikesList>
     </Section>
-  );
+  )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 function Podcasts() {
-  const { podcasts } = useLikesData();
+  const { podcasts } = useLikesData()
 
   return (
     <Section>
@@ -249,22 +249,22 @@ function Podcasts() {
         ))}
       </LikesList>
     </Section>
-  );
+  )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import React from "react";
-import Image from "gatsby-image";
-import styled, { css } from "styled-components";
+import React from 'react'
+import Image from 'gatsby-image'
+import styled, { css } from 'styled-components'
 
-import Base from "../ui/Base";
-import Metadata from "../ui/Metadata";
-import PageHeader from "../ui/PageHeader";
-import { Link } from "../ui/elements";
-import useSiteMetadata from "../queries/useSiteMetadata";
-import usePageData from "../queries/usePageData";
-import useLikesData from "../queries/useLikesData";
-import { main } from "../styles";
+import Base from '../ui/Base'
+import Metadata from '../ui/Metadata'
+import PageHeader from '../ui/PageHeader'
+import { Link } from '../ui/elements'
+import useSiteMetadata from '../queries/useSiteMetadata'
+import usePageData from '../queries/usePageData'
+import useLikesData from '../queries/useLikesData'
+import { main } from '../styles'
 
-export default LikesPage;
+export default LikesPage

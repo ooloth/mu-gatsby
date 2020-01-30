@@ -28,7 +28,7 @@ function Link({ href, srText, children, ...props }) {
 Link.propTypes = {
   href: PropTypes.string.isRequired,
   srText: PropTypes.string, // if anchor has no visible text
-  children: PropTypes.node
+  children: PropTypes.node,
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

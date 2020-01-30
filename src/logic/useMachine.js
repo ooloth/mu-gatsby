@@ -16,7 +16,7 @@ function useMachine(machine) {
           setCurrent(state)
         })
         .start(),
-    []
+    [],
   ) /* 2 */
 
   useEffect(() => {

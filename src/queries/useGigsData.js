@@ -20,7 +20,7 @@ function useGigsData() {
           }
         }
       }
-    `
+    `,
   )
 
   return allGigsYaml.nodes

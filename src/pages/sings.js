@@ -72,12 +72,9 @@ function Tag({ tag }) {
   if (tag == `boyes`)
     link = `https://soulpepper.ca/about-us/the-company/resident-artists/derek-boyes/184`
   if (tag == `britten`) link = `https://en.wikipedia.org/wiki/Benjamin_Britten`
-  if (tag == `burton`)
-    link = `https://ca.linkedin.com/in/sarahjane-burton-91316738`
-  if (tag == `butterfield`)
-    link = `https://en.wikipedia.org/wiki/Peter_Butterfield`
-  if (tag == `curran`)
-    link = `https://en.wikipedia.org/wiki/Paul_Curran_(director)`
+  if (tag == `burton`) link = `https://ca.linkedin.com/in/sarahjane-burton-91316738`
+  if (tag == `butterfield`) link = `https://en.wikipedia.org/wiki/Peter_Butterfield`
+  if (tag == `curran`) link = `https://en.wikipedia.org/wiki/Paul_Curran_(director)`
   if (tag == `darlington`) link = `http://www.jonathan-darlington.com`
   if (tag == `davis`)
     link = `https://en.wikipedia.org/wiki/Andrew_Davis_(conductor)`
@@ -94,8 +91,7 @@ function Tag({ tag }) {
   if (tag == `guarino`) link = `https://en.wikipedia.org/wiki/Robin_Guarino`
   if (tag == `guidarini`)
     link = `https://www.schmopera.com/scene/people/marco-guidarini/`
-  if (tag == `handel`)
-    link = `https://en.wikipedia.org/wiki/George_Frideric_Handel`
+  if (tag == `handel`) link = `https://en.wikipedia.org/wiki/George_Frideric_Handel`
   if (tag == `hatch`) link = `https://web.wlu.ca/music/Hatch/biography.php`
   if (tag == `haydn`) link = `https://en.wikipedia.org/wiki/Joseph_Haydn`
   if (tag == `helfrich`) link = `https://www.samhelfrich.com`
@@ -104,8 +100,7 @@ function Tag({ tag }) {
   if (tag == `isepp`) link = `https://en.wikipedia.org/wiki/Martin_Isepp`
   if (tag == `ivany`) link = `https://www.joelivany.com`
   if (tag == `judge`) link = `http://www.ianjudge.com`
-  if (tag == `kazaras`)
-    link = `http://www.uzanartists.com/portfolio/peter-kazaras/`
+  if (tag == `kazaras`) link = `http://www.uzanartists.com/portfolio/peter-kazaras/`
   if (tag == `kovatchev`)
     link = `https://www.operamusica.com/artist/julian-kovatchev/#biography`
   if (tag == `labadie`)
@@ -130,8 +125,7 @@ function Tag({ tag }) {
   if (tag == `montalbetti`) link = `https://www.facebook.com/barbara.montalbetti`
   if (tag == `montanaro`)
     link = `http://www.gmartandmusic.com/conductors/montanaro/`
-  if (tag == `monteverdi`)
-    link = `https://en.wikipedia.org/wiki/Claudio_Monteverdi`
+  if (tag == `monteverdi`) link = `https://en.wikipedia.org/wiki/Claudio_Monteverdi`
   if (tag == `mozart`)
     link = `https://en.wikipedia.org/wiki/Wolfgang_Amadeus_Mozart`
   if (tag == `newton`) link = `https://eccehomotheatre.com/home.html`
@@ -141,8 +135,7 @@ function Tag({ tag }) {
   if (tag == `pérez`) link = `https://en.karstenwitt.com/alejo-perez`
   if (tag == `pergolesi`)
     link = `https://en.wikipedia.org/wiki/Giovanni_Battista_Pergolesi`
-  if (tag == `phillips`)
-    link = `http://www.grandriverchorus.com/html/history.shtml`
+  if (tag == `phillips`) link = `http://www.grandriverchorus.com/html/history.shtml`
   if (tag == `prokofiev`) link = `https://en.wikipedia.org/wiki/Sergei_Prokofiev`
   if (tag == `puccini`) link = `https://en.wikipedia.org/wiki/Giacomo_Puccini`
   if (tag == `purcell`) link = `https://en.wikipedia.org/wiki/Henry_Purcell`
@@ -198,7 +191,7 @@ import {
   projectTitle,
   purpleUnderline,
   tagList,
-  tagItem
+  tagItem,
 } from '../styles'
 
 export default OperaPage

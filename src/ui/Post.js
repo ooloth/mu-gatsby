@@ -9,13 +9,13 @@ const components = {
   ol: OL,
   li: LI,
   code: CodeBlock,
-  inlineCode: InlineCode
-};
+  inlineCode: InlineCode,
+}
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 function Post({ data: { mdx } }) {
-  const { title, siteUrl } = useSiteMetadata();
+  const { title, siteUrl } = useSiteMetadata()
 
   const metadata = {
     type: `article`,
@@ -23,8 +23,8 @@ function Post({ data: { mdx } }) {
     description: mdx.frontmatter.description,
     url: `${siteUrl}/${mdx.frontmatter.slug}`, // no trailing slash
     author: title,
-    image: mdx.frontmatter.metaImage
-  };
+    image: mdx.frontmatter.metaImage,
+  }
 
   // TODO: see https://github.com/gaearon/overreacted.io/blob/master/src/templates/blog-post.js
   return (
@@ -66,7 +66,7 @@ function Post({ data: { mdx } }) {
         )*/}
       </aside>
     </Base>
-  );
+  )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -75,11 +75,11 @@ const Main = styled.main`
   ${main}
   margin-top: var(--s7);
   padding-top: var(--s4);
-`;
+`
 
 const Header = styled.header`
   margin-bottom: var(--s6);
-`;
+`
 
 const Title = styled.h1`
   line-height: 1.1;
@@ -93,7 +93,7 @@ const Title = styled.h1`
   ${media.sm`
     font-size: 3rem;
   `}
-`;
+`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -123,7 +123,7 @@ function MetaItems({ mdx }) {
         <p>{mdx.timeToRead} min read</p>
       </Item>
     </Items>
-  );
+  )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -136,7 +136,7 @@ const Items = styled.ul`
     flex-wrap: wrap;
     margin-top: var(--s1);
   `}
-`;
+`
 
 const Item = styled.li`
   display: flex;
@@ -144,7 +144,7 @@ const Item = styled.li`
   margin-top: var(--s2);
   margin-right: var(--s4);
   line-height: var(--lh2);
-`;
+`
 
 const IconWrapper = styled.span`
   ${purpleGradient}
@@ -158,12 +158,12 @@ const IconWrapper = styled.span`
   height: var(--s5);
   font-size: 0.9rem;
   color: white;
-`;
+`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 function Footer({ mdx }) {
-  const isVideo = mdx.frontmatter.linkSharedOnTwitter.includes(`youtu`);
+  const isVideo = mdx.frontmatter.linkSharedOnTwitter.includes(`youtu`)
 
   return (
     <StyledFooter>
@@ -237,14 +237,14 @@ function Footer({ mdx }) {
         </>
       )}
     </StyledFooter>
-  );
+  )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 const StyledFooter = styled.footer`
   margin-top: var(--s7);
-`;
+`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -273,25 +273,25 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import React from "react";
-import { graphql } from "gatsby";
-import { MDXProvider } from "@mdx-js/react";
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import styled from "styled-components";
+import React from 'react'
+import { graphql } from 'gatsby'
+import { MDXProvider } from '@mdx-js/react'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import styled from 'styled-components'
 
-import Base from "./Base";
-import Metadata from "./Metadata";
-import Subscribe from "./Subscribe";
-import { H2, H3, P, A, UL, OL, LI, CodeBlock, InlineCode } from "./blog";
-import { Link } from "./elements";
-import { ReactComponent as CalendarSVG } from "../svg/calendar-alt-regular.svg";
-import { ReactComponent as ClockSVG } from "../svg/clock-regular.svg";
-import useSiteMetadata from "../queries/useSiteMetadata";
-import { icon, linkInline, main, media, purpleGradient } from "../styles";
-import "../styles/blog.css";
+import Base from './Base'
+import Metadata from './Metadata'
+import Subscribe from './Subscribe'
+import { H2, H3, P, A, UL, OL, LI, CodeBlock, InlineCode } from './blog'
+import { Link } from './elements'
+import { ReactComponent as CalendarSVG } from '../svg/calendar-alt-regular.svg'
+import { ReactComponent as ClockSVG } from '../svg/clock-regular.svg'
+import useSiteMetadata from '../queries/useSiteMetadata'
+import { icon, linkInline, main, media, purpleGradient } from '../styles'
+import '../styles/blog.css'
 
-export default Post;
+export default Post

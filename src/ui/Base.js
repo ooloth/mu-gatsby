@@ -4,7 +4,7 @@ function Base({ children, location }) {
       <Metadata
         preload={[
           { href: avenirRegular, as: `font`, type: `font/woff2` },
-          { href: avenirHeavy, as: `font`, type: `font/woff2` }
+          { href: avenirHeavy, as: `font`, type: `font/woff2` },
         ]}
         preconnect={[`https://unpkg.com`]}
       />

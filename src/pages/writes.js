@@ -98,7 +98,7 @@ import {
   projectTitle,
   purpleUnderline,
   tagList,
-  tagItem
+  tagItem,
 } from '../styles'
 
 export default BlogPage

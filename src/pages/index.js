@@ -12,19 +12,17 @@ function IndexPage({ location }) {
         </h1>
 
         <p css={pageSummary}>
-          I'm a web developer and opera singer working for{" "}
+          I'm a web developer and opera singer working for{' '}
           <Link href="https://www.ecobee.com" css={linkInline}>
             ecobee
-          </Link>{" "}
+          </Link>{' '}
           in Toronto.
         </p>
 
         <Nav>
           <NavLink href="/writes/">Articles</NavLink>
           <br />
-          <NavLink href="https://www.youtube.com/user/michaeluloth">
-            Videos
-          </NavLink>
+          <NavLink href="https://www.youtube.com/user/michaeluloth">Videos</NavLink>
           <br />
           <NavLink href="/codes/">Websites</NavLink>
           {/* <br />
@@ -38,7 +36,7 @@ function IndexPage({ location }) {
         </Nav>
       </Main>
     </Base>
-  );
+  )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -46,11 +44,11 @@ function IndexPage({ location }) {
 const Main = styled.main`
   ${main}
   margin-top: 0;
-`;
+`
 
 const Nav = styled.nav`
   margin-top: var(--s7);
-`;
+`
 
 const NavLink = styled(Link)`
   ${purpleUnderline}
@@ -60,22 +58,22 @@ const NavLink = styled(Link)`
 
   &::before {
     display: block;
-    content: "";
+    content: '';
     margin-top: var(--s4);
   }
 
   ${media.sm`
     font-size: 1.8rem;
   `}
-`;
+`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
-import Base from "../ui/Base";
-import { Emoji, Link, SrText } from "../ui/elements";
+import Base from '../ui/Base'
+import { Emoji, Link, SrText } from '../ui/elements'
 import {
   linkInline,
   main,
@@ -83,7 +81,7 @@ import {
   pageHeadline,
   pageSubheadline,
   pageSummary,
-  purpleUnderline
-} from "../styles";
+  purpleUnderline,
+} from '../styles'
 
-export default IndexPage;
+export default IndexPage

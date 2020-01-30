@@ -7,10 +7,10 @@ export const pageSummary = css`
   ${media.sm`
     font-size: 1.35rem;
   `}
-`;
+`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import { css } from "styled-components";
+import { css } from 'styled-components'
 
-import { media } from "./media";
+import { media } from './media'

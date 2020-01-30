@@ -80,7 +80,7 @@ function Description({ description, repo }) {
           {match}
           <SrText> (Link opens in a new tab or window.)</SrText>
         </Link>
-      )
+      ),
     )
   }
 
@@ -145,7 +145,7 @@ import {
   projectTitle,
   purpleUnderline,
   tagList,
-  tagItem
+  tagItem,
 } from '../styles'
 
 export default WebsitesPage

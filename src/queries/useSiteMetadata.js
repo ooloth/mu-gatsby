@@ -50,17 +50,17 @@ function useSiteMetadata() {
           }
         }
       }
-    `
-  );
+    `,
+  )
 
-  return site.siteMetadata;
+  return site.siteMetadata
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from 'gatsby'
 
-export default useSiteMetadata;
+export default useSiteMetadata
 
 /*
 

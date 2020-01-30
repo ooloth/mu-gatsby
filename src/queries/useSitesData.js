@@ -13,7 +13,7 @@ function useSitesData() {
           }
         }
       }
-    `
+    `,
   )
 
   return allSitesYaml.nodes

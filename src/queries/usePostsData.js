@@ -24,7 +24,7 @@ function usePostsData() {
           }
         }
       }
-    `
+    `,
   )
 
   return allMdx.edges

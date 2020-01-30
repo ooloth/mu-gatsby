@@ -36,5 +36,5 @@ import styled from 'styled-components'
 import {
   aspectRatioParent,
   ratio16x9,
-  aspectRatioChild
+  aspectRatioChild,
 } from '../../styles/mixins/aspectRatios'
