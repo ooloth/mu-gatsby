@@ -66,8 +66,13 @@
     "eslint-plugin-react-hooks": "^2.3.0"
   },
   "scripts": {
-    "dev": "gatsby develop",
     "build": "gatsby build",
-    "serve": "rm -rf .cache && gatsby build && gatsby serve"
+    "check-format": "npm run prettier -- --list-different",
+    "dev": "gatsby develop",
+    "format": "npm run prettier -- --write",
+    "lint": "eslint '**/*.{js,jsx,ts,tsx}' --fix --ignore-path .gitignore",
+    "prettier": "prettier \"**/*.+(js|jsx|ts|tsx|json|yml|yaml|css|html|md|mdx|graphql)\" --ignore-path .gitignore",
+    "serve": "rm -rf .cache && gatsby build && gatsby serve",
+    "validate": "npm-run-all --parallel check-format lint"
   }
 }
