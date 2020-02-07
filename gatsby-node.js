@@ -49,7 +49,7 @@ exports.createPages = async function({ actions, graphql }) {
 
       actions.createPage({
         path: edge.node.frontmatter.slug,
-        component: require.resolve(`./src/ui/Post.js`),
+        component: require.resolve(`./src/ui/Post.tsx`),
         context: {
           id: edge.node.id,
           prev,
