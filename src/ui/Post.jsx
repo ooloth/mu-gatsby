@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 import Base from './Base'
 import Metadata from './Metadata'
-import Subscribe from './Subscribe'
+import Subscribe from './Subscribe.tsx'
 import { H2, H3, P, A, UL, OL, LI, CodeBlock, InlineCode } from './blog'
 import { Link } from './elements'
 import { ReactComponent as CalendarSVG } from '../svg/calendar-alt-regular.svg'
