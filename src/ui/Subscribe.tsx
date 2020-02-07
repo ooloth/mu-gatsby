@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { SyntheticEvent } from 'react'
+import { useMachine } from '@xstate/react'
 import styled from 'styled-components'
 
 import { Emoji } from './elements'
-import useMachine from '../logic/useMachine'
-import { buttondownFormMachine } from '../logic/buttondownForm'
+import { netlifyFormMachine } from '../logic/netlifyForm'
 import { container, copy, purpleGradient } from '../styles'
 
 const emailRegex = `.+@.+..+`
@@ -89,15 +89,16 @@ const AlertText = styled.p`
 `
 
 function NetlifyForm() {
-  const [state, send] = useMachine(buttondownFormMachine)
+  const [state, send] = useMachine(netlifyFormMachine)
 
-  function handleChange(e) {
-    send(`UPDATE_EMAIL`, { email: e.target.value })
+  function handleChange(event: SyntheticEvent) {
+    const button = event.target as HTMLButtonElement
+    send('UPDATE_FIELD', { name: 'email', value: button.value })
   }
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    send(`SUBMIT`)
+  function handleSubmit(event: SyntheticEvent) {
+    event.preventDefault()
+    send('SUBMIT')
   }
 
   return (
@@ -107,16 +108,10 @@ function NetlifyForm() {
           <Text>Receive my latest content by email.</Text>
           <small>No spam. No email sharing. Unsubscribe any time.</small>
 
-          <form netlify="true" name="Subscribe" onSubmit={handleSubmit}>
+          <form data-netlify="true" name="Subscribe" onSubmit={handleSubmit}>
             {/* Hidden fields required by Netlify */}
             <input type="hidden" name="form-name" value="Subscribe" />
             <input type="hidden" name="email" />
-            <textarea
-              name="message"
-              css={`
-                display: none;
-              `}
-            />
 
             <InputAndSubmit>
               <Input
