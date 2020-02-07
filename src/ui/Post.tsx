@@ -14,15 +14,16 @@ import { ReactComponent as ClockSVG } from '../svg/clock-regular.svg'
 import useSiteMetadata from '../queries/useSiteMetadata'
 import { icon, linkInline, main, media, purpleGradient } from '../styles'
 import '../styles/blog.css'
+import { MdxQueryNode } from '../node/createPages'
 
 const Items = styled.ul`
   margin-top: var(--s5);
 
-  ${media.sm`
+  ${media.sm} {
     display: flex;
     flex-wrap: wrap;
     margin-top: var(--s1);
-  `}
+  }
 `
 
 const Item = styled.li`
@@ -108,23 +109,22 @@ function Footer({ mdx }) {
       <br
         css={`
           line-height: 2;
-          ${media.sm`display:none;`}
+          ${media.sm} {
+            display: none;
+          }
         `}
       />
       <span
         css={`
           display: none;
-          ${media.sm`display:inline;`}
+          ${media.sm} {
+            display: inline;
+          }
         `}
       >
         ・
       </span>
-      <Link
-        href={mdx.frontmatter.devLink}
-        css={`
-          ${linkInline};
-        `}
-      >
+      <Link href={mdx.frontmatter.devLink} css={linkInline}>
         Discuss on DEV.to
       </Link>
 
@@ -133,23 +133,22 @@ function Footer({ mdx }) {
           <br
             css={`
               line-height: 2;
-              ${media.sm`display:none;`}
+              ${media.sm} {
+                display: none;
+              }
             `}
           />
           <span
             css={`
               display: none;
-              ${media.sm`display:inline;`}
+              ${media.sm} {
+                display: inline;
+              }
             `}
           >
             ・
           </span>
-          <Link
-            href={mdx.frontmatter.editLink}
-            css={`
-              ${linkInline}
-            `}
-          >
+          <Link href={mdx.frontmatter.editLink} css={linkInline}>
             Edit on GitHub
           </Link>
         </>
@@ -218,9 +217,9 @@ const Title = styled.h1`
     font-size: 2.5rem;
   }
 
-  ${media.sm`
+  ${media.sm} {
     font-size: 3rem;
-  `}
+  }
 `
 
 function Post({ data: { mdx } }) {

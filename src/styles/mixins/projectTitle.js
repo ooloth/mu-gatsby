@@ -13,15 +13,15 @@ export const projectTitle = css`
     font-size: 1.7rem;
   }
 
-  ${media.sm`
+  ${media.sm} {
     font-size: 1.75rem;
-  `}
+  }
 
-  ${media.md`
+  ${media.md} {
     font-size: 1.8rem;
-  `}
-  
-  ${media.lg`
+  }
+
+  ${media.lg} {
     font-size: 1.85rem;
-  `}
+  }
 `

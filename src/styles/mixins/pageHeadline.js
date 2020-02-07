@@ -12,8 +12,8 @@ export const pageHeadline = css`
     font-size: 4.2rem;
   }
 
-  ${media.sm`
+  ${media.sm} {
     padding-top: var(--s1);
     font-size: 4.5rem;
-  `}
+  }
 `

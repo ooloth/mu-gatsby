@@ -9,18 +9,18 @@ export const container = css`
   padding-right: var(--s3);
   max-width: var(--s17);
 
-  ${media.sm`
+  ${media.sm} {
     padding-left: var(--s4);
     padding-right: var(--s4);
-  `}
+  }
 
-  ${media.md`
+  ${media.md} {
     padding-left: var(--s6);
     padding-right: var(--s6);
-  `}
+  }
 
-  ${media.xl`
+  ${media.xl} {
     padding-left: var(--s7);
     padding-right: var(--s7);
-  `}
+  }
 `

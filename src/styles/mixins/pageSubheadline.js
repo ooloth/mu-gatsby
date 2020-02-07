@@ -11,7 +11,7 @@ export const pageSubheadline = css`
     font-size: 2.95rem;
   }
 
-  ${media.sm`
+  ${media.sm} {
     font-size: 3.35rem;
-  `}
+  }
 `

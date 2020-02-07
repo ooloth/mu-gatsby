@@ -8,7 +8,7 @@ export const pageSummary = css`
   line-height: 1.4;
   font-size: var(--f5);
 
-  ${media.sm`
+  ${media.sm} {
     font-size: 1.35rem;
-  `}
+  }
 `

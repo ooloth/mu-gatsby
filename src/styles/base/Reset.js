@@ -61,8 +61,8 @@ const Reset = createGlobalStyle`
 
     /* A11Y: set a more readable base size for this font */
     font-size: 19px;
-    ${media.sm` font-size: 19.5px; `}
-    ${media.lg` font-size: 20px; `}
+    ${media.sm} { font-size: 19.5px; }
+    ${media.lg} { font-size: 20px; }
 
     color: var(--black);
   }

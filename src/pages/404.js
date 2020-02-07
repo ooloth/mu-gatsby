@@ -21,9 +21,9 @@ const LargeText = styled.span`
   font-weight: 900;
   white-space: nowrap;
 
-  ${media.sm`
+  ${media.sm} {
     font-size: 9rem;
-  `}
+  }
 `
 
 const SmallerText = styled.span`
@@ -32,9 +32,9 @@ const SmallerText = styled.span`
   font-size: var(--f6);
   font-weight: 800;
 
-  ${media.sm`
+  ${media.sm} {
     font-size: var(--f7);
-  `}
+  }
 `
 
 function NotFoundPage() {

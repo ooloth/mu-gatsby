@@ -34,9 +34,9 @@ const NavLink = styled(Link)`
     margin-top: var(--s4);
   }
 
-  ${media.sm`
+  ${media.sm} {
     font-size: 1.8rem;
-  `}
+  }
 `
 
 function IndexPage({ location }) {
