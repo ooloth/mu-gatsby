@@ -1,12 +1,29 @@
-const fetch = require(`node-fetch`)
+import fetch from 'node-fetch'
 
 const { TMDB_READ_ACCESS_TOKEN, TMDB_TV_LIST_ID, TMDB_MOVIE_LIST_ID } = process.env
 
-async function fetchTMDBListData(listId, api) {
+interface FormattedResult {
+  id: string
+  posterUrl: string
+  releaseDate: string
+  link: string
+  title: string
+}
+
+async function fetchTMDBListData(
+  listId: string | undefined,
+  api: 'tv' | 'movie',
+): Promise<FormattedResult[]> {
+  if (!listId) {
+    console.log('fetchTMDBListData error: listId is undefined')
+    return []
+  }
+
   let items = []
   let page = 1
-  let totalPages
+  let totalPages = 999 // will be updated after the first API response
 
+  // FIXME: specify variable and return types from here down...
   async function fetch20Items() {
     // See: https://www.themoviedb.org/talk/55aa2a76c3a3682d63002fb1?language=en
     // See: https://developers.themoviedb.org/4/list/get-list
@@ -53,9 +70,11 @@ async function fetchTMDBListData(listId, api) {
   return Promise.all(items)
 }
 
-exports.fetchTMDBData = async () => {
+async function fetchTMDBData() {
   const tvData = await fetchTMDBListData(TMDB_TV_LIST_ID, 'tv')
   const movieData = await fetchTMDBListData(TMDB_MOVIE_LIST_ID, 'movie')
 
   return Promise.all([tvData, movieData])
 }
+
+export default fetchTMDBData
