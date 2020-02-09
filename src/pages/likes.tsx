@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'gatsby-image'
+import { WindowLocation } from '@reach/router'
 import styled, { css } from 'styled-components'
 
 import Base from '../ui/Base'
@@ -86,13 +87,10 @@ function TV() {
           <LikesItem key={show.id}>
             <ItemLink
               href={show.link}
-              alt={`Visit IMDB page for "${show.title}" in a new window.`}
+              srText={`Visit IMDB page for "${show.title}" in a new window.`}
             >
               <ItemImage
-                fixed={{
-                  ...show.poster.childImageSharp.fixed,
-                  aspectRatio: 2 / 3,
-                }}
+                fixed={show.poster.childImageSharp.fixed}
                 alt={`Poster for the TV series "${show.title}"`}
               />
               <ItemName>{show.title}</ItemName>
@@ -117,13 +115,10 @@ function Movies() {
           <LikesItem key={movie.id}>
             <ItemLink
               href={movie.link}
-              alt={`Visit IMDB page for "${movie.title}" in a new window.`}
+              srText={`Visit IMDB page for "${movie.title}" in a new window.`}
             >
               <ItemImage
-                fixed={{
-                  ...movie.poster.childImageSharp.fixed,
-                  aspectRatio: 2 / 3,
-                }}
+                fixed={movie.poster.childImageSharp.fixed}
                 alt={`Poster for the movie "${movie.title}"`}
               />
               <ItemName>{movie.title}</ItemName>
@@ -148,7 +143,7 @@ function Books() {
           <LikesItem key={book.id}>
             <ItemLink
               href={book.link}
-              alt={`Visit the Open Library page for "${book.title}" in a new window.`}
+              srText={`Visit the Open Library page for "${book.title}" in a new window.`}
             >
               <ItemImage
                 fixed={book.cover.childImageSharp.fixed}
@@ -176,7 +171,7 @@ function Albums() {
           <LikesItem key={album.id}>
             <ItemLink
               href={album.link}
-              alt={`Visit the iTunes page for "${album.name}" by ${album.artist} in a new window.`}
+              srText={`Visit the iTunes page for "${album.name}" by ${album.artist} in a new window.`}
             >
               <ItemImage
                 fixed={album.cover.childImageSharp.fixed}
@@ -205,7 +200,7 @@ function Podcasts() {
           <LikesItem key={podcast.id}>
             <ItemLink
               href={podcast.link}
-              alt={`Visit the iTunes page for "${podcast.name}" in a new window.`}
+              srText={`Visit the iTunes page for "${podcast.name}" in a new window.`}
             >
               <ItemImage
                 fixed={podcast.cover.childImageSharp.fixed}
@@ -226,7 +221,12 @@ const Main = styled.main`
   max-width: 100%;
 `
 
-function LikesPage({ location }) {
+// FIXME: extract this shared PageComponent declaration
+interface Props {
+  location: WindowLocation
+}
+
+function LikesPage({ location }: Props) {
   const { likesPage } = useSiteMetadata()
   const { likesYaml: page } = usePageData()
 

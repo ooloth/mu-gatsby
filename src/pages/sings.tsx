@@ -1,4 +1,5 @@
 import React from 'react'
+import { WindowLocation } from '@reach/router'
 
 import Base from '../ui/Base'
 import Metadata from '../ui/Metadata'
@@ -17,7 +18,11 @@ import {
   tagItem,
 } from '../styles'
 
-function Tag({ tag }) {
+interface Tag {
+  tag: string
+}
+
+function Tag({ tag }: Tag) {
   let link = 'https://youtu.be/dQw4w9WgXcQ' // prevent empty links
   if (tag === 'albano') link = 'https://music.utoronto.ca/our-people.php?fid=11'
   if (tag === 'albery') link = 'https://en.wikipedia.org/wiki/Tim_Albery'
@@ -170,12 +175,17 @@ function Gigs() {
   )
 }
 
-function OperaPage() {
+// FIXME: extract this shared PageComponent declaration
+interface Props {
+  location: WindowLocation
+}
+
+function OperaPage({ location }: Props) {
   const { operaPage } = useSiteMetadata()
   const { operaYaml: page } = usePageData()
 
   return (
-    <Base>
+    <Base location={location}>
       <Metadata page={operaPage} />
 
       <PageHeader

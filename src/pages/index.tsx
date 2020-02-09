@@ -1,4 +1,5 @@
 import React from 'react'
+import { WindowLocation } from '@reach/router'
 import styled from 'styled-components'
 
 import Base from '../ui/Base'
@@ -39,7 +40,12 @@ const NavLink = styled(Link)`
   }
 `
 
-function IndexPage({ location }) {
+// FIXME: extract this shared PageComponent declaration
+interface Props {
+  location: WindowLocation
+}
+
+function IndexPage({ location }: Props) {
   return (
     // https://www.gatsbyjs.org/docs/migrating-from-v1-to-v2/#4-pass-history-location-and-match-props-to-layout
     <Base location={location}>

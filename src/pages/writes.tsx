@@ -1,4 +1,5 @@
 import React from 'react'
+import { WindowLocation } from '@reach/router'
 
 import Base from '../ui/Base'
 import Metadata from '../ui/Metadata'
@@ -17,7 +18,11 @@ import {
   tagItem,
 } from '../styles'
 
-function Topic({ topic }) {
+interface Topic {
+  topic: string
+}
+
+function Topic({ topic }: Topic) {
   let link = `https://youtu.be/dQw4w9WgXcQ` // prevent empty links
   if (topic === `gatsby`) link = `https://www.gatsbyjs.org`
   if (topic === `git`) link = `https://git-scm.com`
@@ -71,7 +76,12 @@ function Posts() {
   )
 }
 
-function BlogPage({ location }) {
+// FIXME: extract this shared PageComponent declaration
+interface Props {
+  location: WindowLocation
+}
+
+function BlogPage({ location }: Props) {
   const { blogPage } = useSiteMetadata()
   const { blogYaml: page } = usePageData()
 

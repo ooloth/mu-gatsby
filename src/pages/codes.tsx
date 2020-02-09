@@ -1,4 +1,5 @@
 import React from 'react'
+import { WindowLocation } from '@reach/router'
 import stringReplaceToArray from 'string-replace-to-array'
 
 import Base from '../ui/Base'
@@ -7,7 +8,7 @@ import PageHeader from '../ui/PageHeader'
 import { Link, SrText } from '../ui/elements'
 import useSiteMetadata from '../queries/useSiteMetadata'
 import usePageData from '../queries/usePageData'
-import useSitesData from '../queries/useSitesData'
+import useWebsitesData, { WebsiteData } from '../queries/useWebsitesData'
 import {
   linkInline,
   linkTag,
@@ -20,7 +21,11 @@ import {
   tagItem,
 } from '../styles'
 
-function Tool({ tool }) {
+interface Tool {
+  tool: string
+}
+
+function Tool({ tool }: Tool) {
   let link = `https://youtu.be/dQw4w9WgXcQ` // prevent empty links
   if (tool === `gatsby`) link = `https://www.gatsbyjs.org`
   if (tool === `geocoder.ca`) link = `https://geocoder.ca`
@@ -51,7 +56,9 @@ function Tool({ tool }) {
   )
 }
 
-function Description({ description, repo }) {
+type Description = Pick<WebsiteData, 'description' | 'repo'>
+
+function Description({ description, repo }: Description) {
   let updatedDescription = description
 
   // If the website has a public repo...
@@ -60,7 +67,7 @@ function Description({ description, repo }) {
     updatedDescription = stringReplaceToArray(
       description,
       /GitHub/i,
-      (match, i) => (
+      (match: string, i: number) => (
         <Link key={i} href={repo} css={linkInline}>
           {match}
           <SrText> (Link opens in a new tab or window.)</SrText>
@@ -73,7 +80,7 @@ function Description({ description, repo }) {
 }
 
 function Websites() {
-  const websites = useSitesData()
+  const websites: WebsiteData[] = useWebsitesData()
 
   return (
     <section>
@@ -102,7 +109,12 @@ function Websites() {
   )
 }
 
-function WebsitesPage({ location }) {
+// FIXME: extract this shared PageComponent declaration
+interface Props {
+  location: WindowLocation
+}
+
+function WebsitesPage({ location }: Props) {
   const { websitesPage } = useSiteMetadata()
   const { websitesYaml: page } = usePageData()
 
@@ -118,7 +130,9 @@ function WebsitesPage({ location }) {
             <span
               css={`
                 display: none;
-                ${media.md`display: inline`}
+                ${media.md} {
+                  display: inline;
+                }
               `}
             >
               sites
