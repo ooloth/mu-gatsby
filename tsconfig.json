@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "esnext",
+    "allowJs": true,
+    "esModuleInterop": true,
+    // "isolatedModules": true,
     "jsx": "preserve",
     "lib": ["dom", "esnext"],
-    "strict": true,
+    "module": "commonjs",
     "noEmit": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
     "noUnusedLocals": false,
-    "allowJs": true,
-    "skipLibCheck": true // ignore libraries
+    "skipLibCheck": true, // ignore libraries
+    "strict": true,
+    "target": "esnext"
   },
   "exclude": ["node_modules", "public", ".cache"]
 }

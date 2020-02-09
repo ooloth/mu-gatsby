@@ -48,20 +48,20 @@ module.exports = {
       description: `Coding tips and walk-throughs to help future me get unstuck.`,
       url: `https://www.michaeluloth.com/writes`,
     },
-    websitesPage: {
-      title: `Michael Uloth | Codes`,
-      description: `Sites I've built for fun and profit.`,
-      url: `https://www.michaeluloth.com/codes`,
+    likesPage: {
+      title: `Michael Uloth | Likes`,
+      description: `Fun stuff that makes me happy.`,
+      url: `https://www.michaeluloth.com/likes`,
     },
     operaPage: {
       title: `Michael Uloth | Sings`,
       description: `Concerts and operas I've been lucky enough to perform.`,
       url: `https://www.michaeluloth.com/sings`,
     },
-    likesPage: {
-      title: `Michael Uloth | Likes`,
-      description: `Fun stuff that makes me happy.`,
-      url: `https://www.michaeluloth.com/likes`,
+    websitesPage: {
+      title: `Michael Uloth | Codes`,
+      description: `Sites I've built for fun and profit.`,
+      url: `https://www.michaeluloth.com/codes`,
     },
   },
   plugins: [
@@ -127,10 +127,11 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1000,
-              withWebp: true,
-              showCaptions: true,
               linkImagesToOriginal: false,
+              maxWidth: 1000,
+              quality: 80,
+              showCaptions: true,
+              withWebp: true,
             },
           },
           {
