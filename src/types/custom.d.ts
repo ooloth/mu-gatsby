@@ -1,9 +1,3 @@
-declare namespace React {
-  interface Attributes {
-    css?: any
-  }
-}
-
 declare module '*.jpg'
 declare module '*.png'
 
