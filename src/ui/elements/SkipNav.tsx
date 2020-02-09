@@ -1,16 +1,17 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import SrText from './SrText'
 
-const SkipNav = ({ href }) => (
-  <SrText as="a" href={href}>
-    Skip navigation and go to main content
-  </SrText>
-)
+interface SkipNav {
+  href: string
+}
 
-SkipNav.propTypes = {
-  href: PropTypes.string.isRequired,
+function SkipNav({ href }: SkipNav) {
+  return (
+    <SrText as="a" href={href}>
+      Skip navigation and go to main content
+    </SrText>
+  )
 }
 
 export default SkipNav

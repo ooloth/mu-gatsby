@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const SrText = styled.span`
@@ -13,10 +12,6 @@ const SrText = styled.span`
   white-space: nowrap;
 `
 
-SrText.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
 export default SrText
 
 // See: https://css-tricks.com/small-tweaks-can-make-huge-impact-websites-accessibility/#article-header-id-5
@@ -24,3 +19,5 @@ export default SrText
 // TODO: add any a11y attributes to this?
 
 // TODO: move the srOnly styles here (ever used outside of this component? Sometimes as a heading, but I could use this with an 'as="h2"' prop...)
+
+// TODO: how to require children?
