@@ -9,7 +9,7 @@ export const projectTitle = css`
   font-size: 1.65rem;
   font-weight: 900;
 
-  @media screen and (min-width: 375px) {
+  ${media.custom('375px')} {
     font-size: 1.7rem;
   }
 

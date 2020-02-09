@@ -7,7 +7,7 @@ export const pageSubheadline = css`
   font-size: 2.45rem;
   font-weight: 900;
 
-  @media screen and (min-width: 375px) {
+  ${media.custom('375px')} {
     font-size: 2.95rem;
   }
 

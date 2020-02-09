@@ -8,7 +8,7 @@ export const pageHeadline = css`
   font-size: 3.5rem;
   font-weight: 900;
 
-  @media screen and (min-width: 375px) {
+  ${media.custom('375px')} {
     font-size: 4.2rem;
   }
 
