@@ -1,3 +1,14 @@
+declare namespace React {
+  interface Attributes {
+    css?: any
+  }
+}
+
+declare module '*.jpg'
+declare module '*.png'
+
+declare module 'string-replace-to-array'
+
 // See: https://medium.com/@karllsonVomDach/jest-typescript-and-svgs-44b4333a1164
 declare module '*.svg' {
   const content: any
@@ -5,7 +16,5 @@ declare module '*.svg' {
   export default content
 }
 
-declare module '*.png' {
-  const content: any
-  export default content
-}
+declare module '*.woff'
+declare module '*.woff2'
