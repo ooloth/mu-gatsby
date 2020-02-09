@@ -1,5 +1,5 @@
 // Get ID from URL of Apple Music webpage: https://music.apple.com/ca
-exports.albums = [
+export const albums = [
   // Alabama Shakes
   { name: `Boys & Girls`, id: 520887168, date: '2012-04-09' },
   { name: `Sound & Color`, id: 963949190, date: '2015-04-21' },

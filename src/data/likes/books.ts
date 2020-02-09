@@ -1,5 +1,5 @@
 // Get ID from URL of Apple Music webpage: https://music.apple.com/ca
-exports.books = [
+export const books = [
   // Jane Austen
   { name: `Emma`, id: 395536171, date: '1815-01-01' },
 

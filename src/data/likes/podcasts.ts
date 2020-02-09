@@ -1,5 +1,5 @@
 // Get ID from URL of Apple Podcast webpage: https://podcasts.apple.com/ca
-exports.podcasts = [
+export const podcasts = [
   { name: '3 Minutes with Kent', id: 1082883103, date: '2016-02-09' },
   { name: 'Against the Rules', id: 1455379351, date: '2019-03-22' },
   { name: 'All Songs Considered', id: 79687345, date: '2000-01' },
