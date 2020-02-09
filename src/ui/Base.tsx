@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
+import { WindowLocation } from '@reach/router'
 import styled from 'styled-components'
 import 'what-input'
 
@@ -17,7 +18,12 @@ const MinHeight100 = styled.div`
   min-height: 100vh;
 `
 
-function Base({ children, location }) {
+interface Props {
+  children: ReactNode
+  location?: WindowLocation
+}
+
+function Base({ children, location }: Props) {
   return (
     <MinHeight100>
       <Metadata

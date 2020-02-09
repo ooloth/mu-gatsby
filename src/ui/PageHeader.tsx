@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 
-import { Emoji } from '../ui/elements'
+import { Emoji } from './elements'
 import { container, pageHeadline, pageSummary } from '../styles'
 
 const Header = styled.header`
@@ -9,7 +9,18 @@ const Header = styled.header`
   margin-left: 0;
 `
 
-function PageHeader({ headline, emoji, subheadline, summary }) {
+interface Emoji {
+  icon: string
+  label: string
+}
+
+interface Props {
+  emoji: Emoji
+  headline: ReactNode
+  summary: string
+}
+
+function PageHeader({ headline, emoji, summary }: Props) {
   return (
     <Header>
       <h1 css={pageHeadline}>

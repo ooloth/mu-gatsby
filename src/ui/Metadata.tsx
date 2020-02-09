@@ -1,11 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import useSiteMetadata from '../queries/useSiteMetadata'
+import useSiteMetadata, { SiteMetadata } from '../queries/useSiteMetadata'
 import siteImage from '../images/michael-uloth-landscape.jpg'
 
-function StructuredData({ site, image }) {
+interface StructuredData {
+  image: string
+  site: SiteMetadata
+}
+
+function StructuredData({ site, image }: StructuredData) {
   const {
     structuredDataType,
     siteUrl,
@@ -49,7 +53,29 @@ function StructuredData({ site, image }) {
   )
 }
 
-function Metadata({ page, preconnect, preload }) {
+interface PageMetadata {
+  author?: string
+  description: string
+  lang?: string
+  image?: string
+  title: string
+  type?: string
+  url: string
+}
+
+interface PreloadResource {
+  as: string
+  href: string
+  type: string
+}
+
+interface Metadata {
+  page?: PageMetadata
+  preconnect?: string[]
+  preload?: PreloadResource[]
+}
+
+function Metadata({ page, preconnect, preload }: Metadata) {
   const site = useSiteMetadata()
 
   // Use sitewide metadata unless overridden by page-specific metadata
@@ -68,7 +94,7 @@ function Metadata({ page, preconnect, preload }) {
 
   const image = page
     ? page.image
-      ? site.siteUrl + page.image.childImageSharp.fixed.src
+      ? site.siteUrl + page.image
       : site.siteUrl + siteImage
     : site.siteUrl + siteImage
 
@@ -144,18 +170,6 @@ function Metadata({ page, preconnect, preload }) {
       <StructuredData site={site} image={image} />
     </>
   )
-}
-
-Metadata.propTypes = {
-  page: PropTypes.shape({
-    lang: PropTypes.string,
-    title: PropTypes.string,
-    description: PropTypes.string,
-    url: PropTypes.string,
-    type: PropTypes.string,
-  }),
-  preconnect: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-  preload: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 }
 
 export default Metadata

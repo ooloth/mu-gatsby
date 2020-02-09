@@ -8,7 +8,9 @@ import { ReactComponent as LinkedInSVG } from '../svg/linkedin-in-brands.svg'
 import { ReactComponent as YouTubeSVG } from '../svg/youtube-brands.svg'
 import { ReactComponent as RssSVG } from '../svg/rss-solid.svg'
 import { ReactComponent as PaperPlaneSVG } from '../svg/paper-plane-solid.svg'
-import useSharedData from '../queries/useSharedData'
+import useSharedData, {
+  SocialLink as SocialLinkType,
+} from '../queries/useSharedData'
 import { container, icon, linkInline, purpleGradient } from '../styles'
 
 const StyledLink = styled(Link)`
@@ -48,7 +50,11 @@ const PaperPlaneIcon = styled(PaperPlaneSVG)`
   ${icon}
 `
 
-function SocialLink({ link }) {
+interface Link {
+  link: SocialLinkType
+}
+
+function SocialLink({ link }: Link) {
   let socialIcon
   if (link.platform === `LinkedIn`) socialIcon = <LinkedInIcon />
   if (link.platform === `Twitter`) socialIcon = <TwitterIcon />
@@ -110,7 +116,11 @@ const NavLink = styled(Link)`
   font-size: var(--f2);
 `
 
-function NavLinks({ currentPath }) {
+interface NavLinks {
+  currentPath?: string
+}
+
+function NavLinks({ currentPath }: NavLinks) {
   const { navLinks } = useSharedData()
 
   return (
@@ -130,7 +140,11 @@ function NavLinks({ currentPath }) {
   )
 }
 
-function Bottom({ currentPath }) {
+interface Bottom {
+  currentPath?: string
+}
+
+function Bottom({ currentPath }: Bottom) {
   const { socialLinks } = useSharedData()
 
   return (
