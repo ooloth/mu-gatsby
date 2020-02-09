@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Highlight, { defaultProps } from 'prism-react-renderer'
+import Highlight, { defaultProps, Language } from 'prism-react-renderer'
 
 import { prismTheme } from '../../styles'
 
@@ -20,8 +20,13 @@ const Pre = styled.pre`
   font-size: 0.95rem;
 `
 
-export function CodeBlock({ children, className }) {
-  const language = className.replace(/language-/, '')
+interface CodeBlock {
+  children: string
+  className: string
+}
+
+export function CodeBlock({ children, className }: CodeBlock) {
+  const language = className.replace(/language-/, '') as Language
 
   return (
     <Highlight

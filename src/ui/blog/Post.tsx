@@ -4,17 +4,17 @@ import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import styled from 'styled-components'
 
-import Base from './Base'
-import Metadata from './Metadata'
-import Subscribe from './Subscribe'
-import { H2, H3, P, A, UL, OL, LI, CodeBlock, InlineCode } from './blog'
-import { Link } from './elements'
-import { ReactComponent as CalendarSVG } from '../svg/calendar-alt-regular.svg'
-import { ReactComponent as ClockSVG } from '../svg/clock-regular.svg'
-import useSiteMetadata from '../queries/useSiteMetadata'
-import { icon, linkInline, main, media, purpleGradient } from '../styles'
-import '../styles/blog.css'
-import { MdxQueryNode } from '../node/createPages'
+import Base from '../Base'
+import Metadata from '../Metadata'
+import Subscribe from '../Subscribe'
+import { H2, H3, P, A, UL, OL, LI, CodeBlock, InlineCode } from '.'
+import { Link } from '../elements'
+import { ReactComponent as CalendarSVG } from '../../svg/calendar-alt-regular.svg'
+import { ReactComponent as ClockSVG } from '../../svg/clock-regular.svg'
+import { MdxQueryNode } from '../../node/createPages'
+import useSiteMetadata from '../../queries/useSiteMetadata'
+import { icon, linkInline, main, media, purpleGradient } from '../../styles'
+import '../../styles/blog.css'
 
 const Items = styled.ul`
   margin-top: var(--s5);
@@ -48,7 +48,11 @@ const IconWrapper = styled.span`
   color: white;
 `
 
-function MetaItems({ mdx }) {
+interface Mdx {
+  mdx: MdxQueryNode
+}
+
+function MetaItems({ mdx }: Mdx) {
   return (
     <Items>
       <Item>
@@ -81,26 +85,19 @@ const StyledFooter = styled.footer`
   margin-top: var(--s7);
 `
 
-function Footer({ mdx }) {
+function Footer({ mdx }: Mdx) {
   const isVideo = mdx.frontmatter.linkSharedOnTwitter.includes(`youtu`)
 
   return (
     <StyledFooter>
       {isVideo ? (
-        <Link
-          href={mdx.frontmatter.linkSharedOnTwitter}
-          css={`
-            ${linkInline}
-          `}
-        >
+        <Link href={mdx.frontmatter.linkSharedOnTwitter} css={linkInline}>
           Discuss on YouTube
         </Link>
       ) : (
         <Link
           href={`https://twitter.com/search?q=${mdx.frontmatter.linkSharedOnTwitter}`}
-          css={`
-            ${linkInline}
-          `}
+          css={linkInline}
         >
           Discuss on Twitter
         </Link>
@@ -128,7 +125,7 @@ function Footer({ mdx }) {
         Discuss on DEV.to
       </Link>
 
-      {mdx.frontmatter.editLink && (
+      {/* {mdx.frontmatter.editLink && (
         <>
           <br
             css={`
@@ -152,7 +149,7 @@ function Footer({ mdx }) {
             Edit on GitHub
           </Link>
         </>
-      )}
+      )} */}
     </StyledFooter>
   )
 }
@@ -160,13 +157,13 @@ function Footer({ mdx }) {
 export const pageQuery = graphql`
   query($id: String) {
     mdx(id: { eq: $id }) {
-      id
-      timeToRead
       body
       frontmatter {
-        title
-        slug
+        datePublished(formatString: "MMM DD, YYYY")
+        dateUpdated(formatString: "MMM DD, YYYY")
         description
+        devLink
+        linkSharedOnTwitter
         metaImage {
           childImageSharp {
             fixed(width: 1500, quality: 80) {
@@ -174,12 +171,12 @@ export const pageQuery = graphql`
             }
           }
         }
+        slug
+        title
         topics
-        linkSharedOnTwitter
-        devLink
-        datePublished(formatString: "MMM DD, YYYY")
-        dateUpdated(formatString: "MMM DD, YYYY")
       }
+      id
+      timeToRead
     }
   }
 `
@@ -222,16 +219,16 @@ const Title = styled.h1`
   }
 `
 
-function Post({ data: { mdx } }) {
+function Post({ data: { mdx } }: { data: Mdx }) {
   const { title, siteUrl } = useSiteMetadata()
 
   const metadata = {
-    type: `article`,
-    title: mdx.frontmatter.title,
-    description: mdx.frontmatter.description,
-    url: `${siteUrl}/${mdx.frontmatter.slug}`, // no trailing slash
     author: title,
-    image: mdx.frontmatter.metaImage,
+    description: mdx.frontmatter.description,
+    image: mdx.frontmatter.metaImage.childImageSharp.fixed.src,
+    title: mdx.frontmatter.title,
+    type: 'article',
+    url: `${siteUrl}/${mdx.frontmatter.slug}`, // no trailing slash
   }
 
   // TODO: see https://github.com/gaearon/overreacted.io/blob/master/src/templates/blog-post.js

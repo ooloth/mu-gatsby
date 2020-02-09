@@ -20,15 +20,17 @@ const Embed = styled.iframe`
   box-shadow: var(--shadow1);
 `
 
-export function VideoEmbed({ embedURL, ...props }) {
+interface VideoEmbed {
+  embedURL: string
+}
+
+export function VideoEmbed({ embedURL, ...props }: VideoEmbed) {
   return (
     <EmbedWrapper {...props}>
       <Embed
         src={embedURL}
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         frameBorder="0"
-        webkitallowfullscreen="true"
-        mozallowfullscreen="true"
         allowFullScreen
       />
     </EmbedWrapper>
