@@ -1,6 +1,26 @@
 import { useStaticQuery, graphql } from 'gatsby'
 
-function useGigsData() {
+interface Review {
+  link: string
+  quotation: string
+  source: string
+}
+
+interface Title {
+  lang: string
+  text: string
+}
+
+interface Gig {
+  description: string
+  id: string
+  link: string
+  reviews: Review[]
+  tags: string[]
+  title: Title
+}
+
+function useGigsData(): Gig[] {
   const { allGigsYaml } = useStaticQuery(
     graphql`
       query {

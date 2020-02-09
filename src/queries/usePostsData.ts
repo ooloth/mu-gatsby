@@ -1,6 +1,25 @@
 import { useStaticQuery, graphql } from 'gatsby'
 
-function usePostsData() {
+interface Frontmatter {
+  datePublished: string
+  dateUpdated: string
+  description: string
+  devLink: string
+  linkSharedOnTwitter: string
+  slug: string
+  title: string
+  topics: string[]
+}
+
+interface Post {
+  node: {
+    frontmatter: Frontmatter
+    id: string
+    timeToRead: string
+  }
+}
+
+function usePostsData(): Post[] {
   const { allMdx } = useStaticQuery(
     graphql`
       query {
@@ -13,14 +32,14 @@ function usePostsData() {
               id
               timeToRead
               frontmatter {
-                title
-                slug
-                description
-                topics
-                linkSharedOnTwitter
-                devLink
                 datePublished(formatString: "MMMM DD, YYYY")
                 dateUpdated(formatString: "MMMM DD, YYYY")
+                description
+                devLink
+                linkSharedOnTwitter
+                slug
+                title
+                topics
               }
             }
           }

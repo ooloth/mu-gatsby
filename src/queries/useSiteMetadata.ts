@@ -1,6 +1,42 @@
 import { useStaticQuery, graphql } from 'gatsby'
 
-function useSiteMetadata() {
+interface Address {
+  country: string
+  locality: string
+  region: string
+  postalCode: string
+  street: string
+}
+
+interface Page {
+  description: string
+  title: string
+  url: string
+}
+
+export interface SiteMetadata {
+  address: Address
+  blogPage: Page
+  description: string
+  email: string
+  googleSearchConsoleSiteVerification: string
+  gSuiteSiteVerification: string
+  jobTitle: string
+  lang: 'en'
+  likesPage: Page
+  locale: 'en_CA' | 'en_US'
+  operaPage: Page
+  siteUrl: string
+  socialLinks: string[]
+  structuredDataType: 'Person' | 'Business'
+  telephone: string
+  title: string
+  twitterSite: string
+  twitterCreator: string
+  websitesPage: Page
+}
+
+function useSiteMetadata(): SiteMetadata {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -32,17 +68,17 @@ function useSiteMetadata() {
               description
               url
             }
+            likesPage {
+              title
+              description
+              url
+            }
             operaPage {
               title
               description
               url
             }
             websitesPage {
-              title
-              description
-              url
-            }
-            likesPage {
               title
               description
               url
