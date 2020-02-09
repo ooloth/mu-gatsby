@@ -1,3 +1,10 @@
+// Mimic node's stack trace to make debugging easier
+require('source-map-support').install()
+
+// Support importing TS files in gatsby-[config|node|ssr|browser]
+require('ts-node').register()
+
+// Access environment variables
 require('dotenv').config()
 
 module.exports = {
@@ -105,6 +112,7 @@ module.exports = {
         name: `cover`,
       },
     },
+    'gatsby-plugin-typescript',
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
