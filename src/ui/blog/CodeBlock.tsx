@@ -1,0 +1,54 @@
+import React from 'react'
+import styled from 'styled-components'
+import Highlight, { defaultProps, Language } from 'prism-react-renderer'
+
+import { prismTheme } from '../../styles'
+
+// https://mdxjs.com/guides/syntax-highlighting/
+// https://github.com/FormidableLabs/prism-react-renderer
+
+const Pre = styled.pre`
+  margin: var(--s4) 0;
+  overflow: auto;
+  border-radius: var(--r2);
+  padding: var(--s3) var(--s4);
+  line-height: var(--lh2);
+  white-space: pre-wrap; /* Add line-wrapping */
+  font-family: 'Dank Mono', Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  font-size: 0.95rem;
+`
+
+interface CodeBlock {
+  children: string
+  className: string
+}
+
+export function CodeBlock({ children, className }: CodeBlock) {
+  const language = className.replace(/language-/, '') as Language
+
+  return (
+    <Highlight
+      {...defaultProps}
+      code={children}
+      language={language}
+      theme={prismTheme}
+    >
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <Pre className={className} style={style}>
+          {tokens.map((line, i) => (
+            <div key={i} {...getLineProps({ line, key: i })}>
+              {line.map(
+                (token, key) =>
+                  !token.empty && (
+                    <span key={key} {...getTokenProps({ token, key })} />
+                  ),
+              )}
+            </div>
+          ))}
+        </Pre>
+      )}
+    </Highlight>
+  )
+}
