@@ -10,10 +10,10 @@ export interface WebsiteData {
 }
 
 function useWebsitesData(): WebsiteData[] {
-  const { allWebsitesYaml } = useStaticQuery(
+  const { allSitesYaml } = useStaticQuery(
     graphql`
       {
-        allWebsitesYaml {
+        allSitesYaml {
           nodes {
             description
             id
@@ -27,7 +27,7 @@ function useWebsitesData(): WebsiteData[] {
     `,
   )
 
-  return allWebsitesYaml.nodes
+  return allSitesYaml.nodes
 }
 
 export default useWebsitesData

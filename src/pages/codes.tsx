@@ -80,7 +80,7 @@ function Description({ description, repo }: Description) {
 }
 
 function Websites() {
-  const websites: WebsiteData[] = useWebsitesData()
+  const websites = useWebsitesData()
 
   return (
     <section>
