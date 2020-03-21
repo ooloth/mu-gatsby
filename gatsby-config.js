@@ -256,14 +256,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-netlify-functions`,
-      options: {
-        functionsSrc: `${__dirname}/src/functions`,
-        functionsOutput: `${__dirname}/functions`,
-      },
-    },
-    `gatsby-plugin-netlify-cache`,
-    {
       resolve: `gatsby-plugin-netlify`, // must come last
       options: {
         headers: {
