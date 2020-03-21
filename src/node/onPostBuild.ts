@@ -6,8 +6,8 @@ import path from 'path'
 import { zipFunctions } from '@netlify/zip-it-and-ship-it'
 
 function onPostBuild() {
-  const srcLocation = path.join(__dirname, `./src/functions`)
-  const outputLocation = path.join(__dirname, `./public/functions`)
+  const srcLocation = path.join(__dirname, `../functions`)
+  const outputLocation = path.join(__dirname, `../../public/functions`)
 
   if (!fs.existsSync(outputLocation)) {
     fs.mkdirSync(outputLocation)
