@@ -7,19 +7,17 @@ exports.handler = async function(event) {
   const email = JSON.parse(event.body).payload.email
   console.log(`Received a newsletter sign-up for ${email}`)
 
-  return (
-    nodeFetch('https://api.buttondown.email/v1/subscribers', {
-      method: 'POST',
-      headers: {
-        Authorization: `Token ${process.env.BUTTONDOWN_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email }),
+  return nodeFetch('https://api.buttondown.email/v1/subscribers', {
+    method: 'POST',
+    headers: {
+      Authorization: `Token ${process.env.BUTTONDOWN_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email }),
+  })
+    .then(() => console.log(`Submitted email to Buttondown successfully.`))
+    .catch(error => {
+      console.log('error', error)
+      return { statusCode: 422, body: String(error) }
     })
-      .then(() => console.log(`Submitted email to Buttondown successfully.`))
-      .catch((error) => {
-        console.log('error', error)
-        return { statusCode: 422, body: String(error) }
-      })
-  )
 }
