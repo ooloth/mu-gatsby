@@ -1,3 +1,5 @@
+// See: https://joshwcomeau.com/gatsby/netlify-functions-and-gatsby-cloud/#with-our-powers-combined
+
 import path from 'path'
 import fs from 'fs'
 import { zipFunctions } from '@netlify/zip-it-and-ship-it'
