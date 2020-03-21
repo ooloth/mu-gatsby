@@ -2,6 +2,7 @@
 
 import fs from 'fs'
 import path from 'path'
+// @ts-ignore
 import { zipFunctions } from '@netlify/zip-it-and-ship-it'
 
 function onPostBuild() {

@@ -1,5 +1,6 @@
 import React from 'react'
 import { WindowLocation } from '@reach/router'
+// @ts-ignore
 import stringReplaceToArray from 'string-replace-to-array'
 
 import Base from '../ui/Base'
