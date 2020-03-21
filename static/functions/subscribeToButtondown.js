@@ -3,9 +3,7 @@
 require('dotenv').config()
 const nodeFetch = require('node-fetch')
 
-// FIXME: specify type
-exports.handler = async function(event: any) {
-  console.log('event', event)
+exports.handler = async function(event) {
   const email = JSON.parse(event.body).payload.email
   console.log(`Received a newsletter sign-up for ${email}`)
 
@@ -19,8 +17,7 @@ exports.handler = async function(event: any) {
       body: JSON.stringify({ email }),
     })
       .then(() => console.log(`Submitted email to Buttondown successfully.`))
-      // FIXME: specify type
-      .catch((error: any) => {
+      .catch((error) => {
         console.log('error', error)
         return { statusCode: 422, body: String(error) }
       })
