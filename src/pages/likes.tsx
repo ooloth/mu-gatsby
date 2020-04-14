@@ -41,6 +41,7 @@ const hideScrollbar = css`
 const LikesList = styled.ul`
   ${hideScrollbar}
   display: flex;
+  position: relative; /* prevents whitespace to right on Safari */
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;

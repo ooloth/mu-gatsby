@@ -192,11 +192,13 @@ const dummyPodcastNode: PodcastNode = {
 }
 
 function createDummyNodes(createNode: Actions['createNode']) {
-  createTvShowNode(createNode, { ...dummyTvShowNode, id: shortid.generate() })
-  createMovieNode(createNode, { ...dummyMovieNode, id: shortid.generate() })
-  createBookNode(createNode, { ...dummyBookNode, id: shortid.generate() })
-  createAlbumNode(createNode, { ...dummyAlbumNode, id: shortid.generate() })
-  createPodcastNode(createNode, { ...dummyPodcastNode, id: shortid.generate() })
+  for (let i of Array(10).keys()) {
+    createTvShowNode(createNode, { ...dummyTvShowNode, id: shortid.generate() })
+    createMovieNode(createNode, { ...dummyMovieNode, id: shortid.generate() })
+    createBookNode(createNode, { ...dummyBookNode, id: shortid.generate() + i })
+    createAlbumNode(createNode, { ...dummyAlbumNode, id: shortid.generate() })
+    createPodcastNode(createNode, { ...dummyPodcastNode, id: shortid.generate() })
+  }
 }
 
 async function sourceNodes({ actions }: SourceNodesArgs) {
