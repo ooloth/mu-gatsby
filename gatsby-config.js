@@ -121,6 +121,8 @@ module.exports = {
             baseId: process.env.AIRTABLE_BASE_ID,
             tableName: `Topics`,
             queryName: `Topics`,
+            // TODO: is tableView doing anything since I filter and sort anyway?
+            tableView: `Topics by Category`,
             tableLinks: [`Learning_Resources`, `Practice_Problems`, `Skills`],
             separateNodeType: true,
           },
