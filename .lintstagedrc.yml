@@ -7,8 +7,6 @@
 # Run prettier on all staged files:
 '**/*.+(js|jsx|ts|tsx|json|yml|yaml|css|html|md|mdx|graphql)':
   - prettier --write
-  - git add
 
 '*.+(md|mdx)':
   - prettier --parser mdx --write
-  - git add
