@@ -12,11 +12,11 @@ import usePageData from '../queries/usePageData'
 import useLikesData from '../queries/useLikesData'
 import { main } from '../styles'
 
-const Section = styled.section`
+export const Section = styled.section`
   padding-top: var(--s7);
 `
 
-const LikesHeading = styled.h2`
+export const LikesHeading = styled.h2`
   margin-bottom: var(--s3);
   font-size: var(--f9);
   font-weight: 900;

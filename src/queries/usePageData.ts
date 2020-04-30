@@ -16,11 +16,18 @@ interface PageData {
   blogYaml: PageHeader
   likesYaml: PageHeader
   operaYaml: PageHeader
+  referenceYaml: PageHeader
   websitesYaml: PageHeader
 }
 
 function usePageData(): PageData {
-  const { blogYaml, websitesYaml, operaYaml, likesYaml } = useStaticQuery(
+  const {
+    blogYaml,
+    websitesYaml,
+    operaYaml,
+    likesYaml,
+    referenceYaml,
+  } = useStaticQuery(
     graphql`
       query {
         blogYaml {
@@ -50,6 +57,15 @@ function usePageData(): PageData {
           summary
         }
 
+        referenceYaml {
+          headline
+          emoji {
+            icon
+            label
+          }
+          summary
+        }
+
         likesYaml {
           headline
           emoji {
@@ -62,7 +78,7 @@ function usePageData(): PageData {
     `,
   )
 
-  return { blogYaml, websitesYaml, operaYaml, likesYaml }
+  return { blogYaml, websitesYaml, operaYaml, likesYaml, referenceYaml }
 }
 
 export default usePageData
