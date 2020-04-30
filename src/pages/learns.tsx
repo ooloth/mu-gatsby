@@ -1,17 +1,23 @@
 import React from 'react'
 import { WindowLocation } from '@reach/router'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import Base from '../ui/Base'
-import Metadata from '../ui/Metadata'
+// import Metadata from '../ui/Metadata'
 import PageHeader from '../ui/PageHeader'
-import { Link, SrText } from '../ui/elements'
-import useSiteMetadata from '../queries/useSiteMetadata'
+import { Link } from '../ui/elements'
+// import useSiteMetadata from '../queries/useSiteMetadata'
 import useAirtableTopics from '../queries/useAirtableTopics'
 import usePageData from '../queries/usePageData'
 import { main } from '../styles'
 
-import { LikesHeading, Section } from './likes'
+import { Section } from './likes'
+
+export const LearnsHeading = styled.h2`
+  margin-bottom: var(--s4);
+  font-size: var(--f8);
+  font-weight: 900;
+`
 
 const List = styled.ul``
 const Item = styled.li``
@@ -22,7 +28,7 @@ const ItemLink = styled(Link)``
 
 //   return (
 //     <Section>
-//       <LikesHeading>Basics</LikesHeading>
+//       <LearnsHeading>Basics</LearnsHeading>
 
 //       <List>
 //         {basics.map(topic => (
@@ -46,17 +52,14 @@ function DataStructures() {
 
   return (
     <Section>
-      <LikesHeading>Data Structures</LikesHeading>
+      <LearnsHeading>Data Structures</LearnsHeading>
 
       <List>
         {dataStructures.map((topic: any) => (
           <Item key={topic.id}>
-            {/* <ItemLink
-              href={topic.link}
-              // srText={`Visit IMDB page for "${show.title}" in a new window.`}
-            > */}
-            {topic.data['Name']}
-            {/* </ItemLink> */}
+            <ItemLink href={`/learns/${topic.data.Slug}`}>
+              {topic.data.Name}
+            </ItemLink>
           </Item>
         ))}
       </List>
@@ -69,7 +72,7 @@ function Algorithms() {
 
   return (
     <Section>
-      <LikesHeading>Algorithms</LikesHeading>
+      <LearnsHeading>Algorithms</LearnsHeading>
 
       <List>
         {algorithms.map((topic: any) => (
@@ -78,7 +81,7 @@ function Algorithms() {
               href={topic.link}
               // srText={`Visit IMDB page for "${show.title}" in a new window.`}
             > */}
-            {topic.data['Name']}
+            {topic.data.Name}
             {/* </ItemLink> */}
           </Item>
         ))}
