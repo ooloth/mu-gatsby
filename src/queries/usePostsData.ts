@@ -24,7 +24,7 @@ function usePostsData(): Post[] {
     graphql`
       query {
         allMdx(
-          filter: { frontmatter: { published: { ne: false } } }
+          filter: { frontmatter: { published: { eq: true } } }
           sort: { order: DESC, fields: [frontmatter___datePublished] }
         ) {
           edges {
