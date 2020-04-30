@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 import useSiteMetadata, { SiteMetadata } from '../queries/useSiteMetadata'
 import siteImage from '../images/michael-uloth-landscape.jpg'
@@ -33,7 +33,8 @@ function StructuredData({ site, image }: StructuredData) {
     "image": "${image.replace(`js/../`, ``)}",
     ${email && `"email": "mailto:${email}",`}
     ${telephone && `"telephone": "${telephone}",`}
-    ${(street || locality || region || country) &&
+    ${
+      (street || locality || region || country) &&
       `"address": {
         "@type": "PostalAddress",
         ${street && `"streetAddress": "${street}",`}
@@ -41,7 +42,8 @@ function StructuredData({ site, image }: StructuredData) {
         ${region && `"addressRegion": "${region}",`}
         ${country && `"addressCountry": "${country}"`}
       },
-    `}
+    `
+    }
     "sameAs": [${sameAs}]
   }`
 
