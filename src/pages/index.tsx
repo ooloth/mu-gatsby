@@ -80,8 +80,8 @@ function IndexPage({ location }: Props) {
           <NavLink href="/sings/">Operas</NavLink>
           {/* <br />
           <NavLink href="/learns/">Reference</NavLink> */}
-          <br />
-          <NavLink href="/likes/">Likes</NavLink>
+          {/* <br />
+          <NavLink href="/likes/">Likes</NavLink> */}
         </Nav>
       </Main>
     </Base>
