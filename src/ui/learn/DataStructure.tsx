@@ -69,7 +69,7 @@ function Links({ heading, items }: Links) {
                 <>
                   {item.data.Topics.map((topic: any) => (
                     <li key={topic.data.Slug} css={tagItem}>
-                      <Link href={topic.data.Slug} css={linkTag}>
+                      <Link href={`/learns/${topic.data.Slug}`} css={linkTag}>
                         {topic.data.Name.toLowerCase()}
                         <SrText> (Link opens in a new tab or window.)</SrText>
                       </Link>

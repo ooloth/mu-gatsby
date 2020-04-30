@@ -44,8 +44,7 @@ pre[class*="language-"] {
 .token.comment
 /* .token.prolog,
 .token.doctype,
-.token.cdata  */
- {
+.token.cdata  */ {
   font-style: italic;
   color: #546e7a;
 }

@@ -84,21 +84,36 @@ function TV() {
       <LikesHeading>TV</LikesHeading>
 
       <LikesList>
-        {tvShows.map(show => (
-          <LikesItem key={show.id}>
-            <ItemLink
-              href={show.link}
-              srText={`Visit IMDB page for "${show.title}" in a new window.`}
-            >
-              <ItemImage
-                fixed={show.poster.childImageSharp.fixed}
-                alt={`Poster for the TV series "${show.title}"`}
-              />
-              <ItemName>{show.title}</ItemName>
-              <ItemDetail>({show.releaseDate})</ItemDetail>
-            </ItemLink>
-          </LikesItem>
-        ))}
+        {tvShows.map(show => {
+          if (
+            !show ||
+            !show.id ||
+            !show.link ||
+            !show.title ||
+            !show.poster ||
+            !show.poster.childImageSharp ||
+            !show.poster.childImageSharp.fixed ||
+            !show.releaseDate
+          ) {
+            return null
+          }
+
+          return (
+            <LikesItem key={show.id}>
+              <ItemLink
+                href={show.link}
+                srText={`Visit IMDB page for "${show.title}" in a new window.`}
+              >
+                <ItemImage
+                  fixed={show.poster.childImageSharp.fixed}
+                  alt={`Poster for the TV series "${show.title}"`}
+                />
+                <ItemName>{show.title}</ItemName>
+                <ItemDetail>({show.releaseDate})</ItemDetail>
+              </ItemLink>
+            </LikesItem>
+          )
+        })}
       </LikesList>
     </Section>
   )
@@ -112,21 +127,36 @@ function Movies() {
       <LikesHeading>Movies</LikesHeading>
 
       <LikesList>
-        {movies.map(movie => (
-          <LikesItem key={movie.id}>
-            <ItemLink
-              href={movie.link}
-              srText={`Visit IMDB page for "${movie.title}" in a new window.`}
-            >
-              <ItemImage
-                fixed={movie.poster.childImageSharp.fixed}
-                alt={`Poster for the movie "${movie.title}"`}
-              />
-              <ItemName>{movie.title}</ItemName>
-              <ItemDetail>({movie.releaseDate})</ItemDetail>
-            </ItemLink>
-          </LikesItem>
-        ))}
+        {movies.map(movie => {
+          if (
+            !movie ||
+            !movie.id ||
+            !movie.link ||
+            !movie.title ||
+            !movie.poster ||
+            !movie.poster.childImageSharp ||
+            !movie.poster.childImageSharp.fixed ||
+            !movie.releaseDate
+          ) {
+            return null
+          }
+
+          return (
+            <LikesItem key={movie.id}>
+              <ItemLink
+                href={movie.link}
+                srText={`Visit IMDB page for "${movie.title}" in a new window.`}
+              >
+                <ItemImage
+                  fixed={movie.poster.childImageSharp.fixed}
+                  alt={`Poster for the movie "${movie.title}"`}
+                />
+                <ItemName>{movie.title}</ItemName>
+                <ItemDetail>({movie.releaseDate})</ItemDetail>
+              </ItemLink>
+            </LikesItem>
+          )
+        })}
       </LikesList>
     </Section>
   )
@@ -140,21 +170,36 @@ function Books() {
       <LikesHeading>Books</LikesHeading>
 
       <LikesList>
-        {books.map(book => (
-          <LikesItem key={book.id}>
-            <ItemLink
-              href={book.link}
-              srText={`Visit the Open Library page for "${book.title}" in a new window.`}
-            >
-              <ItemImage
-                fixed={book.cover.childImageSharp.fixed}
-                alt={`Cover for the book "${book.title}"`}
-              />
-              <ItemName>{book.title}</ItemName>
-              <ItemDetail>({book.publishDate})</ItemDetail>
-            </ItemLink>
-          </LikesItem>
-        ))}
+        {books.map(book => {
+          if (
+            !book ||
+            !book.id ||
+            !book.link ||
+            !book.title ||
+            !book.cover ||
+            !book.cover.childImageSharp ||
+            !book.cover.childImageSharp.fixed ||
+            !book.publishDate
+          ) {
+            return null
+          }
+
+          return (
+            <LikesItem key={book.id}>
+              <ItemLink
+                href={book.link}
+                srText={`Visit the Open Library page for "${book.title}" in a new window.`}
+              >
+                <ItemImage
+                  fixed={book.cover.childImageSharp.fixed}
+                  alt={`Cover for the book "${book.title}"`}
+                />
+                <ItemName>{book.title}</ItemName>
+                <ItemDetail>({book.publishDate})</ItemDetail>
+              </ItemLink>
+            </LikesItem>
+          )
+        })}
       </LikesList>
     </Section>
   )
@@ -168,22 +213,38 @@ function Albums() {
       <LikesHeading>Albums</LikesHeading>
 
       <LikesList>
-        {albums.map(album => (
-          <LikesItem key={album.id}>
-            <ItemLink
-              href={album.link}
-              srText={`Visit the iTunes page for "${album.name}" by ${album.artist} in a new window.`}
-            >
-              <ItemImage
-                fixed={album.cover.childImageSharp.fixed}
-                alt={`Cover for the album "${album.name}" by ${album.artist}`}
-              />
-              <ItemName>{album.name}</ItemName>
-              <ItemDetail>{album.artist}</ItemDetail>
-              <ItemDetail>({album.releaseDate})</ItemDetail>
-            </ItemLink>
-          </LikesItem>
-        ))}
+        {albums.map(album => {
+          if (
+            !album ||
+            !album.id ||
+            !album.link ||
+            !album.name ||
+            !album.artist ||
+            !album.cover ||
+            !album.cover.childImageSharp ||
+            !album.cover.childImageSharp.fixed ||
+            !album.releaseDate
+          ) {
+            return null
+          }
+
+          return (
+            <LikesItem key={album.id}>
+              <ItemLink
+                href={album.link}
+                srText={`Visit the iTunes page for "${album.name}" by ${album.artist} in a new window.`}
+              >
+                <ItemImage
+                  fixed={album.cover.childImageSharp.fixed}
+                  alt={`Cover for the album "${album.name}" by ${album.artist}`}
+                />
+                <ItemName>{album.name}</ItemName>
+                <ItemDetail>{album.artist}</ItemDetail>
+                <ItemDetail>({album.releaseDate})</ItemDetail>
+              </ItemLink>
+            </LikesItem>
+          )
+        })}
       </LikesList>
     </Section>
   )
@@ -197,21 +258,36 @@ function Podcasts() {
       <LikesHeading>Podcasts</LikesHeading>
 
       <LikesList>
-        {podcasts.map(podcast => (
-          <LikesItem key={podcast.id}>
-            <ItemLink
-              href={podcast.link}
-              srText={`Visit the iTunes page for "${podcast.name}" in a new window.`}
-            >
-              <ItemImage
-                fixed={podcast.cover.childImageSharp.fixed}
-                alt={`Cover for the podcast "${podcast.name}"`}
-              />
-              <ItemName>{podcast.name}</ItemName>
-              <ItemDetail>({podcast.releaseDate})</ItemDetail>
-            </ItemLink>
-          </LikesItem>
-        ))}
+        {podcasts.map(podcast => {
+          if (
+            !podcast ||
+            !podcast.id ||
+            !podcast.link ||
+            !podcast.name ||
+            !podcast.cover ||
+            !podcast.cover.childImageSharp ||
+            !podcast.cover.childImageSharp.fixed ||
+            !podcast.releaseDate
+          ) {
+            return null
+          }
+
+          return (
+            <LikesItem key={podcast.id}>
+              <ItemLink
+                href={podcast.link}
+                srText={`Visit the iTunes page for "${podcast.name}" in a new window.`}
+              >
+                <ItemImage
+                  fixed={podcast.cover.childImageSharp.fixed}
+                  alt={`Cover for the podcast "${podcast.name}"`}
+                />
+                <ItemName>{podcast.name}</ItemName>
+                <ItemDetail>({podcast.releaseDate})</ItemDetail>
+              </ItemLink>
+            </LikesItem>
+          )
+        })}
       </LikesList>
     </Section>
   )

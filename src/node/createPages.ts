@@ -130,6 +130,18 @@ async function createPages({ graphql, actions }: CreatePagesArgs) {
                 data {
                   Link
                   Name
+                  Source {
+                    data {
+                      Name
+                      Link
+                    }
+                  }
+                  Topics {
+                    data {
+                      Name
+                      Slug
+                    }
+                  }
                 }
               }
 
@@ -138,8 +150,8 @@ async function createPages({ graphql, actions }: CreatePagesArgs) {
               Practice {
                 id
                 data {
-                  Name
                   Link
+                  Name
                   Source {
                     data {
                       Name
