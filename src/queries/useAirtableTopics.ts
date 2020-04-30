@@ -34,8 +34,13 @@ function useAirtableTopics(): any {
             id
             data {
               Category
+              Details {
+                childMdx {
+                  body
+                }
+              }
               Difficulty
-              Learning_Resources {
+              Learn {
                 id
                 data {
                   Link
@@ -50,15 +55,15 @@ function useAirtableTopics(): any {
                   Language
                 }
               }
-              Name
-              Notes
-              Practice_Problems {
+              Practice {
                 id
               }
+              Name
               Priority
               Skills {
                 id
               }
+              Summary
             }
           }
         }
@@ -71,8 +76,13 @@ function useAirtableTopics(): any {
             id
             data {
               Category
+              Details {
+                childMdx {
+                  body
+                }
+              }
               Difficulty
-              Learning_Resources {
+              Learn {
                 id
                 data {
                   Link
@@ -88,14 +98,15 @@ function useAirtableTopics(): any {
                 }
               }
               Name
-              Notes
-              Practice_Problems {
+              Practice {
                 id
               }
               Priority
               Skills {
                 id
               }
+              Slug
+              Summary
             }
           }
         }
@@ -108,8 +119,13 @@ function useAirtableTopics(): any {
             id
             data {
               Category
+              Details {
+                childMdx {
+                  body
+                }
+              }
               Difficulty
-              Learning_Resources {
+              Learn {
                 id
                 data {
                   Link
@@ -125,14 +141,14 @@ function useAirtableTopics(): any {
                 }
               }
               Name
-              Notes
-              Practice_Problems {
+              Practice {
                 id
               }
               Priority
               Skills {
                 id
               }
+              Summary
             }
           }
         }

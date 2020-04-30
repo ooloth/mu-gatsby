@@ -43,9 +43,12 @@ interface MdxQueryResult {
 }
 
 async function createPages({ graphql, actions }: CreatePagesArgs) {
-  const result: MdxQueryResult = await graphql(`
+  /**
+   * Blog posts
+   */
+  const mdxQuery: MdxQueryResult = await graphql(`
     {
-      allMdx(filter: { frontmatter: { published: { ne: false } } }) {
+      allMdx(filter: { frontmatter: { published: { eq: true } } }) {
         edges {
           node {
             id
@@ -74,26 +77,119 @@ async function createPages({ graphql, actions }: CreatePagesArgs) {
     }
   `)
 
-  if (result.errors) {
-    console.error(result.errors)
+  if (mdxQuery.errors) {
+    console.error(mdxQuery.errors)
   }
 
-  if (!result.data) {
+  if (!mdxQuery.data) {
     return
   }
 
-  const { edges } = result.data.allMdx
+  const { edges: posts } = mdxQuery.data.allMdx
 
-  edges.forEach((edge: MdxQueryEdge, i: number) => {
-    const prev: MdxQueryNode | null = i === 0 ? null : edges[i - 1].node
+  posts.forEach((post: MdxQueryEdge, i: number) => {
+    const prev: MdxQueryNode | null = i === 0 ? null : posts[i - 1].node
     const next: MdxQueryNode | null =
-      i === edges.length - 1 ? null : edges[i + 1].node
+      i === posts.length - 1 ? null : posts[i + 1].node
 
     actions.createPage({
-      path: edge.node.frontmatter.slug,
+      path: post.node.frontmatter.slug,
       component: require.resolve(`../ui/blog/Post.tsx`),
       context: {
-        id: edge.node.id,
+        id: post.node.id,
+        prev,
+        next,
+      },
+    })
+  })
+
+  /**
+   * Data Structures
+   */
+  // TODO: save fragment for each table type and reuse all over the place
+  const dsQuery: any = await graphql(`
+    {
+      dataStructureTopics: allAirtableTopics(
+        filter: { data: { Category: { eq: "Data Structures" } } }
+        sort: { fields: data___Order, order: ASC }
+      ) {
+        edges {
+          node {
+            id
+            data {
+              Details {
+                childMdx {
+                  body
+                }
+              }
+
+              Gist
+
+              Learn {
+                id
+                data {
+                  Link
+                  Name
+                }
+              }
+
+              Name
+
+              Practice {
+                id
+                data {
+                  Name
+                  Link
+                  Source {
+                    data {
+                      Name
+                      Link
+                    }
+                  }
+                  Topics {
+                    data {
+                      Name
+                      Slug
+                    }
+                  }
+                }
+              }
+
+              Skills {
+                id
+              }
+
+              Slug
+
+              Summary
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  if (dsQuery.errors) {
+    console.error(dsQuery.errors)
+  }
+
+  if (!dsQuery.data) {
+    return
+  }
+
+  const { edges: dataStructures } = dsQuery.data.dataStructureTopics
+
+  dataStructures.forEach((dataStructure: any, i: number) => {
+    const prev: any | null = i === 0 ? null : dataStructures[i - 1].node
+    const next: any | null =
+      i === dataStructures.length - 1 ? null : dataStructures[i + 1].node
+
+    actions.createPage({
+      path: `/learns/${dataStructure.node.data.Slug}`,
+      component: require.resolve(`../ui/learn/DataStructure.tsx`),
+      context: {
+        id: dataStructure.node.id,
+        data: dataStructure.node.data,
         prev,
         next,
       },

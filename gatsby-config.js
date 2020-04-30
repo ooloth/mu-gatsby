@@ -123,7 +123,8 @@ module.exports = {
             queryName: `Topics`,
             // TODO: is tableView doing anything since I filter and sort anyway?
             tableView: `Topics by Category`,
-            tableLinks: [`Learning_Resources`, `Practice_Problems`, `Skills`],
+            tableLinks: [`Learn`, `Practice`, `Skills`],
+            mapping: { Details: `text/markdown` },
             separateNodeType: true,
           },
           {
