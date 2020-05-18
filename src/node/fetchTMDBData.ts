@@ -53,7 +53,7 @@ async function fetchTMDBListData(
           const link = `https://www.themoviedb.org/${api}/${id}`
 
           if (!title || !id || !releaseDate || !result.poster_path) {
-            console.log(`Removed TMDB result:`, result)
+            console.log(`Removed TMDB result:`, title || result)
             continue
           }
 

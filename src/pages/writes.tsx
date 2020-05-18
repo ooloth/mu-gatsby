@@ -8,6 +8,7 @@ import { Link, SrText } from '../ui/elements'
 import useSiteMetadata from '../queries/useSiteMetadata'
 import usePageData from '../queries/usePageData'
 import usePostsData from '../queries/usePostsData'
+import useDevArticles from '../queries/useDevArticles'
 import {
   linkTag,
   main,
@@ -43,6 +44,8 @@ function Topic({ topic }: Topic) {
 
 function Posts() {
   const posts = usePostsData()
+  const devArticles = useDevArticles()
+  console.log('devArticles', devArticles)
 
   return (
     <section>
