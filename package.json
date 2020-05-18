@@ -42,7 +42,6 @@
     "gatsby-remark-images": "^3.3.0",
     "gatsby-remark-smartypants": "^2.3.0",
     "gatsby-remark-unwrap-images": "^1.0.2",
-    "gatsby-source-airtable": "^2.1.1",
     "gatsby-source-filesystem": "^2.3.0",
     "gatsby-transformer-sharp": "^2.5.0",
     "gatsby-transformer-yaml": "^2.4.0",
