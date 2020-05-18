@@ -112,52 +112,6 @@ module.exports = {
         name: `cover`,
       },
     },
-    {
-      resolve: `gatsby-source-airtable`,
-      options: {
-        apiKey: process.env.AIRTABLE_API_KEY,
-        tables: [
-          {
-            baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: `Topics`,
-            queryName: `Topics`,
-            // TODO: is tableView doing anything since I filter and sort anyway?
-            tableView: `Topics by Category`,
-            tableLinks: [`Learn`, `Practice`, `Skills`],
-            mapping: { Details: `text/markdown` },
-            separateNodeType: true,
-          },
-          {
-            baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: `Skills`,
-            queryName: `Skills`,
-            tableLinks: [`Learning_Resources`, `Practice_Problems`, `Topics`],
-            separateNodeType: true,
-          },
-          {
-            baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: `Learning Resources`,
-            queryName: `LearningResources`,
-            tableLinks: [`Skills`, `Source`, `Topics`],
-            separateNodeType: true,
-          },
-          {
-            baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: `Practice Problems`,
-            queryName: `PracticeProblems`,
-            tableLinks: [`Skills`, `Source`, `Topics`],
-            separateNodeType: true,
-          },
-          {
-            baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: `Sources`,
-            queryName: `Sources`,
-            tableLinks: [`Learning_Resources`, `Practice_Problems`],
-            separateNodeType: true,
-          },
-        ],
-      },
-    },
     'gatsby-plugin-typescript',
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
