@@ -1,0 +1,11 @@
+[build]
+  publish = "public"
+
+[context.deploy-preview.environment]
+  LIKES_IMAGES = "dummy"
+
+[context.production.environment]
+  LIKES_IMAGES = "actual"
+
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"

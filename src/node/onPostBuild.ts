@@ -1,3 +1,5 @@
+// TODO: delete this file if sticking with Netlify builds
+
 // See: https://joshwcomeau.com/gatsby/netlify-functions-and-gatsby-cloud/
 
 import fs from 'fs'
