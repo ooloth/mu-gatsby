@@ -5,6 +5,11 @@ import shortid from 'shortid'
 import fetchTMDBData from './fetchTMDBData'
 import fetchiTunesData from './fetchiTunesData'
 
+// Avoid numbers to prevent clashes with numeric DEV.to article IDs
+shortid.characters(
+  'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_-',
+)
+
 function createTvShowNode(createNode: Actions['createNode'], show: TvShowNode) {
   createNode({
     // Data for the node.
@@ -14,7 +19,7 @@ function createTvShowNode(createNode: Actions['createNode'], show: TvShowNode) {
     posterUrl: show.posterUrl,
 
     // Required fields.
-    id: String(show.id),
+    id: shortid.generate(),
     parent: undefined,
     children: [],
     internal: {
@@ -36,7 +41,7 @@ function createMovieNode(createNode: Actions['createNode'], movie: MovieNode) {
     posterUrl: movie.posterUrl,
 
     // Required fields.
-    id: String(movie.id),
+    id: shortid.generate(),
     parent: undefined,
     children: [],
     internal: {
@@ -58,7 +63,7 @@ function createBookNode(createNode: Actions['createNode'], book: BookNode) {
     title: book.name,
 
     // Required fields.
-    id: String(book.id),
+    id: shortid.generate(),
     parent: undefined,
     children: [],
     internal: {
@@ -81,7 +86,7 @@ function createAlbumNode(createNode: Actions['createNode'], album: AlbumNode) {
     coverUrl: album.coverUrl,
 
     // Required fields.
-    id: String(album.id),
+    id: shortid.generate(),
     parent: undefined,
     children: [],
     internal: {
@@ -107,7 +112,7 @@ function createPodcastNode(
     coverUrl: podcast.coverUrl,
 
     // Required fields.
-    id: String(podcast.id),
+    id: shortid.generate(),
     parent: undefined,
     children: [],
     internal: {
