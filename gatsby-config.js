@@ -73,6 +73,12 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-dev',
+      options: {
+        username: 'ooloth',
+      },
+    },
+    {
       resolve: `gatsby-plugin-remote-images`,
       options: {
         nodeType: `TvShow`,
