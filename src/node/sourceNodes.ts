@@ -205,7 +205,7 @@ async function sourceNodes({ actions }: SourceNodesArgs) {
   const { createNode } = actions
 
   // Don't waste time fetching + optimizing images in development
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.LIKES_IMAGES === 'dummy') {
     createDummyNodes(createNode)
     return
   }
