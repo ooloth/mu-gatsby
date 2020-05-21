@@ -8,7 +8,6 @@ import { Link, SrText } from '../ui/elements'
 import useSiteMetadata from '../queries/useSiteMetadata'
 import usePageData from '../queries/usePageData'
 import usePostsData from '../queries/usePostsData'
-import useDevArticles from '../queries/useDevArticles'
 import {
   linkTag,
   main,
@@ -19,33 +18,23 @@ import {
   tagItem,
 } from '../styles'
 
-interface Topic {
-  topic: string
-}
-
-function Topic({ topic }: Topic) {
-  let link = `https://youtu.be/dQw4w9WgXcQ` // prevent empty links
-  if (topic === `gatsby`) link = `https://www.gatsbyjs.org`
-  if (topic === `git`) link = `https://git-scm.com`
-  if (topic === `postcss`) link = `https://postcss.org`
-  if (topic === `react`) link = `https://reactjs.org`
-  if (topic === `sass`) link = `https://sass-lang.com`
-  if (topic === `styled-components`) link = `https://www.styled-components.com`
-
-  return (
-    <li css={tagItem}>
-      <Link href={link} css={linkTag}>
-        {topic}
-        <SrText> (Link opens in a new tab or window.)</SrText>
-      </Link>
-    </li>
-  )
-}
+const Tags = ({ tags }: any) => (
+  <ul css={tagList}>
+    {tags.map((tag: any) => (
+      <li css={tagItem}>
+        <span css={linkTag}>{tag}</span>
+      </li>
+    ))}
+  </ul>
+)
 
 function Posts() {
   const posts = usePostsData()
-  const devArticles = useDevArticles()
-  console.log('devArticles', devArticles)
+
+  const postsWithSlugs = posts.map((post: any) => ({
+    ...post,
+    slug: post.canonical_url.replace('https://www.michaeluloth.com', ''),
+  }))
 
   return (
     <section>
@@ -54,24 +43,18 @@ function Posts() {
       </h2>
 
       <ul>
-        {posts.map(({ node: post }) => (
+        {postsWithSlugs.map((post: any) => (
           <li key={post.id} css={project}>
-            <Link href={`/${post.frontmatter.slug}/`} css={projectTitle}>
-              {post.frontmatter.title}
+            <Link href={post.slug} css={projectTitle}>
+              {post.title}
             </Link>
 
             <p
-              dangerouslySetInnerHTML={{ __html: post.frontmatter.description }}
+              dangerouslySetInnerHTML={{ __html: post.description }}
               css={projectDescription}
             />
 
-            {post.frontmatter.topics && (
-              <ul css={tagList}>
-                {post.frontmatter.topics.map(topic => (
-                  <Topic key={topic} topic={topic} />
-                ))}
-              </ul>
-            )}
+            {post.tags && <Tags tags={post.tags} />}
           </li>
         ))}
       </ul>

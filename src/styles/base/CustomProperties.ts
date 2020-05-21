@@ -8,8 +8,7 @@ import { createGlobalStyle } from 'styled-components'
 const CustomProperties = createGlobalStyle`
   :root {
     /* Font Families */
-    --bodyFont: 
-     'Avenir Next',
+    --bodyFont: 'Avenir Next', 
       system-ui,
       /* macOS 10.11-10.12 */ -apple-system,
       /* Windows 6+ */ Segoe UI,

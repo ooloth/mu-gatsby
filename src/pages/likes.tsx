@@ -9,7 +9,11 @@ import PageHeader from '../ui/PageHeader'
 import { Link } from '../ui/elements'
 import useSiteMetadata from '../queries/useSiteMetadata'
 import usePageData from '../queries/usePageData'
-import useLikesData from '../queries/useLikesData'
+import useAlbumData from '../queries/useAlbumData'
+import useBookData from '../queries/useBookData'
+import useMovieData from '../queries/useMovieData'
+import usePodcastData from '../queries/usePodcastData'
+import useTvShowData from '../queries/useTvShowData'
 import { main } from '../styles'
 
 export const Section = styled.section`
@@ -77,14 +81,14 @@ const ItemDetail = styled.p`
 `
 
 function TV() {
-  const { tvShows } = useLikesData()
+  const shows = useTvShowData()
 
   return (
     <Section>
       <LikesHeading>TV</LikesHeading>
 
       <LikesList>
-        {tvShows.map(show => {
+        {shows.map(show => {
           if (
             !show ||
             !show.id ||
@@ -120,7 +124,7 @@ function TV() {
 }
 
 function Movies() {
-  const { movies } = useLikesData()
+  const movies = useMovieData()
 
   return (
     <Section>
@@ -163,7 +167,7 @@ function Movies() {
 }
 
 function Books() {
-  const { books } = useLikesData()
+  const books = useBookData()
 
   return (
     <Section>
@@ -206,7 +210,7 @@ function Books() {
 }
 
 function Albums() {
-  const { albums } = useLikesData()
+  const albums = useAlbumData()
 
   return (
     <Section>
@@ -251,7 +255,7 @@ function Albums() {
 }
 
 function Podcasts() {
-  const { podcasts } = useLikesData()
+  const podcasts = usePodcastData()
 
   return (
     <Section>
