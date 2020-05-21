@@ -21,7 +21,7 @@ module.exports = {
     // set unused properties to `` (removing the line breaks the query)
     title: `Michael Uloth`,
     jobTitle: `Web Developer and Opera Singer`,
-    description: `Hi! 👋 I'm Michael. I'm a web developer and opera singer currently working for ecobee in Toronto. This site includes links to my recent articles, videos, websites and opera projects. Feel free to get in touch if you'd like to work together.`,
+    description: `Hi! 👋 I'm Michael. I'm a web developer and opera singer currently working for ecobee in Toronto. This site includes my recent blog posts, videos, websites and opera projects. If you'd like to work together, feel free to get in touch.`,
     siteUrl: `https://www.michaeluloth.com`, // no trailing slash
     lang: `en`,
     locale: `en_CA`,
@@ -201,13 +201,13 @@ module.exports = {
           {
             serialize: ({ query: { allDevArticle } }) => {
               return allDevArticle.nodes.map(node => {
-                return Object.assign({}, node.article, {
-                  title: node.article.title,
-                  description: node.article.description,
-                  date: node.article.published_at,
-                  url: node.article.canonical_url,
-                  guid: node.article.canonical_url,
-                  custom_elements: [{ 'content:encoded': node.article.body_html }],
+                return Object.assign({}, node, {
+                  title: node.title,
+                  description: node.description,
+                  date: node.published_at,
+                  url: node.canonical_url,
+                  guid: node.canonical_url,
+                  custom_elements: [{ 'content:encoded': node.body_html }],
                 })
               })
             },
