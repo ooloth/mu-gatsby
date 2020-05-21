@@ -1,54 +1,46 @@
 import { useStaticQuery, graphql } from 'gatsby'
 
-interface Frontmatter {
-  datePublished: string
-  dateUpdated: string
-  description: string
-  devLink: string
-  linkSharedOnTwitter: string
-  slug: string
-  title: string
-  topics: string[]
-}
-
-interface Post {
+interface PostNode {
   node: {
-    frontmatter: Frontmatter
     id: string
-    timeToRead: string
   }
 }
 
-function usePostsData(): Post[] {
-  const { allMdx } = useStaticQuery(
+function usePostsData(): any {
+  const { allDevArticle }: any = useStaticQuery(
     graphql`
-      query {
-        allMdx(
-          filter: { frontmatter: { published: { eq: true } } }
-          sort: { order: DESC, fields: [frontmatter___datePublished] }
-        ) {
-          edges {
-            node {
-              id
-              timeToRead
-              frontmatter {
-                datePublished(formatString: "MMMM DD, YYYY")
-                dateUpdated(formatString: "MMMM DD, YYYY")
-                description
-                devLink
-                linkSharedOnTwitter
-                slug
-                title
-                topics
+      {
+        allDevArticle(sort: { order: DESC, fields: published_at }) {
+          nodes {
+            canonical_url
+            childMarkdownRemark {
+              html
+            }
+            collection_id
+            comments_count
+            created_at
+            description
+            edited_at(formatString: "MMM DD, YYYY")
+            id
+            image {
+              childImageSharp {
+                fluid(maxWidth: 1000, quality: 80) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
               }
             }
+            positive_reactions_count
+            published_at(formatString: "MMM DD, YYYY")
+            social_image
+            tags
+            title
           }
         }
       }
     `,
   )
 
-  return allMdx.edges
+  return allDevArticle.nodes
 }
 
 export default usePostsData
