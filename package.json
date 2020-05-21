@@ -83,7 +83,8 @@
     "typescript": "^3.9.3"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build:theme-dracula": "(cd node_modules/theme-dracula && npm i && npm run build)",
+    "build": "npm run build:theme-dracula && gatsby build",
     "check-format": "npm run prettier -- --list-different",
     "check-types": "tsc",
     "dev": "gatsby develop",
