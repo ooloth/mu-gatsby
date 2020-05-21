@@ -7,6 +7,15 @@ require('ts-node').register()
 // Access environment variables
 require('dotenv').config()
 
+// Get the originally uploaded DEV post cover images
+const getOriginalImgIndex = imageUrl =>
+  imageUrl.indexOf('https://dev-to-uploads') >= 0
+    ? imageUrl.indexOf('https://dev-to-uploads')
+    : imageUrl.indexOf('https://thepracticaldev')
+
+const getOriginalImgUrl = imageUrl =>
+  imageUrl.substring(getOriginalImgIndex(imageUrl))
+
 module.exports = {
   siteMetadata: {
     // set unused properties to `` (removing the line breaks the query)
@@ -73,9 +82,12 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-dev',
+      resolve: `gatsby-plugin-remote-images`,
       options: {
-        username: 'ooloth',
+        nodeType: `DevArticle`,
+        imagePath: `cover_image`,
+        name: `image`,
+        prepareUrl: url => getOriginalImgUrl(url),
       },
     },
     {
@@ -118,17 +130,35 @@ module.exports = {
         name: `cover`,
       },
     },
-    'gatsby-plugin-typescript',
-    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-svgr`,
+    'gatsby-plugin-typescript',
+    `gatsby-source-dev`, // my custom source plugin
+    `gatsby-source-itunes`, // my custom source plugin
+    `gatsby-source-tmdb`, // my custom source plugin
     `gatsby-transformer-sharp`,
     `gatsby-transformer-yaml`,
-    `gatsby-plugin-svgr`,
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: `gatsby-transformer-remark`,
       options: {
-        gatsbyRemarkPlugins: [
+        commonmark: true,
+        footnotes: true,
+        gfm: true,
+        pedantic: false,
+        plugins: [
+          {
+            resolve: `gatsby-remark-vscode`,
+            options: {
+              theme: 'Dracula',
+              extensions: ['theme-dracula'],
+              injectStyles: false, // importing css file instead
+              inlineCode: {
+                marker: '•',
+              },
+            },
+          },
           `gatsby-remark-unwrap-images`,
           {
             resolve: `gatsby-remark-images`,
@@ -150,8 +180,6 @@ module.exports = {
         ],
       },
     },
-    // Temporary bug fix for gatsby-remark-images (https://twitter.com/chrisbiscardi/status/1159927455735353344)
-    `gatsby-remark-images`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-twitter`,
     {
@@ -171,34 +199,27 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  title: edge.node.frontmatter.title,
-                  description: edge.node.frontmatter.description,
-                  date: edge.node.frontmatter.datePublished,
-                  url: `${site.siteMetadata.siteUrl}/${edge.node.frontmatter.slug}`,
-                  guid: `${site.siteMetadata.siteUrl}/${edge.node.frontmatter.slug}`,
-                  custom_elements: [{ 'content:encoded': edge.node.html }],
+            serialize: ({ query: { allDevArticle } }) => {
+              return allDevArticle.nodes.map(node => {
+                return Object.assign({}, node.article, {
+                  title: node.article.title,
+                  description: node.article.description,
+                  date: node.article.published_at,
+                  url: node.article.canonical_url,
+                  guid: node.article.canonical_url,
+                  custom_elements: [{ 'content:encoded': node.article.body_html }],
                 })
               })
             },
             query: `
               {
-                allMdx(
-                  filter: { frontmatter: { published: { eq: true } } },
-                  sort: { order: DESC, fields: [frontmatter___datePublished] }
-                ) {
-                  edges {
-                    node {
-                      frontmatter {
-                        slug
-                        title
-                        description
-                        datePublished
-                      }
-                      html
-                    }
+                allDevArticle(sort: {order: DESC, fields: published_at}) {
+                  nodes {
+                    body_html
+                    canonical_url
+                    description
+                    published_at(formatString: "MMM DD, YYYY")
+                    title
                   }
                 }
               }
