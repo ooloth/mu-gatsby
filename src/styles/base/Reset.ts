@@ -119,7 +119,7 @@ const Reset = createGlobalStyle`
     list-style: none;
   }
 
-  /**
+ /**
   * 1. Use the default monospace user interface font
   *    in all browsers (opinionated).
   * 2. Correct the odd 'em' font sizing in all browsers.
