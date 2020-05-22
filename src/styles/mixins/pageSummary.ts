@@ -4,7 +4,8 @@ import { media } from './media'
 
 export const pageSummary = css`
   margin-top: var(--s5);
-  max-width: 32ch;
+  width: 100%;
+  max-width: 18em;
   line-height: 1.4;
   font-size: var(--f5);
 

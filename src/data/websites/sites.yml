@@ -21,7 +21,7 @@
       source: '@micahbrich, Twitter'
       link: https://twitter.com/micahbrich/status/1086393968189952002
 
-  description: Open-source directory of GatsbyJS tutorials with 70+ stars on GitHub.
+  description: Open-source directory of GatsbyJS tutorials with 100+ stars on GitHub.
 
   tools:
     - react
@@ -40,7 +40,7 @@
   link: https://www.stevehaid.com/
 
   # description: I worked with designer Stephen Bell of <a href="http://coffeeshopcreative.ca" target="_blank" rel="noopener" class="link-inline">Coffeeshop Creative</a> to create an engaging marketing site for Toronto-based real estate agent Steve Haid.
-  description: Marketing site for a Toronto real estate agent. Design by Stephen Bell.
+  description: Marketing site for a Toronto real estate agent. Designed by Stephen Bell.
 
   tools:
     - react
@@ -60,7 +60,7 @@
 
   link: https://www.homecarequotes.ca/home-care.html
 
-  description: Directory of Toronto home care agencies that uses geolocation to sort results by distance from the user's postal code. Design by Stephen Bell.
+  description: Directory of Toronto home care agencies that uses geolocation to sort results by distance from the user's postal code. Designed by Stephen Bell.
 
   tools:
     - vue
@@ -79,7 +79,7 @@
 
   link: https://www.azoorsociety.org
 
-  description: Informational site for a UK-based charity. Design by Stephen Bell.
+  description: Informational site for a UK-based charity. Designed by Stephen Bell.
 
   tools:
     - react
@@ -100,7 +100,7 @@
 
   link: https://www.alisonmoritz.com
 
-  description: Portfolio site for an American stage director. Design by Stephen Bell.
+  description: Portfolio site for an American stage director. Designed by Stephen Bell.
 
   tools:
     - react
@@ -189,7 +189,7 @@
       source: Alaina Viau, Facebook
       link: https://www.facebook.com/alaina.viau.3/posts/10101533952315009
 
-  description: Portfolio site for a Canadian opera director. Design by Stephen Bell.
+  description: Portfolio site for a Canadian opera director. Designed by Stephen Bell.
 
   tools:
     - react
@@ -213,7 +213,7 @@
       source: Pomegranate Opera, Twitter
       link: https://twitter.com/pomopera/status/1039923201533505537?s=12
 
-  description: Marketing site for a new opera production. Design by Stephen Bell.
+  description: Marketing site for a new opera production. Designed by Stephen Bell.
 
   tools:
     - react
@@ -238,7 +238,7 @@
       source: Ashley Thouret, Twitter
       link: https://twitter.com/AshleyThouret/status/1073219939278995456
 
-  description: Portfolio site for a Canadian opera singer. Design by Stephen Bell.
+  description: Portfolio site for a Canadian opera singer. Designed by Stephen Bell.
 
   tools:
     - react
@@ -261,11 +261,11 @@
     - quotation: Today’s the day we launch my new website, thanks to the amazing <a href="https://twitter.com/coffeescreative" target="_blank" rel="noopener" class="link-inline">@coffeescreative</a>. The whole team was an absolute dream to work with, and came with such creative ideas. I couldn’t be more pleased.
       source: Aria Umezawa, Twitter
       link: https://twitter.com/umezawaria/status/994947044522389504
-    - quotation: Finally time to unveil my new website Design by <a href="http://coffeeshopcreative.ca" target="_blank" rel="noopener" class="link-inline">Coffeeshop Creative</a>. They created this amazing minimalist design with bright colours and geometric shapes. Thrilled with the end result, and had a blast working with them.
+    - quotation: Finally time to unveil my new website Designed by <a href="http://coffeeshopcreative.ca" target="_blank" rel="noopener" class="link-inline">Coffeeshop Creative</a>. They created this amazing minimalist design with bright colours and geometric shapes. Thrilled with the end result, and had a blast working with them.
       source: Aria Umezawa, Facebook
       link: https://www.facebook.com/umezawaria/photos/a.352185358613567.1073741828.341103669721736/375590169606419/
 
-  description: Portfolio site for a Canadian opera director. Design by Stephen Bell.
+  description: Portfolio site for a Canadian opera director. Designed by Stephen Bell.
 
   tools:
     - react
@@ -290,7 +290,7 @@
       source: Kings Valley Paving, Twitter
       link: https://twitter.com/KingsPaving/status/1050733579863543808
 
-  description: Marketing site for a Toronto paving company. Design by Stephen Bell.
+  description: Marketing site for a Toronto paving company. Designed by Stephen Bell.
 
   tools:
     - react
@@ -315,7 +315,7 @@
       source: Daniel Cabena, Facebook
       link: https://www.facebook.com/danielcabenacountertenor/posts/2123903447862938
 
-  description: Portfolio site for a Canadian opera singer. Design by Stephen Bell.
+  description: Portfolio site for a Canadian opera singer. Designed by Stephen Bell.
 
   tools:
     - react
@@ -335,7 +335,7 @@
 
   link: https://www.dgvolo.com
 
-  description: Marketing site for a Toronto advisory firm. Design by Stephen Bell.
+  description: Marketing site for a Toronto advisory firm. Designed by Stephen Bell.
 
   tools:
     - react
@@ -355,7 +355,7 @@
 
   link: https://www.peterbarrett.ca
 
-  description: Portfolio site for a Canadian opera singer. Design by Stephen Bell.
+  description: Portfolio site for a Canadian opera singer. Designed by Stephen Bell.
 
   tools:
     - react
@@ -476,7 +476,7 @@
       source: Shawna Lucey, Twitter
       link: https://twitter.com/shawna_lucey/status/1031638131764813825?s=12
 
-  description: Portfolio site for an American opera director. Design by Stephen Bell.
+  description: Portfolio site for an American opera director. Designed by Stephen Bell.
 
   tools:
     - react
@@ -496,7 +496,7 @@
 
   link: https://artistcenter.netlify.com
 
-  description: Marketing site for a music industry social networking app. Design by Stephen Bell.
+  description: Marketing site for a music industry social networking app. Designed by Stephen Bell.
 
   tools:
     - react

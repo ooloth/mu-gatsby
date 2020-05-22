@@ -18,11 +18,17 @@ import {
   tagItem,
 } from '../styles'
 
+const slugifyTag = (tag: string): string =>
+  tag
+    .replace('cssmodules', 'css-modules')
+    .replace('opensource', 'open-source')
+    .replace('styledcomponents', 'styled-components')
+
 const Tags = ({ tags }: any) => (
   <ul css={tagList}>
     {tags.map((tag: any) => (
       <li css={tagItem}>
-        <span css={linkTag}>{tag}</span>
+        <span css={linkTag}>{slugifyTag(tag)}</span>
       </li>
     ))}
   </ul>
