@@ -9,7 +9,12 @@ import PageHeader from '../ui/PageHeader'
 import { Link, SrText } from '../ui/elements'
 import useSiteMetadata from '../queries/useSiteMetadata'
 import usePageData from '../queries/usePageData'
-import useWebsitesData, { WebsiteData } from '../queries/useWebsitesData'
+import useWebsitesData, {
+  toolLinks,
+  ToolName,
+  WebsiteData,
+} from '../queries/useWebsitesData'
+
 import {
   linkInline,
   linkTag,
@@ -22,31 +27,15 @@ import {
   tagItem,
 } from '../styles'
 
-interface Tool {
-  tool: string
+const getToolLink = (tool: ToolName): string =>
+  toolLinks[tool] || `https://youtu.be/dQw4w9WgXcQ` // prevent empty links
+
+interface ToolProps {
+  tool: ToolName
 }
 
-function Tool({ tool }: Tool) {
-  let link = `https://youtu.be/dQw4w9WgXcQ` // prevent empty links
-  if (tool === `gatsby`) link = `https://www.gatsbyjs.org`
-  if (tool === `geocoder.ca`) link = `https://geocoder.ca`
-  if (tool === `git`) link = `https://git-scm.com`
-  if (tool === `github`) link = `https://github.com`
-  if (tool === `gsap`) link = `https://greensock.com`
-  if (tool === `jquery`) link = `https://jquery.com`
-  if (tool === `netlify`) link = `https://www.netlify.com`
-  if (tool === `postcss`) link = `https://postcss.org`
-  if (tool === `pug`) link = `https://pugjs.org`
-  if (tool === `react`) link = `https://reactjs.org`
-  if (tool === `react-player`) link = `https://github.com/CookPete/react-player`
-  if (tool === `react-spring`) link = `https://www.react-spring.io`
-  if (tool === `sass`) link = `https://sass-lang.com`
-  if (tool === `scrollreveal`) link = `https://scrollrevealjs.org`
-  if (tool === `styled-components`) link = `https://www.styled-components.com`
-  if (tool === `tachyons`) link = `https://tachyons.io`
-  if (tool === `tailwindcss`) link = `https://tailwindcss.com`
-  if (tool === `vue`) link = `https://vuejs.org`
-  if (tool === `xstate`) link = `https://xstate.js.org`
+const Tool = ({ tool }: ToolProps) => {
+  const link = getToolLink(tool)
 
   return (
     <li css={tagItem}>
@@ -59,7 +48,7 @@ function Tool({ tool }: Tool) {
 
 type Description = Pick<WebsiteData, 'description' | 'repo'>
 
-function Description({ description, repo }: Description) {
+const Description = ({ description, repo }: Description) => {
   let updatedDescription = description
 
   // If the website has a public repo...
@@ -80,7 +69,7 @@ function Description({ description, repo }: Description) {
   return <p css={projectDescription}>{updatedDescription}</p>
 }
 
-function Websites() {
+const Websites = () => {
   const websites = useWebsitesData()
 
   return (
@@ -115,7 +104,7 @@ interface Props {
   location: WindowLocation
 }
 
-function WebsitesPage({ location }: Props) {
+const WebsitesPage = ({ location }: Props) => {
   const { websitesPage } = useSiteMetadata()
   const { websitesYaml: page } = usePageData()
 
