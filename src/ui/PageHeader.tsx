@@ -27,7 +27,7 @@ function PageHeader({ headline, emoji, summary }: Props) {
         {headline} <Emoji emoji={emoji.icon} ariaLabel={emoji.label} />
       </h1>
 
-      <p css={pageSummary}>{summary}</p>
+      <p css={pageSummary} dangerouslySetInnerHTML={{ __html: summary }} />
     </Header>
   )
 }

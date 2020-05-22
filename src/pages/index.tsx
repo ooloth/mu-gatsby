@@ -63,7 +63,7 @@ function IndexPage({ location }: Props) {
           <Link href="https://www.ecobee.com" css={linkInline}>
             ecobee
           </Link>{' '}
-          in Toronto.
+          in&nbsp;Toronto.
         </p>
 
         <Nav>
