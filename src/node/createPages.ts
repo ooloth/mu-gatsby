@@ -33,7 +33,11 @@ async function createPages({ graphql, actions }: CreatePagesArgs) {
 
   if (devToQuery.errors) {
     // Don't create pages with incomplete data
-    throw new Error(`[createPages]: ${devToQuery.errors}`)
+    if (process.env.NODE_ENV === 'production') {
+      throw new Error(`[createPages]: ${devToQuery.errors}`)
+    } else {
+      console.error(`[createPages]: ${devToQuery.errors}`)
+    }
   }
 
   if (
@@ -43,7 +47,13 @@ async function createPages({ graphql, actions }: CreatePagesArgs) {
     !devToQuery.data.allDevArticle.nodes.length
   ) {
     // Don't create pages with no data
-    throw new Error('[createPages]: No query results from DEV.to')
+    if (process.env.NODE_ENV === 'production') {
+      throw new Error('[createPages]: No query results from DEV.to')
+    } else {
+      console.error('[createPages]: No query results from DEV.to')
+    }
+
+    return
   }
 
   const { nodes } = devToQuery.data.allDevArticle
