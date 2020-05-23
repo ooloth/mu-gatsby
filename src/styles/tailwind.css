@@ -1,3 +1,10 @@
+@tailwind base;
+
+/** 
+ * See https://tailwindcss.com/docs/adding-base-styles/#using-css for how to 
+ * override the base styles above. 
+ */
+
 @font-face {
   font-family: 'Avenir Next';
   font-display: swap;
@@ -5,8 +12,8 @@
   font-weight: 400;
   src: local('Avenir Next Regular'), local('AvenirNext-Regular'),
     local('Avenir Next LT Pro Regular'), local('AvenirNextLTPro-Regular'),
-    url('../../fonts/AvenirNextLTPro-Regular.woff2') format('woff2'),
-    url('../../fonts/AvenirNextLTPro-Regular.woff') format('woff');
+    url('../fonts/AvenirNextLTPro-Regular.woff2') format('woff2'),
+    url('../fonts/AvenirNextLTPro-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -16,8 +23,8 @@
   font-weight: 700;
   src: local('Avenir Next Bold'), local('AvenirNext-Bold'),
     local('Avenir Next LT Pro Bold'), local('AvenirNextLTPro-Bold'),
-    url('../../fonts/AvenirNextLTPro-Bold.woff2') format('woff2'),
-    url('../../fonts/AvenirNextLTPro-Bold.woff') format('woff');
+    url('../fonts/AvenirNextLTPro-Bold.woff2') format('woff2'),
+    url('../fonts/AvenirNextLTPro-Bold.woff') format('woff');
 }
 
 @font-face {
@@ -27,6 +34,10 @@
   font-weight: 900;
   src: local('Avenir Next Heavy'), local('AvenirNext-Heavy'),
     local('Avenir Next LT Pro Heavy'), local('AvenirNextLTPro-Heavy'),
-    url('../../fonts/AvenirNextLTPro-Heavy.woff2') format('woff2'),
-    url('../../fonts/AvenirNextLTPro-Heavy.woff') format('woff');
+    url('../fonts/AvenirNextLTPro-Heavy.woff2') format('woff2'),
+    url('../fonts/AvenirNextLTPro-Heavy.woff') format('woff');
 }
+
+@tailwind components;
+
+@tailwind utilities;

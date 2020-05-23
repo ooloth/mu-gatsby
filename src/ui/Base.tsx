@@ -7,7 +7,6 @@ import Metadata from './Metadata'
 import Top from './Top'
 import Bottom from './Bottom'
 import { CustomProperties, Reset } from '../styles'
-import '../styles/base/font-face.css'
 import avenirRegular from '../fonts/AvenirNextLTPro-Regular.woff2'
 import avenirHeavy from '../fonts/AvenirNextLTPro-Heavy.woff2'
 
