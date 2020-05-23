@@ -1,5 +1,10 @@
 // Must remain a CommonJS file (not ESM or TS)
 
+// See: https://tailwindcss.com/docs/using-with-preprocessors#using-postcss-as-your-preprocessor
 module.exports = {
-  plugins: [require('tailwindcss')('./src/styles/tailwind.config.ts')],
+  plugins: [
+    require('postcss-import'),
+    require('tailwindcss')('./src/styles/tailwind.config.ts'),
+    require('postcss-preset-env'), // https://preset-env.cssdb.org/features#stage-2
+  ],
 }
