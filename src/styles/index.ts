@@ -1,5 +1,4 @@
 export { default as CustomProperties } from './base/CustomProperties'
-export { default as Reset } from './base/Reset'
 
 export * from './blog'
 export { container } from './mixins/container'

@@ -68,18 +68,10 @@ function IndexPage({ location }: Props) {
 
         <Nav>
           <NavLink href="/writes/">Articles</NavLink>
-          <br />
           <NavLink href="https://www.youtube.com/user/michaeluloth">Videos</NavLink>
-          <br />
           <NavLink href="/codes/">Websites</NavLink>
-          <br />
           <NavLink href="/sings/">Operas</NavLink>
-          {/* <br />
-          <NavLink href="/experiments/">Experiments</NavLink>*/}
-          {/* <br />
-          <NavLink href="/bookmarks/">Bookmarks</NavLink>*/}
-          {/* <br />
-          <NavLink href="/likes/">Likes</NavLink> */}
+          <NavLink href="/likes/">Likes</NavLink>
         </Nav>
       </Main>
     </Base>

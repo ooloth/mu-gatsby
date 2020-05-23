@@ -1,0 +1,23 @@
+/**
+ * Change the fill color to match the text color in all browsers (opinionated).
+ */
+
+svg:not([fill]) {
+  fill: currentColor;
+}
+
+/**
+ * Limit the width to the size of the viewport in all browsers.
+ */
+
+svg {
+  max-width: 100%;
+}
+
+/**
+ * Hide the overflow in IE.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}

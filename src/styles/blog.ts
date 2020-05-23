@@ -124,17 +124,20 @@ export const pre = css`
     margin-top: var(--s2);
     margin-bottom: var(--s2);
     padding: var(--s3) var(--s2) var(--s2) 0;
+    font-family: var(--codeFont); /* 1 */
+    font-size: 1em;
   }
 `
 
 export const code = css`
   code {
     display: inline-block;
-    font-size: 0.85em !important;
     margin: 0 0.05em;
     border-radius: var(--r2);
     padding: 0.1em 0.25em 0.25em;
     line-height: 1.3;
+    font-family: var(--codeFont); /* 1 */
+    font-size: 0.85em !important;
     /* white-space: normal; */
   }
 
