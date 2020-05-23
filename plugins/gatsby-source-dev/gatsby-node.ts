@@ -12,7 +12,11 @@ const fetchArticleList = async (): Promise<any> => {
     return await response.json()
   } catch (error) {
     // Don't build the site if all posts are missing
-    throw new Error(`[gatsby-source-dev]: ${error}`)
+    if (process.env.NODE_ENV === 'production') {
+      throw new Error(`[gatsby-source-dev]: ${error}`)
+    } else {
+      console.error(`[gatsby-source-dev]: ${error}`)
+    }
   }
 }
 
@@ -25,7 +29,11 @@ const fetchArticles = async (articleList: any): Promise<any> =>
         return await response.json()
       } catch (error) {
         // Don't build the site if individual posts are missing
-        throw new Error(`[gatsby-source-dev]: ${error}`)
+        if (process.env.NODE_ENV === 'production') {
+          throw new Error(`[gatsby-source-dev]: ${error}`)
+        } else {
+          console.error(`[gatsby-source-dev]: ${error}`)
+        }
       }
     }),
   )

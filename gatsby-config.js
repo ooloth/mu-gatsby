@@ -1,3 +1,5 @@
+// Must remain a CommonJS file (not ESM or TS)
+
 /**
  * Register the TS evaluator once here so we don't need to do it in any other JS file.
  * It automatically reads the TS config from tsconfig.json and allows all other files

@@ -1,4 +1,8 @@
 import React, { StrictMode } from 'react'
+
+import './src/styles/tailwind.css'
+
+// TODO: remove styled-components stuff
 import { WrapRootElementBrowserArgs } from 'gatsby'
 
 // Support the styled components "css" prop

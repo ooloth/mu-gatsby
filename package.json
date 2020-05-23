@@ -23,6 +23,7 @@
     "gatsby-plugin-google-analytics": "^2.3.2",
     "gatsby-plugin-manifest": "^2.4.8",
     "gatsby-plugin-netlify": "^2.3.3",
+    "gatsby-plugin-postcss": "^2.3.2",
     "gatsby-plugin-react-helmet": "^3.3.2",
     "gatsby-plugin-remote-images": "1.0.7",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
@@ -48,6 +49,7 @@
     "shortid": "^2.2.15",
     "string-replace-to-array": "^1.0.3",
     "styled-components": "^5.1.0",
+    "tailwindcss": "^1.4.6",
     "theme-dracula": "github:dracula/visual-studio-code",
     "what-input": "^5.2.9",
     "xstate": "^4.10.0"
@@ -84,14 +86,15 @@
   "scripts": {
     "build:theme-dracula": "(cd node_modules/theme-dracula && npm i && npm run build)",
     "build": "npm run build:theme-dracula && gatsby build",
+    "build:local": "npm run validate && rm -rf .cache && npm run build",
     "check-format": "npm run prettier -- --list-different",
     "check-types": "tsc",
     "clean": "gatsby clean",
-    "dev": "gatsby develop",
+    "dev": "rm -rf .cache && gatsby develop",
     "format": "npm run prettier -- --write",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}' --ignore-path .gitignore",
     "prettier": "prettier \"**/*.+(js|jsx|ts|tsx|json|yml|yaml|css|html|md|mdx|graphql)\" --ignore-path .gitignore",
-    "serve": "npm run validate && npm run build && gatsby serve",
+    "serve": "npm run build:local && gatsby serve",
     "test": "jest",
     "test:watch": "jest --watch",
     "validate": "npm-run-all --parallel check-types check-format lint"
