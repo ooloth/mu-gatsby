@@ -20,7 +20,7 @@ const CustomProperties = createGlobalStyle`
       /* macOS emoji */ "Apple Color Emoji",
       /* Windows emoji */ "Segoe UI Emoji",
       /* Windows emoji */ "Segoe UI Symbol",
-      /* Linux emoji */ "Noto Color Emoji";;
+      /* Linux emoji */ "Noto Color Emoji";
     --headingFont: inherit;
     --codeFont: 
       /* macOS 10.10+ */ Menlo,
