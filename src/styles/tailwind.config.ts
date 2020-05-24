@@ -26,7 +26,29 @@ const screens = {
   xl: '75em',
 }
 
-const theme = { screens, extend }
+const spacing = {
+  '0': '0rem',
+  px: '1px',
+  '1': '.25rem',
+  '2': '.5rem',
+  '3': '.75rem',
+  '4': '1rem',
+  '5': '1.5rem',
+  '6': '2rem',
+  '7': '3rem',
+  '8': '4rem',
+  '9': '6rem',
+  '10': '8rem',
+  '11': '12rem',
+  '12': '16rem',
+  '13': '24rem',
+  '14': '32rem',
+  '15': '48rem',
+  '16': '64rem',
+  '17': '96rem',
+}
+
+const theme = { screens, spacing, extend }
 
 /**
  * Variants
