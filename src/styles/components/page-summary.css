@@ -1,0 +1,11 @@
+.page-summary {
+  @apply mt-5 w-full max-w-xs leading-snug text-xl;
+  /* max-width: 18em; */
+  /* line-height: 1.4; */
+}
+
+@screen sm {
+  .page-summary {
+    font-size: 1.35rem;
+  }
+}

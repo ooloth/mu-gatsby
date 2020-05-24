@@ -1,0 +1,5 @@
+/* TODO: Replace this with something less weird? */
+
+.main {
+  @apply flex-auto mt-4 container ml-0 w-full max-w-lg;
+}

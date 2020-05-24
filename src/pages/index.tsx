@@ -45,6 +45,26 @@ interface Props {
   location: WindowLocation
 }
 
+/* 
+
+TODO: apply these styles as utilities directly to this h1 (not reused):
+
+export const pageSubheadline = css`
+  letter-spacing: -1px;
+  font-size: 2.45rem;
+  font-weight: 900;
+
+  ${media.custom('375px')} {
+    font-size: 2.95rem;
+  }
+
+  ${media.sm} {
+    font-size: 3.35rem;
+  }
+`
+
+*/
+
 function IndexPage({ location }: Props) {
   return (
     // https://www.gatsbyjs.org/docs/migrating-from-v1-to-v2/#4-pass-history-location-and-match-props-to-layout
