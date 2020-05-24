@@ -1,0 +1,10 @@
+.purple-underline {
+  @apply .purple-gradient bg-left-bottom no-underline;
+  background-size: 100% 0.25em;
+  padding-top: 0.12em;
+}
+
+.purple-underline:hover {
+  @apply text-white;
+  background-size: 100% 150%;
+}
