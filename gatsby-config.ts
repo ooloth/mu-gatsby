@@ -145,6 +145,28 @@ export const plugins = [
       pedantic: false,
       plugins: [
         {
+          resolve: `gatsby-remark-images`,
+          options: {
+            linkImagesToOriginal: false,
+            maxWidth: 1000,
+            quality: 80,
+            showCaptions: true,
+            withWebp: true,
+          },
+        },
+        `gatsby-remark-unwrap-images`,
+        {
+          resolve: `gatsby-remark-embedder`,
+          options: {
+            customTransformers: [
+              // Your custom transformers
+            ],
+            services: {
+              // The service-specific options by the name of the service
+            },
+          },
+        },
+        {
           resolve: `gatsby-remark-vscode`,
           options: {
             theme: 'Dracula',
@@ -153,17 +175,6 @@ export const plugins = [
             inlineCode: {
               marker: '•',
             },
-          },
-        },
-        `gatsby-remark-unwrap-images`,
-        {
-          resolve: `gatsby-remark-images`,
-          options: {
-            linkImagesToOriginal: false,
-            maxWidth: 1000,
-            quality: 80,
-            showCaptions: true,
-            withWebp: true,
           },
         },
         {
@@ -176,8 +187,13 @@ export const plugins = [
       ],
     },
   },
-  `gatsby-plugin-catch-links`,
   `gatsby-plugin-twitter`,
+  {
+    resolve: `gatsby-plugin-catch-links`,
+    options: {
+      excludePattern: /(twitter)/,
+    },
+  },
   {
     resolve: `gatsby-plugin-feed`,
     options: {

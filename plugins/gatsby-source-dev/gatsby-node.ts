@@ -3,6 +3,10 @@
 import fetch from 'node-fetch'
 import { SourceNodesArgs } from 'gatsby'
 
+/**
+ * Article list
+ */
+
 const fetchArticleList = async (): Promise<any> => {
   try {
     // See: https://docs.dev.to/api/#operation/getArticles
@@ -19,6 +23,10 @@ const fetchArticleList = async (): Promise<any> => {
     }
   }
 }
+
+/**
+ * Articles
+ */
 
 const fetchArticles = async (articleList: any): Promise<any> =>
   await Promise.all(
@@ -37,6 +45,86 @@ const fetchArticles = async (articleList: any): Promise<any> =>
       }
     }),
   )
+
+/**
+ * YouTube links
+ */
+
+const findYouTubeEmbeds = (markdown: string): RegExpMatchArray | [] =>
+  markdown.match(/\{% youtube .+ %\}/gi) || []
+
+// TODO: replace "22" with "until we reach a space" (to future proof)
+const getVideoId = (embed: string): string => embed.substring(11, 22)
+
+const getIframe = (videoId: string): string =>
+  String(
+    `<div class="my-8 ratio-parent-16x9">
+      <iframe src="https://www.youtube.com/embed/${videoId}" class="shadow-lg rounded ratio-child" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+      </iframe>
+    </div>`,
+  )
+
+const replaceYouTubeEmbedWithIframe = (markdown: string, embed: string): string =>
+  markdown.replace(embed, getIframe(getVideoId(embed)))
+
+const replaceYouTubeEmbeds = (article: any): any => {
+  const youTubeEmbeds = findYouTubeEmbeds(article.body_markdown)
+
+  let updatedMarkdown = article.body_markdown
+
+  youTubeEmbeds.forEach(embed => {
+    updatedMarkdown = replaceYouTubeEmbedWithIframe(updatedMarkdown, embed)
+  })
+
+  return {
+    ...article,
+    body_markdown: updatedMarkdown,
+  }
+}
+
+/**
+ * Twitter links
+ */
+
+// Could be more than one per article!
+const findTwitterEmbeds = (html: string): RegExpMatchArray | [] =>
+  html.match(/\{% twitter .+ %\}/gi) || []
+
+// TODO: replace "22" with "until we reach a space" (to future proof)
+const getTweetId = (embed: string): string => embed.substring(11, 22)
+
+// TODO: fetch tweet IDs one at a time (not all at once)
+const fetchTweet = (articles: any): any => {}
+
+const replaceTwitterEmbeds = (article: any): any => {
+  const twitterEmbeds = findTwitterEmbeds(article.body_markdown)
+
+  let updatedMarkdown = article.body_markdown
+
+  twitterEmbeds.forEach(embed => {
+    // TODO: update with real logic to build twitter URL
+    updatedMarkdown = updatedMarkdown.replace(embed, '')
+    // updatedMarkdown = replaceTwitterEmbedWithLink(updatedMarkdown, embed)
+  })
+
+  return {
+    ...article,
+    body_markdown: updatedMarkdown,
+  }
+}
+
+/**
+ * Embeds
+ */
+
+const replaceEmbedsWithLinks = (articles: any): any =>
+  articles.map((article: any) =>
+    replaceTwitterEmbeds(replaceYouTubeEmbeds(article)),
+  )
+
+/**
+ * GraphQL nodes
+ */
 
 const createArticleNodes = (
   articles: any,
@@ -69,8 +157,9 @@ exports.sourceNodes = async ({
 }: SourceNodesArgs): Promise<void> => {
   const { createNode } = actions
 
-  const articleList = await fetchArticleList()
-  const articles = await fetchArticles(articleList)
+  const articles = replaceEmbedsWithLinks(
+    await fetchArticles(await fetchArticleList()),
+  )
 
   createArticleNodes(articles, createNode, createNodeId, createContentDigest)
 }
