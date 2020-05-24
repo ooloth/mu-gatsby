@@ -1,5 +1,6 @@
+/* NOTE: apply as "project-title purple-underline" */
 .project-title {
-  @apply purple-underline font-black;
+  @apply font-black;
   line-height: 1.4;
   font-size: 1.65rem;
 }

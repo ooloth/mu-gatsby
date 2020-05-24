@@ -1,5 +1,6 @@
+/* NOTE: apply as "purple-underline purple-gradient" */
 .purple-underline {
-  @apply .purple-gradient bg-left-bottom no-underline;
+  @apply bg-left-bottom no-underline;
   background-size: 100% 0.25em;
   padding-top: 0.12em;
 }

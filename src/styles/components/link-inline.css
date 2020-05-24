@@ -1,3 +1,5 @@
+/* NOTE: apply "purple-underline font-bold" instead of this*/
+
 .link-inline {
-  @apply purple-underline font-bold;
+  @apply font-bold;
 }

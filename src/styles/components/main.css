@@ -1,5 +1,6 @@
 /* TODO: Replace this with something less weird? */
 
+/* NOTE: apply as "main container" */
 .main {
-  @apply flex-auto mt-4 container ml-0 w-full max-w-lg;
+  @apply flex-auto mt-4 ml-0 w-full max-w-lg;
 }
