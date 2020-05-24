@@ -102,22 +102,6 @@ export const figure = css`
   }
 `
 
-export const iframe = css`
-  div[data-id='iframe-container'] {
-    ${aspectRatioParent};
-    ${ratio16x9};
-    margin-top: var(--s6);
-    margin-bottom: var(--s6);
-
-    iframe {
-      ${aspectRatioChild};
-      box-shadow: var(--shadow2);
-      border-radius: var(--r2);
-      background-color: black;
-    }
-  }
-`
-
 export const pre = css`
   /* Give code blocks vertical space */
   pre {
