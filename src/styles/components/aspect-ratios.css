@@ -1,0 +1,70 @@
+/* Apply to child that should have the aspect ratio */
+.ratio-child {
+  @apply absolute inset-0 z-100 h-full w-full !important;
+}
+
+/* Apply to the parent wrapping the child above */
+.ratio-parent-2x1 {
+  @apply relative h-0;
+  padding-bottom: calc(1 / 2 * 100%);
+}
+
+.ratio-parent-1x2 {
+  @apply relative h-0;
+  padding-bottom: calc(2 / 1 * 100%);
+}
+
+.ratio-parent-16x9 {
+  @apply relative h-0;
+  padding-bottom: calc(9 / 16 * 100%);
+}
+
+.ratio-parent-9x16 {
+  @apply relative h-0;
+  padding-bottom: calc(16 / 9 * 100%);
+}
+
+.ratio-parent-4x3 {
+  @apply relative h-0;
+  padding-bottom: calc(3 / 4 * 100%);
+}
+
+.ratio-parent-3x4 {
+  @apply relative h-0;
+  padding-bottom: calc(4 / 3 * 100%);
+}
+
+.ratio-parent-6x4 {
+  @apply relative h-0;
+  padding-bottom: calc(4 / 6 * 100%);
+}
+
+.ratio-parent-4x6 {
+  @apply relative h-0;
+  padding-bottom: calc(6 / 4 * 100%);
+}
+
+.ratio-parent-8x5 {
+  @apply relative h-0;
+  padding-bottom: calc(5 / 8 * 100%);
+}
+
+.ratio-parent-5x8 {
+  @apply relative h-0;
+  padding-bottom: calc(8 / 5 * 100%);
+}
+
+.ratio-parent-7x5 {
+  @apply relative h-0;
+  padding-bottom: calc(5 / 7 * 100%);
+}
+
+.ratio-parent-5x7 {
+  @apply relative h-0;
+  padding-bottom: calc(7 / 5 * 100%);
+}
+
+.ratio-parent-1x1 {
+  @apply relative h-0;
+  padding-bottom: calc(1 / 1 * 100%);
+}
