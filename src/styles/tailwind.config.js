@@ -20,16 +20,27 @@ const fontFamily = {
   sans: ['Avenir Next', ...defaultTheme.fontFamily.sans],
 }
 
+const height = {
+  '1em': '1em',
+}
+
+const lineHeight = {
+  '0': '0',
+}
+
 const screens = {
   iPhone6: '375px',
+}
+
+const width = {
+  '1em': '1em',
 }
 
 const zIndex = {
   '100': '100',
 }
 
-const extend = { fontFamily, screens, zIndex }
-// const extend = {}
+const extend = { fontFamily, height, lineHeight, screens, width, zIndex }
 
 /**
  * Theme (replacements)
