@@ -1,11 +1,18 @@
 /* See: https://tailwindcss.com/docs/using-with-preprocessors#build-time-imports */
+/* See: https://tailwindcss.com/docs/controlling-file-size/#removing-all-unused-styles */
+
+/** 
+ * Never purged
+ */
 
 @import 'tailwindcss/base';
 @import './base.css';
 
-/* TODO: remove this and replace with just mine? */
-@import 'tailwindcss/components';
 @import './components.css';
 
+/** 
+ * Purged in production
+ */
+
 @import 'tailwindcss/utilities';
-/* @import "./custom-utilities.css"; */
+/* @import './utilities.css'; */

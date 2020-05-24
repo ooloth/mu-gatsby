@@ -1,4 +1,5 @@
 import React, { StrictMode } from 'react'
+import 'what-input'
 
 import './src/styles/tailwind.css'
 

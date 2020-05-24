@@ -4,7 +4,7 @@
 module.exports = {
   plugins: [
     require('postcss-import'),
-    require('tailwindcss')('./src/styles/tailwind.config.ts'),
+    require('tailwindcss')('./src/styles/tailwind.config.js'),
     require('postcss-preset-env'), // https://preset-env.cssdb.org/features#stage-2
   ],
 }

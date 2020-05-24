@@ -9,7 +9,7 @@ html:not([data-whatinput='keyboard']) *:focus {
 }
 
 /**
-  * Change the cursor on busy elements in all browsers (opinionated).
+  * Change the cursor on busy elements in all browsers.
   */
 
 [aria-busy='true'] {
@@ -17,7 +17,7 @@ html:not([data-whatinput='keyboard']) *:focus {
 }
 
 /**
-  * Change the cursor on control elements in all browsers (opinionated).
+  * Change the cursor on control elements in all browsers.
   */
 
 [aria-controls] {
@@ -36,7 +36,7 @@ html:not([data-whatinput='keyboard']) *:focus {
 
 /**
   * Change the display on visually hidden accessible elements
-  * in all browsers (opinionated).
+  * in all browsers.
   */
 
 [aria-hidden='false'][hidden]:not(:focus) {

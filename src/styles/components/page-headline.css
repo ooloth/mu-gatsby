@@ -1,0 +1,18 @@
+.page-headline {
+  @apply mt-8 leading-tight font-black;
+  /* line-height: 1.2; */
+  font-size: 3.4rem;
+}
+
+@screen iPhone6 {
+  .page-headline {
+    @apply text-6xl;
+  }
+}
+
+@screen sm {
+  .page-headline {
+    @apply pt-1;
+    font-size: 4.5rem;
+  }
+}

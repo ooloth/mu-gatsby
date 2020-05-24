@@ -1,5 +1,3 @@
-declare module 'tailwindcss'
-
 declare module '*.jpg'
 declare module '*.png'
 

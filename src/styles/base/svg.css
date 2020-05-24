@@ -1,9 +1,9 @@
 /**
- * Change the fill color to match the text color in all browsers (opinionated).
+ * Change the fill color to match the text color in all browsers.
  */
 
 svg:not([fill]) {
-  fill: currentColor;
+  @apply fill-current;
 }
 
 /**

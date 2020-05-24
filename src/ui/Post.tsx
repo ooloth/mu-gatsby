@@ -180,52 +180,8 @@ const getPostMetadata = (article: any): any => ({
   url: article.canonical_url,
 })
 
-// const findDevToYouTubeEmbedCode = (html: string): RegExpMatchArray | null =>
-//   html.match(/<p>\{% youtube .+ %\}<\/p>/i)
-
-// const findDevToTwitterEmbedCode = (html: string): RegExpMatchArray | null =>
-//   html.match(/<p>\{% twitter .+ %\}<\/p>/i)
-
-// <blockquote class="twitter-tweet"><p lang="en" dir="ltr">This is genius!</p>&mdash; Ajmal Afif (@ajmalafif) <a href="https://twitter.com/ajmalafif/status/1062610482748522497?ref_src=twsrc%5Etfw">November 14, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-// <blockquote class="twitter-tweet" data-conversation="none"><p lang="en" dir="ltr">This is genius!</p>&mdash; Ajmal Afif (@ajmalafif) <a href="https://twitter.com/ajmalafif/status/1062610482748522497?ref_src=twsrc%5Etfw">November 14, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-// const replaceDevToEmbedsWithRealEmbeds = (html: string): string => {
-//   const devToYouTubeEmbed = findDevToYouTubeEmbedCode(html)
-//   const devToTwitterEmbed = findDevToTwitterEmbedCode(html)
-//   let youTubeEmbedCode = ''
-//   let twitterEmbedCode = ''
-//   let newHtml = html
-
-//   if (devToYouTubeEmbed) {
-//     youTubeEmbedCode = devToYouTubeEmbed[0].substring(14, 25)
-
-//     const youTubeIframe = `
-//     <div data-id="iframe-container">
-//     <iframe width="560" height="315" src="https://www.youtube.com/embed/${youTubeEmbedCode}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-//     </iframe>
-//     </div>`
-
-//     newHtml = newHtml.replace(devToYouTubeEmbed[0], youTubeIframe)
-//   }
-
-//   if (devToTwitterEmbed) {
-//     twitterEmbedCode = devToTwitterEmbed[0].substring(14, 25)
-
-//     const twitterBlockquote = `https://twitter.com/ajmalafif/status/1062610482748522497`
-
-//     newHtml = newHtml.replace(devToTwitterEmbed[0], twitterBlockquote)
-//   }
-
-//   return newHtml
-// }
-
 const Post = ({ data: { devArticle: article } }: { data: any }) => {
   const metadata = getPostMetadata(article)
-
-  // const htmlWithoutDevToEmbeds = replaceDevToEmbedsWithRealEmbeds(
-  //   article.childMarkdownRemark.html,
-  // )
 
   return (
     <Base>

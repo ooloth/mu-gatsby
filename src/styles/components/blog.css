@@ -1,0 +1,88 @@
+.blog {
+  h2,
+  h3 {
+    @apply mt-8 mb-4 font-black;
+  }
+
+  h2 {
+    @apply text-3xl;
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+
+  p {
+    @apply my-4 copy;
+  }
+
+  a {
+    @apply link-inline;
+  }
+
+  ul,
+  ol {
+    @apply my-4;
+    padding-left: 1.1rem;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  li {
+    @apply leading-normal;
+    margin-top: 0.3rem;
+
+    /* Prevent unwanted line breaks caused by p tag insertion */
+    p {
+      @apply inline;
+    }
+  }
+
+  img {
+    @apply block my-8 shadow-lg rounded w-full;
+  }
+
+  figure {
+    @apply my-8;
+  }
+
+  figcaption {
+    @apply pt-2 text-center text-sm text-gray-700;
+    /* color: var(--black70); */
+  }
+
+  pre {
+    @apply my-2 pt-3 pr-2 pb-2 pl-0 font-mono text-base;
+    /* font-size: 1em; */
+  }
+
+  code {
+    @apply inline-block rounded font-mono;
+    margin: 0 0.05em;
+    padding: 0.1em 0.25em 0.25em;
+    line-height: 1.3;
+    font-size: 0.85em !important;
+
+    /* Suppress inline link styling inside code blocks */
+    a {
+      @apply font-normal !important;
+      background: none !important;
+    }
+  }
+
+  ::selection {
+    @apply bg-purple-500 text-white;
+  }
+
+  /* gatsby-plugin-twitter */
+  .twitter-tweet {
+    @apply my-6 !important;
+    @apply shadow-lg rounded;
+  }
+}
