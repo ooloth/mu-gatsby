@@ -12,18 +12,25 @@ const fontFamily = {
   sans: ['Avenir Next', ...defaultTheme.fontFamily.sans],
 }
 
-const extend = { fontFamily }
+const screens = {
+  iPhone6: '375px',
+  ...defaultTheme.screens,
+}
+
+const extend = { fontFamily, screens }
 
 /**
  * Theme (replacements)
  */
 
-const screens = {
-  iPhone6: '375px',
-  sm: '36em',
-  md: '48em',
-  lg: '62em',
-  xl: '75em',
+const borderWidth = {
+  '0': '0',
+  '1': '1px',
+  '2': '2px',
+  '3': '3px',
+  '4': '4px',
+  '5': '6px',
+  '6': '8px',
 }
 
 const spacing = {
@@ -35,20 +42,19 @@ const spacing = {
   '4': '1rem',
   '5': '1.5rem',
   '6': '2rem',
-  '7': '3rem',
-  '8': '4rem',
-  '9': '6rem',
-  '10': '8rem',
-  '11': '12rem',
-  '12': '16rem',
-  '13': '24rem',
-  '14': '32rem',
-  '15': '48rem',
-  '16': '64rem',
-  '17': '96rem',
+  '7': '2.5rem',
+  '8': '3rem',
+  '9': '4rem',
+  '10': '5rem',
+  '11': '6rem',
+  '12': '8rem',
+  '13': '10rem',
+  '14': '12rem',
+  '15': '14rem',
+  '16': '16rem',
 }
 
-const theme = { screens, spacing, extend }
+const theme = { borderWidth, extend, spacing }
 
 /**
  * Variants
