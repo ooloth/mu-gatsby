@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react'
 import { WindowLocation } from '@reach/router'
 import styled from 'styled-components'
-import 'what-input'
 
 import Metadata from './Metadata'
 import Top from './Top'
