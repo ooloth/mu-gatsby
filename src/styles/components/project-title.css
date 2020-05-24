@@ -1,0 +1,29 @@
+.project-title {
+  @apply purple-underline font-black;
+  line-height: 1.4;
+  font-size: 1.65rem;
+}
+
+@screen iPhone6 {
+  .project-title {
+    font-size: 1.7rem;
+  }
+}
+
+@screen sm {
+  .project-title {
+    font-size: 1.75rem;
+  }
+}
+
+@screen md {
+  .project-title {
+    font-size: 1.8rem;
+  }
+}
+
+@screen lg {
+  .project-title {
+    font-size: 1.85rem;
+  }
+}
