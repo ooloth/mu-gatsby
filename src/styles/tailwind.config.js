@@ -1,8 +1,16 @@
+// Must remain a CommonJS file (not ESM or TS)
+
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 // See: https://tailwindcss.com/docs/controlling-file-size#purgecss-options
 // See: https://tailwindcss.com/docs/controlling-file-size#writing-purgeable-html
-const purge = ['./src/**/*.tsx', './src/**/*.ts', './src/**/*.jsx', './src/**/*.js']
+const purge = [
+  './src/**/*.js',
+  './src/**/*.jsx',
+  './src/**/*.ts',
+  './src/**/*.tsx',
+  './plugins/**/*.ts',
+]
 
 /**
  * Theme (extensions)
@@ -14,10 +22,14 @@ const fontFamily = {
 
 const screens = {
   iPhone6: '375px',
-  ...defaultTheme.screens,
 }
 
-const extend = { fontFamily, screens }
+const zIndex = {
+  '100': '100',
+}
+
+const extend = { fontFamily, screens, zIndex }
+// const extend = {}
 
 /**
  * Theme (replacements)
@@ -54,7 +66,7 @@ const spacing = {
   '16': '16rem',
 }
 
-const theme = { borderWidth, extend, spacing }
+const theme = { borderWidth, spacing, extend }
 
 /**
  * Variants
@@ -66,6 +78,6 @@ const variants = {}
  * Plugins
  */
 
-const plugins: [] = []
+const plugins = []
 
-export default { purge, theme, variants, plugins }
+module.exports = { purge, theme, variants, plugins }
