@@ -17,7 +17,8 @@
   }
 
   a {
-    @apply link-inline;
+    /* TODO: spell out full set of styles */
+    /* @apply link-inline; */
   }
 
   ul,

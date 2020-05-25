@@ -1,30 +1,9 @@
-/* NOTE: apply as "project-title purple-underline" */
 .project-title {
-  @apply font-black;
-  line-height: 1.4;
-  font-size: 1.65rem;
+  @apply leading-snug text-3xl font-black;
 }
 
-@screen iPhone6 {
+@screen iPhoneX {
   .project-title {
-    font-size: 1.7rem;
-  }
-}
-
-@screen sm {
-  .project-title {
-    font-size: 1.75rem;
-  }
-}
-
-@screen md {
-  .project-title {
-    font-size: 1.8rem;
-  }
-}
-
-@screen lg {
-  .project-title {
-    font-size: 1.85rem;
+    @apply text-4xl;
   }
 }
