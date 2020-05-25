@@ -1,5 +1,7 @@
 import { useStaticQuery, graphql } from 'gatsby'
 
+import { Platform } from '../ui/Bottom'
+
 // See: gatsby/packages/gatsby-transformer-sharp/src/fragments.js
 interface GatsbyImageFluidWithWebp {
   childImageSharp: {
@@ -20,14 +22,14 @@ interface Avatar {
   objPos: string
 }
 
-interface NavLink {
+export interface NavLink {
   href: string
   text: string
 }
 
 export interface SocialLink {
   href: string
-  platform: string
+  platform: Platform
   srText: string
 }
 
