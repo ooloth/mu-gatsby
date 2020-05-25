@@ -1,101 +1,65 @@
 import React from 'react'
 import { WindowLocation } from '@reach/router'
-import styled from 'styled-components'
 
 import Base from '../ui/Base'
 import { Emoji, Link, SrText } from '../ui/elements'
-import {
-  linkInline,
-  main,
-  media,
-  pageHeadline,
-  pageSubheadline,
-  pageSummary,
-  purpleUnderline,
-} from '../styles'
+import useSharedData, { NavLink as NavLinkType } from '../queries/useSharedData'
 
-const Main = styled.main`
-  ${main}
-  margin-top: 0;
-`
+const NavLink = ({ link }: { link: NavLinkType }) => (
+  <Link
+    variant="underline"
+    href={link.href}
+    className="text-3xl iPhoneX:text-4xl leading-none uppercase font-black"
+  >
+    {link.text}
+  </Link>
+)
 
-const Nav = styled.nav`
-  margin-top: var(--s7);
-`
+const NavLinks = ({ links }: { links: Array<NavLinkType> }) => (
+  <nav className="mt-16 iPhoneX:mt-16">
+    <ul>
+      {links.map(
+        link =>
+          link.href !== `/` && (
+            <li key={link.href} className="mt-5 ">
+              <NavLink link={link} />
+            </li>
+          ),
+      )}
+    </ul>
+  </nav>
+)
 
-const NavLink = styled(Link)`
-  ${purpleUnderline}
-  font-size: 1.75rem;
-  font-weight: 900;
-  text-transform: uppercase;
+export default ({ location }: { location: WindowLocation }) => {
+  const { navLinks } = useSharedData()
 
-  &::before {
-    display: block;
-    content: '';
-    margin-top: var(--s4);
-  }
-
-  ${media.sm} {
-    font-size: 1.8rem;
-  }
-`
-
-// FIXME: extract this shared PageComponent declaration
-interface Props {
-  location: WindowLocation
-}
-
-/* 
-
-TODO: apply these styles as utilities directly to this h1 (not reused):
-
-export const pageSubheadline = css`
-  letter-spacing: -1px;
-  font-size: 2.45rem;
-  font-weight: 900;
-
-  ${media.custom('375px')} {
-    font-size: 2.95rem;
-  }
-
-  ${media.sm} {
-    font-size: 3.35rem;
-  }
-`
-
-*/
-
-function IndexPage({ location }: Props) {
   return (
-    // https://www.gatsbyjs.org/docs/migrating-from-v1-to-v2/#4-pass-history-location-and-match-props-to-layout
     <Base location={location}>
-      <Main>
-        <p css={pageHeadline}>
+      <header>
+        <p className="page-headline">
           Hi <Emoji emoji="👋" ariaLabel="Emoji of a hand waving hello." />
         </p>
 
-        <h1 css={pageSubheadline}>
+        <h1 className="whitespace-no-wrap text-5xl md:text-6xl leading-none tracking-tight font-black">
           I'm Michael<SrText> Uloth</SrText>.
         </h1>
 
-        <p css={pageSummary}>
+        <p className="mt-6 iPhoneX:mt-8 max-w-md leading-snug text-2xl">
           I'm a web developer and opera singer working for{' '}
-          <Link href="https://www.ecobee.com" css={linkInline}>
+          <Link
+            variant="underline"
+            href="https://www.ecobee.com"
+            className="font-bold"
+          >
             ecobee
           </Link>{' '}
           in&nbsp;Toronto.
         </p>
+      </header>
 
-        <Nav>
-          <NavLink href="/writes/">Articles</NavLink>
-          <NavLink href="https://www.youtube.com/user/michaeluloth">Videos</NavLink>
-          <NavLink href="/codes/">Websites</NavLink>
-          <NavLink href="/sings/">Operas</NavLink>
-          <NavLink href="/likes/">Likes</NavLink>
-        </Nav>
-      </Main>
+      <main>
+        <NavLinks links={navLinks} />
+      </main>
     </Base>
   )
 }
-
-export default IndexPage
