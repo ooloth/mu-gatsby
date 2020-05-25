@@ -3,24 +3,43 @@ import { Link as GatsbyLink } from 'gatsby'
 
 import SrText from './SrText'
 
-interface Props {
-  children: ReactNode
-  href: string
-  lang?: string
-  srText?: string // if anchor has no visible text
+const classes = {
+  underline: 'purple-gradient purple-underline',
+  icon: 'flex justify-center items-center hover:purple-gradient hover:text-white',
+  incognito: '',
 }
 
-function Link({ children, href, lang, srText, ...props }: Props) {
+type Variant = keyof typeof classes
+
+interface Props {
+  variant: Variant
+  href: string
+  children: ReactNode
+  className?: string
+  srText?: string // if anchor has no visible text
+  lang?: string
+}
+
+function Link({
+  variant,
+  href,
+  children,
+  className,
+  srText,
+  lang,
+  ...props
+}: Props) {
   const isExternal = Boolean(href.match(/http|\/\/|mailto:|tel:|static\/|pdf\//))
   const isId = Boolean(href.match(/^#/))
+  const variantClasses: string = classes[variant]
 
   return isExternal || isId ? (
     <a
       href={href}
-      lang={lang}
-      onClick={e => e.stopPropagation()} // avoid firing parent event handlers
-      target={isExternal ? `_blank` : undefined}
+      className={`${variantClasses} ${className}`}
       rel={isExternal ? `noopener noreferrer` : undefined}
+      onClick={e => e.stopPropagation()} // avoid firing parent event handlers
+      lang={lang}
       {...props}
     >
       {srText && <SrText>{srText}</SrText>}
@@ -29,6 +48,7 @@ function Link({ children, href, lang, srText, ...props }: Props) {
   ) : (
     <GatsbyLink
       to={href}
+      className={`${variantClasses} ${className}`}
       onClick={e => e.stopPropagation()} // avoid firing parent event handlers
       lang={lang}
       {...props}
