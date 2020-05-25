@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import { Emoji } from './elements'
 import { netlifyFormMachine } from '../logic/netlifyForm'
-import { container, copy, purpleGradient } from '../styles'
+import { copy, purpleGradient } from '../styles'
 
 const emailRegex = `.+@.+..+`
 
@@ -153,7 +153,6 @@ function NetlifyForm() {
 }
 
 const Section = styled.section`
-  ${container}
   padding-top: var(--s8);
 `
 
