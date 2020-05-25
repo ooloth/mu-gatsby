@@ -16,8 +16,23 @@ const purge = [
  * Theme (extensions)
  */
 
+const colors = {
+  purple: {
+    ...defaultTheme.colors.purple,
+    /* Contrast with white text = 4.58: */
+    default: 'hsl(267, 85%, 62%)',
+    /* Contrast with white text = 4.84: */
+    light: 'hsla(267, 85%, 62%, 90%)',
+  },
+}
+
 const fontFamily = {
   sans: ['Avenir Next', ...defaultTheme.fontFamily.sans],
+}
+
+const fontSize = {
+  '7xl': '5rem',
+  '8xl': '6rem',
 }
 
 const height = {
@@ -29,7 +44,7 @@ const lineHeight = {
 }
 
 const screens = {
-  iPhone6: '375px',
+  iPhoneX: '375px',
 }
 
 const width = {
@@ -40,44 +55,22 @@ const zIndex = {
   '100': '100',
 }
 
-const extend = { fontFamily, height, lineHeight, screens, width, zIndex }
+const extend = {
+  colors,
+  fontFamily,
+  fontSize,
+  height,
+  lineHeight,
+  screens,
+  width,
+  zIndex,
+}
 
 /**
  * Theme (replacements)
  */
 
-const borderWidth = {
-  '0': '0',
-  '1': '1px',
-  '2': '2px',
-  '3': '3px',
-  '4': '4px',
-  '5': '6px',
-  '6': '8px',
-}
-
-const spacing = {
-  '0': '0rem',
-  px: '1px',
-  '1': '.25rem',
-  '2': '.5rem',
-  '3': '.75rem',
-  '4': '1rem',
-  '5': '1.5rem',
-  '6': '2rem',
-  '7': '2.5rem',
-  '8': '3rem',
-  '9': '4rem',
-  '10': '5rem',
-  '11': '6rem',
-  '12': '8rem',
-  '13': '10rem',
-  '14': '12rem',
-  '15': '14rem',
-  '16': '16rem',
-}
-
-const theme = { borderWidth, spacing, extend }
+const theme = { extend }
 
 /**
  * Variants
