@@ -14,7 +14,6 @@ import useBookData from '../queries/useBookData'
 import useMovieData from '../queries/useMovieData'
 import usePodcastData from '../queries/usePodcastData'
 import useTvShowData from '../queries/useTvShowData'
-import { main } from '../styles'
 
 export const Section = styled.section`
   padding-top: var(--s7);
@@ -27,14 +26,6 @@ export const LikesHeading = styled.h2`
 `
 
 const hideScrollbar = css`
-  /* For IE */
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-  scrollbar-face-color: transparent;
-  scrollbar-track-color: transparent;
-  scrollbar-3dlight-color: transparent;
-  scrollbar-darkshadow-color: transparent;
-  scrollbar-arrow-color: transparent;
-
   /* For Chrome */
   &::-webkit-scrollbar {
     width: 0px;
@@ -59,11 +50,11 @@ const LikesItem = styled.li`
   width: min-content; /* modern browsers */
 `
 
-const ItemLink = styled(Link)`
-  text-align: center;
-  font-weight: 700;
-  text-decoration: none;
-`
+// const ItemLink = styled(Link)`
+//   text-align: center;
+//   font-weight: 700;
+//   text-decoration: none;
+// `
 
 const ItemImage = styled(Image)`
   box-shadow: var(--shadow1);
@@ -104,7 +95,8 @@ function TV() {
 
           return (
             <LikesItem key={show.id}>
-              <ItemLink
+              <Link
+                variant="incognito"
                 href={show.link}
                 srText={`Visit IMDB page for "${show.title}" in a new window.`}
               >
@@ -114,7 +106,7 @@ function TV() {
                 />
                 <ItemName>{show.title}</ItemName>
                 <ItemDetail>({show.releaseDate})</ItemDetail>
-              </ItemLink>
+              </Link>
             </LikesItem>
           )
         })}
@@ -147,7 +139,8 @@ function Movies() {
 
           return (
             <LikesItem key={movie.id}>
-              <ItemLink
+              <Link
+                variant="incognito"
                 href={movie.link}
                 srText={`Visit IMDB page for "${movie.title}" in a new window.`}
               >
@@ -157,7 +150,7 @@ function Movies() {
                 />
                 <ItemName>{movie.title}</ItemName>
                 <ItemDetail>({movie.releaseDate})</ItemDetail>
-              </ItemLink>
+              </Link>
             </LikesItem>
           )
         })}
@@ -190,7 +183,8 @@ function Books() {
 
           return (
             <LikesItem key={book.id}>
-              <ItemLink
+              <Link
+                variant="incognito"
                 href={book.link}
                 srText={`Visit the Open Library page for "${book.title}" in a new window.`}
               >
@@ -200,7 +194,7 @@ function Books() {
                 />
                 <ItemName>{book.title}</ItemName>
                 <ItemDetail>({book.publishDate})</ItemDetail>
-              </ItemLink>
+              </Link>
             </LikesItem>
           )
         })}
@@ -234,7 +228,8 @@ function Albums() {
 
           return (
             <LikesItem key={album.id}>
-              <ItemLink
+              <Link
+                variant="incognito"
                 href={album.link}
                 srText={`Visit the iTunes page for "${album.name}" by ${album.artist} in a new window.`}
               >
@@ -245,7 +240,7 @@ function Albums() {
                 <ItemName>{album.name}</ItemName>
                 <ItemDetail>{album.artist}</ItemDetail>
                 <ItemDetail>({album.releaseDate})</ItemDetail>
-              </ItemLink>
+              </Link>
             </LikesItem>
           )
         })}
@@ -278,7 +273,8 @@ function Podcasts() {
 
           return (
             <LikesItem key={podcast.id}>
-              <ItemLink
+              <Link
+                variant="incognito"
                 href={podcast.link}
                 srText={`Visit the iTunes page for "${podcast.name}" in a new window.`}
               >
@@ -288,7 +284,7 @@ function Podcasts() {
                 />
                 <ItemName>{podcast.name}</ItemName>
                 <ItemDetail>({podcast.releaseDate})</ItemDetail>
-              </ItemLink>
+              </Link>
             </LikesItem>
           )
         })}
@@ -296,11 +292,6 @@ function Podcasts() {
     </Section>
   )
 }
-
-const Main = styled.main`
-  ${main}
-  max-width: 100%;
-`
 
 // FIXME: extract this shared PageComponent declaration
 interface Props {
@@ -321,13 +312,13 @@ function LikesPage({ location }: Props) {
         summary={page.summary}
       />
 
-      <Main>
+      <main>
         <TV />
         <Movies />
         <Books />
         <Albums />
         <Podcasts />
-      </Main>
+      </main>
     </Base>
   )
 }

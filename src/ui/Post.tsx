@@ -9,7 +9,7 @@ import Metadata from './Metadata'
 import Subscribe from './Subscribe'
 import { Link } from './elements'
 import { ReactComponent as CalendarSVG } from '../svg/calendar-alt-regular.svg'
-import { icon, linkInline, main, media, purpleGradient } from '../styles'
+import { icon, media, purpleGradient } from '../styles'
 import {
   h2,
   h3,
@@ -56,12 +56,6 @@ export const pageQuery = graphql`
       url
     }
   }
-`
-
-const Main = styled.main`
-  ${main}
-  margin-top: var(--s7);
-  padding-top: var(--s4);
 `
 
 const Header = styled.header`
@@ -165,7 +159,7 @@ const FeaturedImage = styled(Image)`
 
 const Footer = ({ article }: any) => (
   <StyledFooter>
-    <Link href={article.url} css={linkInline}>
+    <Link variant="underline" href={article.url} className="font-bold">
       Discuss on DEV.to
     </Link>
   </StyledFooter>
@@ -187,7 +181,7 @@ const Post = ({ data: { devArticle: article } }: { data: any }) => {
     <Base>
       <Metadata page={metadata} />
 
-      <Main>
+      <main className="mt-12 pt-4">
         <article>
           <Header>
             <Title>{article.title}</Title>
@@ -204,7 +198,7 @@ const Post = ({ data: { devArticle: article } }: { data: any }) => {
 
           <Footer article={article} />
         </article>
-      </Main>
+      </main>
 
       <aside>
         <Subscribe />

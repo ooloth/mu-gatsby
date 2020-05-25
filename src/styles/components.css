@@ -1,23 +1,16 @@
 /**
  * TODO: eliminate some of the domain-specific ones? 
  *
- * Examples: link-tag, main, page-*, project-*, purple-*, tag-*
+ * Examples: page-*, project-*, purple-*
  */
 
 @import './components/aspect-ratios.css';
 @import './components/blog.css';
-@import './components/container.css';
 @import './components/copy.css';
 @import './components/icon.css';
-@import './components/link-inline.css';
 @import './components/link-tag.css';
-@import './components/main.css';
 @import './components/page-headline.css';
 @import './components/page-summary.css';
-@import './components/project.css';
-@import './components/project-description.css';
 @import './components/project-title.css';
 @import './components/purple-gradient.css';
 @import './components/purple-underline.css';
-@import './components/tag-item.css';
-@import './components/tag-list.css';
