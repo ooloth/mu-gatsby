@@ -1,20 +1,14 @@
 import React, { ReactNode } from 'react'
 import { WindowLocation } from '@reach/router'
-import styled from 'styled-components'
 
 import Metadata from './Metadata'
 import Top from './Top'
 import Bottom from './Bottom'
-import { CustomProperties } from '../styles'
 import avenirRegular from '../fonts/AvenirNextLTPro-Regular.woff2'
 import avenirHeavy from '../fonts/AvenirNextLTPro-Heavy.woff2'
 
-const MinHeight100 = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100vh;
-`
+// TODO: delete
+import { CustomProperties } from '../styles'
 
 interface Props {
   children: ReactNode
@@ -22,7 +16,7 @@ interface Props {
 }
 
 const Base = ({ children, location }: Props) => (
-  <MinHeight100>
+  <div className="flex flex-col justify-center min-h-screen px-3 sm:px-4 md:px-8 xl:px-12">
     <Metadata
       preload={[
         { href: avenirRegular, as: `font`, type: `font/woff2` },
@@ -30,13 +24,14 @@ const Base = ({ children, location }: Props) => (
       ]}
       preconnect={[`https://unpkg.com`]}
     />
+
+    {/* TODO: delete */}
     <CustomProperties />
 
     <Top />
-    {children}
-    {/* https://www.gatsbyjs.org/docs/migrating-from-v1-to-v2/#4-pass-history-location-and-match-props-to-layout */}
+    <div className="flex-auto">{children}</div>
     <Bottom currentPath={location && location.pathname} />
-  </MinHeight100>
+  </div>
 )
 
 export default Base
