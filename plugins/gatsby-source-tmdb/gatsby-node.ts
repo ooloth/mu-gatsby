@@ -4,7 +4,12 @@ import { Actions, SourceNodesArgs } from 'gatsby'
 import crypto from 'crypto'
 import shortid from 'shortid'
 
-const { TMDB_READ_ACCESS_TOKEN, TMDB_TV_LIST_ID, TMDB_MOVIE_LIST_ID } = process.env
+const {
+  NODE_ENV,
+  TMDB_READ_ACCESS_TOKEN,
+  TMDB_TV_LIST_ID,
+  TMDB_MOVIE_LIST_ID,
+} = process.env
 
 // Avoid numbers to prevent clashes with numeric DEV.to article IDs
 shortid.characters(
@@ -106,7 +111,7 @@ const createTMDBNodes = async (
   createNode: Actions['createNode'],
 ) => {
   // Don't waste time fetching + optimizing images in development
-  if (process.env.LIKES_IMAGES === 'dummy') {
+  if (NODE_ENV !== 'production') {
     createDummyNodes(createNode)
     return
   }
@@ -191,10 +196,14 @@ async function fetchTMDBListData(
 exports.sourceNodes = async ({ actions }: SourceNodesArgs) => {
   const { createNode } = actions
 
-  const tvData = await fetchTMDBListData(TMDB_TV_LIST_ID, 'tv')
-  const movieData = await fetchTMDBListData(TMDB_MOVIE_LIST_ID, 'movie')
+  let tvData: any = []
+  let movieData: any = []
 
-  await Promise.all([tvData, movieData])
+  if (NODE_ENV === 'production') {
+    tvData = await fetchTMDBListData(TMDB_TV_LIST_ID, 'tv')
+    movieData = await fetchTMDBListData(TMDB_MOVIE_LIST_ID, 'movie')
+    await Promise.all([tvData, movieData])
+  }
 
   createTMDBNodes(tvData, movieData, createNode)
 }

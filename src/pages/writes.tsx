@@ -9,17 +9,11 @@ import useSiteMetadata from '../queries/useSiteMetadata'
 import usePageData from '../queries/usePageData'
 import usePostsData from '../queries/usePostsData'
 
-const slugifyTag = (tag: string): string =>
-  tag
-    .replace('cssmodules', 'css-modules')
-    .replace('opensource', 'open-source')
-    .replace('styledcomponents', 'styled-components')
-
-const Tags = ({ tags }: any) => (
+const Topics = ({ topics }: { topics: Array<string> }) => (
   <ul className="flex flex-wrap">
-    {tags.map((tag: any) => (
-      <li key={tag} className="mt-2 mr-2 lh-normal">
-        <span className="link-tag">{slugifyTag(tag)}</span>
+    {topics.map(topic => (
+      <li key={topic} className="mt-2 mr-2 lh-normal">
+        <span className="link-tag">{topic}</span>
       </li>
     ))}
   </ul>
@@ -27,30 +21,29 @@ const Tags = ({ tags }: any) => (
 
 const Posts = () => {
   const posts = usePostsData()
-
-  // TODO: add this field during the build
-  const postsWithSlugs = posts.map((post: any) => ({
-    ...post,
-    slug: post.canonical_url.replace('https://www.michaeluloth.com', ''),
-  }))
+  console.log('posts', posts)
 
   return (
     <section>
       <h2 className="sr-only">Blog posts</h2>
 
       <ul>
-        {postsWithSlugs.map((post: any) => (
+        {posts.map((post: any) => (
           <li key={post.id} className="mt-16">
-            <Link variant="underline" href={post.slug} className="project-title">
-              {post.title}
+            <Link
+              variant="underline"
+              href={post.frontmatter.slug}
+              className="project-title"
+            >
+              {post.frontmatter.title}
             </Link>
 
             <p
-              dangerouslySetInnerHTML={{ __html: post.description }}
+              dangerouslySetInnerHTML={{ __html: post.frontmatter.description }}
               className="mt-3 copy text-lg iPhoneX:text-xl"
             />
 
-            {post.tags && <Tags tags={post.tags} />}
+            {post.frontmatter.topics && <Topics topics={post.frontmatter.topics} />}
           </li>
         ))}
       </ul>

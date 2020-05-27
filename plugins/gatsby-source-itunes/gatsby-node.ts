@@ -8,6 +8,8 @@ import { Actions, SourceNodesArgs } from 'gatsby'
 import crypto from 'crypto'
 import shortid from 'shortid'
 
+const { NODE_ENV } = process.env
+
 // Avoid numbers to prevent clashes with numeric DEV.to article IDs
 shortid.characters(
   'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_-',
@@ -147,13 +149,12 @@ async function createItunesNodes(
   bookData: Array<BookNode>,
   createNode: Actions['createNode'],
 ) {
-  // Don't waste time fetching + optimizing images in development
-  if (process.env.LIKES_IMAGES === 'dummy') {
+  // Don't waste time downloading + optimizing images in development
+  if (NODE_ENV !== 'production') {
     createDummyNodes(createNode)
     return
   }
 
-  // In production, fetch + process all Likes data
   for (let book of bookData) {
     createBookNode(createNode, book)
   }
@@ -262,11 +263,17 @@ async function searchiTunesAPI(
 exports.sourceNodes = async ({ actions }: SourceNodesArgs) => {
   const { createNode } = actions
 
-  const albumData = await searchiTunesAPI(albums, 'music', 'album')
-  const podcastData = await searchiTunesAPI(podcasts, 'podcast', 'podcast')
-  const bookData = await searchiTunesAPI(books, 'ebook', 'ebook')
+  let albumData: any = []
+  let podcastData: any = []
+  let bookData: any = []
 
-  await Promise.all([albumData, podcastData, bookData])
+  // Don't waste time fetching data in development
+  if (NODE_ENV === 'production') {
+    albumData = await searchiTunesAPI(albums, 'music', 'album')
+    podcastData = await searchiTunesAPI(podcasts, 'podcast', 'podcast')
+    bookData = await searchiTunesAPI(books, 'ebook', 'ebook')
+    await Promise.all([albumData, podcastData, bookData])
+  }
 
   createItunesNodes(albumData, podcastData, bookData, createNode)
 }

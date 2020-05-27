@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Image from 'gatsby-image'
 
 import Base from './Base'
 import Metadata from './Metadata'
@@ -10,32 +9,27 @@ import { ReactComponent as CalendarSVG } from '../svg/calendar-alt-regular.svg'
 
 export const pageQuery = graphql`
   query($id: String) {
-    devArticle(id: { eq: $id }) {
-      body_html
-      canonical_url
-      childMarkdownRemark {
-        html
-        rawMarkdownBody
-      }
-      collection_id
-      comments_count
-      created_at
-      description
-      edited_at(formatString: "MMM D, YYYY")
-      id
-      image {
-        childImageSharp {
-          fluid(maxWidth: 1000, quality: 80) {
-            ...GatsbyImageSharpFluid_withWebp
+    markdownRemark(id: { eq: $id }) {
+      frontmatter {
+        datePublished(formatString: "MMM D, YYYY")
+        dateUpdated(formatString: "MMM D, YYYY")
+        description
+        devLink
+        linkSharedOnTwitter
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 1000, quality: 80) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
           }
         }
+        published
+        slug
+        title
+        topics
       }
-      positive_reactions_count
-      published_at(formatString: "MMM D, YYYY")
-      social_image
-      tags
-      title
-      url
+      html
+      id
     }
   }
 `
@@ -51,17 +45,19 @@ const MetaItem = ({ action, date }: { action: string; date: string }) => (
   </li>
 )
 
-const MetaItems = ({ article }: any) => (
+const MetaItems = ({ post }: any) => (
   <ul className="mt-6 sm:flex sm:flex-wrap sm:mt-3">
-    <MetaItem action="Published" date={article.published_at} />
-    {article.edited_at && <MetaItem action="Updated" date={article.edited_at} />}
+    <MetaItem action="Published" date={post.frontmatter.datePublished} />
+    {post.frontmatter.dateUpdated && (
+      <MetaItem action="Updated" date={post.frontmatter.dateUpdated} />
+    )}
   </ul>
 )
 
-const Footer = ({ article }: any) => (
+const Footer = ({ post }: any) => (
   <footer className="mt-16">
     <Link
-      href={article.url}
+      href={post.frontmatter.devLink}
       variant="underline"
       className="text-lg iPhoneX:text-xl font-bold"
     >
@@ -70,17 +66,17 @@ const Footer = ({ article }: any) => (
   </footer>
 )
 
-const getPostMetadata = (article: any): any => ({
+const getPostMetadata = (post: any): any => ({
   author: 'Michael Uloth',
-  description: article.description,
-  image: article.social_image,
-  title: article.title,
+  description: post.frontmatter.description,
+  image: post.frontmatter.featuredImage,
+  title: post.frontmatter.title,
   type: 'article',
-  url: article.canonical_url,
+  url: `https://www.michaeluloth.com/${post.slug}`,
 })
 
-export default ({ data: { devArticle: article } }: { data: any }) => {
-  const metadata = getPostMetadata(article)
+export default ({ data: { markdownRemark: post } }: { data: any }) => {
+  const metadata = getPostMetadata(post)
 
   return (
     <Base>
@@ -90,24 +86,17 @@ export default ({ data: { devArticle: article } }: { data: any }) => {
         <article className="max-w-2xl">
           <header className="mb-10">
             <h1 className="text-4xl iPhoneX:text-5xl font-black">
-              {article.title}
+              {post.frontmatter.title}
             </h1>
-            <MetaItems article={article} />
+            <MetaItems post={post} />
           </header>
 
-          {article.image && (
-            <Image
-              fluid={article.image.childImageSharp.fluid}
-              className="my-10 md:my-12 shadow-lg rounded"
-            />
-          )}
-
           <div
-            dangerouslySetInnerHTML={{ __html: article.childMarkdownRemark.html }}
+            dangerouslySetInnerHTML={{ __html: post.html }}
             className="blog-post"
           />
 
-          <Footer article={article} />
+          <Footer post={post} />
         </article>
       </main>
 
