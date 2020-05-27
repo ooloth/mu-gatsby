@@ -10,32 +10,33 @@ export default (): any =>
   useStaticQuery(
     graphql`
       {
-        allDevArticle(sort: { order: DESC, fields: published_at }) {
+        allMarkdownRemark(
+          filter: { frontmatter: { published: { eq: true } } }
+          sort: { fields: frontmatter___datePublished, order: DESC }
+        ) {
           nodes {
-            canonical_url
-            childMarkdownRemark {
-              html
-            }
-            collection_id
-            comments_count
-            created_at
-            description
-            edited_at(formatString: "MMM DD, YYYY")
-            id
-            image {
-              childImageSharp {
-                fluid(maxWidth: 1000, quality: 80) {
-                  ...GatsbyImageSharpFluid_withWebp
+            frontmatter {
+              datePublished(formatString: "MMM D, YYYY")
+              dateUpdated(formatString: "MMM D, YYYY")
+              description
+              devLink
+              linkSharedOnTwitter
+              featuredImage {
+                childImageSharp {
+                  fluid(maxWidth: 1000, quality: 80) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
                 }
               }
+              published
+              slug
+              title
+              topics
             }
-            positive_reactions_count
-            published_at(formatString: "MMM DD, YYYY")
-            social_image
-            tags
-            title
+            html
+            id
           }
         }
       }
     `,
-  ).allDevArticle.nodes
+  ).allMarkdownRemark.nodes

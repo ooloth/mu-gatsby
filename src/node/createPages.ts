@@ -5,65 +5,69 @@ import { CreatePagesArgs } from 'gatsby'
 // https://www.gatsbyjs.org/tutorial/part-seven/
 // https://www.gatsbyjs.org/docs/debugging-async-lifecycles/
 
-interface DevToQueryNode {
-  canonical_url: string
+interface MarkdownQueryNode {
+  frontmatter: {
+    slug: string
+  }
   id: string
 }
 
-interface DevToQueryResult {
+interface MarkdownQueryResult {
   data?: {
-    allDevArticle: {
-      nodes: Array<DevToQueryNode>
+    allMarkdownRemark: {
+      nodes: Array<MarkdownQueryNode>
     }
   }
   errors?: string
 }
 
 async function createPages({ graphql, actions }: CreatePagesArgs) {
-  const devToQuery: DevToQueryResult = await graphql(`
+  const mdQuery: MarkdownQueryResult = await graphql(`
     {
-      allDevArticle {
+      allMarkdownRemark(filter: { frontmatter: { published: { eq: true } } }) {
         nodes {
-          canonical_url
+          frontmatter {
+            slug
+          }
           id
         }
       }
     }
   `)
 
-  if (devToQuery.errors) {
+  if (mdQuery.errors) {
     // Don't create pages with incomplete data
     if (process.env.NODE_ENV === 'production') {
-      throw new Error(`[createPages]: ${devToQuery.errors}`)
+      throw new Error(`[createPages]: ${mdQuery.errors}`)
     } else {
-      console.error(`[createPages]: ${devToQuery.errors}`)
+      console.error(`[createPages]: ${mdQuery.errors}`)
     }
   }
 
   if (
-    !devToQuery.data ||
-    !devToQuery.data.allDevArticle ||
-    !devToQuery.data.allDevArticle.nodes ||
-    !devToQuery.data.allDevArticle.nodes.length
+    !mdQuery.data ||
+    !mdQuery.data.allMarkdownRemark ||
+    !mdQuery.data.allMarkdownRemark.nodes ||
+    !mdQuery.data.allMarkdownRemark.nodes.length
   ) {
     // Don't create pages with no data
     if (process.env.NODE_ENV === 'production') {
-      throw new Error('[createPages]: No query results from DEV.to')
+      throw new Error('[createPages]: No markdown query results')
     } else {
-      console.error('[createPages]: No query results from DEV.to')
+      console.error('[createPages]: No markdown query results')
     }
 
     return
   }
 
-  const { nodes } = devToQuery.data.allDevArticle
+  const { nodes } = mdQuery.data.allMarkdownRemark
 
-  nodes.forEach((node: DevToQueryNode) => {
+  nodes.forEach((node: MarkdownQueryNode) => {
     // const prev: any | null = i === 0 ? null : edges[i - 1].node
     // const next: any | null = i === edges.length - 1 ? null : edges[i + 1].node
 
     actions.createPage({
-      path: node.canonical_url.replace('https://www.michaeluloth.com/', ''),
+      path: node.frontmatter.slug,
       component: require.resolve(`../ui/Post.tsx`),
       context: {
         id: node.id,
