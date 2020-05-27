@@ -1,15 +1,6 @@
-// Access environment variables
 import dotenv from 'dotenv'
+
 dotenv.config()
-
-// Get the originally uploaded DEV post cover images
-const getOriginalImgIndex = (imageUrl: string): number =>
-  imageUrl.indexOf('https://dev-to-uploads') >= 0
-    ? imageUrl.indexOf('https://dev-to-uploads')
-    : imageUrl.indexOf('https://thepracticaldev')
-
-const getOriginalImgUrl = (imageUrl: string): string =>
-  imageUrl.substring(getOriginalImgIndex(imageUrl))
 
 // TODO: extract chunks and create types for them that can be reused by GraphQL queries
 export const siteMetadata = {
@@ -69,6 +60,26 @@ export const siteMetadata = {
   },
 }
 
+/**
+ * Custom YouTube link transformer for gatsby-remark-embedder
+ */
+
+const getVideoId = (url: string): string => String(url.match(/\w+$/i))
+
+const getIframe = (url: string): string =>
+  String(
+    `<div class="my-8 ratio-parent-16x9 rounded purple-gradient">
+      <iframe src="https://youtube.com/embed/${getVideoId(
+        url,
+      )}" class="shadow-lg rounded ratio-child" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+      </iframe>
+    </div>`,
+  )
+
+/**
+ * Plugins
+ */
+
 export const plugins = [
   {
     resolve: `gatsby-source-filesystem`,
@@ -78,14 +89,25 @@ export const plugins = [
     },
   },
   {
-    resolve: `gatsby-plugin-remote-images`,
+    resolve: `gatsby-source-filesystem`,
     options: {
-      nodeType: `DevArticle`,
-      imagePath: `cover_image`,
-      name: `image`,
-      prepareUrl: (url: string) => getOriginalImgUrl(url),
+      name: `posts`,
+      path: `${__dirname}/content/posts/`,
     },
   },
+  // TODO: enable when/if I want to use components in MD:
+  // {
+  //   resolve: 'gatsby-plugin-page-creator',
+  //   options: {
+  //     path: `${__dirname}/content/posts`,
+  //   },
+  // },
+  // {
+  //   resolve: `gatsby-plugin-mdx`,
+  //   options: {
+  //     extensions: [`.mdx`, `.md`],
+  //   },
+  // },
   {
     resolve: `gatsby-plugin-remote-images`,
     options: {
@@ -126,11 +148,11 @@ export const plugins = [
       name: `image`,
     },
   },
+
   `gatsby-plugin-postcss`,
   `gatsby-plugin-react-helmet`,
   `gatsby-plugin-sharp`,
   `gatsby-plugin-svgr`,
-  `gatsby-source-dev`, // my custom source plugin
   `gatsby-source-itunes`, // my custom source plugin
   `gatsby-source-tmdb`, // my custom source plugin
   `gatsby-transformer-sharp`,
@@ -158,7 +180,13 @@ export const plugins = [
           resolve: `gatsby-remark-embedder`,
           options: {
             customTransformers: [
-              // Your custom transformers
+              {
+                // Add a wrapper and some custom classes to the HTML output:
+                getHTML: (url: string) => getIframe(url),
+                name: 'YouTube',
+                shouldTransform: (url: string) =>
+                  /^https?:\/\/(youtu.be\/|youtube.com\/)/.test(url),
+              },
             ],
             services: {
               // The service-specific options by the name of the service
@@ -190,7 +218,7 @@ export const plugins = [
   {
     resolve: `gatsby-plugin-catch-links`,
     options: {
-      excludePattern: /(twitter)/,
+      excludePattern: /(youtu|twitter)/,
     },
   },
   {
@@ -210,27 +238,32 @@ export const plugins = [
       `,
       feeds: [
         {
-          serialize: ({ query: { allDevArticle } }: { query: any }) => {
-            return allDevArticle.nodes.map((node: any) => {
+          serialize: ({ query: { allMarkdownRemark } }: { query: any }) => {
+            return allMarkdownRemark.nodes.map((node: any) => {
               return Object.assign({}, node, {
-                title: node.title,
-                description: node.description,
-                date: node.published_timestamp,
-                url: node.canonical_url.replace(/\/$/, ''),
-                guid: node.canonical_url.replace(/\/$/, ''),
-                custom_elements: [{ 'content:encoded': node.body_html }],
+                title: node.frontmatter.title,
+                description: node.frontmatter.description,
+                date: node.frontmatter.datePublished,
+                url: node.frontmatter.slug.replace(/\/$/, ''),
+                guid: node.frontmatter.slug.replace(/\/$/, ''),
+                custom_elements: [{ 'content:encoded': node.html }],
               })
             })
           },
           query: `
             {
-              allDevArticle(sort: {order: DESC, fields: published_at}) {
+              allMarkdownRemark(
+                filter: { frontmatter: { published: { eq: true } } }
+                sort: { fields: frontmatter___datePublished, order: DESC }
+              ) {
                 nodes {
-                  body_html
-                  canonical_url
-                  description
-                  published_timestamp
-                  title
+                  frontmatter {
+                    datePublished(formatString: "MMM D, YYYY")
+                    description
+                    slug
+                    title
+                  }
+                  html
                 }
               }
             }
