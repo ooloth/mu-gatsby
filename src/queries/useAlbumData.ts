@@ -1,55 +1,32 @@
 import { useStaticQuery, graphql } from 'gatsby'
 
-// See: gatsby/packages/gatsby-transformer-sharp/src/fragments.js
-interface GatsbyImageFixedWithWebp {
-  childImageSharp: {
-    fixed: {
-      base64: string
-      aspectRatio: number
-      height: number
-      src: string
-      srcSet: string
-      srcWebp: string
-      srcSetWebp: string
-      width: number
-    }
-  }
+import { GatsbyImageFixedWithWebp } from '../types'
+import { AlbumNode } from '../../plugins/gatsby-source-itunes/gatsby-node'
+
+export interface Album extends AlbumNode {
+  image: GatsbyImageFixedWithWebp
 }
 
-interface Album {
-  artist: string
-  cover: GatsbyImageFixedWithWebp
-  id: string
-  link: string
-  name: string
-  releaseDate: string
-}
-
-function useAlbumData(): Album[] {
-  const { allAlbum } = useStaticQuery(
+export default (): Array<Album> =>
+  useStaticQuery(
     graphql`
       {
-        allAlbum(sort: { fields: releaseDate, order: DESC }) {
+        allAlbum(sort: { fields: date, order: DESC }) {
           nodes {
             artist
-            cover {
+            date(formatString: "YYYY")
+            id
+            image {
               childImageSharp {
                 fixed(width: 200, height: 200, quality: 80) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
             }
-            id
             link
-            name
-            releaseDate(formatString: "YYYY")
+            title
           }
         }
       }
     `,
-  )
-
-  return allAlbum.nodes
-}
-
-export default useAlbumData
+  ).allAlbum.nodes

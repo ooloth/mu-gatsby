@@ -1,53 +1,31 @@
 import { useStaticQuery, graphql } from 'gatsby'
 
-// See: gatsby/packages/gatsby-transformer-sharp/src/fragments.js
-interface GatsbyImageFixedWithWebp {
-  childImageSharp: {
-    fixed: {
-      base64: string
-      aspectRatio: number
-      height: number
-      src: string
-      srcSet: string
-      srcWebp: string
-      srcSetWebp: string
-      width: number
-    }
-  }
+import { GatsbyImageFixedWithWebp } from '../types'
+import { MovieNode } from '../../plugins/gatsby-source-tmdb/gatsby-node'
+
+export interface Movie extends MovieNode {
+  image: GatsbyImageFixedWithWebp
 }
 
-interface Movie {
-  id: string
-  link: string
-  poster: GatsbyImageFixedWithWebp
-  releaseDate: string
-  title: string
-}
-
-function useMovieData(): Movie[] {
-  const { allMovie } = useStaticQuery(
+export default (): Array<Movie> =>
+  useStaticQuery(
     graphql`
       {
-        allMovie(sort: { fields: releaseDate, order: DESC }) {
+        allMovie(sort: { fields: date, order: DESC }) {
           nodes {
+            date(formatString: "YYYY")
             id
-            link
-            poster {
+            image {
               childImageSharp {
                 fixed(width: 200, height: 300, quality: 80) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
             }
-            releaseDate(formatString: "YYYY")
+            link
             title
           }
         }
       }
     `,
-  )
-
-  return allMovie.nodes
-}
-
-export default useMovieData
+  ).allMovie.nodes

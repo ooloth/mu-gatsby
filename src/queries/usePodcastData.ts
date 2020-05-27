@@ -1,55 +1,32 @@
 import { useStaticQuery, graphql } from 'gatsby'
 
-// See: gatsby/packages/gatsby-transformer-sharp/src/fragments.js
-interface GatsbyImageFixedWithWebp {
-  childImageSharp: {
-    fixed: {
-      base64: string
-      aspectRatio: number
-      height: number
-      src: string
-      srcSet: string
-      srcWebp: string
-      srcSetWebp: string
-      width: number
-    }
-  }
+import { GatsbyImageFixedWithWebp } from '../types'
+import { PodcastNode } from '../../plugins/gatsby-source-itunes/gatsby-node'
+
+export interface Podcast extends PodcastNode {
+  image: GatsbyImageFixedWithWebp
 }
 
-interface Podcast {
-  artist: string
-  cover: GatsbyImageFixedWithWebp
-  id: string
-  link: string
-  name: string
-  releaseDate: string
-}
-
-function usePodcastData(): Podcast[] {
-  const { allPodcast } = useStaticQuery(
+export default (): Array<Podcast> =>
+  useStaticQuery(
     graphql`
       {
-        allPodcast(sort: { fields: releaseDate, order: DESC }) {
+        allPodcast(sort: { fields: date, order: DESC }) {
           nodes {
             artist
-            cover {
+            date(formatString: "YYYY")
+            id
+            image {
               childImageSharp {
                 fixed(width: 200, height: 200, quality: 80) {
                   ...GatsbyImageSharpFixed_withWebp
                 }
               }
             }
-            id
             link
-            name
-            releaseDate(formatString: "YYYY")
+            title
           }
         }
       }
     `,
-  )
-
-  return allPodcast.nodes
-}
-
-export default usePodcastData
+  ).allPodcast.nodes

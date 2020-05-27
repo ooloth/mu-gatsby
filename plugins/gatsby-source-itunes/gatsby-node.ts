@@ -16,10 +16,10 @@ shortid.characters(
 function createBookNode(createNode: Actions['createNode'], book: BookNode) {
   createNode({
     // Data for the node.
-    coverUrl: book.coverUrl,
+    imageUrl: book.imageUrl,
     link: book.link,
-    publishDate: book.releaseDate,
-    title: book.name,
+    date: book.date,
+    title: book.title,
 
     // Required fields.
     id: shortid.generate(),
@@ -39,10 +39,10 @@ function createAlbumNode(createNode: Actions['createNode'], album: AlbumNode) {
   createNode({
     // Data for the node.
     artist: album.artist,
-    name: album.name,
-    releaseDate: album.releaseDate,
+    title: album.title,
+    date: album.date,
     link: album.link,
-    coverUrl: album.coverUrl,
+    imageUrl: album.imageUrl,
 
     // Required fields.
     id: shortid.generate(),
@@ -65,10 +65,10 @@ function createPodcastNode(
   createNode({
     // Data for the node.
     artist: podcast.artist,
-    name: podcast.name,
-    releaseDate: podcast.releaseDate,
+    title: podcast.title,
+    date: podcast.date,
     link: podcast.link,
-    coverUrl: podcast.coverUrl,
+    imageUrl: podcast.imageUrl,
 
     // Required fields.
     id: shortid.generate(),
@@ -87,50 +87,50 @@ function createPodcastNode(
 interface LikesNode {
   id: string
   link: string
-  releaseDate: string
+  date: string
 }
 
-interface BookNode extends LikesNode {
-  coverUrl: string
-  name: string
+export interface BookNode extends LikesNode {
+  imageUrl: string
+  title: string
 }
 
-interface AlbumNode extends LikesNode {
+export interface AlbumNode extends LikesNode {
   artist: string
-  coverUrl: string
-  name: string
+  imageUrl: string
+  title: string
 }
 
-interface PodcastNode extends LikesNode {
+export interface PodcastNode extends LikesNode {
   artist: string
-  coverUrl: string
-  name: string
+  imageUrl: string
+  title: string
 }
 
 const dummyNode: LikesNode = {
   id: 'GENERATE ME EACH TIME',
   link: 'https://www.google.ca',
-  releaseDate: '2020-01-01',
+  date: '2020-01-01',
 }
 
 const dummyBookNode: BookNode = {
   ...dummyNode,
-  coverUrl: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809',
-  name: 'Name',
+  imageUrl: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809',
+  title: 'Title',
 }
 
 const dummyAlbumNode: AlbumNode = {
   ...dummyNode,
   artist: 'Artist',
-  coverUrl: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809',
-  name: 'Name',
+  imageUrl: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809',
+  title: 'Title',
 }
 
 const dummyPodcastNode: PodcastNode = {
   ...dummyNode,
   artist: 'Artist',
-  coverUrl: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809',
-  name: 'Name',
+  imageUrl: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809',
+  title: 'Title',
 }
 
 function createDummyNodes(createNode: Actions['createNode']) {
@@ -196,11 +196,11 @@ type Result = ITunesAlbumResult | ITunesBookResult | ITunesPodcastResult
 
 interface FormattedResult {
   artist: string
-  name: string
+  title: string
   id: string
-  releaseDate: string
+  date: string
   link: string
-  coverUrl: string
+  imageUrl: string
 }
 
 async function searchiTunesAPI(
@@ -238,19 +238,19 @@ async function searchiTunesAPI(
       }
 
       const artist = result.artistName
-      const name = matchingItem.name
+      const title = matchingItem.name
       const id = resultID
-      const releaseDate = matchingItem.date
+      const date = matchingItem.date
       const link = result.collectionViewUrl || result.trackViewUrl
       // See image srcset URLs used on books.apple.com:
-      const coverUrl = result.artworkUrl100.replace('100x100bb', '400x0w')
+      const imageUrl = result.artworkUrl100.replace('100x100bb', '400x0w')
 
-      if (!name || !id || !releaseDate || !link || !coverUrl) {
+      if (!title || !id || !date || !link || !imageUrl) {
         console.log(`Removed iTunes result:`, result)
         return null
       }
 
-      return { artist, name, id, releaseDate, link, coverUrl }
+      return { artist, title, id, date, link, imageUrl }
     })
     return formattedResults
   } catch (error) {

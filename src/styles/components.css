@@ -5,8 +5,9 @@
  */
 
 @import './components/aspect-ratios.css';
-@import './components/blog.css';
+@import './components/blog-post.css';
 @import './components/copy.css';
+@import './components/hide-scrollbar.css';
 @import './components/icon.css';
 @import './components/link-tag.css';
 @import './components/page-headline.css';

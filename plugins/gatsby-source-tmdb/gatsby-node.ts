@@ -18,9 +18,9 @@ const createTvShowNode = (
   createNode({
     // Data for the node.
     title: show.title,
-    releaseDate: show.releaseDate,
+    date: show.date,
     link: show.link,
-    posterUrl: show.posterUrl,
+    imageUrl: show.imageUrl,
 
     // Required fields.
     id: shortid.generate(),
@@ -42,9 +42,9 @@ const createMovieNode = (
   createNode({
     // Data for the node.
     title: movie.title,
-    releaseDate: movie.releaseDate,
+    date: movie.date,
     link: movie.link,
-    posterUrl: movie.posterUrl,
+    imageUrl: movie.imageUrl,
 
     // Required fields.
     id: shortid.generate(),
@@ -62,34 +62,34 @@ const createMovieNode = (
 interface LikesNode {
   id: string
   link: string
-  releaseDate: string
+  date: string
 }
 
-interface TvShowNode extends LikesNode {
-  posterUrl: string
+export interface TvShowNode extends LikesNode {
+  imageUrl: string
   title: string
 }
 
-interface MovieNode extends LikesNode {
-  posterUrl: string
+export interface MovieNode extends LikesNode {
+  imageUrl: string
   title: string
 }
 
 const dummyNode: LikesNode = {
   id: 'GENERATE ME EACH TIME',
   link: 'https://www.google.ca',
-  releaseDate: '2020-01-01',
+  date: '2020-01-01',
 }
 
 const dummyTvShowNode: TvShowNode = {
   ...dummyNode,
-  posterUrl: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809',
+  imageUrl: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809',
   title: 'Title',
 }
 
 const dummyMovieNode: MovieNode = {
   ...dummyNode,
-  posterUrl: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809',
+  imageUrl: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809',
   title: 'Title',
 }
 
@@ -123,8 +123,8 @@ const createTMDBNodes = async (
 
 interface FormattedResult {
   id: string
-  posterUrl: string
-  releaseDate: string
+  imageUrl: string
+  date: string
   link: string
   title: string
 }
@@ -166,16 +166,16 @@ async function fetchTMDBListData(
         for (let result of data.results) {
           const title = result.title || result.name
           const id = result.id
-          const releaseDate = result.release_date || result.first_air_date
-          const posterUrl = `https://image.tmdb.org/t/p/original${result.poster_path}`
+          const date = result.release_date || result.first_air_date
+          const imageUrl = `https://image.tmdb.org/t/p/original${result.poster_path}`
           const link = `https://www.themoviedb.org/${api}/${id}`
 
-          if (!title || !id || !releaseDate || !result.poster_path) {
+          if (!title || !id || !date || !result.poster_path) {
             console.log(`Removed TMDB result:`, title || result)
             continue
           }
 
-          items.push({ title, id, releaseDate, posterUrl, link })
+          items.push({ title, id, date, imageUrl, link })
         }
       }
     } catch (error) {

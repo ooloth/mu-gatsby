@@ -1,36 +1,20 @@
 import { useStaticQuery, graphql } from 'gatsby'
 
-// See: gatsby/packages/gatsby-transformer-sharp/src/fragments.js
-interface GatsbyImageFixedWithWebp {
-  childImageSharp: {
-    fixed: {
-      base64: string
-      aspectRatio: number
-      height: number
-      src: string
-      srcSet: string
-      srcWebp: string
-      srcSetWebp: string
-      width: number
-    }
-  }
+import { GatsbyImageFixedWithWebp } from '../types'
+import { BookNode } from '../../plugins/gatsby-source-itunes/gatsby-node'
+
+export interface Book extends BookNode {
+  image: GatsbyImageFixedWithWebp
 }
 
-interface Book {
-  cover: GatsbyImageFixedWithWebp
-  id: string
-  link: string
-  publishDate: string
-  title: string
-}
-
-function useBookData(): Book[] {
-  const { allBook } = useStaticQuery(
+export default (): Array<Book> =>
+  useStaticQuery(
     graphql`
       {
-        allBook(sort: { fields: publishDate, order: DESC }) {
+        allBook(sort: { fields: date, order: DESC }) {
           nodes {
-            cover {
+            date(formatString: "YYYY")
+            image {
               childImageSharp {
                 fixed(width: 200, height: 300, quality: 80) {
                   ...GatsbyImageSharpFixed_withWebp
@@ -39,15 +23,9 @@ function useBookData(): Book[] {
             }
             id
             link
-            publishDate(formatString: "YYYY")
             title
           }
         }
       }
     `,
-  )
-
-  return allBook.nodes
-}
-
-export default useBookData
+  ).allBook.nodes

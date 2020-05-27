@@ -90,40 +90,40 @@ export const plugins = [
     resolve: `gatsby-plugin-remote-images`,
     options: {
       nodeType: `TvShow`,
-      imagePath: `posterUrl`,
-      name: `poster`,
+      imagePath: `imageUrl`,
+      name: `image`,
     },
   },
   {
     resolve: `gatsby-plugin-remote-images`,
     options: {
       nodeType: `Movie`,
-      imagePath: `posterUrl`,
-      name: `poster`,
+      imagePath: `imageUrl`,
+      name: `image`,
     },
   },
   {
     resolve: `gatsby-plugin-remote-images`,
     options: {
       nodeType: `Book`,
-      imagePath: `coverUrl`,
-      name: `cover`,
+      imagePath: `imageUrl`,
+      name: `image`,
     },
   },
   {
     resolve: `gatsby-plugin-remote-images`,
     options: {
       nodeType: `Album`,
-      imagePath: `coverUrl`,
-      name: `cover`,
+      imagePath: `imageUrl`,
+      name: `image`,
     },
   },
   {
     resolve: `gatsby-plugin-remote-images`,
     options: {
       nodeType: `Podcast`,
-      imagePath: `coverUrl`,
-      name: `cover`,
+      imagePath: `imageUrl`,
+      name: `image`,
     },
   },
   `gatsby-plugin-postcss`,
