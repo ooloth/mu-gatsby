@@ -58,7 +58,7 @@ const getVideoId = (embed: string): string => embed.substring(11, 22)
 
 const getIframe = (videoId: string): string =>
   String(
-    `<div class="my-8 ratio-parent-16x9">
+    `<div class="my-8 ratio-parent-16x9 purple-gradient">
       <iframe src="https://www.youtube.com/embed/${videoId}" class="shadow-lg rounded ratio-child" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
       </iframe>
     </div>`,
@@ -114,13 +114,13 @@ const replaceTwitterEmbeds = (article: any): any => {
 }
 
 /**
- * Embeds
+ * DEV.to embeds
  */
 
 const replaceEmbedsWithLinks = (articles: any): any =>
-  articles.map((article: any) =>
-    replaceTwitterEmbeds(replaceYouTubeEmbeds(article)),
-  )
+  articles
+    .filter(Boolean)
+    .map((article: any) => replaceTwitterEmbeds(replaceYouTubeEmbeds(article)))
 
 /**
  * GraphQL nodes
