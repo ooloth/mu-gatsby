@@ -96,16 +96,18 @@
 
   & figure {
     @apply my-8;
+
+    & .gatsby-resp-image-wrapper {
+      @apply shadow-lg rounded;
+    }
+
+    & img {
+      @apply mb-0;
+    }
   }
 
   & figcaption {
-    @apply pt-2 max-w-2xl text-center text-sm text-gray-700;
-  }
-
-  @screen iPhoneX {
-    & figcaption {
-      @apply text-base;
-    }
+    @apply mt-1 max-w-2xl text-center leading-snug text-sm text-gray-600;
   }
 
   & pre {
