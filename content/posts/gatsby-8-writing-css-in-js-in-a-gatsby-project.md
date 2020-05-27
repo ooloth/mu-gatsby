@@ -2,7 +2,7 @@
 title: Writing CSS-in-JS in a Gatsby Project
 slug: writing-css-in-js-in-a-gatsby-project
 description: How CSS-in-JS libraries like CSS Modules and Styled Components make it easier to safely add and remove styles.
-metaImage: gatsby-8-writing-css-in-js-in-a-gatsby-project.png
+featuredImage: ./assets/gatsby-8-writing-css-in-js-in-a-gatsby-project.png
 topics:
   - gatsby
   - react
@@ -16,8 +16,6 @@ published: true
 datePublished: 2019-03-18
 dateUpdated: 2019-06-03
 ---
-
-import { VideoEmbed } from '../../ui/blog/VideoEmbed.tsx'
 
 This is the eighth video in our [beginner series](https://www.youtube.com/watch?v=jAa1wh5ATm0&list=PLHBEcHVSROXQQhXpNhmiVKKcw72Cc0V-U) exploring GatsbyJS and how to use it to easily build performant apps and websites:
 
@@ -38,4 +36,4 @@ Check out the video below or [view the entire playlist](https://www.youtube.com/
 
 Enjoy! 🎉📺
 
-<VideoEmbed embedURL="https://www.youtube.com/embed/RwUn0Trhyyk" />
+https://youtu.be/RwUn0Trhyyk

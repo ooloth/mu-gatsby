@@ -2,7 +2,7 @@
 title: Using GraphQL with Gatsby
 slug: using-graphql-with-gatsby
 description: How to write GraphQL queries in a Gatsby project.
-metaImage: gatsby-10-using-graphql-with-gatsby.png
+featuredImage: ./assets/gatsby-10-using-graphql-with-gatsby.png
 topics:
   - gatsby
   - react
@@ -12,8 +12,6 @@ devLink: https://dev.to/ooloth/up-running-with-gatsby-10-using-graphql-with-gats
 published: true
 datePublished: 2019-06-03
 ---
-
-import { VideoEmbed } from '../../ui/blog/VideoEmbed.tsx'
 
 This is the tenth video in our [beginner series](https://www.youtube.com/watch?v=jAa1wh5ATm0&list=PLHBEcHVSROXQQhXpNhmiVKKcw72Cc0V-U) exploring GatsbyJS and how to use it to easily build performant apps and websites:
 
@@ -34,4 +32,4 @@ Check out the video below or [view the entire playlist](https://www.youtube.com/
 
 Enjoy! 🎉📺
 
-<VideoEmbed embedURL="https://www.youtube.com/embed/IaorT4-efuU" />
+https://youtu.be/IaorT4-efuU

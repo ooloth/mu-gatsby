@@ -2,7 +2,7 @@
 title: Wrapping Pages in a Layout Component
 slug: wrapping-pages-in-a-layout-component
 description: How to share common content and styling between pages.
-metaImage: gatsby-6-wrapping-pages-in-a-layout-component.png
+featuredImage: ./assets/gatsby-6-wrapping-pages-in-a-layout-component.png
 topics:
   - gatsby
   - react
@@ -12,8 +12,6 @@ published: true
 datePublished: 2019-03-04
 dateUpdated: 2019-06-03
 ---
-
-import { VideoEmbed } from '../../ui/blog/VideoEmbed.tsx'
 
 This is the sixth video in our [beginner series](https://www.youtube.com/watch?v=jAa1wh5ATm0&list=PLHBEcHVSROXQQhXpNhmiVKKcw72Cc0V-U) exploring GatsbyJS and how to use it to easily build performant apps and websites:
 
@@ -34,4 +32,4 @@ Check out the video below or [view the entire playlist](https://www.youtube.com/
 
 Enjoy! 🎉📺
 
-<VideoEmbed embedURL="https://www.youtube.com/embed/dvorpyrTI2g" />
+https://youtu.be/dvorpyrTI2g

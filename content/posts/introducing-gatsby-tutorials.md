@@ -2,7 +2,7 @@
 title: Introducing Gatsby Tutorials
 slug: introducing-gatsby-tutorials
 description: A new, community-updated directory of GatsbyJS learning resources.
-metaImage: ben-white-197668-unsplash.jpg
+featuredImage: ./assets/ben-white-197668-unsplash.jpg
 topics:
   - gatsby
   - open source
@@ -12,7 +12,7 @@ published: true
 datePublished: 2018-11-30
 ---
 
-![A boy holding a book with his mouth open in wonder.](ben-white-197668-unsplash.jpg 'Photo by Ben White')
+![A boy holding a book with his mouth open in wonder.](./assets/ben-white-197668-unsplash.jpg 'Photo by Ben White')
 
 Earlier this month, I launched [Gatsby Tutorials](https://www.gatsbytutorials.com). 🎉
 
@@ -20,16 +20,7 @@ Gatsby Tutorials is a filterable and sortable directory of all the [GatsbyJS](ht
 
 Oh, and it’s free and open source.
 
-<blockquote class="twitter-tweet" data-lang="en">
-  <p lang="en" dir="ltr">
-    Where were you three months ago?!
-    <a href="https://t.co/H7zWs82twb">https://t.co/H7zWs82twb</a>
-  </p>
-  &mdash; Misha (@MishaScholte)
-  <a href="https://twitter.com/MishaScholte/status/1062621103657488384?ref_src=twsrc%5Etfw">
-    November 14, 2018
-  </a>
-</blockquote>
+https://twitter.com/ajmalafif/status/1062610482748522497?s=20
 
 ## Umm…why did you make this?
 
@@ -54,7 +45,7 @@ Gatsby Tutorials gathers every Gatsby learning resource in one place so you don�
 
 Instead, just visit the directory and search or filter the list for the topic you’re interested in. The tutorials you need will magically appear:
 
-![Screenshot of gatsbytutorials.com with a successful search result for the word “blazing”](./gatsby-tutorials-search-example.jpg 'Screenshot of gatsbytutorials.com with a successful search result for the word “blazing”')
+![Screenshot of gatsbytutorials.com with a successful search result for the word “blazing”](./assets/gatsby-tutorials-search-example.jpg 'Screenshot of gatsbytutorials.com with a successful search result for the word “blazing”')
 
 Gatsby Tutorials also assists new tutorial creators by making their content more discoverable—a win-win for content creators and Gatsby learners alike.
 

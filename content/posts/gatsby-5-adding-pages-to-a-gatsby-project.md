@@ -2,7 +2,7 @@
 title: Adding Pages to a Gatsby Project
 slug: adding-pages-to-a-gatsby-project
 description: How to add pages to a Gatsby project and navigate between them.
-metaImage: gatsby-5-adding-pages-to-a-gatsby-project.png
+featuredImage: ./assets/gatsby-5-adding-pages-to-a-gatsby-project.png
 topics:
   - gatsby
   - react
@@ -12,8 +12,6 @@ published: true
 datePublished: 2019-02-21
 dateUpdated: 2019-06-03
 ---
-
-import { VideoEmbed } from '../../ui/blog/VideoEmbed.tsx'
 
 This is the fifth video in our [beginner series](https://www.youtube.com/watch?v=jAa1wh5ATm0&list=PLHBEcHVSROXQQhXpNhmiVKKcw72Cc0V-U) exploring GatsbyJS and how to use it to easily build performant apps and websites:
 
@@ -34,4 +32,4 @@ Check out the video below or [view the entire playlist](https://www.youtube.com/
 
 Enjoy! 🎉📺
 
-<VideoEmbed embedURL="https://www.youtube.com/embed/ktHshp6SKXc" />
+https://youtu.be/ktHshp6SKXc

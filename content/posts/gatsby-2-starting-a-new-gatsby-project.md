@@ -2,7 +2,7 @@
 title: Starting a New Gatsby Project
 slug: starting-a-new-gatsby-project
 description: How to start a Gatsby project on your computer.
-metaImage: gatsby-2-starting-a-new-gatsby-project.png
+featuredImage: ./assets/gatsby-2-starting-a-new-gatsby-project.png
 topics:
   - gatsby
   - react
@@ -12,8 +12,6 @@ published: true
 datePublished: 2019-01-24
 dateUpdated: 2019-06-03
 ---
-
-import { VideoEmbed } from '../../ui/blog/VideoEmbed.tsx'
 
 This is the second video in our [beginner series](https://www.youtube.com/watch?v=jAa1wh5ATm0&list=PLHBEcHVSROXQQhXpNhmiVKKcw72Cc0V-U) exploring GatsbyJS and how to use it to easily build performant apps and websites:
 
@@ -34,4 +32,4 @@ Check out the video below or [view the entire playlist](https://www.youtube.com/
 
 Enjoy! 🎉📺
 
-<VideoEmbed embedURL="https://www.youtube.com/embed/afeqjonYgs8" />
+https://youtu.be/afeqjonYgs8

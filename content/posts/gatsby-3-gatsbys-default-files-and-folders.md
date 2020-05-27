@@ -2,7 +2,7 @@
 title: Gatsby's Default Files and Folders
 slug: gatsbys-default-files-and-folders
 description: What's going on inside each folder in a Gatsby project.
-metaImage: gatsby-3-gatsbys-default-files-and-folders.png
+featuredImage: ./assets/gatsby-3-gatsbys-default-files-and-folders.png
 topics:
   - gatsby
   - react
@@ -12,8 +12,6 @@ published: true
 datePublished: 2019-01-31
 dateUpdated: 2019-06-03
 ---
-
-import { VideoEmbed } from '../../ui/blog/VideoEmbed.tsx'
 
 This is the third video in our [beginner series](https://www.youtube.com/watch?v=jAa1wh5ATm0&list=PLHBEcHVSROXQQhXpNhmiVKKcw72Cc0V-U) exploring GatsbyJS and how to use it to easily build performant apps and websites:
 
@@ -34,4 +32,4 @@ Check out the video below or [view the entire playlist](https://www.youtube.com/
 
 Enjoy! 🎉📺
 
-<VideoEmbed embedURL="https://www.youtube.com/embed/o06e7TIJR9Y" />
+https://youtu.be/o06e7TIJR9Y

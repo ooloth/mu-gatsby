@@ -2,7 +2,7 @@
 title: What is Gatsby?
 slug: what-is-gatsby
 description: How Gatsby combines the best features of React and HTML.
-metaImage: gatsby-1-what-is-gatsby.png
+featuredImage: ./assets/gatsby-1-what-is-gatsby.png
 topics:
   - gatsby
   - react
@@ -12,8 +12,6 @@ published: true
 datePublished: 2019-01-17
 dateUpdated: 2019-06-03
 ---
-
-import { VideoEmbed } from '../../ui/blog/VideoEmbed.tsx'
 
 This video kicks off a new [beginner series](https://www.youtube.com/watch?v=jAa1wh5ATm0&list=PLHBEcHVSROXQQhXpNhmiVKKcw72Cc0V-U) exploring GatsbyJS and how to use it to easily build performant apps and websites:
 
@@ -34,4 +32,4 @@ Check out the video below or [view the entire playlist](https://www.youtube.com/
 
 Enjoy! 🎉📺
 
-<VideoEmbed embedURL="https://www.youtube.com/embed/jAa1wh5ATm0" />
+https://youtu.be/jAa1wh5ATm0

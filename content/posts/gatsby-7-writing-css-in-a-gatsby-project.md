@@ -2,7 +2,7 @@
 title: Writing CSS in a Gatsby Project
 slug: writing-css-in-a-gatsby-project
 description: How to write traditional CSS in a Gatsby project.
-metaImage: gatsby-7-writing-css-in-a-gatsby-project.png
+featuredImage: ./assets/gatsby-7-writing-css-in-a-gatsby-project.png
 topics:
   - gatsby
   - react
@@ -15,8 +15,6 @@ published: true
 datePublished: 2019-03-11
 dateUpdated: 2019-06-03
 ---
-
-import { VideoEmbed } from '../../ui/blog/VideoEmbed.tsx'
 
 This is the seventh video in our [beginner series](https://www.youtube.com/watch?v=jAa1wh5ATm0&list=PLHBEcHVSROXQQhXpNhmiVKKcw72Cc0V-U) exploring GatsbyJS and how to use it to easily build performant apps and websites:
 
@@ -37,4 +35,4 @@ Check out the video below or [view the entire playlist](https://www.youtube.com/
 
 Enjoy! 🎉📺
 
-<VideoEmbed embedURL="https://www.youtube.com/embed/hAzt8BIwXiE" />
+https://youtu.be/hAzt8BIwXiE

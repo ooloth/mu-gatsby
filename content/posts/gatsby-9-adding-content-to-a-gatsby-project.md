@@ -2,7 +2,7 @@
 title: Adding Content to a Gatsby Project
 slug: adding-content-to-a-gatsby-project
 description: The pros and cons of different approaches.
-metaImage: gatsby-9-adding-content-to-a-gatsby-project.png
+featuredImage: ./assets/gatsby-9-adding-content-to-a-gatsby-project.png
 topics:
   - gatsby
   - react
@@ -13,8 +13,6 @@ published: true
 datePublished: 2019-05-27
 dateUpdated: 2019-06-03
 ---
-
-import { VideoEmbed } from '../../ui/blog/VideoEmbed.tsx'
 
 This is the ninth video in our [beginner series](https://www.youtube.com/watch?v=jAa1wh5ATm0&list=PLHBEcHVSROXQQhXpNhmiVKKcw72Cc0V-U) exploring GatsbyJS and how to use it to easily build performant apps and websites:
 
@@ -35,4 +33,4 @@ Check out the video below or [view the entire playlist](https://www.youtube.com/
 
 Enjoy! 🎉📺
 
-<VideoEmbed embedURL="https://www.youtube.com/embed/MPqEU9ywgW8" />
+https://youtu.be/MPqEU9ywgW8

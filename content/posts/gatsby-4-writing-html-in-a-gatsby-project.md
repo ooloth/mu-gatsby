@@ -2,7 +2,7 @@
 title: Writing HTML in a Gatsby Project
 slug: writing-html-in-a-gatsby-project
 description: How to use React to split HTML into reusable components.
-metaImage: gatsby-4-writing-html-in-a-gatsby-project.png
+featuredImage: ./assets/gatsby-4-writing-html-in-a-gatsby-project.png
 topics:
   - gatsby
   - react
@@ -14,8 +14,6 @@ published: true
 datePublished: 2019-02-15
 dateUpdated: 2019-06-03
 ---
-
-import { VideoEmbed } from '../../ui/blog/VideoEmbed.tsx'
 
 This is the fourth video in our [beginner series](https://www.youtube.com/watch?v=jAa1wh5ATm0&list=PLHBEcHVSROXQQhXpNhmiVKKcw72Cc0V-U) exploring GatsbyJS and how to use it to easily build performant apps and websites:
 
@@ -36,4 +34,4 @@ Check out the video below or [view the entire playlist](https://www.youtube.com/
 
 Enjoy! 🎉📺
 
-<VideoEmbed embedURL="https://www.youtube.com/embed/MMFvFtpyoIQ" />
+https://youtu.be/MMFvFtpyoIQ
