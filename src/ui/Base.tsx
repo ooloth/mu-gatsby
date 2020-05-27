@@ -7,9 +7,6 @@ import Bottom from './Bottom'
 import avenirRegular from '../fonts/AvenirNextLTPro-Regular.woff2'
 import avenirHeavy from '../fonts/AvenirNextLTPro-Heavy.woff2'
 
-// TODO: delete
-import { CustomProperties } from '../styles'
-
 interface Props {
   children: ReactNode
   location?: WindowLocation
@@ -24,9 +21,6 @@ export default ({ children, location }: Props) => (
       ]}
       preconnect={[`https://unpkg.com`]}
     />
-
-    {/* TODO: delete */}
-    <CustomProperties />
 
     <Top />
     <div className="flex-auto relative">{children}</div>

@@ -129,7 +129,6 @@ export const plugins = [
   `gatsby-plugin-postcss`,
   `gatsby-plugin-react-helmet`,
   `gatsby-plugin-sharp`,
-  `gatsby-plugin-styled-components`,
   `gatsby-plugin-svgr`,
   `gatsby-source-dev`, // my custom source plugin
   `gatsby-source-itunes`, // my custom source plugin
