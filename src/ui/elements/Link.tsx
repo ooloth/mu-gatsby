@@ -1,7 +1,5 @@
 import React, { ReactNode } from 'react'
-import { Link as GatsbyLink } from 'gatsby'
-
-import SrText from './SrText'
+import { Link } from 'gatsby'
 
 const classes = {
   underline: 'purple-gradient purple-underline',
@@ -20,7 +18,7 @@ interface Props {
   lang?: string
 }
 
-function Link({
+export default ({
   variant,
   href,
   children,
@@ -28,7 +26,7 @@ function Link({
   srText,
   lang,
   ...props
-}: Props) {
+}: Props) => {
   const isExternal = Boolean(href.match(/http|\/\/|mailto:|tel:|static\/|pdf\//))
   const isId = Boolean(href.match(/^#/))
   const variantClasses: string = classes[variant]
@@ -42,32 +40,24 @@ function Link({
       lang={lang}
       {...props}
     >
-      {srText && <SrText>{srText}</SrText>}
+      {srText && <span className="sr-only">{srText}</span>}
       {children}
     </a>
   ) : (
-    <GatsbyLink
+    <Link
       to={href}
       className={`${variantClasses} ${className}`}
       onClick={e => e.stopPropagation()} // avoid firing parent event handlers
       lang={lang}
       {...props}
     >
-      {srText && <SrText>{srText}</SrText>}
+      {srText && <span className="sr-only">{srText}</span>}
       {children}
-    </GatsbyLink>
+    </Link>
   )
 }
 
-export default Link
-
 /*
-
-USAGE:
-
-const StyledLink = styled(Link)``
-
-<StyledLink href="" srText="">Link Text</StyledLink>
 
 - See: https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli
 - See: https://stackoverflow.com/questions/37568550/react-prevent-event-trigger-on-parent-from-child

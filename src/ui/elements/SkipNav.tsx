@@ -1,20 +1,14 @@
 import React from 'react'
 
-import SrText from './SrText'
-
 interface SkipNav {
   href: string
 }
 
-function SkipNav({ href }: SkipNav) {
-  return (
-    <SrText as="a" href={href}>
-      Skip navigation and go to main content
-    </SrText>
-  )
-}
-
-export default SkipNav
+export default ({ href }: SkipNav) => (
+  <a href={href} className="sr-only">
+    Skip navigation and go to main content
+  </a>
+)
 
 /*
 
