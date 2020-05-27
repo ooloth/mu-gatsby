@@ -2,7 +2,7 @@ import React from 'react'
 import { WindowLocation } from '@reach/router'
 
 import Base from '../ui/Base'
-import { Emoji, Link, SrText } from '../ui/elements'
+import { Emoji, Link } from '../ui/elements'
 import useSharedData, { NavLink as NavLinkType } from '../queries/useSharedData'
 
 const NavLink = ({ link }: { link: NavLinkType }) => (
@@ -41,7 +41,7 @@ export default ({ location }: { location: WindowLocation }) => {
         </p>
 
         <h1 className="whitespace-no-wrap text-5xl md:text-6xl leading-none tracking-tight font-black">
-          I'm Michael<SrText> Uloth</SrText>.
+          I'm Michael<span className="sr-only"> Uloth</span>.
         </h1>
 
         <p className="mt-6 iPhoneX:mt-8 max-w-md leading-snug text-2xl">

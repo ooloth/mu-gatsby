@@ -6,7 +6,7 @@ import stringReplaceToArray from 'string-replace-to-array'
 import Base from '../ui/Base'
 import Metadata from '../ui/Metadata'
 import PageHeader from '../ui/PageHeader'
-import { Link, SrText } from '../ui/elements'
+import { Link } from '../ui/elements'
 import useSiteMetadata from '../queries/useSiteMetadata'
 import usePageData from '../queries/usePageData'
 import useWebsitesData, {
@@ -44,13 +44,13 @@ const Description = ({ description, repo }: Description) => {
       (match: string, i: number) => (
         <Link variant="underline" href={repo} key={i} className="font-bold">
           {match}
-          <SrText> (Link opens in a new tab or window.)</SrText>
+          <span className="sr-only"> (Link opens in a new tab or window.)</span>
         </Link>
       ),
     )
   }
 
-  return <p className="mt-3 text-lg iPhoneX:text-xl">{updatedDescription}</p>
+  return <p className="mt-3 copy text-lg iPhoneX:text-xl">{updatedDescription}</p>
 }
 
 const Websites = () => {
@@ -58,9 +58,7 @@ const Websites = () => {
 
   return (
     <section>
-      <h2>
-        <SrText>Website projects</SrText>
-      </h2>
+      <h2 className="sr-only">Website projects</h2>
 
       <ul>
         {websites.map(website => (

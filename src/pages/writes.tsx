@@ -4,7 +4,7 @@ import { WindowLocation } from '@reach/router'
 import Base from '../ui/Base'
 import Metadata from '../ui/Metadata'
 import PageHeader from '../ui/PageHeader'
-import { Link, SrText } from '../ui/elements'
+import { Link } from '../ui/elements'
 import useSiteMetadata from '../queries/useSiteMetadata'
 import usePageData from '../queries/usePageData'
 import usePostsData from '../queries/usePostsData'
@@ -25,7 +25,7 @@ const Tags = ({ tags }: any) => (
   </ul>
 )
 
-function Posts() {
+const Posts = () => {
   const posts = usePostsData()
 
   // TODO: add this field during the build
@@ -36,9 +36,7 @@ function Posts() {
 
   return (
     <section>
-      <h2>
-        <SrText>Blog posts</SrText>
-      </h2>
+      <h2 className="sr-only">Blog posts</h2>
 
       <ul>
         {postsWithSlugs.map((post: any) => (
@@ -49,7 +47,7 @@ function Posts() {
 
             <p
               dangerouslySetInnerHTML={{ __html: post.description }}
-              className="mt-3 text-lg iPhoneX:text-xl"
+              className="mt-3 copy text-lg iPhoneX:text-xl"
             />
 
             {post.tags && <Tags tags={post.tags} />}
