@@ -33,18 +33,24 @@ const fontFamily = {
 const fontSize = {
   '7xl': '5rem',
   '8xl': '6rem',
+  '9xl': '7rem',
+  '10xl': '8rem',
+  '11xl': '9rem',
+  '12xl': '10rem',
+  '13xl': '11rem',
+  '14xl': '12rem',
 }
 
 const height = {
   '1em': '1em',
 }
 
-const lineHeight = {
-  '0': '0',
+const inset = {
+  '1/2': '50%',
 }
 
-const screens = {
-  iPhoneX: '375px',
+const lineHeight = {
+  '0': '0',
 }
 
 const width = {
@@ -52,6 +58,7 @@ const width = {
 }
 
 const zIndex = {
+  '-1': '-1',
   '100': '100',
 }
 
@@ -60,8 +67,8 @@ const extend = {
   fontFamily,
   fontSize,
   height,
+  inset,
   lineHeight,
-  screens,
   width,
   zIndex,
 }
@@ -70,13 +77,20 @@ const extend = {
  * Theme (replacements)
  */
 
-const theme = { extend }
+const screens = {
+  iPhoneX: '375px',
+  ...defaultTheme.screens,
+}
+
+const theme = { extend, screens }
 
 /**
  * Variants
  */
 
-const variants = {}
+const letterSpacing = ['responsive', 'hover']
+
+const variants = { letterSpacing }
 
 /**
  * Plugins
