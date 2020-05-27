@@ -5,7 +5,7 @@ import crypto from 'crypto'
 import shortid from 'shortid'
 
 const {
-  NODE_ENV,
+  LIKES_CONTENT,
   TMDB_READ_ACCESS_TOKEN,
   TMDB_TV_LIST_ID,
   TMDB_MOVIE_LIST_ID,
@@ -111,7 +111,7 @@ const createTMDBNodes = async (
   createNode: Actions['createNode'],
 ) => {
   // Don't waste time fetching + optimizing images in development
-  if (NODE_ENV !== 'production') {
+  if (LIKES_CONTENT === 'dummy') {
     createDummyNodes(createNode)
     return
   }
@@ -199,7 +199,7 @@ exports.sourceNodes = async ({ actions }: SourceNodesArgs) => {
   let tvData: any = []
   let movieData: any = []
 
-  if (NODE_ENV === 'production') {
+  if (LIKES_CONTENT === 'actual') {
     tvData = await fetchTMDBListData(TMDB_TV_LIST_ID, 'tv')
     movieData = await fetchTMDBListData(TMDB_MOVIE_LIST_ID, 'movie')
     await Promise.all([tvData, movieData])

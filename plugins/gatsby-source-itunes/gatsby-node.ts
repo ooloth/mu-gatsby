@@ -1,14 +1,14 @@
 import fetch from 'node-fetch'
 
-import { albums } from '../../src/data/likes/albums'
-import { podcasts } from '../../src/data/likes/podcasts'
-import { books } from '../../src/data/likes/books'
+import { albums } from '../../content/likes/albums'
+import { podcasts } from '../../content/likes/podcasts'
+import { books } from '../../content/likes/books'
 
 import { Actions, SourceNodesArgs } from 'gatsby'
 import crypto from 'crypto'
 import shortid from 'shortid'
 
-const { NODE_ENV } = process.env
+const { LIKES_CONTENT } = process.env
 
 // Avoid numbers to prevent clashes with numeric DEV.to article IDs
 shortid.characters(
@@ -150,11 +150,12 @@ async function createItunesNodes(
   createNode: Actions['createNode'],
 ) {
   // Don't waste time downloading + optimizing images in development
-  if (NODE_ENV !== 'production') {
+  if (LIKES_CONTENT === 'dummy') {
     createDummyNodes(createNode)
     return
   }
 
+  // In production, use the real content
   for (let book of bookData) {
     createBookNode(createNode, book)
   }
@@ -268,7 +269,7 @@ exports.sourceNodes = async ({ actions }: SourceNodesArgs) => {
   let bookData: any = []
 
   // Don't waste time fetching data in development
-  if (NODE_ENV === 'production') {
+  if (LIKES_CONTENT === 'actual') {
     albumData = await searchiTunesAPI(albums, 'music', 'album')
     podcastData = await searchiTunesAPI(podcasts, 'podcast', 'podcast')
     bookData = await searchiTunesAPI(books, 'ebook', 'ebook')
