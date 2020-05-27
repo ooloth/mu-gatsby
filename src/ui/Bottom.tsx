@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Link, SrText } from './elements'
+import { Link } from './elements'
 import { ReactComponent as TwitterSVG } from '../svg/twitter-brands.svg'
 import { ReactComponent as GitHubSVG } from '../svg/github-brands.svg'
 import { ReactComponent as LinkedInSVG } from '../svg/linkedin-in-brands.svg'
@@ -27,7 +27,7 @@ const getIcon = (platform: Platform): any => icons[platform]
 
 const SocialLink = ({ link }: { link: SocialLinkType }) => (
   <Link variant="icon" href={link.href} className="p-1 iPhoneX:p-2">
-    <SrText>{link.srText}</SrText>
+    <span className="sr-only">{link.srText}</span>
     {getIcon(link.platform)}
   </Link>
 )

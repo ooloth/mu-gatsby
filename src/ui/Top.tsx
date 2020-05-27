@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'gatsby-image'
 
-import { Link, SrText } from './elements'
+import { Link } from './elements'
 import useSharedData from '../queries/useSharedData'
 
 export default () => {
@@ -10,7 +10,7 @@ export default () => {
   return (
     <nav className="flex justify-between pt-4 md:pt-6">
       <Link variant="incognito" href="/">
-        <SrText>Go to home page</SrText>
+        <span className="sr-only">Navigate to home page</span>
         <Image
           fluid={{ ...avatar.file.childImageSharp.fluid, aspectRatio: 1 / 1 }}
           alt="Michael Uloth"
