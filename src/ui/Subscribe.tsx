@@ -1,102 +1,20 @@
 import React, { SyntheticEvent } from 'react'
 import { useMachine } from '@xstate/react'
-import styled from 'styled-components'
 
 import { Emoji } from './elements'
 import { netlifyFormMachine } from '../logic/netlifyForm'
-import { copy, purpleGradient } from '../styles'
 
 const emailRegex = `.+@.+..+`
 
-const InputAndSubmit = styled.div`
-  @media screen and (min-width: 480px) {
-    ${purpleGradient}
-    display: flex;
-    align-items: baseline;
-    margin-top: var(--s4);
-    box-shadow: var(--shadow1);
-    border-radius: var(--r2);
-    overflow: hidden;
-    width: max-content;
-    max-width: 100%;
-  }
-`
-
-const Input = styled.input`
-  ${purpleGradient}
-  display: block;
-  margin-top: var(--s4);
-  box-shadow: var(--shadow1);
-  border-radius: var(--r2);
-  padding: var(--s2) var(--s3);
-  width: 100%;
-  line-height: normal;
-  text-align: center;
-  color: white;
-
-  &::placeholder {
-    opacity: 0.9;
-    color: white;
-  }
-
-  @media screen and (min-width: 480px) {
-    flex: 1 1 auto;
-    margin-top: 0;
-    box-shadow: none;
-    border-radius: 0;
-    background: transparent;
-    width: 18rem;
-    text-align: left;
-  }
-`
-
-const Submit = styled.button`
-  margin-top: var(--s1);
-  box-shadow: var(--shadow1);
-  border: none;
-  border-radius: var(--r2);
-  background-color: white;
-  background-color: var(--black);
-  padding: var(--s2) var(--s3);
-  width: 100%;
-  line-height: normal;
-  color: var(--black);
-  color: white;
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-
-  &:hover {
-    background-color: transparent;
-    color: white;
-  }
-
-  @media screen and (min-width: 480px) {
-    flex: none;
-    margin-top: 0;
-    box-shadow: none;
-    border-radius: 0;
-    width: auto;
-    line-height: 1.6;
-  }
-`
-
-const AlertText = styled.p`
-  display: block;
-  margin-top: var(--s2);
-  line-height: 2.4;
-`
-
-function NetlifyForm() {
+const NetlifyForm = () => {
   const [state, send] = useMachine(netlifyFormMachine)
 
-  function handleChange(event: SyntheticEvent) {
+  const handleChange = (event: SyntheticEvent) => {
     const button = event.target as HTMLButtonElement
     send('UPDATE_FIELD', { name: 'email', value: button.value })
   }
 
-  function handleSubmit(event: SyntheticEvent) {
+  const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault()
     send('SUBMIT')
   }
@@ -105,40 +23,51 @@ function NetlifyForm() {
     <>
       {state.value !== `success` && (
         <>
-          <Text>Receive my latest content by email.</Text>
-          <small>No spam. No email sharing. Unsubscribe any time.</small>
+          <p className="mt-4 sm:mb-1 leading-normal text-lg iPhoneX:text-xl sm:text-2xl">
+            Receive my latest content by email.
+          </p>
+          <small className="iPhoneX:text-sm sm:text-base">
+            No spam. No email sharing. Unsubscribe any time.
+          </small>
 
           <form data-netlify="true" name="Subscribe" onSubmit={handleSubmit}>
             {/* Hidden fields required by Netlify */}
             <input type="hidden" name="form-name" value="Subscribe" />
             <input type="hidden" name="email" />
 
-            <InputAndSubmit>
-              <Input
+            <div className="sm:flex sm:items-baseline mt-5 sm:shadow-md sm:rounded overflow-hidden sm:max-w-md">
+              <input
                 id="email"
                 name="email"
                 type="email"
                 aria-label="Email address"
-                placeholder="Email address"
+                placeholder="Your email address"
                 onChange={handleChange}
                 title={`The portion of the email address after the @ is invalid.`}
                 pattern={emailRegex}
                 required
+                className="sm:flex-auto block shadow-md sm:shadow-none rounded sm:rounded-none purple-gradient py-2 px-3 w-full leading-normal text-center sm:text-left text-lg text-white placeholder-opacity-100 placeholder-white"
               />
-              <Submit type="submit">Sign Up</Submit>
-            </InputAndSubmit>
+
+              <button
+                type="submit"
+                className="sm:flex-none mt-1 sm:mt-0 shadow-md sm:shadow-none border-none rounded sm:rounded-none bg-gray-900 hover:bg-gray-800 py-2 px-3 sm:px-4 w-full sm:w-auto leading-normal text-lg text-white font-bold tracking-wider uppercase transition-colors duration-200 ease-in-out"
+              >
+                Sign Up
+              </button>
+            </div>
           </form>
         </>
       )}
 
       {state.value === `error` && (
-        <AlertText>
+        <p className="mt-2 leading-9">
           Oops! Please make sure you've entered a valid email address.
-        </AlertText>
+        </p>
       )}
 
       {state.value === `success` && (
-        <AlertText>
+        <p className="mt-2 leading-9">
           Thanks for subscribing!{' '}
           <Emoji
             emoji="🙌"
@@ -146,34 +75,15 @@ function NetlifyForm() {
           />
           <br />
           You'll be the first to know when I publish new content.
-        </AlertText>
+        </p>
       )}
     </>
   )
 }
 
-const Section = styled.section`
-  padding-top: var(--s8);
-`
-
-const Heading = styled.h2`
-  font-size: var(--f8);
-  font-weight: 900;
-`
-
-const Text = styled.p`
-  ${copy}
-  margin-top: var(--s4);
-  margin-bottom: var(--s1);
-`
-
-function Subscribe() {
-  return (
-    <Section>
-      <Heading>Subscribe</Heading>
-      <NetlifyForm />
-    </Section>
-  )
-}
-
-export default Subscribe
+export default () => (
+  <aside className="mt-16">
+    <h2 className="text-4xl iPhoneX:text-5xl font-black">Subscribe</h2>
+    <NetlifyForm />
+  </aside>
+)
