@@ -68,10 +68,10 @@ const getVideoId = (url: string): string => String(url.match(/\w+$/i))
 
 const getIframe = (url: string): string =>
   String(
-    `<div class="my-8 ratio-parent-16x9 rounded purple-gradient">
+    `<div class="my-8 ratio-16x9 rounded purple-gradient">
       <iframe src="https://youtube.com/embed/${getVideoId(
         url,
-      )}" class="shadow-lg rounded ratio-child" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+      )}" class="shadow-lg rounded" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
       </iframe>
     </div>`,
   )
@@ -86,6 +86,13 @@ export const plugins = [
     options: {
       name: `src`,
       path: `${__dirname}/src/`,
+    },
+  },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `content`,
+      path: `${__dirname}/content/`,
     },
   },
   {
@@ -148,7 +155,6 @@ export const plugins = [
       name: `image`,
     },
   },
-
   `gatsby-plugin-postcss`,
   `gatsby-plugin-react-helmet`,
   `gatsby-plugin-sharp`,
@@ -244,8 +250,8 @@ export const plugins = [
                 title: node.frontmatter.title,
                 description: node.frontmatter.description,
                 date: node.frontmatter.datePublished,
-                url: node.frontmatter.slug.replace(/\/$/, ''),
-                guid: node.frontmatter.slug.replace(/\/$/, ''),
+                url: `${siteMetadata.siteUrl}/${node.frontmatter.slug}`,
+                guid: `${siteMetadata.siteUrl}/${node.frontmatter.slug}`,
                 custom_elements: [{ 'content:encoded': node.html }],
               })
             })
