@@ -1,9 +1,9 @@
 import React from 'react'
 import { WindowLocation } from '@reach/router'
 
-import Base from '../ui/Base'
-import { Emoji, Link } from '../ui/elements'
-import useSharedData, { NavLink as NavLinkType } from '../queries/useSharedData'
+import { Base, Emoji, Link } from '../ui'
+import { useSharedData } from '../queries'
+import { NavLink as NavLinkType } from '../queries/useSharedData'
 
 const NavLink = ({ link }: { link: NavLinkType }) => (
   <Link

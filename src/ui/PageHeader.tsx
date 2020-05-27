@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 
-import { Emoji } from './elements'
+import { Emoji } from '.'
 
 interface Emoji {
   icon: string

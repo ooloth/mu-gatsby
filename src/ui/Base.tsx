@@ -1,9 +1,7 @@
 import React, { ReactNode } from 'react'
 import { WindowLocation } from '@reach/router'
 
-import Metadata from './Metadata'
-import Top from './Top'
-import Bottom from './Bottom'
+import { Bottom, Metadata, Top } from '.'
 import avenirRegular from '../fonts/AvenirNextLTPro-Regular.woff2'
 import avenirHeavy from '../fonts/AvenirNextLTPro-Heavy.woff2'
 

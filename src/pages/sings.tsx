@@ -1,13 +1,9 @@
 import React from 'react'
 import { WindowLocation } from '@reach/router'
 
-import Base from '../ui/Base'
-import Metadata from '../ui/Metadata'
-import PageHeader from '../ui/PageHeader'
-import { Link } from '../ui/elements'
-import useSiteMetadata from '../queries/useSiteMetadata'
-import usePageData from '../queries/usePageData'
-import useGigsData, { Tag as TagType, tagLinks } from '../queries/useGigsData'
+import { Base, Link, Metadata, PageHeader } from '../ui'
+import { useGigsData, usePageData, useSiteMetadata } from '../queries'
+import { Tag as TagType, tagLinks } from '../queries/useGigsData'
 
 const getTagLink = (tag: TagType): string =>
   tagLinks[tag] || 'https://youtu.be/dQw4w9WgXcQ' // prevent empty links

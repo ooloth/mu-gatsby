@@ -1,10 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Base from './Base'
-import Metadata from './Metadata'
-import Subscribe from './Subscribe'
-import { Link } from './elements'
+import { Base, Link, Metadata, Subscribe } from '.'
 import { ReactComponent as CalendarSVG } from '../svg/calendar-alt-regular.svg'
 
 export const pageQuery = graphql`

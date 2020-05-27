@@ -1,8 +1,8 @@
 import React from 'react'
 import Image from 'gatsby-image'
 
-import { Link } from './elements'
-import useSharedData from '../queries/useSharedData'
+import { Link } from '.'
+import { useSharedData } from '../queries'
 
 export default () => {
   const { avatar } = useSharedData()
