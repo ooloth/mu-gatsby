@@ -1,315 +1,82 @@
 import React from 'react'
 import Image from 'gatsby-image'
 import { WindowLocation } from '@reach/router'
-import styled, { css } from 'styled-components'
 
 import Base from '../ui/Base'
 import Metadata from '../ui/Metadata'
 import PageHeader from '../ui/PageHeader'
 import { Link } from '../ui/elements'
+
 import useSiteMetadata from '../queries/useSiteMetadata'
 import usePageData from '../queries/usePageData'
-import useAlbumData from '../queries/useAlbumData'
-import useBookData from '../queries/useBookData'
-import useMovieData from '../queries/useMovieData'
-import usePodcastData from '../queries/usePodcastData'
-import useTvShowData from '../queries/useTvShowData'
-import { main } from '../styles'
+import useAlbumData, { Album } from '../queries/useAlbumData'
+import useBookData, { Book } from '../queries/useBookData'
+import useMovieData, { Movie } from '../queries/useMovieData'
+import usePodcastData, { Podcast } from '../queries/usePodcastData'
+import useTvShowData, { TvShow } from '../queries/useTvShowData'
 
-export const Section = styled.section`
-  padding-top: var(--s7);
-`
-
-export const LikesHeading = styled.h2`
-  margin-bottom: var(--s3);
-  font-size: var(--f9);
-  font-weight: 900;
-`
-
-const hideScrollbar = css`
-  /* For IE */
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-  scrollbar-face-color: transparent;
-  scrollbar-track-color: transparent;
-  scrollbar-3dlight-color: transparent;
-  scrollbar-darkshadow-color: transparent;
-  scrollbar-arrow-color: transparent;
-
-  /* For Chrome */
-  &::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
-  }
-`
-
-const LikesList = styled.ul`
-  ${hideScrollbar}
-  display: flex;
-  position: relative; /* prevents whitespace to right on Safari */
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-`
-
-const LikesItem = styled.li`
-  flex: none;
-  margin-right: var(--s6);
-  width: 10rem; /* IE, Edge */
-  width: min-content; /* modern browsers */
-`
-
-const ItemLink = styled(Link)`
-  text-align: center;
-  font-weight: 700;
-  text-decoration: none;
-`
-
-const ItemImage = styled(Image)`
-  box-shadow: var(--shadow1);
-`
-
-const ItemName = styled.p`
-  margin-top: var(--s2);
-  line-height: var(--lh1);
-  font-size: var(--f3);
-`
-
-const ItemDetail = styled.p`
-  margin-top: var(--s1);
-  font-size: var(--f2);
-`
-
-function TV() {
-  const shows = useTvShowData()
-
-  return (
-    <Section>
-      <LikesHeading>TV</LikesHeading>
-
-      <LikesList>
-        {shows.map(show => {
-          if (
-            !show ||
-            !show.id ||
-            !show.link ||
-            !show.title ||
-            !show.poster ||
-            !show.poster.childImageSharp ||
-            !show.poster.childImageSharp.fixed ||
-            !show.releaseDate
-          ) {
-            return null
-          }
-
-          return (
-            <LikesItem key={show.id}>
-              <ItemLink
-                href={show.link}
-                srText={`Visit IMDB page for "${show.title}" in a new window.`}
-              >
-                <ItemImage
-                  fixed={show.poster.childImageSharp.fixed}
-                  alt={`Poster for the TV series "${show.title}"`}
-                />
-                <ItemName>{show.title}</ItemName>
-                <ItemDetail>({show.releaseDate})</ItemDetail>
-              </ItemLink>
-            </LikesItem>
-          )
-        })}
-      </LikesList>
-    </Section>
-  )
+interface Likes {
+  heading: string
+  items: Array<TvShow | Movie | Book | Album | Podcast>
+  info: string
 }
 
-function Movies() {
-  const movies = useMovieData()
+const isMissingCriticalData = (
+  item: TvShow | Movie | Book | Album | Podcast,
+): boolean =>
+  !item ||
+  !item.title ||
+  !item.image ||
+  !item.image.childImageSharp ||
+  !item.image.childImageSharp.fixed
 
-  return (
-    <Section>
-      <LikesHeading>Movies</LikesHeading>
+const Likes = ({ heading, items, info }: Likes) => (
+  <section className="mt-16">
+    <h2 className=" text-5xl iPhoneX:text-6xl font-black">{heading}</h2>
 
-      <LikesList>
-        {movies.map(movie => {
-          if (
-            !movie ||
-            !movie.id ||
-            !movie.link ||
-            !movie.title ||
-            !movie.poster ||
-            !movie.poster.childImageSharp ||
-            !movie.poster.childImageSharp.fixed ||
-            !movie.releaseDate
-          ) {
-            return null
-          }
+    <ul className="flex relative mt-3 overflow-x-auto overflow-y-hidden hide-scrollbar scrolling-touch">
+      {items.map(item =>
+        isMissingCriticalData(item) ? (
+          <></>
+        ) : (
+          <li key={item.id} className="flex-none mr-10 w-48">
+            <Link
+              variant="incognito"
+              href={item.link || 'https://youtu.be/dQw4w9WgXcQ'}
+              srText={`Visit the ${info} page for "${item.title}" in a new window.`}
+            >
+              <Image
+                fixed={item.image.childImageSharp.fixed}
+                alt="" // decorative, so hide from screen readers
+                className="shadow-lg rounded"
+              />
 
-          return (
-            <LikesItem key={movie.id}>
-              <ItemLink
-                href={movie.link}
-                srText={`Visit IMDB page for "${movie.title}" in a new window.`}
-              >
-                <ItemImage
-                  fixed={movie.poster.childImageSharp.fixed}
-                  alt={`Poster for the movie "${movie.title}"`}
-                />
-                <ItemName>{movie.title}</ItemName>
-                <ItemDetail>({movie.releaseDate})</ItemDetail>
-              </ItemLink>
-            </LikesItem>
-          )
-        })}
-      </LikesList>
-    </Section>
-  )
-}
+              <p className="mt-2 text-center text-xl font-bold">{item.title}</p>
 
-function Books() {
-  const books = useBookData()
+              {'artist' in item && item.artist && (
+                <p className="mt-1 text-center font-bold">{item.artist}</p>
+              )}
 
-  return (
-    <Section>
-      <LikesHeading>Books</LikesHeading>
+              {item.date && (
+                <p className="mt-1 text-center font-bold">({item.date})</p>
+              )}
+            </Link>
+          </li>
+        ),
+      )}
+    </ul>
+  </section>
+)
 
-      <LikesList>
-        {books.map(book => {
-          if (
-            !book ||
-            !book.id ||
-            !book.link ||
-            !book.title ||
-            !book.cover ||
-            !book.cover.childImageSharp ||
-            !book.cover.childImageSharp.fixed ||
-            !book.publishDate
-          ) {
-            return null
-          }
-
-          return (
-            <LikesItem key={book.id}>
-              <ItemLink
-                href={book.link}
-                srText={`Visit the Open Library page for "${book.title}" in a new window.`}
-              >
-                <ItemImage
-                  fixed={book.cover.childImageSharp.fixed}
-                  alt={`Cover for the book "${book.title}"`}
-                />
-                <ItemName>{book.title}</ItemName>
-                <ItemDetail>({book.publishDate})</ItemDetail>
-              </ItemLink>
-            </LikesItem>
-          )
-        })}
-      </LikesList>
-    </Section>
-  )
-}
-
-function Albums() {
-  const albums = useAlbumData()
-
-  return (
-    <Section>
-      <LikesHeading>Albums</LikesHeading>
-
-      <LikesList>
-        {albums.map(album => {
-          if (
-            !album ||
-            !album.id ||
-            !album.link ||
-            !album.name ||
-            !album.artist ||
-            !album.cover ||
-            !album.cover.childImageSharp ||
-            !album.cover.childImageSharp.fixed ||
-            !album.releaseDate
-          ) {
-            return null
-          }
-
-          return (
-            <LikesItem key={album.id}>
-              <ItemLink
-                href={album.link}
-                srText={`Visit the iTunes page for "${album.name}" by ${album.artist} in a new window.`}
-              >
-                <ItemImage
-                  fixed={album.cover.childImageSharp.fixed}
-                  alt={`Cover for the album "${album.name}" by ${album.artist}`}
-                />
-                <ItemName>{album.name}</ItemName>
-                <ItemDetail>{album.artist}</ItemDetail>
-                <ItemDetail>({album.releaseDate})</ItemDetail>
-              </ItemLink>
-            </LikesItem>
-          )
-        })}
-      </LikesList>
-    </Section>
-  )
-}
-
-function Podcasts() {
-  const podcasts = usePodcastData()
-
-  return (
-    <Section>
-      <LikesHeading>Podcasts</LikesHeading>
-
-      <LikesList>
-        {podcasts.map(podcast => {
-          if (
-            !podcast ||
-            !podcast.id ||
-            !podcast.link ||
-            !podcast.name ||
-            !podcast.cover ||
-            !podcast.cover.childImageSharp ||
-            !podcast.cover.childImageSharp.fixed ||
-            !podcast.releaseDate
-          ) {
-            return null
-          }
-
-          return (
-            <LikesItem key={podcast.id}>
-              <ItemLink
-                href={podcast.link}
-                srText={`Visit the iTunes page for "${podcast.name}" in a new window.`}
-              >
-                <ItemImage
-                  fixed={podcast.cover.childImageSharp.fixed}
-                  alt={`Cover for the podcast "${podcast.name}"`}
-                />
-                <ItemName>{podcast.name}</ItemName>
-                <ItemDetail>({podcast.releaseDate})</ItemDetail>
-              </ItemLink>
-            </LikesItem>
-          )
-        })}
-      </LikesList>
-    </Section>
-  )
-}
-
-const Main = styled.main`
-  ${main}
-  max-width: 100%;
-`
-
-// FIXME: extract this shared PageComponent declaration
-interface Props {
-  location: WindowLocation
-}
-
-function LikesPage({ location }: Props) {
+export default ({ location }: { location: WindowLocation }) => {
   const { likesPage } = useSiteMetadata()
   const { likesYaml: page } = usePageData()
+
+  const tvShows = useTvShowData()
+  const movies = useMovieData()
+  const books = useBookData()
+  const albums = useAlbumData()
+  const podcasts = usePodcastData()
 
   return (
     <Base location={location}>
@@ -321,15 +88,13 @@ function LikesPage({ location }: Props) {
         summary={page.summary}
       />
 
-      <Main>
-        <TV />
-        <Movies />
-        <Books />
-        <Albums />
-        <Podcasts />
-      </Main>
+      <main>
+        <Likes heading="TV" items={tvShows} info="TMDB" />
+        <Likes heading="Movies" items={movies} info="TMDB" />
+        <Likes heading="Books" items={books} info="Apple Books" />
+        <Likes heading="Albums" items={albums} info="Apple Music" />
+        <Likes heading="Podcasts" items={podcasts} info="Apple Podcasts" />
+      </main>
     </Base>
   )
 }
-
-export default LikesPage

@@ -90,46 +90,45 @@ export const plugins = [
     resolve: `gatsby-plugin-remote-images`,
     options: {
       nodeType: `TvShow`,
-      imagePath: `posterUrl`,
-      name: `poster`,
+      imagePath: `imageUrl`,
+      name: `image`,
     },
   },
   {
     resolve: `gatsby-plugin-remote-images`,
     options: {
       nodeType: `Movie`,
-      imagePath: `posterUrl`,
-      name: `poster`,
+      imagePath: `imageUrl`,
+      name: `image`,
     },
   },
   {
     resolve: `gatsby-plugin-remote-images`,
     options: {
       nodeType: `Book`,
-      imagePath: `coverUrl`,
-      name: `cover`,
+      imagePath: `imageUrl`,
+      name: `image`,
     },
   },
   {
     resolve: `gatsby-plugin-remote-images`,
     options: {
       nodeType: `Album`,
-      imagePath: `coverUrl`,
-      name: `cover`,
+      imagePath: `imageUrl`,
+      name: `image`,
     },
   },
   {
     resolve: `gatsby-plugin-remote-images`,
     options: {
       nodeType: `Podcast`,
-      imagePath: `coverUrl`,
-      name: `cover`,
+      imagePath: `imageUrl`,
+      name: `image`,
     },
   },
   `gatsby-plugin-postcss`,
   `gatsby-plugin-react-helmet`,
   `gatsby-plugin-sharp`,
-  `gatsby-plugin-styled-components`,
   `gatsby-plugin-svgr`,
   `gatsby-source-dev`, // my custom source plugin
   `gatsby-source-itunes`, // my custom source plugin

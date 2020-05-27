@@ -6,8 +6,8 @@ interface PostNode {
   }
 }
 
-function usePostsData(): any {
-  const { allDevArticle }: any = useStaticQuery(
+export default (): any =>
+  useStaticQuery(
     graphql`
       {
         allDevArticle(sort: { order: DESC, fields: published_at }) {
@@ -38,9 +38,4 @@ function usePostsData(): any {
         }
       }
     `,
-  )
-
-  return allDevArticle.nodes
-}
-
-export default usePostsData
+  ).allDevArticle.nodes

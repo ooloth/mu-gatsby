@@ -16,9 +16,9 @@ textarea:invalid {
 }
 
 /**
-  * 1. Remove the border in all browsers.
-  * 2. Correct min-width in Chrome and Firefox.
-  */
+ * 1. Remove the border in all browsers.
+ * 2. Correct min-width in Chrome and Firefox.
+ */
 
 fieldset {
   border: 0; /* 1 */
@@ -26,8 +26,8 @@ fieldset {
 }
 
 /**
-  * Inherit styling in all browsers
-  */
+ * Inherit styling in all browsers
+ */
 
 button,
 input,
@@ -42,17 +42,17 @@ textarea {
 }
 
 /**
-  * Since clicking a radio button label triggers the input, 
-  * match the default UX in all browsers. 
-  */
+ * Since clicking a radio button label triggers the input, 
+ * match the default UX in all browsers. 
+ */
 
 input[type='radio'] + label {
   cursor: pointer;
 }
 
 /**
-  * Remove default styling in all browsers 
-  */
+ * Remove default styling in all browsers 
+ */
 
 input,
 textarea {
@@ -60,13 +60,4 @@ textarea {
   border: 0;
   border-radius: 0;
   background-color: transparent;
-}
-
-/**
-  * Correct the text style of placeholders in Chrome, Edge, and Safari.
-  */
-
-::-webkit-input-placeholder {
-  color: inherit;
-  opacity: 0.54;
 }

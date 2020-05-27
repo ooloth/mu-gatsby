@@ -36,10 +36,10 @@ export interface SiteMetadata {
   websitesPage: Page
 }
 
-function useSiteMetadata(): SiteMetadata {
-  const { site } = useStaticQuery(
+export default (): SiteMetadata =>
+  useStaticQuery(
     graphql`
-      query {
+      {
         site {
           siteMetadata {
             title
@@ -87,9 +87,4 @@ function useSiteMetadata(): SiteMetadata {
         }
       }
     `,
-  )
-
-  return site.siteMetadata
-}
-
-export default useSiteMetadata
+  ).site.siteMetadata

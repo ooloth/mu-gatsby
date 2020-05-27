@@ -1,22 +1,18 @@
 import React from 'react'
-import styled from 'styled-components'
-
-const Span = styled.span`
-  flex: none;
-  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-`
 
 interface Props {
   emoji: string
   ariaLabel: string
+  className?: string
 }
 
-function Emoji({ emoji, ariaLabel, ...props }: Props) {
-  return (
-    <Span role="img" aria-label={ariaLabel} {...props}>
-      {emoji}
-    </Span>
-  )
-}
-
-export default Emoji
+export default ({ emoji, ariaLabel, className, ...props }: Props) => (
+  <span
+    role="img"
+    aria-label={ariaLabel}
+    className={`flex-none ${className}`}
+    {...props}
+  >
+    {emoji}
+  </span>
+)

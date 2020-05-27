@@ -1,11 +1,9 @@
 .page-summary {
-  @apply mt-5 w-full max-w-xs leading-snug text-xl;
-  /* max-width: 18em; */
-  /* line-height: 1.4; */
+  @apply mt-3 w-full max-w-sm leading-snug text-2xl;
 }
 
-@screen sm {
+@screen iPhoneX {
   .page-summary {
-    font-size: 1.35rem;
+    @apply text-3xl;
   }
 }

@@ -4,19 +4,10 @@ import { WindowLocation } from '@reach/router'
 import Base from '../ui/Base'
 import Metadata from '../ui/Metadata'
 import PageHeader from '../ui/PageHeader'
-import { Link, SrText } from '../ui/elements'
+import { Link } from '../ui/elements'
 import useSiteMetadata from '../queries/useSiteMetadata'
 import usePageData from '../queries/usePageData'
 import usePostsData from '../queries/usePostsData'
-import {
-  linkTag,
-  main,
-  project,
-  projectDescription,
-  projectTitle,
-  tagList,
-  tagItem,
-} from '../styles'
 
 const slugifyTag = (tag: string): string =>
   tag
@@ -25,18 +16,19 @@ const slugifyTag = (tag: string): string =>
     .replace('styledcomponents', 'styled-components')
 
 const Tags = ({ tags }: any) => (
-  <ul css={tagList}>
+  <ul className="flex flex-wrap">
     {tags.map((tag: any) => (
-      <li css={tagItem}>
-        <span css={linkTag}>{slugifyTag(tag)}</span>
+      <li key={tag} className="mt-2 mr-2 lh-normal">
+        <span className="link-tag">{slugifyTag(tag)}</span>
       </li>
     ))}
   </ul>
 )
 
-function Posts() {
+const Posts = () => {
   const posts = usePostsData()
 
+  // TODO: add this field during the build
   const postsWithSlugs = posts.map((post: any) => ({
     ...post,
     slug: post.canonical_url.replace('https://www.michaeluloth.com', ''),
@@ -44,20 +36,18 @@ function Posts() {
 
   return (
     <section>
-      <h2>
-        <SrText>Blog posts</SrText>
-      </h2>
+      <h2 className="sr-only">Blog posts</h2>
 
       <ul>
         {postsWithSlugs.map((post: any) => (
-          <li key={post.id} css={project}>
-            <Link href={post.slug} css={projectTitle}>
+          <li key={post.id} className="mt-16">
+            <Link variant="underline" href={post.slug} className="project-title">
               {post.title}
             </Link>
 
             <p
               dangerouslySetInnerHTML={{ __html: post.description }}
-              css={projectDescription}
+              className="mt-3 copy text-lg iPhoneX:text-xl"
             />
 
             {post.tags && <Tags tags={post.tags} />}
@@ -68,17 +58,11 @@ function Posts() {
   )
 }
 
-// FIXME: extract this shared PageComponent declaration
-interface Props {
-  location: WindowLocation
-}
-
-function BlogPage({ location }: Props) {
+export default ({ location }: { location: WindowLocation }) => {
   const { blogPage } = useSiteMetadata()
   const { blogYaml: page } = usePageData()
 
   return (
-    // https://www.gatsbyjs.org/docs/migrating-from-v1-to-v2/#4-pass-history-location-and-match-props-to-layout
     <Base location={location}>
       <Metadata page={blogPage} />
 
@@ -88,11 +72,9 @@ function BlogPage({ location }: Props) {
         summary={page.summary}
       />
 
-      <main css={main}>
+      <main className="max-w-2xl">
         <Posts />
       </main>
     </Base>
   )
 }
-
-export default BlogPage

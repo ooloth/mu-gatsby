@@ -1,18 +1,15 @@
 .page-headline {
-  @apply mt-8 leading-tight font-black;
-  /* line-height: 1.2; */
-  font-size: 3.4rem;
+  @apply mt-12 whitespace-no-wrap text-6xl leading-tight font-black;
 }
 
-@screen iPhone6 {
+@screen iPhoneX {
   .page-headline {
-    @apply text-6xl;
+    @apply text-7xl;
   }
 }
 
-@screen sm {
+@screen md {
   .page-headline {
-    @apply pt-1;
-    font-size: 4.5rem;
+    @apply mt-16 text-8xl;
   }
 }

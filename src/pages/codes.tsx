@@ -6,7 +6,7 @@ import stringReplaceToArray from 'string-replace-to-array'
 import Base from '../ui/Base'
 import Metadata from '../ui/Metadata'
 import PageHeader from '../ui/PageHeader'
-import { Link, SrText } from '../ui/elements'
+import { Link } from '../ui/elements'
 import useSiteMetadata from '../queries/useSiteMetadata'
 import usePageData from '../queries/usePageData'
 import useWebsitesData, {
@@ -15,31 +15,15 @@ import useWebsitesData, {
   WebsiteData,
 } from '../queries/useWebsitesData'
 
-import {
-  linkInline,
-  linkTag,
-  main,
-  media,
-  project,
-  projectDescription,
-  projectTitle,
-  tagList,
-  tagItem,
-} from '../styles'
-
 const getToolLink = (tool: ToolName): string =>
   toolLinks[tool] || `https://youtu.be/dQw4w9WgXcQ` // prevent empty links
 
-interface ToolProps {
-  tool: ToolName
-}
-
-const Tool = ({ tool }: ToolProps) => {
+const Tool = ({ tool }: { tool: ToolName }) => {
   const link = getToolLink(tool)
 
   return (
-    <li css={tagItem}>
-      <Link href={link} css={linkTag}>
+    <li className="mt-2 mr-2 lh-normal">
+      <Link variant="incognito" href={link} className="link-tag">
         {tool}
       </Link>
     </li>
@@ -58,15 +42,15 @@ const Description = ({ description, repo }: Description) => {
       description,
       /GitHub/i,
       (match: string, i: number) => (
-        <Link key={i} href={repo} css={linkInline}>
+        <Link variant="underline" href={repo} key={i} className="font-bold">
           {match}
-          <SrText> (Link opens in a new tab or window.)</SrText>
+          <span className="sr-only"> (Link opens in a new tab or window.)</span>
         </Link>
       ),
     )
   }
 
-  return <p css={projectDescription}>{updatedDescription}</p>
+  return <p className="mt-3 copy text-lg iPhoneX:text-xl">{updatedDescription}</p>
 }
 
 const Websites = () => {
@@ -74,20 +58,18 @@ const Websites = () => {
 
   return (
     <section>
-      <h2>
-        <SrText>Website projects</SrText>
-      </h2>
+      <h2 className="sr-only">Website projects</h2>
 
       <ul>
         {websites.map(website => (
-          <li key={website.id} css={project}>
-            <Link href={website.link} css={projectTitle}>
+          <li key={website.id} className="mt-16">
+            <Link variant="underline" href={website.link} className="project-title">
               {website.title}
             </Link>
 
             <Description description={website.description} repo={website.repo} />
 
-            <ul css={tagList}>
+            <ul className="flex flex-wrap">
               {website.tools.map(tool => (
                 <Tool key={tool} tool={tool} />
               ))}
@@ -99,17 +81,11 @@ const Websites = () => {
   )
 }
 
-// FIXME: extract this shared PageComponent declaration
-interface Props {
-  location: WindowLocation
-}
-
-const WebsitesPage = ({ location }: Props) => {
+export default ({ location }: { location: WindowLocation }) => {
   const { websitesPage } = useSiteMetadata()
   const { websitesYaml: page } = usePageData()
 
   return (
-    // https://www.gatsbyjs.org/docs/migrating-from-v1-to-v2/#4-pass-history-location-and-match-props-to-layout
     <Base location={location}>
       <Metadata page={websitesPage} />
 
@@ -117,27 +93,16 @@ const WebsitesPage = ({ location }: Props) => {
         headline={
           <>
             <span>{page.headline}</span>
-            <span
-              css={`
-                display: none;
-                ${media.md} {
-                  display: inline;
-                }
-              `}
-            >
-              sites
-            </span>
+            <span className="hidden md:inline">sites</span>
           </>
         }
         emoji={page.emoji}
         summary={page.summary}
       />
 
-      <main css={main}>
+      <main className="max-w-2xl">
         <Websites />
       </main>
     </Base>
   )
 }
-
-export default WebsitesPage

@@ -1,30 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
-import styled from 'styled-components'
-import 'gatsby-remark-vscode/styles.css'
 
 import Base from './Base'
 import Metadata from './Metadata'
 import Subscribe from './Subscribe'
 import { Link } from './elements'
 import { ReactComponent as CalendarSVG } from '../svg/calendar-alt-regular.svg'
-import { icon, linkInline, main, media, purpleGradient } from '../styles'
-import {
-  h2,
-  h3,
-  p,
-  a,
-  ul,
-  ol,
-  li,
-  img,
-  figure,
-  pre,
-  code,
-  selection,
-  gatsbyPluginTwitter,
-} from '../styles/blog'
 
 export const pageQuery = graphql`
   query($id: String) {
@@ -58,117 +40,34 @@ export const pageQuery = graphql`
   }
 `
 
-const Main = styled.main`
-  ${main}
-  margin-top: var(--s7);
-  padding-top: var(--s4);
-`
+const MetaItem = ({ action, date }: { action: string; date: string }) => (
+  <li className="flex items-center mt-2 mr-4 text-lg md:text-xl">
+    <span className="flex justify-center items-center mr-1 shadow-md rounded-full purple-gradient w-8 h-8 text-white">
+      <CalendarSVG className="icon" aria-hidden />
+    </span>
+    <p>
+      {action} {date}
+    </p>
+  </li>
+)
 
-const Header = styled.header`
-  margin-bottom: var(--s6);
-`
-
-const Title = styled.h1`
-  line-height: 1.1;
-  font-size: 2.1rem;
-  font-weight: 900;
-
-  @media screen and (min-width: 375px) {
-    font-size: 2.5rem;
-  }
-
-  ${media.sm} {
-    font-size: 3rem;
-  }
-`
-
-const Items = styled.ul`
-  margin-top: var(--s5);
-
-  ${media.sm} {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: var(--s1);
-  }
-`
-
-const Item = styled.li`
-  display: flex;
-  align-items: center;
-  margin-top: var(--s2);
-  margin-right: var(--s4);
-  line-height: var(--lh2);
-`
-
-const IconWrapper = styled.span`
-  ${purpleGradient}
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: var(--s1);
-  box-shadow: var(--shadow1);
-  border-radius: var(--r100);
-  width: var(--s5);
-  height: var(--s5);
-  font-size: 0.9rem;
-  color: white;
-`
-
-function MetaItems({ article }: any) {
-  return (
-    <Items>
-      <Item>
-        <IconWrapper>
-          <CalendarSVG css={icon} aria-hidden />
-        </IconWrapper>
-        <p>Published {article.published_at}</p>
-      </Item>
-
-      {article.edited_at && (
-        <Item>
-          <IconWrapper>
-            <CalendarSVG css={icon} aria-hidden />
-          </IconWrapper>
-          <p>Updated {article.edited_at}</p>
-        </Item>
-      )}
-    </Items>
-  )
-}
-
-const Body = styled.div`
-  ${h2};
-  ${h3};
-  ${p};
-  ${a};
-  ${ul};
-  ${ol};
-  ${li};
-  ${img};
-  ${figure};
-  ${pre};
-  ${code};
-  ${selection};
-  ${gatsbyPluginTwitter};
-`
-
-const StyledFooter = styled.footer`
-  margin-top: var(--s7);
-`
-
-const FeaturedImage = styled(Image)`
-  margin-top: var(--s6);
-  margin-bottom: var(--s6);
-  box-shadow: var(--shadow2);
-  border-radius: var(--r2);
-`
+const MetaItems = ({ article }: any) => (
+  <ul className="mt-6 sm:flex sm:flex-wrap sm:mt-3">
+    <MetaItem action="Published" date={article.published_at} />
+    {article.edited_at && <MetaItem action="Updated" date={article.edited_at} />}
+  </ul>
+)
 
 const Footer = ({ article }: any) => (
-  <StyledFooter>
-    <Link href={article.url} css={linkInline}>
+  <footer className="mt-16">
+    <Link
+      href={article.url}
+      variant="underline"
+      className="text-lg iPhoneX:text-xl font-bold"
+    >
       Discuss on DEV.to
     </Link>
-  </StyledFooter>
+  </footer>
 )
 
 const getPostMetadata = (article: any): any => ({
@@ -180,37 +79,39 @@ const getPostMetadata = (article: any): any => ({
   url: article.canonical_url,
 })
 
-const Post = ({ data: { devArticle: article } }: { data: any }) => {
+export default ({ data: { devArticle: article } }: { data: any }) => {
   const metadata = getPostMetadata(article)
 
   return (
     <Base>
       <Metadata page={metadata} />
 
-      <Main>
-        <article>
-          <Header>
-            <Title>{article.title}</Title>
+      <main className="mt-12 pt-4">
+        <article className="max-w-2xl">
+          <header className="mb-10">
+            <h1 className="text-4xl iPhoneX:text-5xl font-black">
+              {article.title}
+            </h1>
             <MetaItems article={article} />
-          </Header>
+          </header>
 
           {article.image && (
-            <FeaturedImage fluid={article.image.childImageSharp.fluid} />
+            <Image
+              fluid={article.image.childImageSharp.fluid}
+              className="my-10 md:my-12 shadow-lg rounded"
+            />
           )}
 
-          <Body
+          <div
             dangerouslySetInnerHTML={{ __html: article.childMarkdownRemark.html }}
+            className="blog-post"
           />
 
           <Footer article={article} />
         </article>
-      </Main>
+      </main>
 
-      <aside>
-        <Subscribe />
-      </aside>
+      <Subscribe />
     </Base>
   )
 }
-
-export default Post

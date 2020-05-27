@@ -1,33 +1,21 @@
 import { useStaticQuery, graphql } from 'gatsby'
 
-// See: gatsby/packages/gatsby-transformer-sharp/src/fragments.js
-interface GatsbyImageFluidWithWebp {
-  childImageSharp: {
-    fluid: {
-      base64: string
-      aspectRatio: number
-      src: string
-      srcSet: string
-      srcWebp: string
-      srcSetWebp: string
-      sizes: string
-    }
-  }
-}
+import { Platform } from '../ui/Bottom'
+import { GatsbyImageFluidWithWebp } from '../types'
 
 interface Avatar {
   file: GatsbyImageFluidWithWebp
   objPos: string
 }
 
-interface NavLink {
+export interface NavLink {
   href: string
   text: string
 }
 
 export interface SocialLink {
   href: string
-  platform: string
+  platform: Platform
   srText: string
 }
 
@@ -37,8 +25,8 @@ interface SharedData {
   socialLinks: SocialLink[]
 }
 
-function useSharedData(): SharedData {
-  const { sharedYaml } = useStaticQuery(
+export default (): SharedData =>
+  useStaticQuery(
     graphql`
       {
         sharedYaml {
@@ -66,9 +54,4 @@ function useSharedData(): SharedData {
         }
       }
     `,
-  )
-
-  return sharedYaml
-}
-
-export default useSharedData
+  ).sharedYaml

@@ -1,34 +1,19 @@
 html {
-  cursor: default;
-  line-height: 1.15;
-  font-family: var(--bodyFont);
-  -moz-tab-size: 4; /* 4 */
-  tab-size: 4; /* 4 */
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  word-break: break-word; /* 6 */
-
-  /* A11Y: set a more readable base size for this font */
-  font-size: 19px;
-
-  @media (min-width: 36em) {
-    font-size: 19.5px;
-  }
-
-  @media (min-width: 48em) {
-    font-size: 20px;
-  }
-
-  color: var(--black);
+  /* Mobile viewport bug fix */
+  /* See: https://allthingssmitty.com/2020/05/11/css-fix-for-100vh-in-mobile-webkit */
+  height: -webkit-fill-available;
 }
 
 body {
-  min-height: 100vh;
-  overflow-x: hidden;
+  @apply min-h-screen overflow-x-hidden font-sans;
+  line-height: 1.15;
+
+  /* Mobile viewport bug fix */
+  min-height: -webkit-fill-available;
 }
 
 *,
 ::before,
 ::after {
-  background-repeat: no-repeat;
+  @apply bg-no-repeat;
 }

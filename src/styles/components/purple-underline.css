@@ -1,4 +1,5 @@
 /* NOTE: apply as "purple-underline purple-gradient" */
+/* TODO: rename as big-underline or something (no "purple" here) */
 .purple-underline {
   @apply bg-left-bottom no-underline;
   background-size: 100% 0.25em;

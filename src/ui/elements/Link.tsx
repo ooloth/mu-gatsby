@@ -1,53 +1,63 @@
 import React, { ReactNode } from 'react'
-import { Link as GatsbyLink } from 'gatsby'
+import { Link } from 'gatsby'
 
-import SrText from './SrText'
-
-interface Props {
-  children: ReactNode
-  href: string
-  lang?: string
-  srText?: string // if anchor has no visible text
+const classes = {
+  underline: 'purple-gradient purple-underline',
+  icon: 'flex justify-center items-center hover:purple-gradient hover:text-white',
+  incognito: '',
 }
 
-function Link({ children, href, lang, srText, ...props }: Props) {
+type Variant = keyof typeof classes
+
+interface Props {
+  variant: Variant
+  href: string
+  children: ReactNode
+  className?: string
+  srText?: string // if anchor has no visible text
+  lang?: string
+}
+
+export default ({
+  variant,
+  href,
+  children,
+  className,
+  srText,
+  lang,
+  ...props
+}: Props) => {
   const isExternal = Boolean(href.match(/http|\/\/|mailto:|tel:|static\/|pdf\//))
   const isId = Boolean(href.match(/^#/))
+  const variantClasses: string = classes[variant]
 
   return isExternal || isId ? (
     <a
       href={href}
-      lang={lang}
-      onClick={e => e.stopPropagation()} // avoid firing parent event handlers
-      target={isExternal ? `_blank` : undefined}
+      className={`${variantClasses} ${className}`}
       rel={isExternal ? `noopener noreferrer` : undefined}
+      onClick={e => e.stopPropagation()} // avoid firing parent event handlers
+      lang={lang}
       {...props}
     >
-      {srText && <SrText>{srText}</SrText>}
+      {srText && <span className="sr-only">{srText}</span>}
       {children}
     </a>
   ) : (
-    <GatsbyLink
+    <Link
       to={href}
+      className={`${variantClasses} ${className}`}
       onClick={e => e.stopPropagation()} // avoid firing parent event handlers
       lang={lang}
       {...props}
     >
-      {srText && <SrText>{srText}</SrText>}
+      {srText && <span className="sr-only">{srText}</span>}
       {children}
-    </GatsbyLink>
+    </Link>
   )
 }
 
-export default Link
-
 /*
-
-USAGE:
-
-const StyledLink = styled(Link)``
-
-<StyledLink href="" srText="">Link Text</StyledLink>
 
 - See: https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli
 - See: https://stackoverflow.com/questions/37568550/react-prevent-event-trigger-on-parent-from-child
