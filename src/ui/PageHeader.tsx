@@ -13,16 +13,12 @@ interface Props {
   summary: string
 }
 
-function PageHeader({ headline, emoji, summary }: Props) {
-  return (
-    <header>
-      <h1 className="page-headline">
-        {headline} <Emoji emoji={emoji.icon} ariaLabel={emoji.label} />
-      </h1>
+export default ({ headline, emoji, summary }: Props) => (
+  <header>
+    <h1 className="page-headline">
+      {headline} <Emoji emoji={emoji.icon} ariaLabel={emoji.label} />
+    </h1>
 
-      <p className="page-summary" dangerouslySetInnerHTML={{ __html: summary }} />
-    </header>
-  )
-}
-
-export default PageHeader
+    <p className="page-summary" dangerouslySetInnerHTML={{ __html: summary }} />
+  </header>
+)

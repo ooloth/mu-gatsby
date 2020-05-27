@@ -33,8 +33,8 @@ export interface WebsiteData {
   tools: Array<ToolName>
 }
 
-const useWebsitesData = (): WebsiteData[] => {
-  const { allSitesYaml } = useStaticQuery(
+export default (): Array<WebsiteData> =>
+  useStaticQuery(
     graphql`
       {
         allSitesYaml {
@@ -49,9 +49,4 @@ const useWebsitesData = (): WebsiteData[] => {
         }
       }
     `,
-  )
-
-  return allSitesYaml.nodes
-}
-
-export default useWebsitesData
+  ).allSitesYaml.nodes

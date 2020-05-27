@@ -15,7 +15,7 @@ interface Props {
   location?: WindowLocation
 }
 
-const Base = ({ children, location }: Props) => (
+export default ({ children, location }: Props) => (
   <div className="flex flex-col justify-center min-h-screen px-3 sm:px-4 md:px-8 xl:px-12">
     <Metadata
       preload={[
@@ -29,9 +29,7 @@ const Base = ({ children, location }: Props) => (
     <CustomProperties />
 
     <Top />
-    <div className="flex-auto">{children}</div>
+    <div className="flex-auto relative">{children}</div>
     <Bottom currentPath={location && location.pathname} />
   </div>
 )
-
-export default Base
