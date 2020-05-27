@@ -5,49 +5,49 @@
 [data-whatintent='mouse'] *:focus,
 [data-whatintent='touch'] *:focus,
 html:not([data-whatinput='keyboard']) *:focus {
-  outline: none;
+  @apply outline-none;
 }
 
 /**
-  * Change the cursor on busy elements in all browsers.
-  */
+ * Change the cursor on busy elements in all browsers.
+ */
 
 [aria-busy='true'] {
   cursor: progress;
 }
 
 /**
-  * Change the cursor on control elements in all browsers.
-  */
+ * Change the cursor on control elements in all browsers.
+ */
 
 [aria-controls] {
-  cursor: pointer;
+  @apply cursor-pointer;
 }
 
 /**
-  * Change the cursor on disabled, not-editable, or otherwise
-  * inoperable elements in all browsers
-  */
+ * Change the cursor on disabled, not-editable, or otherwise
+ * inoperable elements in all browsers
+ */
 
 [aria-disabled='true'],
 [disabled] {
-  cursor: not-allowed;
+  @apply cursor-not-allowed;
 }
 
 /**
-  * Change the display on visually hidden accessible elements
-  * in all browsers.
-  */
+ * Change the display on visually hidden accessible elements
+ * in all browsers.
+ */
 
 [aria-hidden='false'][hidden]:not(:focus) {
   clip: rect(0, 0, 0, 0);
   display: inherit;
-  position: absolute;
+  @apply absolute;
 }
 
 /**
-  * Turn off all animations if the user prefers reduced motion.
-  */
+ * Turn off all animations if the user prefers reduced motion.
+ */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
