@@ -1,7 +1,7 @@
 import React, { SyntheticEvent } from 'react'
 import { useMachine } from '@xstate/react'
 
-import { Emoji } from './elements'
+import { Emoji } from '.'
 import { netlifyFormMachine } from '../logic/netlifyForm'
 
 const emailRegex = `.+@.+..+`

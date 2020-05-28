@@ -1,13 +1,14 @@
 import React from 'react'
 
-import { Link } from './elements'
+import { Link } from '.'
 import { ReactComponent as TwitterSVG } from '../svg/twitter-brands.svg'
 import { ReactComponent as GitHubSVG } from '../svg/github-brands.svg'
 import { ReactComponent as LinkedInSVG } from '../svg/linkedin-in-brands.svg'
 import { ReactComponent as YouTubeSVG } from '../svg/youtube-brands.svg'
 import { ReactComponent as RssSVG } from '../svg/rss-solid.svg'
 import { ReactComponent as PaperPlaneSVG } from '../svg/paper-plane-solid.svg'
-import useSharedData, {
+import { useSharedData } from '../queries'
+import {
   NavLink as NavLinkType,
   SocialLink as SocialLinkType,
 } from '../queries/useSharedData'

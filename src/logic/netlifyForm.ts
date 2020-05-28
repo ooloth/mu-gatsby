@@ -27,7 +27,7 @@ type NetlifySubmissionData = {
   [key: string]: string
 }
 
-function updateField(ctx: NetlifyFormContext, event: NetlifyFormEvent): void {
+const updateField = (ctx: NetlifyFormContext, event: NetlifyFormEvent): void => {
   if (event.type === 'UPDATE_FIELD') {
     ctx.values[event.name] = event.value
   }
@@ -35,13 +35,12 @@ function updateField(ctx: NetlifyFormContext, event: NetlifyFormEvent): void {
 
 // See: https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
 
-function constructEncodedUrl(formData: NetlifySubmissionData): string {
-  return Object.keys(formData)
+const constructEncodedUrl = (formData: NetlifySubmissionData): string =>
+  Object.keys(formData)
     .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(formData[key]))
     .join(`&`)
-}
 
-async function sendFormToNetlify(ctx: NetlifyFormContext): Promise<Response> {
+const sendFormToNetlify = async (ctx: NetlifyFormContext): Promise<Response> => {
   const encodedUrl: string = constructEncodedUrl({
     'form-name': ctx.formName,
     ...ctx.values,

@@ -3,17 +3,9 @@ import { WindowLocation } from '@reach/router'
 // @ts-ignore
 import stringReplaceToArray from 'string-replace-to-array'
 
-import Base from '../ui/Base'
-import Metadata from '../ui/Metadata'
-import PageHeader from '../ui/PageHeader'
-import { Link } from '../ui/elements'
-import useSiteMetadata from '../queries/useSiteMetadata'
-import usePageData from '../queries/usePageData'
-import useWebsitesData, {
-  toolLinks,
-  ToolName,
-  WebsiteData,
-} from '../queries/useWebsitesData'
+import { Base, Link, Metadata, PageHeader } from '../ui'
+import { usePageData, useSiteMetadata, useWebsitesData } from '../queries'
+import { toolLinks, ToolName, WebsiteData } from '../queries/useWebsitesData'
 
 const getToolLink = (tool: ToolName): string =>
   toolLinks[tool] || `https://youtu.be/dQw4w9WgXcQ` // prevent empty links

@@ -12,7 +12,7 @@ input:invalid,
 textarea:-moz-placeholder,
 textarea:focus,
 textarea:invalid {
-  box-shadow: none !important;
+  @apply shadow-none !important;
 }
 
 /**
@@ -21,8 +21,8 @@ textarea:invalid {
  */
 
 fieldset {
-  border: 0; /* 1 */
-  min-width: 0; /* 2 */
+  @apply border-none; /* 1 */
+  @apply min-w-0; /* 2 */
 }
 
 /**
@@ -47,7 +47,7 @@ textarea {
  */
 
 input[type='radio'] + label {
-  cursor: pointer;
+  @apply cursor-pointer;
 }
 
 /**
@@ -56,8 +56,5 @@ input[type='radio'] + label {
 
 input,
 textarea {
-  appearance: none;
-  border: 0;
-  border-radius: 0;
-  background-color: transparent;
+  @apply border-none rounded-none bg-transparent appearance-none;
 }

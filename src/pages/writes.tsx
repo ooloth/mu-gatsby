@@ -1,13 +1,8 @@
 import React from 'react'
 import { WindowLocation } from '@reach/router'
 
-import Base from '../ui/Base'
-import Metadata from '../ui/Metadata'
-import PageHeader from '../ui/PageHeader'
-import { Link } from '../ui/elements'
-import useSiteMetadata from '../queries/useSiteMetadata'
-import usePageData from '../queries/usePageData'
-import usePostsData from '../queries/usePostsData'
+import { Base, Link, Metadata, PageHeader } from '../ui'
+import { usePageData, usePostsData, useSiteMetadata } from '../queries'
 
 const Topics = ({ topics }: { topics: Array<string> }) => (
   <ul className="flex flex-wrap">
@@ -21,7 +16,6 @@ const Topics = ({ topics }: { topics: Array<string> }) => (
 
 const Posts = () => {
   const posts = usePostsData()
-  console.log('posts', posts)
 
   return (
     <section>

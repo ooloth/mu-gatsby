@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Base from '../ui/Base'
+import { Base } from '../ui'
 
 export default () => (
   <Base>

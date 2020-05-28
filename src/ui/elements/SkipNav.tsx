@@ -1,10 +1,6 @@
 import React from 'react'
 
-interface SkipNav {
-  href: string
-}
-
-export default ({ href }: SkipNav) => (
+export default ({ href }: { href: string }) => (
   <a href={href} className="sr-only">
     Skip navigation and go to main content
   </a>

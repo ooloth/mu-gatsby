@@ -7,7 +7,7 @@ This is the source code for my personal website.
 - The site is built in [React](https://reactjs.org) using [Gatsby](https://www.gatsbyjs.org). (If you're new to Gatsby, check it out! It's a game-changer.)
 - The logic is written using [TypeScript](https://www.typescriptlang.org) to enable static type checking and easier debugging
 - The `CSS` is written using [styled-components](https://www.styled-components.com) to make it easy to avoid styling clashes, remove styles without unintended side effects, and automatically load only styles that are actually used
-- The content is stored in `YAML` files in `src/data` (separated for easy updating)
+- The content is stored in `YAML` files in `content/` (separated for easy updating)
 - The site uses [GraphQL](https://graphql.org) to pull content from the `YAML` files into the relevant React components
 - The blog is written using [MDX](https://mdxjs.com) to allow React components to be used in the posts
 
