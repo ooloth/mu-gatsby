@@ -1,10 +1,5 @@
 import { CreatePagesArgs } from 'gatsby'
 
-// Generate blog post pages
-
-// https://www.gatsbyjs.org/tutorial/part-seven/
-// https://www.gatsbyjs.org/docs/debugging-async-lifecycles/
-
 interface MarkdownQueryNode {
   frontmatter: {
     slug: string
@@ -21,7 +16,7 @@ interface MarkdownQueryResult {
   errors?: string
 }
 
-async function createPages({ graphql, actions }: CreatePagesArgs) {
+export const createPages = async ({ graphql, actions }: CreatePagesArgs) => {
   const mdQuery: MarkdownQueryResult = await graphql(`
     {
       allMarkdownRemark(filter: { frontmatter: { published: { eq: true } } }) {
@@ -77,5 +72,3 @@ async function createPages({ graphql, actions }: CreatePagesArgs) {
     })
   })
 }
-
-export { createPages }

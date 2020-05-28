@@ -4,8 +4,6 @@ import { WrapRootElementBrowserArgs } from 'gatsby'
 
 import './src/styles/tailwind.css'
 
-function wrapRootElement({ element }: WrapRootElementBrowserArgs) {
-  return <StrictMode>{element}</StrictMode>
-}
-
-export { wrapRootElement }
+export const wrapRootElement = ({ element }: WrapRootElementBrowserArgs) => (
+  <StrictMode>{element}</StrictMode>
+)

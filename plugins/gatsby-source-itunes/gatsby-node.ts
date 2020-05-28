@@ -15,7 +15,7 @@ shortid.characters(
   'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_-',
 )
 
-function createBookNode(createNode: Actions['createNode'], book: BookNode) {
+const createBookNode = (createNode: Actions['createNode'], book: BookNode) =>
   createNode({
     // Data for the node.
     imageUrl: book.imageUrl,
@@ -35,9 +35,8 @@ function createBookNode(createNode: Actions['createNode'], book: BookNode) {
         .digest(`hex`),
     },
   })
-}
 
-function createAlbumNode(createNode: Actions['createNode'], album: AlbumNode) {
+const createAlbumNode = (createNode: Actions['createNode'], album: AlbumNode) =>
   createNode({
     // Data for the node.
     artist: album.artist,
@@ -58,12 +57,11 @@ function createAlbumNode(createNode: Actions['createNode'], album: AlbumNode) {
         .digest(`hex`),
     },
   })
-}
 
-function createPodcastNode(
+const createPodcastNode = (
   createNode: Actions['createNode'],
   podcast: PodcastNode,
-) {
+) =>
   createNode({
     // Data for the node.
     artist: podcast.artist,
@@ -84,7 +82,6 @@ function createPodcastNode(
         .digest(`hex`),
     },
   })
-}
 
 interface LikesNode {
   id: string
@@ -135,7 +132,7 @@ const dummyPodcastNode: PodcastNode = {
   title: 'Title',
 }
 
-function createDummyNodes(createNode: Actions['createNode']) {
+const createDummyNodes = (createNode: Actions['createNode']) => {
   for (let i of Array(10).keys()) {
     createBookNode(createNode, { ...dummyBookNode, id: shortid.generate() + i })
     createAlbumNode(createNode, { ...dummyAlbumNode, id: shortid.generate() })
@@ -143,12 +140,12 @@ function createDummyNodes(createNode: Actions['createNode']) {
   }
 }
 
-async function createItunesNodes(
+const createItunesNodes = (
   albumData: Array<AlbumNode>,
   podcastData: Array<PodcastNode>,
   bookData: Array<BookNode>,
   createNode: Actions['createNode'],
-) {
+) => {
   // Don't waste time downloading + optimizing images in development
   if (LIKES_CONTENT === 'dummy') {
     createDummyNodes(createNode)
@@ -205,12 +202,12 @@ interface FormattedResult {
   imageUrl: string
 }
 
-async function searchiTunesAPI(
+const searchiTunesAPI = async (
   items: Array<ITunesItem>,
   medium: ITunesMedium,
   entity: ITunesEntity,
-): Promise<FormattedResult[]> {
-  const stringOfItemIDs: string = items.map(item => item.id).join(',')
+): Promise<FormattedResult[]> => {
+  const stringOfItemIDs = items.map(item => item.id).join(',')
   let formattedResults: Array<FormattedResult>
 
   // See: https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/#lookup

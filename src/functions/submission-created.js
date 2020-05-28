@@ -3,7 +3,7 @@
 require('dotenv').config()
 const nodeFetch = require('node-fetch')
 
-exports.handler = async function (event) {
+exports.handler = async event => {
   const email = JSON.parse(event.body).payload.email
   console.log(`Received a newsletter sign-up for ${email}`)
 

@@ -134,10 +134,10 @@ interface FormattedResult {
   title: string
 }
 
-async function fetchTMDBListData(
+const fetchTMDBListData = async (
   listId: string | undefined,
   api: 'tv' | 'movie',
-): Promise<FormattedResult[]> {
+): Promise<FormattedResult[]> => {
   if (!listId) {
     console.log('fetchTMDBListData error: listId is undefined')
     return []

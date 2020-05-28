@@ -9,7 +9,7 @@ interface StructuredData {
   site: SiteMetadata
 }
 
-function StructuredData({ site, image }: StructuredData) {
+const StructuredData = ({ site, image }: StructuredData) => {
   const {
     structuredDataType,
     siteUrl,
@@ -77,30 +77,17 @@ interface Metadata {
   preload?: PreloadResource[]
 }
 
-function Metadata({ page, preconnect, preload }: Metadata) {
+export default ({ page, preconnect, preload }: Metadata) => {
   const site = useSiteMetadata()
 
   // Use sitewide metadata unless overridden by page-specific metadata
-  const lang = page ? (page.lang ? page.lang : site.lang) : site.lang
-
-  let title = page ? (page.title ? page.title : site.title) : site.title
-  title = title.replace(`&nbsp;`, ` `)
-
-  const description = page
-    ? page.description
-      ? page.description
-      : site.description
-    : site.description
-
-  const url = page ? (page.url ? page.url : site.siteUrl) : site.siteUrl
-
-  const image = page
-    ? page.image
-      ? site.siteUrl + page.image
-      : site.siteUrl + siteImage
-    : site.siteUrl + siteImage
-
-  const type = page ? (page.type ? page.type : `website`) : `website`
+  const lang = (page && page.lang) || site.lang
+  const title = ((page && page.title) || site.title).replace(`&nbsp;`, ` `)
+  const description = (page && page.description) || site.description
+  const url = (page && page.url) || site.siteUrl
+  const type = (page && page.type) || `website`
+  const image =
+    (page && page.image && site.siteUrl + page.image) || site.siteUrl + siteImage
 
   return (
     <>
@@ -173,5 +160,3 @@ function Metadata({ page, preconnect, preload }: Metadata) {
     </>
   )
 }
-
-export default Metadata
