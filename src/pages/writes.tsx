@@ -16,7 +16,6 @@ const Topics = ({ topics }: { topics: Array<string> }) => (
 
 const Posts = () => {
   const posts = usePostsData()
-  console.log('posts', posts)
 
   return (
     <section>

@@ -17,9 +17,7 @@ export default ({ children, location }: Props) => (
         { href: avenirRegular, as: `font`, type: `font/woff2` },
         { href: avenirHeavy, as: `font`, type: `font/woff2` },
       ]}
-      preconnect={[`https://unpkg.com`]}
     />
-
     <Top />
     <div className="flex-auto relative">{children}</div>
     <Bottom currentPath={location && location.pathname} />
