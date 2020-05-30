@@ -1,8 +1,9 @@
 parser: '@typescript-eslint/parser'
 
 extends:
-  - 'react-app'
-  - 'prettier'
+  - plugin:jsx-a11y/recommended
+  - prettier
+  - react-app
 
 globals:
   __dirname: false
@@ -10,9 +11,10 @@ globals:
   process: false
 
 plugins:
-  - react-hooks
   - '@typescript-eslint'
+  - react-hooks
 
 rules:
-  react-hooks/rules-of-hooks: error
+  jsx-a11y/rule-name: warn
   react-hooks/exhaustive-deps: warn
+  react-hooks/rules-of-hooks: error
