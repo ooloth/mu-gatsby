@@ -21,4 +21,8 @@ Tips:
 
 -->
 
+- a keyframe with just a "from" will animate from that to the default value on entry
+
 ## Links
+
+- https://twitter.com/argyleink/status/1263145083370520579

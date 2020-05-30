@@ -21,4 +21,9 @@ Tips:
 
 -->
 
+- free
+- drag + drop
+- CD
+- build plugins
+
 ## Links

@@ -22,3 +22,6 @@ Tips:
 -->
 
 ## Links
+
+- Talia Nassi's NordicJS talk
+- https://kentcdodds.com/chats-with-kent-podcast/seasons/03/episodes/talia-nassi-on-testing-in-production

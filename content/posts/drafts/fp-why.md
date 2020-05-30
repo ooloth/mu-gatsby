@@ -12,4 +12,10 @@ datePublished: 2020-12-31
 dateUpdated: 2020-12-31
 ---
 
-Copy over ideas from iA writer!
+- inspiration: avoiding unit test mocking pain
+
+- refactor example from bad to good?
+
+# Links
+
+- ...

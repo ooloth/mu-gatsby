@@ -21,4 +21,14 @@ Tips:
 
 -->
 
+## What is it?
+
+## How to use in JS?
+
+## Examples I use a lot
+
 ## Links
+
+- https://regexr.com/
+- Fireship 100 seconds: https://youtu.be/sXQxhojSdZM
+- Fireship cheat sheet: https://fireship.io/lessons/regex-cheat-sheet-js/

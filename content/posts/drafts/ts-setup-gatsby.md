@@ -12,13 +12,9 @@ datePublished: 2020-12-31
 dateUpdated: 2020-12-31
 ---
 
-<!--
-
-Tips:
-
-- Write for one person (not everyone): https://twitter.com/b0rk/status/1262415197345636353
-- Put main ideas in headings: https://twitter.com/b0rk/status/1262756496162476033
-
--->
+- include updates to scripts
+- publish a gatsby recipe that adds this particular setup?
 
 ## Links
+
+-

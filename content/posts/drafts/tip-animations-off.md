@@ -21,4 +21,8 @@ Tips:
 
 -->
 
+- flawed solution = animation: none - https://twitter.com/umaar/status/1261084050707619840?s=20
+- flaw = traps in initial state (which may be opacity: 0, etc)
+- better solution = duration: 0 - https://twitter.com/ooloth/status/1266093837891637253?s=20
+
 ## Links

@@ -21,4 +21,6 @@ Tips:
 
 -->
 
+- wait for Framer Motion v2: https://twitter.com/mattgperry/status/1262758695357648896
+
 ## Links

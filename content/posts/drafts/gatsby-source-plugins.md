@@ -21,4 +21,10 @@ Tips:
 
 -->
 
+- what they are
+- examples you can install
+- building your own (keeps gatsby-node tidy)
+
 ## Links
+
+- 1 minute audio clip of Kyle explaining: https://twitter.com/changelog/status/1263122654749474817

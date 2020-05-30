@@ -22,3 +22,6 @@ Tips:
 -->
 
 ## Links
+
+- using existing: https://www.netlify.com/blog/2020/04/30/whats-a-netlify-build-plugin-series-part-1-using-build-plugins
+- building your own: https://www.netlify.com/blog/2020/05/20/whats-a-netlify-build-plugin-series-part-2-making-build-plugins

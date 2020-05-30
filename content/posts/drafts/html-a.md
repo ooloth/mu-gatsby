@@ -21,4 +21,6 @@ Tips:
 
 -->
 
+- "download" attribute: https://twitter.com/GantLaborde/status/1262774240232824832
+
 ## Links
