@@ -95,13 +95,6 @@ export const plugins = [
       path: `${__dirname}/content/`,
     },
   },
-  {
-    resolve: `gatsby-source-filesystem`,
-    options: {
-      name: `posts`,
-      path: `${__dirname}/content/posts/`,
-    },
-  },
   // TODO: enable when/if I want to use components in MD:
   // {
   //   resolve: 'gatsby-plugin-page-creator',
