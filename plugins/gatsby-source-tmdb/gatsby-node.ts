@@ -99,10 +99,10 @@ const dummyMovieNode: MovieNode = {
 }
 
 const createDummyNodes = (createNode: Actions['createNode']): void => {
-  for (let i of Array(10).keys()) {
+  Array.from(Array(10).keys()).forEach(() => {
     createTvShowNode(createNode, { ...dummyTvShowNode, id: shortid.generate() })
     createMovieNode(createNode, { ...dummyMovieNode, id: shortid.generate() })
-  }
+  })
 }
 
 const createTMDBNodes = async (

@@ -133,11 +133,11 @@ const dummyPodcastNode: PodcastNode = {
 }
 
 const createDummyNodes = (createNode: Actions['createNode']) => {
-  for (let i of Array(10).keys()) {
-    createBookNode(createNode, { ...dummyBookNode, id: shortid.generate() + i })
+  Array.from(Array(10).keys()).forEach(() => {
+    createBookNode(createNode, { ...dummyBookNode, id: shortid.generate() })
     createAlbumNode(createNode, { ...dummyAlbumNode, id: shortid.generate() })
     createPodcastNode(createNode, { ...dummyPodcastNode, id: shortid.generate() })
-  }
+  })
 }
 
 const createItunesNodes = (
