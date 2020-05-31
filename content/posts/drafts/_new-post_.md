@@ -21,4 +21,6 @@ Tips:
 
 -->
 
+## Glossary
+
 ## Links
