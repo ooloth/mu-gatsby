@@ -93,7 +93,7 @@ export default ({ data: { markdownRemark: post } }: { data: any }) => {
             className="blog-post"
           />
 
-          <Footer post={post} />
+          {post.frontmatter.devLink && <Footer post={post} />}
         </article>
       </main>
 
