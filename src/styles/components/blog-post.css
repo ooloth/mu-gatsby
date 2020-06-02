@@ -115,7 +115,7 @@
   }
 
   & code {
-    @apply inline-block rounded leading-snug font-mono;
+    @apply inline-block rounded py-1 px-2 leading-snug font-mono text-base;
 
     /* Suppress inline link styling inside code blocks */
     a {
