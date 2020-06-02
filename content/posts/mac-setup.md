@@ -160,7 +160,7 @@ brew update && brew upgrade && brew cleanup && brew doctor
 
 That one command is all you need to keep your system up to date. 🙌 I usually run it when I start a new project, but feel free to do so whenever you like.
 
-(When you run this command, if Homebrew suggests additional commands for you to run, go ahead and run them. If a command begins with `sudo` and you are prompted for a password, use your Mac’s admin password.)
+(When you run this command, if Homebrew suggests additional commands for you to run, go ahead and run them. If a command begins with `sh•sudo` and you are prompted for a password, use your Mac’s admin password.)
 
 That’s it for the command line!
 
@@ -191,7 +191,7 @@ If you’re just getting started, choose Chrome.
 
 A quick tip here: you’ll want to show the files your Mac hides by default. (For example, git files are automatically hidden, but sometimes you’ll want to edit them.)
 
-The easiest way to show your Mac’s hidden files is with the keyboard shortcut **⌘⇧.**(Command + Shift + Period). This will alternate between showing and hiding these files so you can access them when you need them.
+The easiest way to show your Mac’s hidden files is with the keyboard shortcut `sh•⌘⇧.` (command + shift + period). This will alternate between showing and hiding these files so you can access them when you need them.
 
 ## Conclusion
 
