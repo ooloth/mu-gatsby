@@ -107,7 +107,7 @@ array.filter(Boolean)
 
 The second version is just written in a ["tacit" or "point-free" style](https://en.wikipedia.org/wiki/Tacit_programming). We don't name each item and pass it into `js•Boolean`, but JavaScript understands that `js•Boolean` takes one argument, so it takes the argument `js•filter()` exposes and [passes it to Boolean for you](https://mostly-adequate.gitbooks.io/mostly-adequate-guide/ch02.html).
 
-If you find the first version easier to understand, use it! Writing readable code is more important than using fancy tricks.
+If you find the first version easier to understand, use it! Readable code is more important than fancy tricks.
 
 ## Safer mapping
 

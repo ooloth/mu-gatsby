@@ -66,10 +66,10 @@ const Footer = ({ post }: any) => (
 const getPostMetadata = (post: any): any => ({
   author: 'Michael Uloth',
   description: post.frontmatter.description,
-  image: post.frontmatter.featuredImage,
+  image: post.frontmatter.featuredImage.childImageSharp.fluid.src,
   title: post.frontmatter.title,
   type: 'article',
-  url: `https://www.michaeluloth.com/${post.slug}`,
+  url: `https://www.michaeluloth.com/${post.frontmatter.slug}`,
 })
 
 export default ({ data: { markdownRemark: post } }: { data: any }) => {
