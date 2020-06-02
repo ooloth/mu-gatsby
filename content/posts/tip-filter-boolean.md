@@ -8,11 +8,11 @@ topics:
   - array
   - filter
   - tip
-devLink: null
-linkSharedOnTwitter: null
+devLink: https://dev.to/ooloth/the-filter-boolean-trick-2o55
+linkSharedOnTwitter: https://www.michaeluloth.com/filter-boolean
 published: true
 datePublished: 2020-06-01
-dateUpdated: null
+dateUpdated: 2020-06-02
 ---
 
 ![A sign in the woods reading "Be Careful".](./assets/filter-boolean-be-careful-austin-distel-2400.jpg 'Photo by Austin Distel')
@@ -68,7 +68,7 @@ const newArray = array.map(item => {
 })
 ```
 
-Buuut, now your code is getting ugly. And worse, those dangerous values will be passed along to `js•newArray`. So when `js•newArray` is used, another round of suspicious `js•null` checks will be required.
+Buuut, now your code is getting cluttered. And worse, those dangerous empty values will be passed along to `js•newArray`. So when `js•newArray` is used, another round of suspicious `js•null` checks will be needed.
 
 ## The truth and only the truth
 
