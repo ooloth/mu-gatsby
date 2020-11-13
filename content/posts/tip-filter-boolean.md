@@ -33,7 +33,7 @@ But hiding in that array are some unusable `js•null` or `js•undefined` value
 const array = [{ good }, null, { great }, undefined]
 ```
 
-Those empty values might be a sneaky little gift from your API. Or you may have left them there yourself while validating the original data. Either way, you've got a problem.
+Those empty values might be a sneaky little gift from an API. Or you may have left them there yourself while validating the original data. Either way, you've got a problem.
 
 ## Looping over null data
 
