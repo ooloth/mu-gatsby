@@ -1,6 +1,6 @@
 ---
 title: string
-slug: string
+slug: url pathname
 description: string
 featuredImage: relative path
 topics:
@@ -19,12 +19,13 @@ Tips:
 - Write for one person (not everyone): https://twitter.com/b0rk/status/1262415197345636353
 - Put main ideas in headings: https://twitter.com/b0rk/status/1262756496162476033
 
+"If someone at work asks you a question about testing a react component, then maybe you can share your answer in a public gist on GitHub and send it to your co-worker as well as twitter. Just an idea there. I do this ALL. THE. TIME." -- https://kentcdodds.com/blog/intentional-career-building
+
 -->
 
-- flawed solution = animation: none - https://twitter.com/umaar/status/1261084050707619840?s=20
-- flaw = traps in initial state (which may be opacity: 0, etc)
-- better solution = duration: 0 - https://twitter.com/ooloth/status/1266093837891637253
-- image = "freeze"?
-- link to research that motion can cause seizures, etc
+- why multiple versions (older project)
+- console integration (automatic nvm use)
+
+## Glossary
 
 ## Links

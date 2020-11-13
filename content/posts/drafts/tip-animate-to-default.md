@@ -22,6 +22,7 @@ Tips:
 -->
 
 - a keyframe with just a "from" will animate from that to the default value on entry
+- include note about turning off if user wants (with link to my post about that)
 
 ## Links
 

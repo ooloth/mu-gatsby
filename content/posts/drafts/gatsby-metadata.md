@@ -1,6 +1,6 @@
 ---
 title: string
-slug: string
+slug: url pathname
 description: string
 featuredImage: relative path
 topics:
@@ -21,10 +21,20 @@ Tips:
 
 -->
 
-- flawed solution = animation: none - https://twitter.com/umaar/status/1261084050707619840?s=20
-- flaw = traps in initial state (which may be opacity: 0, etc)
-- better solution = duration: 0 - https://twitter.com/ooloth/status/1266093837891637253
-- image = "freeze"?
-- link to research that motion can cause seizures, etc
+- component
+- source data from...?
+- tools to confirm it worked before publishing
+
+- types of metadata:
+  - basic
+  - open graph
+  - structured data
+
+## Glossary
 
 ## Links
+
+- https://www.heymeta.com/
+- https://metatags.io
+- https://nystudio107.com/blog/modern-seo-snake-oil-vs-substance
+- https://css-tricks.com/using-structured-data-to-enhance-search-engine-optimization/

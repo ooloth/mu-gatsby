@@ -23,6 +23,19 @@ Tips:
 
 -->
 
+- assumes using vim in terminal (though a lot of these customizations can be applied in vs code as well if using the plugin)
+- why? vs code conveniences are helpful, so want to keep the useful editor hints and assistance I like from there
+- how? vimrc file
+- settings vs. plugins
+- link to my vimrc file (commented to explain what each setting and plugin does)
+- if you want to just read the whole file yourself, there you go
+- if you want an explanation of what it includes, read on
+- settings: show inline code excerpt and what I've done (show images of before and after effect on the editor)
+- plugins: show inline code excerpt and what I've done (show images of before and after effect on the editor)
+- neovim?
+
+- relative line numbers
+
 ## Glossary
 
 ## Links

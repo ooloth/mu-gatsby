@@ -23,6 +23,11 @@ Tips:
 
 -->
 
+- share the easy way of navigating to WiFi router's IP address?
+- (contrast to heavier approaches)
+
 ## Glossary
 
 ## Links
+
+- more complicated ngrok way: https://joshwcomeau.com/blog/local-testing-on-an-iphone/

@@ -1,6 +1,6 @@
 ---
 title: string
-slug: string
+slug: url pathname
 description: string
 featuredImage: relative path
 topics:
@@ -21,10 +21,10 @@ Tips:
 
 -->
 
-- flawed solution = animation: none - https://twitter.com/umaar/status/1261084050707619840?s=20
-- flaw = traps in initial state (which may be opacity: 0, etc)
-- better solution = duration: 0 - https://twitter.com/ooloth/status/1266093837891637253
-- image = "freeze"?
-- link to research that motion can cause seizures, etc
+- comes with gatsby? no import needed?
+
+## Glossary
 
 ## Links
+
+- thread from Sarah Dayan about wrapping all deps: https://twitter.com/frontstuff_io/status/1264189583220244480

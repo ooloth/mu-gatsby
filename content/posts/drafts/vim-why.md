@@ -23,6 +23,12 @@ Tips:
 
 -->
 
+- shoulder and wrists hurting because of trackpad and mouse use
+- stop using mouse and keep hands on keyboard
+- even better, keep hands near home row and type as few characters as possible to move around
+- also switched from trackpad to vertical mouse + bought a more ergnomicly shaped keyboard
+- after I started learning vim for RSI reasons, i became aware of how many repetitive clicks I was used to doing to move around the current file and between files; really cool to discover how quickly and easily i could jump around and edit text instead (productivity bonus)
+
 ## Glossary
 
 ## Links

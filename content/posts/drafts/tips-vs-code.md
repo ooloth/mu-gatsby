@@ -23,6 +23,12 @@ Tips:
 
 -->
 
+- assemble my faves by clearing "tools.vs-code" in Pocket
+- keep adding over time (and tweet when I add a new batch)
+- for updating, create a draft copy to batch updates + copy/paste them into the published post once they've been polished?
+
 ## Glossary
 
 ## Links
+
+- https://pawelgrzybek.com/my-favourite-visual-studio-code-tips-for-how-did-you-do-it-kind-of-people/
