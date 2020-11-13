@@ -9,7 +9,7 @@ const NavLink = ({ link }: { link: NavLinkType }) => (
   <Link
     variant="underline"
     href={link.href}
-    className="text-3xl iPhoneX:text-4xl leading-none uppercase font-black"
+    className="text-3xl font-black leading-none uppercase iPhoneX:text-4xl"
   >
     {link.text}
   </Link>
@@ -40,11 +40,11 @@ export default ({ location }: { location: WindowLocation }) => {
           Hi <Emoji emoji="👋" ariaLabel="Emoji of a hand waving hello." />
         </p>
 
-        <h1 className="whitespace-no-wrap text-5xl md:text-6xl leading-none tracking-tight font-black">
+        <h1 className="text-5xl font-black leading-none tracking-tight whitespace-no-wrap md:text-6xl">
           I'm Michael<span className="sr-only"> Uloth</span>.
         </h1>
 
-        <p className="mt-6 iPhoneX:mt-8 max-w-md leading-snug text-2xl">
+        <p className="max-w-md mt-6 text-2xl leading-snug iPhoneX:mt-8">
           I'm a web developer and opera singer working for{' '}
           <Link
             variant="underline"

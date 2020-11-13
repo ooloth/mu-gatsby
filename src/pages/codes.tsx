@@ -42,7 +42,7 @@ const Description = ({ description, repo }: Description) => {
     )
   }
 
-  return <p className="mt-3 copy text-lg iPhoneX:text-xl">{updatedDescription}</p>
+  return <p className="mt-3 text-lg copy iPhoneX:text-xl">{updatedDescription}</p>
 }
 
 const Websites = () => {
