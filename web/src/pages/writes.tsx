@@ -26,7 +26,7 @@ const Posts = () => {
           <li key={post.id} className="mt-16">
             <Link
               variant="underline"
-              href={post.frontmatter.slug}
+              href={`/${post.frontmatter.slug}/`}
               className="project-title"
             >
               {post.frontmatter.title}
