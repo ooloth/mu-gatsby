@@ -1,4 +1,5 @@
 import dotenv from 'dotenv'
+import getYouTubeID from 'get-youtube-id'
 
 dotenv.config()
 
@@ -64,12 +65,10 @@ export const siteMetadata = {
  * Custom YouTube link transformer for gatsby-remark-embedder
  */
 
-const getVideoId = (url: string): string => String(url.match(/\w+$/i))
-
 const getIframe = (url: string): string =>
   String(
     `<div class="my-8 ratio-16x9 rounded purple-gradient">
-      <iframe src="https://youtube.com/embed/${getVideoId(
+      <iframe src="https://youtube.com/embed/${getYouTubeID(
         url,
       )}" class="shadow-lg rounded" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
       </iframe>
