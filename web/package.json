@@ -94,7 +94,7 @@
     "check-format": "npm run prettier -- --list-different",
     "check-types": "tsc",
     "clean": "gatsby clean",
-    "dev": "rm -rf .cache && gatsby develop",
+    "dev": "rm -rf .cache && GATSBY_HOT_LOADER=fast-refresh gatsby develop",
     "format": "npm run prettier -- --write",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}' --ignore-path .gitignore",
     "prettier": "prettier \"**/*.+(js|jsx|ts|tsx|json|yml|yaml|css|html|md|mdx|graphql)\" --ignore-path .gitignore",
