@@ -16,20 +16,11 @@ const url = {
   title: 'Source URL',
 }
 
-const project = {
-  name: 'project',
-  type: 'reference',
-  to: [{ type: 'website' }],
-  title: 'Project',
-  description: 'What opera or website is this review describing?',
-}
-
 export default {
   name: 'review',
-  title: 'Reviews',
-  type: 'document',
-  icon: () => '📣',
-  fields: [quotation, source, url, project],
+  title: 'Review',
+  type: 'object', // entries are not reused; so, will exist in the schema, but not in the sidebar
+  fields: [quotation, source, url],
   preview: {
     select: { title: 'quotation', subtitle: 'source' },
   },

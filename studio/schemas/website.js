@@ -51,7 +51,7 @@ const reviews = {
   title: 'Reviews',
   name: 'reviews',
   type: 'array',
-  of: [{ type: 'reference', to: [{ type: 'review' }], title: 'Choose a review' }],
+  of: [{ type: 'review', title: 'Choose a review' }],
 }
 
 export default {
