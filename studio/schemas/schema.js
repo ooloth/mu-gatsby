@@ -4,6 +4,8 @@ import createSchema from 'part:@sanity/base/schema-creator'
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
+import emoji from './emoji'
+import gig from './gig'
 import link from './link'
 import review from './review'
 import website from './website'
@@ -12,12 +14,16 @@ import website from './website'
 export default createSchema({
   // We name our schema
   name: 'default',
-  // Then proceed to concatenate our document type
+  // Then proceed to concatenate our document types
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
-    /* Your types here! */
+    // visible in sidebar:
     website,
-    review,
+    gig,
     link,
+
+    // not visible in sidebar:
+    emoji,
+    review,
   ]),
 })
