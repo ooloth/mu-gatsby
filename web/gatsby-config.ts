@@ -79,6 +79,8 @@ const getIframe = (url: string): string =>
  * Plugins
  */
 
+const isProd = process.env.NODE_ENV === 'production'
+
 export const plugins = [
   {
     resolve: `gatsby-source-filesystem`,
@@ -94,19 +96,16 @@ export const plugins = [
       path: `${__dirname}/content/`,
     },
   },
-  // TODO: enable when/if I want to use components in MD:
-  // {
-  //   resolve: 'gatsby-plugin-page-creator',
-  //   options: {
-  //     path: `${__dirname}/content/posts`,
-  //   },
-  // },
-  // {
-  //   resolve: `gatsby-plugin-mdx`,
-  //   options: {
-  //     extensions: [`.mdx`, `.md`],
-  //   },
-  // },
+  {
+    resolve: 'gatsby-source-sanity',
+    options: {
+      projectId: process.env.SANITY_PROJECT_ID,
+      dataset: process.env.SANITY_DATASET,
+      watchMode: !isProd,
+      overlayDrafts: !isProd,
+      token: process.env.SANITY_READ_TOKEN,
+    },
+  },
   {
     resolve: `gatsby-plugin-remote-images`,
     options: {
